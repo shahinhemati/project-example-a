@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>aProjectSubPageNews</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="nivo-slider.css" rel="stylesheet" type="text/css" />
+<link href="nivo-style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="jquery.js"></script>
+<script language="javascript" type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
+<script>
+	function clearDefaul(el) {
+	if (el.defaultValue==el.value) el.value = "";
+	}
+	function returnDefault(el) {
+	if (el.value=="") el.value=el.defaultValue;
+	}
+  $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+$(document).ready(function() {
+    $(".nav ul li").hover(function(){
+  $(this).find('ul:first').css({visibility:"visible", display:"none"}).show(400);},
+  
+  function(){
+  $(this).find('ul:first').css({visibility:"hidden"});
+  });
+  
+ 
+		  
+});
+
+ function gup(name) {
+                name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+                var regexS = "[\\?&]" + name + "=([^&#]*)";
+                var regex = new RegExp(regexS);
+                var results = regex.exec(window.location.href);
+                if (results == null)
+                    return "";
+                else
+                    return results[1];
+            }
+	function load_(){
+	       	var t=gup('ID');
+			document.getElementById(t).className="ativate";
+			var t=gup('subID');
+			document.getElementById(t).className="ativate2";
+	   }
+</script>
+
+</head>
+
+<body onload="load_();">
+	<div class="home">
+	
+		<div class="header">
+				<div class="top">
+				<div class="logo"><a href="#"><img src="images/logo_300.gif"/></a><p>tele.com.vn</p>
+				</div>
+				<div class="rightLogo">
+					<div class="topBar">
+						<ul>
+			<li>Call: 0976548786</li>
+						</ul>
+					</div><!--end topBar-->
+					<div class="clear"></div>
+				</div><!--end rightLogo-->
+			</div><!--end top-->
+			<div class="nav">
+					<ul>
+					<li><a href="index.html?ID=home" id="home">Trang chủ </a></li>
+					<li><a href="subPage.html?ID=company" id="company">Công ty &raquo;</a>
+					
+					
+							<ul>
+							<li><a href="#">Giới thiệu</a></li>
+							<li><a href="#">Mục tiêu</a></li>
+							<li><a href="#" >Sứ mệnh</a></li>
+							<li><a href="#">Sơ đồ tổ chức</a></li>
+							<li><a href="#" >Quá trình phát triển</a></li>
+							<li><a href="#">Đối tác</a></li>
+							<li><a href="#" >Khách hàng</a></li>																					
+							</ul>
+					</li>
+					<li><a href="subPageProduct.html?ID=product" id="product">Sản phẩm</a></li>
+					<li><a href="subPageService.html?ID=service" id="service">Dịch vụ &raquo;</a>
+					
+							<ul>
+							<li><a href="#">Giới thiệu</a></li>
+							<li><a href="#">Mục tiêu</a></li>
+							<li><a href="#">Sứ mệnh</a></li>
+							<li><a href="#">Sơ đồ tổ chức</a></li>
+							<li><a href="#">Quá trình phát triển</a></li>
+							<li><a href="#">Đối tác</a></li>
+							<li><a href="#">Khách hàng</a></li>																					
+							</ul>
+					</li>
+					<li><a href="subPage.html?ID=contact" id="contact">Liên hệ</a></li>
+					<li><a href="subPage.html?ID=support" id="support">Hỗ trợ kỹ thuật</a></li>
+					<li><a href="subPage.html?ID=employ" id="employ">Tuyển dụng</a></li>																						
+				</ul>
+			</div><!--end nav-->
+			<div class="border-sub-tis">
+					<div class="sub-tis"><a href="#">Trang chủ</a>&raquo;<a href="#"> Tin tức</a></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!--end header-->
+		<div class="line"></div>
+		<div class="mid">
+			<div class="content">
+			  <div class="sub-left-mid">
+				
+					<p class="sub-technology">Công nghệ mới</p>
+					<a href="#" class="sub-technology1">FTTx </a>	
+					<a href="#" class="sub-technology1">3G/LTE </a>	
+					<a href="#" class="sub-technology1">RFID</a>	
+					<a href="#" class="sub-technology1">IBMS</a>	
+					<a href="#" class="sub-technology1">GIS</a>	
+					<div class="clear"></div>
+				    </div>
+				<!--end sub-left-mid-->
+				<div class="sub-right-mid">
+					<p class="sub-right-mid-tis">Tin tức</p>
+					<div class="news2">
+						<div class="tin">
+						<a href="#">
+						<div class="anhMH">
+							<img src="images/images1.jpg" class="img"/>
+							<div class="bongAnh"><img src='<%#ControlPath+"img/bongTin.png" %>'/></div>
+						</div>
+						</a>
+						<a href="#"><p class="tdTin">Ra mắt dịch vụ MegaCamera</p></a>
+						<p class="ngaydang">Monday 23/12/2011</p>
+						<p class="ndTin">Tập đoàn Bưu chính Viễn thông Việt Nam (VNPT) chính thức ra mắt MegaCamera – dịch vụ giám 
+sát từ xa thông qua mạng Internet và di động. Đây là lần đầu tiên tại Việt Nam, dịch vụ giám sát qua 
+camera được triển khai rộng rãi trên nền Internet và mạng di động.</p>
+						</div><!--end tin-->
+							<div class="clear"></div>
+							
+							<div class="tin">
+							<a href="#">
+						<div class="anhMH">
+							<img src="images/images2.jpg" class="img"/>
+							<div class="bongAnh"><img src="images/bongTin.png"/></div>
+						</div>
+						</a>
+						<a href="#"><p class="tdTin">Ra mắt dịch vụ MegaCamera</p></a>
+						<p class="ngaydang">Monday 23/12/2011</p>
+						<p class="ndTin">Tập đoàn Bưu chính Viễn thông Việt Nam (VNPT) chính thức ra mắt MegaCamera – dịch vụ giám 
+sát từ xa thông qua mạng Internet và di động. Đây là lần đầu tiên tại Việt Nam, dịch vụ giám sát qua 
+camera được triển khai rộng rãi trên nền Internet và mạng di động.</p>
+						</div><!--end tin-->	
+						<div class="clear"></div>
+						
+						<div class="tin">
+						<a href="#">
+						<div class="anhMH">
+							<img src="images/images3.jpg" class="img"/>
+							<div class="bongAnh"><img src="images/bongTin.png"/></div>
+						</div>
+						</a>
+						<a href="#"><p class="tdTin">Ra mắt dịch vụ MegaCamera</p></a>
+						<p class="ngaydang">Monday 23/12/2011</p>
+						<p class="ndTin">Tập đoàn Bưu chính Viễn thông Việt Nam (VNPT) chính thức ra mắt MegaCamera – dịch vụ giám 
+sát từ xa thông qua mạng Internet và di động. Đây là lần đầu tiên tại Việt Nam, dịch vụ giám sát qua 
+camera được triển khai rộng rãi trên nền Internet và mạng di động.</p>
+						</div><!--end tin-->
+						<div class="clear"></div>
+						
+							<div class="tin">
+						<a href="#">
+						<div class="anhMH">
+							<img src="images/images3.jpg" class="img"/>
+							<div class="bongAnh"><img src="images/bongTin.png"/></div>
+						</div>
+						</a>
+						<a href="#"><p class="tdTin">Ra mắt dịch vụ MegaCamera</p></a>
+						<p class="ngaydang">Monday 23/12/2011</p>
+						<p class="ndTin">Tập đoàn Bưu chính Viễn thông Việt Nam (VNPT) chính thức ra mắt MegaCamera – dịch vụ giám 
+sát từ xa thông qua mạng Internet và di động. Đây là lần đầu tiên tại Việt Nam, dịch vụ giám sát qua 
+camera được triển khai rộng rãi trên nền Internet và mạng di động.</p>
+						</div><!--end tin-->
+						<div class="clear"></div>
+						
+							<div class="tin">
+						<a href="#">
+						<div class="anhMH">
+							<img src="images/images3.jpg" class="img"/>
+							<div class="bongAnh"><img src="images/bongTin.png"/></div>
+						</div>
+						</a>
+						<a href="#"><p class="tdTin">Ra mắt dịch vụ MegaCamera</p></a>
+						<p class="ngaydang">Monday 23/12/2011</p>
+						<p class="ndTin">Tập đoàn Bưu chính Viễn thông Việt Nam (VNPT) chính thức ra mắt MegaCamera – dịch vụ giám 
+sát từ xa thông qua mạng Internet và di động. Đây là lần đầu tiên tại Việt Nam, dịch vụ giám sát qua 
+camera được triển khai rộng rãi trên nền Internet và mạng di động.</p>
+						</div><!--end tin-->
+						<div class="clear"></div>
+						
+							<div class="tin">
+						<a href="#">
+						<div class="anhMH">
+							<img src="images/images3.jpg" class="img"/>
+							<div class="bongAnh"><img src="images/bongTin.png"/></div>
+						</div>
+						</a>
+						<a href="#"><p class="tdTin">Ra mắt dịch vụ MegaCamera</p></a>
+						<p class="ngaydang">Monday 23/12/2011</p>
+						<p class="ndTin">Tập đoàn Bưu chính Viễn thông Việt Nam (VNPT) chính thức ra mắt MegaCamera – dịch vụ giám 
+sát từ xa thông qua mạng Internet và di động. Đây là lần đầu tiên tại Việt Nam, dịch vụ giám sát qua 
+camera được triển khai rộng rãi trên nền Internet và mạng di động.</p>
+						</div><!--end tin-->
+					
+						<div class="clear" style="margin-bottom:40px;"></div>
+					</div><!--end news-->
+						<div class="phantrang">
+							<ul>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#" class="activate-phantrang">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+							</ul>
+						</div>
+				</div>
+			</div><!--end content-->
+			<div class="clear"></div>
+		</div><!--end mid-->
+	
+		<div class="footer">
+			<div class="menuFooter">
+				<ul>
+					<li><a href="#">Trang chủ </a></li>
+					<li><a href="#">Giới thiệu</a></li>
+					<li><a href="#">Tin tức</a></li>
+					<li><a href="#">Sản phẩm</a></li>
+					<li><a href="#">Dịch vụ</a></li>
+					<li><a href="#">Giải pháp</a></li>
+					<li><a href="#">Liên hệ</a></li>
+					<li><a href="#">Hỗ trợ kỹ thuật</a></li>
+					<li><a href="#">Tuyển dụng</a></li>																						
+				</ul>
+			</div><!--end menuFooter-->
+			<div class="infoFooter">
+				<div class="contactIf">
+						<div class="left-contact">
+									<p>
+										Trụ sở: 431 lô B3, CC Phường 3, Quận 4, TP Hồ Chí Minh, Việt Nam<br/>
+					Điện thoại-Fax: 08 39415194<br/>
+					Email:  info@tele.com.vn<br/>
+					Website: tele.com.vn<br/>
+					
+					Văn phòng: 521/45 Cách Mạng Tháng 8, Phường 13, Quận 10, TP Hồ Chí Minh<br/>
+					Điện thoại: 08 66603068   Fax: 08 66603067<br/>
+								   </p>
+						</div>
+						<div class="right-contact">
+							<p>
+								Trung tâm chăm sóc khách hàng:<br/>
+
+Điện thoại: 08 3979 7568 - 08 3979 7588<br/>
+
+ 
+
+Phòng kỹ thuật:<br/>
+
+Điện thoại: 08 22446124<br/> 
+								   </p>
+						</div>
+				</div>
+			</div><!--end infoFooter-->
+		</div><!--end footer-->
+		
+	</div><!--end home-->
+</body>
+</html>

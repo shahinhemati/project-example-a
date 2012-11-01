@@ -1,0 +1,229 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages><package name="IB.Album" type="Module" version="1.0.0">
+  <friendlyName>IB_Album</friendlyName>
+  <description>Album</description>
+  <iconFile />
+  <owner>
+    <name />
+    <organization />
+    <url />
+    <email />
+  </owner>
+  <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+  <releaseNotes>This package has no Release Notes</releaseNotes>
+  <components>
+    <component type="Module">
+      <desktopModule>
+        <moduleName>IB.Album</moduleName>
+        <foldername>IBusiness/IB.Album</foldername>
+        <businessControllerClass />
+        <supportedFeatures />
+        <moduleDefinitions>
+          <moduleDefinition>
+            <friendlyName>IB_Album</friendlyName>
+            <defaultCacheTime>0</defaultCacheTime>
+            <moduleControls>
+              <moduleControl>
+                <controlKey />
+                <controlSrc>DesktopModules/IBusiness/IB.Album/ManagerAlbum.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>AddImageToAlbum</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.Album/AddImageToAlbum.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>EditAlbum</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.Album/EditAlbum.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>EditImage</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.Album/EditImage.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+            </moduleControls>
+          </moduleDefinition>
+        </moduleDefinitions>
+      </desktopModule>
+    </component>
+    
+    <component type="File">
+      <files>
+        <basePath>DesktopModules\IBusiness\IB.Album</basePath>
+        <file>
+          <name>AddImageToAlbum.ascx</name>
+        </file>
+        <file>
+          <name>EditAlbum.ascx</name>
+        </file>
+        <file>
+          <name>ManagerAlbum.ascx</name>
+        </file>
+        <file>
+          <name>Settings.ascx</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>application.js</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>index.html</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>jquery.fileupload-ui.css</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>jquery.fileupload-ui.js</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>jquery.fileupload.js</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>jquery.iframe-transport.js</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>pbar-ani.gif</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>style.css</name>
+        </file>
+        <file>
+          <name>Handler.ashx</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>blank.gif</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancybox-x.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancybox-y.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancybox.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_close.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_loading.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_nav_left.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_nav_right.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_shadow_e.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_shadow_n.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_shadow_ne.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_shadow_nw.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_shadow_s.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_shadow_se.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_shadow_sw.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_shadow_w.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_title_left.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_title_main.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_title_over.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>fancy_title_right.png</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>jquery.easing-1.3.pack.js</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>jquery.fancybox-1.3.4.css</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>jquery.fancybox-1.3.4.js</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>jquery.fancybox-1.3.4.pack.js</name>
+        </file>
+        <file>
+          <path>Static\fancybox</path>
+          <name>jquery.mousewheel-3.0.4.pack.js</name>
+        </file>
+      </files>
+    </component>
+  </components>
+</package></packages>
+</dotnetnuke>
