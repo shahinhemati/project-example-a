@@ -1,0 +1,38 @@
+﻿.pager
+{
+	margin: 8px 3px;
+	padding: 4px 3px;
+	text-align: right;
+}
+
+.pager span, .pager a
+{
+	border: medium none;
+	margin: 4px 2px;
+}
+
+.pager a
+{
+	border: 1px solid #C0C0C0;
+	padding: 3px 5px;
+	text-align: center;
+	text-decoration: none;
+	color: #000000;
+	background:#f1f1f1;
+}
+
+.pager .current
+{
+	background-color: #FFFFFF;
+	border: 1px solid #CC6600;
+	color: #CC6600;
+	font-weight: bold;
+	margin-top: 4px;
+	padding: 3px 5px;
+	text-align: center;
+}
+
+.pager span, .pager a
+{
+	margin: 4px 3px;
+}

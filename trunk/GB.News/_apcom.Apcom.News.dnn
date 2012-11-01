@@ -1,0 +1,124 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages><package name="apcom.Apcom.News" type="Module" version="1.0.0">
+  <friendlyName>VC_News</friendlyName>
+  <description>quan tri tin tuc</description>
+  <iconFile />
+  <owner>
+    <name />
+    <organization />
+    <url />
+    <email />
+  </owner>
+  <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+  <releaseNotes>This package has no Release Notes</releaseNotes>
+  <components>
+    <component type="Module">
+      <desktopModule>
+        <moduleName>apcom.Apcom.News</moduleName>
+        <foldername>apcom/Apcom.News</foldername>
+        <businessControllerClass />
+        <supportedFeatures />
+        <moduleDefinitions>
+          <moduleDefinition>
+            <friendlyName>VC_News</friendlyName>
+            <defaultCacheTime>0</defaultCacheTime>
+            <moduleControls>
+              <moduleControl>
+                <controlKey />
+                <controlSrc>DesktopModules/apcom/Apcom.News/ManagerNews.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>CatNews</controlKey>
+                <controlSrc>DesktopModules/apcom/Apcom.News/ManagerCatNews.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>EditCat</controlKey>
+                <controlSrc>DesktopModules/apcom/Apcom.News/EditCatNews.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>EditNews</controlKey>
+                <controlSrc>DesktopModules/apcom/Apcom.News/EditNews.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>Settings</controlKey>
+                <controlSrc>DesktopModules/apcom/Apcom.News/Settings.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+            </moduleControls>
+          </moduleDefinition>
+        </moduleDefinitions>
+      </desktopModule>
+    </component>
+    <component type="Assembly">
+      <assemblies>
+        <basePath>bin</basePath>
+        <assembly>
+          <name>Apcom.News.dll</name>
+        </assembly>
+      </assemblies>
+    </component>
+    <component type="File">
+      <files>
+        <basePath>DesktopModules\apcom\Apcom.News</basePath>
+        <file>
+          <path>Static</path>
+          <name>_apcom.Apcom.News.dnn</name>
+        </file>
+        <file>
+          <name>Settings.ascx</name>
+        </file>
+        <file>
+          <name>EditCatNews.ascx</name>
+        </file>
+        <file>
+          <name>EditNews.ascx</name>
+        </file>
+        <file>
+          <name>ManagerCatNews.ascx</name>
+        </file>
+        <file>
+          <name>ManagerNews.ascx</name>
+        </file>
+        <file>
+          <path>Static</path>
+          <name>News.css</name>
+        </file>
+      </files>
+    </component>
+  </components>
+</package></packages>
+</dotnetnuke>

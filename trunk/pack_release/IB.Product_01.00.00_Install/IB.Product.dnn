@@ -1,0 +1,156 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages><package name="IB.Product" type="Module" version="1.0.0">
+  <friendlyName>IB_Product</friendlyName>
+  <description>hien thi san pham</description>
+  <iconFile />
+  <owner>
+    <name />
+    <organization />
+    <url />
+    <email />
+  </owner>
+  <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+  <releaseNotes>This package has no Release Notes</releaseNotes>
+  <components>
+    <component type="Module">
+      <desktopModule>
+        <moduleName>IB.Product</moduleName>
+        <foldername>IBusiness/IB.Product</foldername>
+        <businessControllerClass />
+        <supportedFeatures />
+        <moduleDefinitions>
+          <moduleDefinition>
+            <friendlyName>IB_Product</friendlyName>
+            <defaultCacheTime>0</defaultCacheTime>
+            <moduleControls>
+              <moduleControl>
+                <controlKey />
+                <controlSrc>DesktopModules/IBusiness/IB.Product/ManagerProduct.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>AddImageToProduct</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.Product/AddImageToProduct.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>CatProduct</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.Product/ManagerCatProduct.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>EditCat</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.Product/EditCatProduct.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>EditProduct</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.Product/EditProduct.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>Settings</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.Product/Settings.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+            </moduleControls>
+          </moduleDefinition>
+        </moduleDefinitions>
+      </desktopModule>
+    </component>
+       <component type="File">
+      <files>
+        <basePath>DesktopModules\IBusiness\IB.Product</basePath>
+        <file>
+          <name>AddImageToProduct.ascx</name>
+        </file>
+        <file>
+          <name>EditCatProduct.ascx</name>
+        </file>
+        <file>
+          <name>EditProduct.ascx</name>
+        </file>
+        <file>
+          <name>ManagerCatProduct.ascx</name>
+        </file>
+        <file>
+          <name>ManagerProduct.ascx</name>
+        </file>
+        <file>
+          <name>Settings.ascx</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>application.js</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>index.html</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>jquery.fileupload-ui.css</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>jquery.fileupload-ui.js</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>jquery.fileupload.js</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>jquery.iframe-transport.js</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>pbar-ani.gif</name>
+        </file>
+        <file>
+          <path>UpLoad</path>
+          <name>style.css</name>
+        </file>
+        <file>
+          <name>Handler.ashx</name>
+        </file>
+      </files>
+    </component>
+  </components>
+</package></packages>
+</dotnetnuke>

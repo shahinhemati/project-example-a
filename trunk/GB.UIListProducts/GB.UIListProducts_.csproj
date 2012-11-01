@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FB9DC256-0A96-4E07-9DA4-27A356AC0BAE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IB.UIListProducts</RootNamespace>
+    <AssemblyName>IB.UIListProducts</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetNuke, Version=6.0.0.2982, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLBuild\DotNetNuke.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ListProducts.ascx" />
+    <Content Include="ProductDetail.ascx" />
+    <Content Include="SettingsProducts.ascx" />
+    <Content Include="Static\fancybox\blank.gif" />
+    <Content Include="Static\fancybox\fancybox-x.png" />
+    <Content Include="Static\fancybox\fancybox-y.png" />
+    <Content Include="Static\fancybox\fancybox.png" />
+    <Content Include="Static\fancybox\fancy_close.png" />
+    <Content Include="Static\fancybox\fancy_loading.png" />
+    <Content Include="Static\fancybox\fancy_nav_left.png" />
+    <Content Include="Static\fancybox\fancy_nav_right.png" />
+    <Content Include="Static\fancybox\fancy_shadow_e.png" />
+    <Content Include="Static\fancybox\fancy_shadow_n.png" />
+    <Content Include="Static\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Static\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Static\fancybox\fancy_shadow_s.png" />
+    <Content Include="Static\fancybox\fancy_shadow_se.png" />
+    <Content Include="Static\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Static\fancybox\fancy_shadow_w.png" />
+    <Content Include="Static\fancybox\fancy_title_left.png" />
+    <Content Include="Static\fancybox\fancy_title_main.png" />
+    <Content Include="Static\fancybox\fancy_title_over.png" />
+    <Content Include="Static\fancybox\fancy_title_right.png" />
+    <Content Include="Static\fancybox\jquery.easing-1.3.pack.js" />
+    <Content Include="Static\fancybox\jquery.fancybox-1.3.4.css" />
+    <Content Include="Static\fancybox\jquery.fancybox-1.3.4.js" />
+    <Content Include="Static\fancybox\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Static\fancybox\jquery.mousewheel-3.0.4.pack.js" />
+    <Content Include="TemplateDetail\default.htm" />
+    <Content Include="TemplateImage\default.htm" />
+    <Content Include="TemplateList\default.htm" />
+    <Content Include="TemplateRelative\default.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ListProducts.ascx.cs">
+      <DependentUpon>ListProducts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ListProducts.ascx.designer.cs">
+      <DependentUpon>ListProducts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetail.ascx.cs">
+      <DependentUpon>ProductDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetail.ascx.designer.cs">
+      <DependentUpon>ProductDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsProducts.ascx.cs">
+      <DependentUpon>SettingsProducts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsProducts.ascx.designer.cs">
+      <DependentUpon>SettingsProducts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="V_UIProductBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GB.Common\GB.Common.csproj">
+      <Project>{0637401F-3FCD-4CA0-9112-E3A4651110E8}</Project>
+      <Name>IB.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3855</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(TargetPath) $(dnn6)\bin /y
+xcopy $(ProjectDir)*.ascx $(dnn6)\desktopmodules\IBusiness\IB.UIListProducts /y/s
+xcopy $(ProjectDir)*.png $(dnn6)\desktopmodules\IBusiness\IB.UIListProducts /y/s
+xcopy $(ProjectDir)*.css $(dnn6)\desktopmodules\IBusiness\IB.UIListProducts /y/s
+xcopy $(ProjectDir)*.gif $(dnn6)\desktopmodules\IBusiness\IB.UIListProducts /y/s
+xcopy $(ProjectDir)*.js $(dnn6)\desktopmodules\IBusiness\IB.UIListProducts /y/s
+xcopy $(ProjectDir)*.htm $(dnn6)\desktopmodules\IBusiness\IB.UIListProducts /y/s
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

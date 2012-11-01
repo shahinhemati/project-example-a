@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6F663772-27E2-4CDF-8646-EBA7E1BE4A0D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IB.News</RootNamespace>
+    <AssemblyName>IB.News</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetNuke, Version=6.0.0.2982, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLBuild\DotNetNuke.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetNuke.Web, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLBuild\DotNetNuke.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Settings.ascx" />
+    <Content Include="EditCatNews.ascx" />
+    <Content Include="EditNews.ascx" />
+    <Content Include="ManagerCatNews.ascx" />
+    <Content Include="ManagerNews.ascx" />
+    <Content Include="Static\News.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\Common\Caching.cs" />
+    <Compile Include="Components\Common\Constants.cs" />
+    <Compile Include="Components\Common\Links.cs" />
+    <Compile Include="Components\Common\QaSettings.cs" />
+    <Compile Include="Components\Common\Sorting.cs" />
+    <Compile Include="Components\Common\UIEventArgs.cs" />
+    <Compile Include="Components\Common\UIListEventArgs.cs" />
+    <Compile Include="Components\Common\UrlShorteningService.cs" />
+    <Compile Include="Components\Common\Utils.cs" />
+    <Compile Include="Components\Controllers\DnnqaController.cs" />
+    <Compile Include="Components\Controllers\IDnnqaController.cs" />
+    <Compile Include="Components\Entities\BadgeInfo.cs" />
+    <Compile Include="Components\Entities\CategoryInfo.cs" />
+    <Compile Include="Components\Entities\CatProduct.cs" />
+    <Compile Include="Components\Entities\CommentInfo.cs" />
+    <Compile Include="Components\Entities\ModerationLogInfo.cs" />
+    <Compile Include="Components\Entities\NewsInfo.cs" />
+    <Compile Include="Components\Entities\PostHistoryInfo.cs" />
+    <Compile Include="Components\Entities\PostInfo.cs" />
+    <Compile Include="Components\Entities\QuestionInfo.cs" />
+    <Compile Include="Components\Entities\QuestionServiceInfo.cs" />
+    <Compile Include="Components\Entities\SettingInfo.cs" />
+    <Compile Include="Components\Entities\SubscriptionInfo.cs" />
+    <Compile Include="Components\Entities\TermHistoryInfo.cs" />
+    <Compile Include="Components\Entities\TermInfo.cs" />
+    <Compile Include="Components\Entities\TermSynonymInfo.cs" />
+    <Compile Include="Components\Entities\UserBadgeInfo.cs" />
+    <Compile Include="Components\Entities\UserScoreInfo.cs" />
+    <Compile Include="Components\Entities\UserScoreLogInfo.cs" />
+    <Compile Include="Components\Entities\UtilityInfo.cs" />
+    <Compile Include="Components\Entities\VoteInfo.cs" />
+    <Compile Include="Components\Integration\Content.cs" />
+    <Compile Include="Components\Integration\Journal.cs" />
+    <Compile Include="Components\Integration\Notifications.cs" />
+    <Compile Include="Components\Integration\Terms.cs" />
+    <Compile Include="Components\Models\AskQuestionModel.cs" />
+    <Compile Include="Components\Models\BadgeManagerModel.cs" />
+    <Compile Include="Components\Models\BadgeModel.cs" />
+    <Compile Include="Components\Models\BadgesModel.cs" />
+    <Compile Include="Components\Models\BrowseModel.cs" />
+    <Compile Include="Components\Models\DispatchModel.cs" />
+    <Compile Include="Components\Models\EditPostModel.cs" />
+    <Compile Include="Components\Models\EditTermModel.cs" />
+    <Compile Include="Components\Models\HomeModel.cs" />
+    <Compile Include="Components\Models\PostHistoryModel.cs" />
+    <Compile Include="Components\Models\PrivilegeManagerModel.cs" />
+    <Compile Include="Components\Models\PrivilegeModel.cs" />
+    <Compile Include="Components\Models\ProfileModel.cs" />
+    <Compile Include="Components\Models\QuestionModel.cs" />
+    <Compile Include="Components\Models\ScoringManagerModel.cs" />
+    <Compile Include="Components\Models\SubscriptionsModel.cs" />
+    <Compile Include="Components\Models\TagDetailModel.cs" />
+    <Compile Include="Components\Models\TagHistoryModel.cs" />
+    <Compile Include="Components\Models\TagListModel.cs" />
+    <Compile Include="Components\Modules\UrlModule.cs" />
+    <Compile Include="Components\Presenters\AskQuestionPresenter.cs" />
+    <Compile Include="Components\Presenters\BadgeManagerPresenter.cs" />
+    <Compile Include="Components\Presenters\BadgePresenter.cs" />
+    <Compile Include="Components\Presenters\BadgesPresenter.cs" />
+    <Compile Include="Components\Presenters\BrowsePresenter.cs" />
+    <Compile Include="Components\Presenters\DispatchPresenter.cs" />
+    <Compile Include="Components\Presenters\EditPostPresenter.cs" />
+    <Compile Include="Components\Presenters\EditTermPresenter.cs" />
+    <Compile Include="Components\Presenters\HomePresenter.cs" />
+    <Compile Include="Components\Presenters\PostHistoryPresenter.cs" />
+    <Compile Include="Components\Presenters\PrivilegeManagerPresenter.cs" />
+    <Compile Include="Components\Presenters\PrivilegePresenter.cs" />
+    <Compile Include="Components\Presenters\ProfilePresenter.cs" />
+    <Compile Include="Components\Presenters\QAServicePresenter.cs" />
+    <Compile Include="Components\Presenters\QuestionPresenter.cs" />
+    <Compile Include="Components\Presenters\ScoringManagerPresenter.cs" />
+    <Compile Include="Components\Presenters\SubscriptionsPresenter.cs" />
+    <Compile Include="Components\Presenters\TagDetailPresenter.cs" />
+    <Compile Include="Components\Presenters\TagHistoryPresenter.cs" />
+    <Compile Include="Components\Presenters\TagListPresenter.cs" />
+    <Compile Include="Components\Services\QAServiceController.cs" />
+    <Compile Include="Components\Tasks\Emailer.cs" />
+    <Compile Include="Components\Views\IAskQuestionView.cs" />
+    <Compile Include="Components\Views\IBadgeManagerView.cs" />
+    <Compile Include="Components\Views\IBadgesView.cs" />
+    <Compile Include="Components\Views\IBadgeView.cs" />
+    <Compile Include="Components\Views\IBrowseView.cs" />
+    <Compile Include="Components\Views\IDispatchView.cs" />
+    <Compile Include="Components\Views\IEditPostView.cs" />
+    <Compile Include="Components\Views\IEditTermView.cs" />
+    <Compile Include="Components\Views\IHomeView.cs" />
+    <Compile Include="Components\Views\IPostHistoryView.cs" />
+    <Compile Include="Components\Views\IPrivilegeManagerView.cs" />
+    <Compile Include="Components\Views\IPrivilegeView.cs" />
+    <Compile Include="Components\Views\IProfileView.cs" />
+    <Compile Include="Components\Views\IQaServiceView.cs" />
+    <Compile Include="Components\Views\IQuestionView.cs" />
+    <Compile Include="Components\Views\IScoringManagerView.cs" />
+    <Compile Include="Components\Views\ISubscriptionsView.cs" />
+    <Compile Include="Components\Views\ITagDetailView.cs" />
+    <Compile Include="Components\Views\ITagHistoryView.cs" />
+    <Compile Include="Components\Views\ITagListView.cs" />
+    <Compile Include="Provider\Data\SqlDataProvider\SqlDataProvider.cs" />
+    <Compile Include="Settings.ascx.cs">
+      <DependentUpon>Settings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings.ascx.designer.cs">
+      <DependentUpon>Settings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditCatNews.ascx.cs">
+      <DependentUpon>EditCatNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditCatNews.ascx.designer.cs">
+      <DependentUpon>EditCatNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditNews.ascx.cs">
+      <DependentUpon>EditNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditNews.ascx.designer.cs">
+      <DependentUpon>EditNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerCatNews.ascx.cs">
+      <DependentUpon>ManagerCatNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerCatNews.ascx.designer.cs">
+      <DependentUpon>ManagerCatNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerNews.ascx.cs">
+      <DependentUpon>ManagerNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerNews.ascx.designer.cs">
+      <DependentUpon>ManagerNews.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GB.Common\GB.Common.csproj">
+      <Project>{0637401F-3FCD-4CA0-9112-E3A4651110E8}</Project>
+      <Name>GB.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Documents\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Provider\SiteMap\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Provider\Data\SqlDataProvider\01.00.00.SqlDataProvider" />
+    <None Include="Provider\Data\SqlDataProvider\Uninstall.SqlDataProvider" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3215</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Apcom.News</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(TargetPath) $(dnn6)\bin /y
+xcopy $(ProjectDir)*.ascx $(dnn6)\desktopmodules\IBusiness\IB.News /y/s
+xcopy $(ProjectDir)*.css $(dnn6)\desktopmodules\IBusiness\IB.News /y/s</PostBuildEvent>
+  </PropertyGroup>
+</Project>

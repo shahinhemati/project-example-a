@@ -1,0 +1,22 @@
+
+CREATE TABLE [dbo].[CV_CatNews](
+	[CatID] [int] IDENTITY(1,1) NOT NULL,
+	[CatName] [nvarchar](255) NULL,
+	[ParentID] [int] NULL,
+	[ImageName] [nvarchar](150) NULL,
+ CONSTRAINT [PK_CatNews] PRIMARY KEY CLUSTERED 
+(
+	[CatID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[CV_CatNews]  WITH CHECK ADD  CONSTRAINT [FK_CV_CatNews_CV_CatNews] FOREIGN KEY([ParentID])
+REFERENCES [dbo].[CV_CatNews] ([CatID])
+GO
+
+ALTER TABLE [dbo].[CV_CatNews] CHECK CONSTRAINT [FK_CV_CatNews_CV_CatNews]
+GO
+
+

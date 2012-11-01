@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SettingsCatProduct.ascx.cs" Inherits="UICateProduct.SettingsCatProduct" %>
+<span>Trang chuyển đến</span><asp:DropDownList runat="server" ID="ddlCat"></asp:DropDownList>

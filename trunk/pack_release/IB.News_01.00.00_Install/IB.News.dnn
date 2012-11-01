@@ -1,0 +1,112 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages><package name="IB.News" type="Module" version="1.0.0">
+  <friendlyName>IB_News</friendlyName>
+  <description>quan tri tin tuc</description>
+  <iconFile />
+  <owner>
+    <name />
+    <organization />
+    <url />
+    <email />
+  </owner>
+  <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+  <releaseNotes>This package has no Release Notes</releaseNotes>
+  <components>
+    <component type="Module">
+      <desktopModule>
+        <moduleName>IB.News</moduleName>
+        <foldername>IBusiness/IB.News</foldername>
+        <businessControllerClass />
+        <supportedFeatures />
+        <moduleDefinitions>
+          <moduleDefinition>
+            <friendlyName>IB_News</friendlyName>
+            <defaultCacheTime>0</defaultCacheTime>
+            <moduleControls>
+              <moduleControl>
+                <controlKey />
+                <controlSrc>DesktopModules/IBusiness/IB.News/ManagerNews.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>CatNews</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.News/ManagerCatNews.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>EditCat</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.News/EditCatNews.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>EditNews</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.News/EditNews.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>Settings</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.News/Settings.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+            </moduleControls>
+          </moduleDefinition>
+        </moduleDefinitions>
+      </desktopModule>
+    </component>
+       <component type="File">
+      <files>
+        <basePath>DesktopModules\IBusiness\IB.News</basePath>
+        <file>
+          <name>Settings.ascx</name>
+        </file>
+        <file>
+          <name>EditCatNews.ascx</name>
+        </file>
+        <file>
+          <name>EditNews.ascx</name>
+        </file>
+        <file>
+          <name>ManagerCatNews.ascx</name>
+        </file>
+        <file>
+          <name>ManagerNews.ascx</name>
+        </file>
+        <file>
+          <path>Static</path>
+          <name>News.css</name>
+        </file>
+      </files>
+    </component>
+  </components>
+</package></packages>
+</dotnetnuke>

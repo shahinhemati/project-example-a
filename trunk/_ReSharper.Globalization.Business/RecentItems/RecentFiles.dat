@@ -1,0 +1,66 @@
+﻿<RecentFiles>
+  <RecentFiles>
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Models/f:PrivilegeManagerModel.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Models/f:PostHistoryModel.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Models/f:HomeModel.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Models/f:EditTermModel.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Models/f:EditPostModel.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Models/f:DispatchModel.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Models/f:BadgesModel.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Models/f:BadgeModel.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Models/f:BadgeManagerModel.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Models/f:AskQuestionModel.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Integration/f:Journal.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Controllers/f:AlbumImageController.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:Utils.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:UrlShorteningService.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:UIListEventArgs.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:Sorting.cs" caret="0" fromTop="0" />
+    <File id="6F663772-27E2-4CDF-8646-EBA7E1BE4A0D/d:Components/d:Entities/f:CatProduct.cs" caret="0" fromTop="0" />
+    <File id="27C47EAE-F93A-4DFB-9BFA-394064612C33/f:ListNews.ascx.cs" caret="0" fromTop="0" />
+    <File id="88C38BB4-ED54-44BA-BFCA-A8FE55FD9D26/f:ListCatNews.ascx.cs" caret="0" fromTop="0" />
+    <File id="6F663772-27E2-4CDF-8646-EBA7E1BE4A0D/f:ManagerNews.ascx.cs" caret="0" fromTop="0" />
+    <File id="6F663772-27E2-4CDF-8646-EBA7E1BE4A0D/d:Components/d:Entities/f:CategoryInfo.cs" caret="0" fromTop="0" />
+    <File id="7763851A-893A-40AB-AB86-1A6B45733DEE/d:Components/d:Entities/f:ProductInfo.cs" caret="0" fromTop="0" />
+    <File id="6F663772-27E2-4CDF-8646-EBA7E1BE4A0D/d:Components/d:Entities/f:PostInfo.cs" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/f:Dispatch.ascx" caret="0" fromTop="0" />
+    <File id="88C38BB4-ED54-44BA-BFCA-A8FE55FD9D26/f:ListCatNews.ascx" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:Caching.cs" caret="1216" fromTop="20" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:Constants.cs" caret="8674" fromTop="24" />
+    <File id="7763851A-893A-40AB-AB86-1A6B45733DEE/d:Components/d:Presenters/f:AskQuestionPresenter.cs" caret="3523" fromTop="32" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Entities/f:SettingInfo.cs" caret="1446" fromTop="8" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:QaSettings.cs" caret="4304" fromTop="10" />
+  </RecentFiles>
+  <RecentEdits>
+    <File id="6F663772-27E2-4CDF-8646-EBA7E1BE4A0D/d:Components/d:Entities/f:NewsInfo.cs" caret="1920" fromTop="18" />
+    <File id="7763851A-893A-40AB-AB86-1A6B45733DEE/d:Components/d:Entities/f:ProductInfo.cs" caret="269" fromTop="10" />
+    <File id="6F663772-27E2-4CDF-8646-EBA7E1BE4A0D/d:Components/d:Entities/f:CatProduct.cs" caret="240" fromTop="8" />
+    <File id="6F663772-27E2-4CDF-8646-EBA7E1BE4A0D/d:Components/d:Entities/f:CategoryInfo.cs" caret="553" fromTop="12" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:Caching.cs" caret="1215" fromTop="20" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:Sorting.cs" caret="1309" fromTop="18" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:UIEventArgs.cs" caret="1232" fromTop="19" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:UIListEventArgs.cs" caret="1232" fromTop="22" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:UrlShorteningService.cs" caret="1289" fromTop="25" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:Utils.cs" caret="29019" fromTop="12" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Controllers/f:DnnqaController.cs" caret="1363" fromTop="8" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Controllers/f:IDnnqaController.cs" caret="1746" fromTop="10" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Integration/f:Content.cs" caret="1435" fromTop="17" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Integration/f:Journal.cs" caret="1443" fromTop="10" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Presenters/f:EditTermPresenter.cs" caret="2755" fromTop="20" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Provider/d:SiteMap/f:Core.cs" caret="1460" fromTop="12" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/f:Dispatch.ascx" caret="0" fromTop="0" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/f:Dispatch.ascx.cs" caret="181" fromTop="7" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:Links.cs" caret="5550" fromTop="19" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:ModuleSecurity.cs" caret="722" fromTop="21" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Entities/f:Album.cs" caret="317" fromTop="9" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:Constants.cs" caret="18176" fromTop="8" />
+    <File id="0637401F-3FCD-4CA0-9112-E3A4651110E8/d:Entities/f:SqlServerDb.cs" caret="156" fromTop="7" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Presenters/f:QuestionPresenter.cs" caret="9418" fromTop="18" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Presenters/f:AskQuestionPresenter.cs" caret="6759" fromTop="21" />
+    <File id="6F663772-27E2-4CDF-8646-EBA7E1BE4A0D/d:Components/d:Views/f:IQuestionView.cs" caret="1232" fromTop="2" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Controllers/f:AlbumController.cs" caret="957" fromTop="16" />
+    <File id="0637401F-3FCD-4CA0-9112-E3A4651110E8/d:Utility/f:StringServices.cs" caret="169" fromTop="9" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Common/f:QaSettings.cs" caret="5721" fromTop="22" />
+    <File id="1BF847F6-EF1D-4C51-99E5-72E53097AEC5/d:Components/d:Entities/f:SettingInfo.cs" caret="1446" fromTop="8" />
+  </RecentEdits>
+</RecentFiles>

@@ -1,0 +1,66 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages><package name="IB.UICateNews" type="Module" version="1.0.0">
+  <friendlyName>IB_UICateNews</friendlyName>
+  <description>hien thi danh muc</description>
+  <iconFile />
+  <owner>
+    <name />
+    <organization />
+    <url />
+    <email />
+  </owner>
+  <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+  <releaseNotes>This package has no Release Notes</releaseNotes>
+  <components>
+    <component type="Module">
+      <desktopModule>
+        <moduleName>IB.UICateNews</moduleName>
+        <foldername>IBusiness/IB.UICateNews</foldername>
+        <businessControllerClass />
+        <supportedFeatures />
+        <moduleDefinitions>
+          <moduleDefinition>
+            <friendlyName>IB_UICateNews</friendlyName>
+            <defaultCacheTime>0</defaultCacheTime>
+            <moduleControls>
+              <moduleControl>
+                <controlKey />
+                <controlSrc>DesktopModules/IBusiness/IB.UICateNews/ListCatNews.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>Settings</controlKey>
+                <controlSrc>DesktopModules/IBusiness/IB.UICateNews/SettingsCateNews.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+            </moduleControls>
+          </moduleDefinition>
+        </moduleDefinitions>
+      </desktopModule>
+    </component>
+    <component type="File">
+      <files>
+        <basePath>DesktopModules\IBusiness\IB.UICateNews</basePath>
+        <file>
+          <name>ListCatNews.ascx</name>
+        </file>
+        <file>
+          <name>SettingsCateNews.ascx</name>
+        </file>
+      </files>
+    </component>
+  </components>
+</package></packages>
+</dotnetnuke>
