@@ -21,7 +21,8 @@
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Content.Taxonomy;
 
-namespace DotNetNuke.DNNQA.Components.Entities {
+namespace GB.Album.Components.Entities
+{
 
     /// <summary>
     /// This is our Info class that represents columns in our data store that are associated with the vw_DNNQA_Terms view (This extends the core API).

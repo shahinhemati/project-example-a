@@ -20,7 +20,7 @@
 
 using System;
 
-namespace DotNetNuke.DNNQA.Components.Entities
+namespace GB.Album.Components.Entities
 {
 
     /// <summary>

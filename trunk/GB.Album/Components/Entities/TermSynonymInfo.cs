@@ -21,7 +21,8 @@
 using System;
 using DotNetNuke.Common.Utilities;
 
-namespace DotNetNuke.DNNQA.Components.Entities {
+namespace GB.Album.Components.Entities
+{
 
     /// <summary>
     /// 

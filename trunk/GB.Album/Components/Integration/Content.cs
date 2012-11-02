@@ -36,7 +36,7 @@ namespace GB.Album.Components.Integration
 		/// </summary>
 		/// <returns>The newly created ContentItemID from the data store.</returns>
 		/// <remarks>This is for the first question in the thread. Not for replies or items with ParentID > 0.</remarks>
-		internal ContentItem CreateContentItem(PostInfo objPost, int tabId)
+		internal ContentItem CreateContentItem(AlbumInfo objPost, int tabId)
 		{
 			var typeController = new ContentTypeController();
 			var colContentTypes = (from t in typeController.GetContentTypes() where t.ContentType == Constants.ContentTypeName select t);
@@ -54,10 +54,10 @@ namespace GB.Album.Components.Integration
 
 			var objContent = new ContentItem
 								{
-									Content = objPost.Body,
+									Content = objPost.ShortContent,
 									ContentTypeId = contentTypeID,
 									Indexed = false,
-									ContentKey = "view=" + Constants.PageScope.Question.ToString().ToLower() + "&id=" + objPost.PostId,
+									ContentKey = "view=" + Constants.PageScope.Question.ToString().ToLower() + "&id=" + objPost.AlbumID,
 									ModuleID = objPost.ModuleID,
 									TabID = tabId
 								};

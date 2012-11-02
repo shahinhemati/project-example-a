@@ -38,11 +38,11 @@ namespace GB.Album.Components.Integration
         /// <param name="subject"></param>
         /// <param name="body"></param>
         /// <remarks>The last part of this method is commented out but was setup to send to a role (based on a group). You can utilize this and/or also pass a list of users.</remarks>
-        internal void ItemNotification(PostInfo objEntity, int portalId, int tabId, string subject, string body)
+        internal void ItemNotification(AlbumInfo objEntity, int portalId, int tabId, string subject, string body)
         {
             var notificationType = NotificationsController.Instance.GetNotificationType(Constants.NotificationQaFlag);
 
-            var notificationKey = string.Format("{0}:{1}:{2}", Constants.ContentTypeName, objEntity.PostId, tabId);
+            var notificationKey = string.Format("{0}:{1}:{2}", Constants.ContentTypeName, objEntity.AlbumID, tabId);
             var objNotification = new Notification
             {
                 NotificationTypeID = notificationType.NotificationTypeId,
