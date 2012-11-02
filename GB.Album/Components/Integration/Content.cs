@@ -74,20 +74,20 @@ namespace GB.Album.Components.Integration
 		/// <summary>
 		/// This is used to update the content in the ContentItems table. Should be called when a question is updated.
 		/// </summary>
-		internal void UpdateContentItem(PostInfo objPost, int tabId)
+		internal void UpdateContentItem(AlbumInfo objAlbum, int tabId)
 		{
-			var objContent = Util.GetContentController().GetContentItem(objPost.ContentItemId);
+			var objContent = Util.GetContentController().GetContentItem(objAlbum.ContentItemId);
 
 			if (objContent == null) return;
-			objContent.Content = objPost.Body;
+			objContent.Content = objAlbum.ShortContent;
 			objContent.TabID = tabId;
-			objContent.ContentKey = "view=" + Constants.PageScope.Question.ToString().ToLower() + "&id=" + objPost.PostId;
+			objContent.ContentKey = "view=" + Constants.PageScope.Question.ToString().ToLower() + "&id=" + objAlbum.AlbumID;
 
 			Util.GetContentController().UpdateContentItem(objContent);
 
 			// Update Terms
 			var cntTerm = new Terms();
-			cntTerm.ManageQuestionTerms(objPost, objContent);
+			cntTerm.ManageQuestionTerms(objAlbum, objContent);
 		}
 
 		/// <summary>

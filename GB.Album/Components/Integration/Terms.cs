@@ -33,7 +33,7 @@ namespace GB.Album.Components.Integration {
 		/// </summary>
 		/// <param name="objPost">The content item we are associating categories with. In this module, it will always be a question (first post).</param>
 		/// <param name="objContent"></param>
-		internal void ManageQuestionTerms(PostInfo objPost, ContentItem objContent)
+		internal void ManageQuestionTerms(AlbumInfo objAlbum, ContentItem objContent)
 		{
 			RemoveQuestionTerms(objContent);
 

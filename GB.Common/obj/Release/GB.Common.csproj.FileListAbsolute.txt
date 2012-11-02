@@ -7,3 +7,12 @@ F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\bin\it\Do
 F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\obj\Release\ResolveAssemblyReference.cache
 F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\obj\Release\GB.Common.dll
 F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\obj\Release\GB.Common.pdb
+D:\Document_work\project-example-a\GB.Common\bin\GB.Common.dll.config
+D:\Document_work\project-example-a\GB.Common\bin\GB.Common.dll
+D:\Document_work\project-example-a\GB.Common\bin\GB.Common.pdb
+D:\Document_work\project-example-a\GB.Common\bin\DotLiquid.dll
+D:\Document_work\project-example-a\GB.Common\bin\DotNetNuke.dll
+D:\Document_work\project-example-a\GB.Common\bin\it\DotLiquid.resources.dll
+D:\Document_work\project-example-a\GB.Common\obj\Release\ResolveAssemblyReference.cache
+D:\Document_work\project-example-a\GB.Common\obj\Release\GB.Common.dll
+D:\Document_work\project-example-a\GB.Common\obj\Release\GB.Common.pdb
