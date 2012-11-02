@@ -127,5 +127,10 @@ namespace IB.Album.Components.Controllers
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<AlbumInfo> GetSitemapQuestions(int portalId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
