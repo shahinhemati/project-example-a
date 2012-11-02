@@ -38,7 +38,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetNuke, Version=6.0.0.2982, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DotNetNuke, Version=6.0.1.310, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLLBuild\DotNetNuke.dll</HintPath>
     </Reference>
@@ -67,6 +67,10 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLBuild\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -104,17 +108,20 @@
     <Compile Include="Components\Common\Links.cs" />
     <Compile Include="Components\Common\ModuleSecurity.cs" />
     <Compile Include="Components\Common\QaSettings.cs" />
+    <Compile Include="Components\Common\Sorting.cs" />
     <Compile Include="Components\Common\UIEventArgs.cs" />
     <Compile Include="Components\Common\UIListEventArgs.cs" />
     <Compile Include="Components\Common\UrlShorteningService.cs" />
     <Compile Include="Components\Common\Utils.cs" />
     <Compile Include="Components\Controllers\AlbumController.cs" />
     <Compile Include="Components\Controllers\AlbumImageController.cs" />
-    <Compile Include="Components\Controllers\DnnqaController.cs" />
-    <Compile Include="Components\Controllers\IDnnqaController.cs" />
-    <Compile Include="Components\Entities\Album.cs" />
-    <Compile Include="Components\Entities\AlbumImage.cs" />
+    <Compile Include="Components\Entities\AlbumInfo.cs" />
+    <Compile Include="Components\Entities\ImageInfo.cs" />
     <Compile Include="Components\Entities\SettingInfo.cs" />
+    <Compile Include="Components\Entities\TermHistoryInfo.cs" />
+    <Compile Include="Components\Entities\TermInfo.cs" />
+    <Compile Include="Components\Entities\TermSynonymInfo.cs" />
+    <Compile Include="Components\Entities\UtilityInfo.cs" />
     <Compile Include="Components\Integration\Content.cs" />
     <Compile Include="Components\Integration\Journal.cs" />
     <Compile Include="Components\Integration\Notifications.cs" />
@@ -211,12 +218,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GB.News\GB.News.csproj">
-      <Project>{6F663772-27E2-4CDF-8646-EBA7E1BE4A0D}</Project>
-      <Name>GB.News</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Handler.ashx" />
     <Content Include="Static\fancybox\blank.gif" />
     <Content Include="Static\fancybox\fancybox-x.png" />
@@ -246,7 +247,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Components\Events\" />
     <Folder Include="Controls\" />
     <Folder Include="Documents\" />
     <Folder Include="Properties\" />
@@ -255,13 +255,6 @@
   <ItemGroup>
     <None Include="Provider\Data\SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="Provider\Data\SqlDataProvider\Uninstall.SqlDataProvider" />
-    <Content Include="web.config" />
-    <Content Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </Content>
-    <Content Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

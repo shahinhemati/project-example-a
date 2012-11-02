@@ -19,9 +19,9 @@
 //
 
 using System;
-using DotNetNuke.DNNQA.Components.Common;
+using GB.Album.Components.Common;
 
-namespace DotNetNuke.DNNQA.Components.Entities
+namespace GB.Album.Components.Entities
 {
 
     public class BadgeTierInfo

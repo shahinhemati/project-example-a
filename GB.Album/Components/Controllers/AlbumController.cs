@@ -122,5 +122,10 @@ namespace IB.Album.Components.Controllers
         
 
         #endregion
+
+        internal AlbumInfo GetAlbum(int questionId, int p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

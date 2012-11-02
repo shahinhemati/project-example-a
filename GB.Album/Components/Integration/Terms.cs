@@ -37,7 +37,9 @@ namespace GB.Album.Components.Integration {
 		{
 			RemoveQuestionTerms(objContent);
 
-			foreach (var term in objPost.Terms) {
+		    var terms = Util.GetContentController().GetContentItem(objAlbum.AlbumID).Terms;
+
+			foreach (var term in terms) {
 				Util.GetTermController().AddTermToContent(term, objContent);
 			}
 		}
