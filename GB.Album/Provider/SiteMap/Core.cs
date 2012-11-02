@@ -18,12 +18,12 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-using DotNetNuke.DNNQA.Components.Common;
-using DotNetNuke.DNNQA.Components.Controllers;
-using DotNetNuke.DNNQA.Components.Entities;
+using GB.Album.Components.Common;
+using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Portals;
 using System.Collections.Generic;
 using DotNetNuke.Services.Sitemap;
+using IB.Album.Components.Controllers;
 
 namespace GB.Album.Providers.Sitemap
 {
@@ -41,7 +41,7 @@ namespace GB.Album.Providers.Sitemap
 		/// <param name="version"></param>
 		/// <returns></returns>
 		public override List<SitemapUrl> GetUrls(int portalID, PortalSettings ps, string version) {
-			var cntQa = new DnnqaController();
+			var cntQa = new AlbumController();
 			var colEntries = cntQa.GetSitemapQuestions(portalID);
 			var urls = new List<SitemapUrl>();
 
@@ -63,11 +63,11 @@ namespace GB.Album.Providers.Sitemap
 		/// <param name="objQuestion"></param>
 		/// <param name="ps"></param>
 		/// <returns></returns>
-		private static SitemapUrl GetQuestionUrl(PostInfo objQuestion, PortalSettings ps)
+		private static SitemapUrl GetQuestionUrl(AlbumInfo objQuestion, PortalSettings ps)
 		{
 			var pageUrl = new SitemapUrl
 							{
-								Url = Links.ViewQuestion(objQuestion.PostId, objQuestion.TabID, ps),
+								Url = Links.ViewQuestion(objQuestion.AlbumID, objQuestion.TabID, ps),
 								Priority = (float) 0.5,
 								LastModified = objQuestion.LastModifiedOnDate,
 								ChangeFrequency = SitemapChangeFrequency.Daily
