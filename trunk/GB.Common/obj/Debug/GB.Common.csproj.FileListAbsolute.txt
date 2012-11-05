@@ -1,9 +1,0 @@
-F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\obj\Debug\ResolveAssemblyReference.cache
-F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\bin\GB.Common.dll.config
-F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\bin\GB.Common.dll
-F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\bin\GB.Common.pdb
-F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\bin\DotLiquid.dll
-F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\bin\DotNetNuke.dll
-F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\bin\it\DotLiquid.resources.dll
-F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\obj\Debug\GB.Common.dll
-F:\project_working\dotnetnuke_project\Globalization.Business\GB.Common\obj\Debug\GB.Common.pdb
