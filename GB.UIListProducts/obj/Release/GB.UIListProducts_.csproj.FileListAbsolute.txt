@@ -1,1 +1,0 @@
-F:\project_working\dotnetnuke_project\Globalization.Business\GB.UIListProducts\obj\Release\ResolveAssemblyReference.cache
