@@ -5,14 +5,27 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DotNetNuke.Entities.Modules;
+using DotNetNuke.Web.Mvp;
+using GB.Album.Components.Models;
+using GB.Album.Components.Presenters;
+using GB.Album.Components.Views;
+using WebFormsMvp;
 
 namespace GB.Album
 {
-    public partial class Dispatch : PortalModuleBase
+    [PresenterBinding(typeof(DispatchPresenter))]
+    public partial class Dispatch : ModuleView<DispatchModel>,IDispatchView,IActionable
     {
-        protected void Page_Load(object sender, EventArgs e)
+        
+
+        public DotNetNuke.Entities.Modules.Actions.ModuleActionCollection ModuleActions
         {
-            
+            get { throw new NotImplementedException(); }
+        }
+
+        public void Refresh()
+        {
+            throw new NotImplementedException();
         }
     }
 }

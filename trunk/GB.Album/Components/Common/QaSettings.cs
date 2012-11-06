@@ -22,7 +22,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Common.Utilities;
-using DotNetNuke.DNNQA.Components.Entities;
 using GB.Album.Components.Controllers;
 using GB.Album.Components.Entities;
 using SettingInfo = GB.Album.Components.Entities.SettingInfo;
@@ -85,8 +84,8 @@ namespace GB.Album.Components.Common
                         Value = Constants.DefaultOpHomeQuestionMinScore.ToString()
                     };
 
-                    var cntQa = new DnnqaController();
-                    cntQa.UpdateQaPortalSetting(objNewSetting);
+                    var cntQa = new SettingController();
+                    cntQa.UpdateSetting(objNewSetting);
 
                     DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.QaSettingsCacheKey + portalId);
 
@@ -197,8 +196,8 @@ namespace GB.Album.Components.Common
                         Value = Constants.DefaultScoreAcceptedAnswer.ToString()
                     };
 
-                    var cntQa = new DnnqaController();
-                    cntQa.UpdateQaPortalSetting(objNewSetting);
+                    var cntQa = new SettingController();
+                    cntQa.UpdateSetting(objNewSetting);
 
                     DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.QaSettingsCacheKey + portalId);
 

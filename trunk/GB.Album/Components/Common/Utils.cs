@@ -23,7 +23,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using DotNetNuke.DNNQA.Components.Entities;
 using GB.Album.Components.Entities;
 using DotNetNuke.Framework;
 using DotNetNuke.Security;
@@ -412,7 +411,7 @@ namespace GB.Album.Components.Common
             var keyCount = 1;
             var count = keyCount;
 
-            
+            var terms=Conten
 
             foreach (var term in objQuestion.Terms.TakeWhile(term => count <= Constants.SeoKeywordsLimit))
             {
