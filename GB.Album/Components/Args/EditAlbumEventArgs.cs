@@ -17,6 +17,5 @@ namespace GB.Album.Components.Args
             Notify = notify;
             Tags = tags;
         }
-
     }
 }
