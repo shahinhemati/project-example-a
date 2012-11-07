@@ -22,18 +22,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Common.Utilities;
-using GB.Album.Components.Entities;
-using GB.Album.Providers.Data;
-using GB.Album.Providers.Data.SqlDataProvider;
+using GB.Product.Components.Entities;
+using GB.Product.Providers.Data;
+using GB.Product.Providers.Data.SqlDataProvider;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Controllers;
-using GB.Album.Components.Models;
-using GB.Album.Components.Views;
-using GB.Album.Components.Common;
+using GB.Product.Components.Controllers;
+using GB.Product.Components.Models;
+using GB.Product.Components.Views;
+using GB.Product.Components.Common;
 using System.Web.UI.WebControls;
 
-namespace GB.Album.Components.Presenters
+namespace GB.Product.Components.Presenters
 {
 
 	/// <summary>

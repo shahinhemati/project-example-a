@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Models;
-using GB.Album.Components.Views;
+using GB.News.Components.Models;
+using GB.News.Components.Views;
 
-namespace GB.Album.Components.Presenters
+namespace GB.News.Components.Presenters
 {
     public class HomePresenter:ModulePresenter<IHomeView,HomeModel>
     {

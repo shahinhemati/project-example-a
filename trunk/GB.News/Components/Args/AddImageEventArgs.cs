@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GB.Album.Components.Args
+namespace GB.News.Components.Args
 {
     public class AddImageEventArgs<TImageInfo,TNotify,TTags>:EventArgs
     {

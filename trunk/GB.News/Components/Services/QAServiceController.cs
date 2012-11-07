@@ -27,7 +27,7 @@ using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Social.Notifications;
 using DotNetNuke.Web.Services;
 
-namespace GB.Album.Components.Services
+namespace GB.News.Components.Services
 {
 
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
@@ -42,7 +42,7 @@ namespace GB.Album.Components.Services
         public void RegisterRoutes(IMapRoute mapRouteManager)
         {
 
-            mapRouteManager.MapRoute("DNNQA", "{controller}.ashx/{action}", new[] { "GB.Album.Components.Services" });
+            mapRouteManager.MapRoute("DNNQA", "{controller}.ashx/{action}", new[] { "GB.News.Components.Services" });
         }
 
         #endregion

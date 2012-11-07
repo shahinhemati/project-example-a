@@ -6,7 +6,7 @@ using IB.Common.Entities;
 using PetaPoco;
 
 
-namespace GB.Album.Components.Entities
+namespace GB.SlideShow.Components.Entities
 {
     [TableName("CV_Album")]
     [PrimaryKey("AlbumID")]

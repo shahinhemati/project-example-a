@@ -19,11 +19,11 @@
 //
 
 using System.Linq;
-using GB.Album.Components.Common;
-using GB.Album.Components.Entities;
+using GB.SlideShow.Components.Common;
+using GB.SlideShow.Components.Entities;
 using DotNetNuke.Services.Journal;
 
-namespace GB.Album.Components.Integration
+namespace GB.SlideShow.Components.Integration
 {
     public class Journal
     {

@@ -19,9 +19,9 @@
 //
 
 using System.Collections.Generic;
-using GB.Album.Components.Entities;
+using GB.Product.Components.Entities;
 
-namespace GB.Album.Components.Models
+namespace GB.Product.Components.Models
 {
 
 	public class TagDetailModel 

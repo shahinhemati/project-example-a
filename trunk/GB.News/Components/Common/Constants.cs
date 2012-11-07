@@ -18,7 +18,7 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-namespace GB.Album.Components.Common
+namespace GB.News.Components.Common
 {
 
 	public class Constants

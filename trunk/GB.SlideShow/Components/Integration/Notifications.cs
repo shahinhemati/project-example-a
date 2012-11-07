@@ -19,12 +19,12 @@
 //
 
 using System.Collections.Generic;
-using GB.Album.Components.Common;
-using GB.Album.Components.Entities;
+using GB.SlideShow.Components.Common;
+using GB.SlideShow.Components.Entities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Social.Notifications;
 
-namespace GB.Album.Components.Integration
+namespace GB.SlideShow.Components.Integration
 {
     public class Notifications
     {

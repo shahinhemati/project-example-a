@@ -6,7 +6,7 @@ using IB.Common.Entities;
 using PetaPoco;
 
 
-namespace GB.Album.Components.Entities
+namespace GB.Product.Components.Entities
 {
     [TableName("CV_ImageAlbum")]
     [PrimaryKey("ImageID")]

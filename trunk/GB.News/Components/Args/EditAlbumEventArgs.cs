@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GB.Album.Components.Args
+namespace GB.News.Components.Args
 {
     public class EditAlbumEventArgs<TAlbumInfo,TNotify,TTags> :EventArgs
     {
@@ -17,6 +17,5 @@ namespace GB.Album.Components.Args
             Notify = notify;
             Tags = tags;
         }
-
     }
 }

@@ -17,7 +17,7 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-namespace  GB.Album.Components.Entities
+namespace  GB.News.Components.Entities
 {
 
     public class SettingInfo

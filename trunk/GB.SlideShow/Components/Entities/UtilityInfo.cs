@@ -19,9 +19,9 @@
 //
 
 using System;
-using GB.Album.Components.Common;
+using GB.SlideShow.Components.Common;
 
-namespace GB.Album.Components.Entities
+namespace GB.SlideShow.Components.Entities
 {
 
     public class BadgeTierInfo

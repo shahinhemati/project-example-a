@@ -21,7 +21,7 @@
 using System;
 using DotNetNuke.Common.Utilities;
 
-namespace GB.Album.Components.Entities
+namespace GB.SlideShow.Components.Entities
 {
 
     /// <summary>

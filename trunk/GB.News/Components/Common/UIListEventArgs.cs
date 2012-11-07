@@ -20,7 +20,7 @@
 
 using System;
 
-namespace GB.Album.Components.Common
+namespace GB.News.Components.Common
 {
 
     /// <summary>

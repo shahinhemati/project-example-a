@@ -22,11 +22,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Common.Utilities;
-using GB.Album.Components.Controllers;
-using GB.Album.Components.Entities;
-using SettingInfo = GB.Album.Components.Entities.SettingInfo;
+using GB.News.Components.Controllers;
+using GB.News.Components.Entities;
+using SettingInfo = GB.News.Components.Entities.SettingInfo;
 
-namespace GB.Album.Components.Common
+namespace GB.News.Components.Common
 {
 
     /// <summary>

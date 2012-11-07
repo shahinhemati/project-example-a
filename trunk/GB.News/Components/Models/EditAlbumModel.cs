@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GB.Album.Components.Entities;
+using GB.News.Components.Entities;
 
-namespace GB.Album.Components.Models
+namespace GB.News.Components.Models
 {
     public class EditAlbumModel
     {

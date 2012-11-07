@@ -20,13 +20,13 @@
 
 
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Controllers;
-using GB.Album.Components.Models;
-using GB.Album.Components.Views;
+using GB.News.Components.Controllers;
+using GB.News.Components.Models;
+using GB.News.Components.Views;
 using System;
 using DotNetNuke.Common.Utilities;
 
-namespace GB.Album.Components.Presenters {
+namespace GB.News.Components.Presenters {
 
 	/// <summary>
 	/// 

@@ -1030,11 +1030,11 @@ GO
 
 DELETE FROM {databaseOwner}{objectQualifier}Schedule
 WHERE 
-	TypeFullName = 'GB.Album.Components.Tasks.Emailer, DotNetuke.Modules.DNNQA'
+	TypeFullName = 'GB.News.Components.Tasks.Emailer, DotNetuke.Modules.DNNQA'
 GO
 
 INSERT INTO {databaseOwner}{objectQualifier}Schedule
 	([TypeFullName], [TimeLapse], [TimeLapseMeasurement], [RetryTimeLapse], [RetryTimeLapseMeasurement], [RetainHistoryNum], [AttachToEvent], [CatchUpEnabled], [Enabled], [ObjectDependencies], [Servers], [FriendlyName])
-VALUES ( 'GB.Album.Components.Tasks.Emailer, DotNetNuke.Modules.DNNQA', 1, 'm', -1, 'm', 10, '', 0, 1, '', null, 'Q&A Subscriptions' )
+VALUES ( 'GB.News.Components.Tasks.Emailer, DotNetNuke.Modules.DNNQA', 1, 'm', -1, 'm', 10, '', 0, 1, '', null, 'Q&A Subscriptions' )
 GO
 

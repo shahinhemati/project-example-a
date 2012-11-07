@@ -24,20 +24,20 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
-using GB.Album.Components.Common;
-using GB.Album.Components.Entities;
-using GB.Album.Components.Integration;
-using GB.Album.Providers.Data;
-using GB.Album.Providers.Data.SqlDataProvider;
+using GB.News.Components.Common;
+using GB.News.Components.Entities;
+using GB.News.Components.Integration;
+using GB.News.Providers.Data;
+using GB.News.Providers.Data.SqlDataProvider;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Security;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Controllers;
-using GB.Album.Components.Models;
-using GB.Album.Components.Views;
+using GB.News.Components.Controllers;
+using GB.News.Components.Models;
+using GB.News.Components.Views;
 
-namespace GB.Album.Components.Presenters
+namespace GB.News.Components.Presenters
 {
 
 	/// <summary>

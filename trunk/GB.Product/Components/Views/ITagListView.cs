@@ -18,13 +18,13 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-using GB.Album.Components.Entities;
+using GB.Product.Components.Entities;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Common;
+using GB.Product.Components.Common;
 using System.Web.UI.WebControls;
 using System;
 
-namespace GB.Album.Components.Views
+namespace GB.Product.Components.Views
 {
 
 	/// <summary>

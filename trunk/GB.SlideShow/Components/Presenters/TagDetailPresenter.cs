@@ -24,20 +24,20 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
-using GB.Album.Components.Common;
-using GB.Album.Components.Entities;
-using GB.Album.Components.Integration;
-using GB.Album.Providers.Data;
-using GB.Album.Providers.Data.SqlDataProvider;
+using GB.SlideShow.Components.Common;
+using GB.SlideShow.Components.Entities;
+using GB.SlideShow.Components.Integration;
+using GB.SlideShow.Providers.Data;
+using GB.SlideShow.Providers.Data.SqlDataProvider;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Security;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Controllers;
-using GB.Album.Components.Models;
-using GB.Album.Components.Views;
+using GB.SlideShow.Components.Controllers;
+using GB.SlideShow.Components.Models;
+using GB.SlideShow.Components.Views;
 
-namespace GB.Album.Components.Presenters
+namespace GB.SlideShow.Components.Presenters
 {
 
 	/// <summary>

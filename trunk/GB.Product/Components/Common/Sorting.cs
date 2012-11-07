@@ -20,10 +20,10 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using GB.Album.Components.Entities;
-using TermInfo = GB.Album.Components.Entities.TermInfo;
+using GB.Product.Components.Entities;
+using TermInfo = GB.Product.Components.Entities.TermInfo;
 
-namespace GB.Album.Components.Common
+namespace GB.Product.Components.Common
 {
 
     /// <summary>
