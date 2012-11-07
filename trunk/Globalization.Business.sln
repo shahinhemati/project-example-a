@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GB.Album", "GB.Album\GB.Alb
 		{0637401F-3FCD-4CA0-9112-E3A4651110E8} = {0637401F-3FCD-4CA0-9112-E3A4651110E8}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShareDll", "ShareDll", "{71FB4855-3448-4263-B86C-386D11B18E02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

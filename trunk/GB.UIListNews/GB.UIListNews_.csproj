@@ -104,7 +104,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GB.Common\GB.Common.csproj">
       <Project>{0637401F-3FCD-4CA0-9112-E3A4651110E8}</Project>
-      <Name>IB.Common</Name>
+      <Name>GB.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
