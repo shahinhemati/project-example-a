@@ -41,7 +41,7 @@ using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Modules;
 using System.Collections.Generic;
 using DotNetNuke.Web.Client.ClientResourceManagement;
-
+using UtilContent=DotNetNuke.Entities.Content.Common.Util;
 
 namespace GB.Album.Components.Common
 {
@@ -411,9 +411,9 @@ namespace GB.Album.Components.Common
             var keyCount = 1;
             var count = keyCount;
 
-            var terms=Conten
+            var terms = UtilContent.GetContentController().GetContentItem(objQuestion.ContentItemId).Terms;
 
-            foreach (var term in objQuestion.Terms.TakeWhile(term => count <= Constants.SeoKeywordsLimit))
+            foreach (var term in terms.TakeWhile(term => count <= Constants.SeoKeywordsLimit))
             {
                 keyWords += "," + term.Name;
                 keyCount += 1;

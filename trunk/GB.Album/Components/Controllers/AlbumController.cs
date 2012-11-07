@@ -65,7 +65,7 @@ namespace IB.Album.Components.Controllers
 		/// <param name="objPost">The PostInfo entity we just created in the data store.</param>
 		/// <param name="tabId">The page we will associate with our content item.</param>
 		/// <returns>The ContentItemId primary key created in the Core ContentItems table.</returns>
-		private static int CompleteQuestionCreation(PostInfo objPost, int tabId) {
+		private static int CompleteQuestionCreation(AlbumInfo objPost, int tabId) {
 			var cntTaxonomy = new Content();
 			var objContentItem = cntTaxonomy.CreateContentItem(objPost, tabId);
 
@@ -83,11 +83,11 @@ namespace IB.Album.Components.Controllers
 
 			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.HomeQuestionsCacheKey + objAlbum.ModuleID);
 
-			if (objAlbum.ParentId >= 1) return;
+            //if (objAlbum.ParentId >= 1) return;
 			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.HomeTermsCacheKey + objAlbum.ModuleID);
 			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.ModuleTermsCacheKey + objAlbum.ModuleID);
 			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.ModuleQuestionsCacheKey + objAlbum.ModuleID);
-			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.ContentTermsCacheKey + objAlbum.ContentID);
+			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.ContentTermsCacheKey + objAlbum.ContentItemId);
 
 		}
 
