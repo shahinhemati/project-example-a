@@ -185,31 +185,31 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Handler.ashx" />
-    <Content Include="Static\fancybox\blank.gif" />
-    <Content Include="Static\fancybox\fancybox-x.png" />
-    <Content Include="Static\fancybox\fancybox-y.png" />
-    <Content Include="Static\fancybox\fancybox.png" />
-    <Content Include="Static\fancybox\fancy_close.png" />
-    <Content Include="Static\fancybox\fancy_loading.png" />
-    <Content Include="Static\fancybox\fancy_nav_left.png" />
-    <Content Include="Static\fancybox\fancy_nav_right.png" />
-    <Content Include="Static\fancybox\fancy_shadow_e.png" />
-    <Content Include="Static\fancybox\fancy_shadow_n.png" />
-    <Content Include="Static\fancybox\fancy_shadow_ne.png" />
-    <Content Include="Static\fancybox\fancy_shadow_nw.png" />
-    <Content Include="Static\fancybox\fancy_shadow_s.png" />
-    <Content Include="Static\fancybox\fancy_shadow_se.png" />
-    <Content Include="Static\fancybox\fancy_shadow_sw.png" />
-    <Content Include="Static\fancybox\fancy_shadow_w.png" />
-    <Content Include="Static\fancybox\fancy_title_left.png" />
-    <Content Include="Static\fancybox\fancy_title_main.png" />
-    <Content Include="Static\fancybox\fancy_title_over.png" />
-    <Content Include="Static\fancybox\fancy_title_right.png" />
-    <Content Include="Static\fancybox\jquery.easing-1.3.pack.js" />
-    <Content Include="Static\fancybox\jquery.fancybox-1.3.4.css" />
-    <Content Include="Static\fancybox\jquery.fancybox-1.3.4.js" />
-    <Content Include="Static\fancybox\jquery.fancybox-1.3.4.pack.js" />
-    <Content Include="Static\fancybox\jquery.mousewheel-3.0.4.pack.js" />
+    <Content Include="Content\fancybox\blank.gif" />
+    <Content Include="Content\fancybox\fancybox-x.png" />
+    <Content Include="Content\fancybox\fancybox-y.png" />
+    <Content Include="Content\fancybox\fancybox.png" />
+    <Content Include="Content\fancybox\fancy_close.png" />
+    <Content Include="Content\fancybox\fancy_loading.png" />
+    <Content Include="Content\fancybox\fancy_nav_left.png" />
+    <Content Include="Content\fancybox\fancy_nav_right.png" />
+    <Content Include="Content\fancybox\fancy_shadow_e.png" />
+    <Content Include="Content\fancybox\fancy_shadow_n.png" />
+    <Content Include="Content\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Content\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Content\fancybox\fancy_shadow_s.png" />
+    <Content Include="Content\fancybox\fancy_shadow_se.png" />
+    <Content Include="Content\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Content\fancybox\fancy_shadow_w.png" />
+    <Content Include="Content\fancybox\fancy_title_left.png" />
+    <Content Include="Content\fancybox\fancy_title_main.png" />
+    <Content Include="Content\fancybox\fancy_title_over.png" />
+    <Content Include="Content\fancybox\fancy_title_right.png" />
+    <Content Include="Content\fancybox\jquery.easing-1.3.pack.js" />
+    <Content Include="Content\fancybox\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content\fancybox\jquery.fancybox-1.3.4.js" />
+    <Content Include="Content\fancybox\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Content\fancybox\jquery.mousewheel-3.0.4.pack.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -221,7 +221,9 @@
   <ItemGroup>
     <None Include="BuildScripts\ModulePackage.targets" />
     <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
-    <None Include="GB.Album.dnn" />
+    <None Include="GB.Album.dnn">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Provider\Data\SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="Provider\Data\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
