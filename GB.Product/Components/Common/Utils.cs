@@ -411,7 +411,7 @@ namespace GB.Product.Components.Common
             var keyCount = 1;
             var count = keyCount;
 
-            var terms=Conten
+            var terms=
 
             foreach (var term in objQuestion.Terms.TakeWhile(term => count <= Constants.SeoKeywordsLimit))
             {
