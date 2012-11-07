@@ -130,9 +130,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <Extension>zip</Extension>
-    <DNNFileName>GB.Common</DNNFileName>
-    <PackageName>GB.Common</PackageName>
     <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\BuildScripts</MSBuildCommunityTasksPath>
   </PropertyGroup>
   <Import Project="BuildScripts\ModulePackage.Targets" />
