@@ -19,11 +19,11 @@
 //
 
 using System.Linq;
-using DotNetNuke.DNNQA.Components.Common;
-using DotNetNuke.DNNQA.Components.Entities;
+using GB.Album.Components.Common;
+using GB.Album.Components.Entities;
 using DotNetNuke.Services.Journal;
 
-namespace DotNetNuke.DNNQA.Components.Integration
+namespace GB.Album.Components.Integration
 {
     public class Journal
     {
@@ -41,7 +41,7 @@ namespace DotNetNuke.DNNQA.Components.Integration
         /// <param name="journalUserId"></param>
         /// <param name="url"></param>
         /// <remarks>Do not send flagged posts to this method (they are technically 'votes'), keep those out of the journal.</remarks>
-        internal void AddVoteToJournal(PostInfo objPost, int voteId, string title, string summary, int portalId, int journalUserId, string url)
+        internal void AddVoteToJournal(AlbumInfo objPost, int voteId, string title, string summary, int portalId, int journalUserId, string url)
         {
             var objectKey = Constants.ContentTypeName + "_" + Constants.JournalVoteTypeName + "_" + string.Format("{0}:{1}", objPost.ModuleID, voteId);
             var ji = JournalController.Instance.GetJournalItemByKey(portalId, objectKey);
@@ -89,9 +89,9 @@ namespace DotNetNuke.DNNQA.Components.Integration
         /// <param name="portalId"></param>
         /// <param name="journalUserId"></param>
         /// <param name="url"></param>
-        internal void AddAnswerToJournal(PostInfo objPost, string questionTitle, int portalId, int journalUserId, string url)
+        internal void AddAnswerToJournal(AlbumInfo objPost, string questionTitle, int portalId, int journalUserId, string url)
         {
-            var objectKey = Constants.ContentTypeName + "_" + Constants.JournalAnswerTypeName + "_" + string.Format("{0}:{1}", objPost.ParentId, objPost.PostId);
+            var objectKey = Constants.ContentTypeName + "_" + Constants.JournalAnswerTypeName + "_" + string.Format("{0}:{1}", objPost.AlbumID, objPost.AlbumID);
             var ji = JournalController.Instance.GetJournalItemByKey(portalId, objectKey);
 
             if ((ji != null))
@@ -125,9 +125,9 @@ namespace DotNetNuke.DNNQA.Components.Integration
         /// <param name="portalId"></param>
         /// <param name="journalUserId"></param>
         /// <param name="url"></param>
-        internal void AddQuestionToJournal(PostInfo objPost, string questionTitle, int portalId, int journalUserId, string url)
+        internal void AddQuestionToJournal(AlbumInfo objPost, string questionTitle, int portalId, int journalUserId, string url)
         {
-            var objectKey = Constants.ContentTypeName + "_" + Constants.JournalQuestionTypeName + "_" + string.Format("{0}:{1}", objPost.ModuleID, objPost.PostId);
+            var objectKey = Constants.ContentTypeName + "_" + Constants.JournalQuestionTypeName + "_" + string.Format("{0}:{1}", objPost.ModuleID, objPost.AlbumID);
             var ji = JournalController.Instance.GetJournalItemByKey(portalId, objectKey);
 
             if ((ji != null))
@@ -199,33 +199,33 @@ namespace DotNetNuke.DNNQA.Components.Integration
         /// <param name="portalId"></param>
         /// <param name="journalUserId"></param>
         /// <param name="url"></param>
-        internal void AddCommentToJournal(PostInfo objEntry, Entities.CommentInfo objComment, string title, int portalId, int journalUserId, string url)
-        {
-            var objectKey = Constants.ContentTypeName + "_" + Constants.JournalCommentTypeName + "_" + string.Format("{0}:{1}", objEntry.PostId, objComment.CommentId);
-            var ji = JournalController.Instance.GetJournalItemByKey(portalId, objectKey);
+        //internal void AddCommentToJournal(AlbumInfo objEntry, Entities.CommentInfo objComment, string title, int portalId, int journalUserId, string url)
+        //{
+        //    var objectKey = Constants.ContentTypeName + "_" + Constants.JournalCommentTypeName + "_" + string.Format("{0}:{1}", objEntry.PostId, objComment.CommentId);
+        //    var ji = JournalController.Instance.GetJournalItemByKey(portalId, objectKey);
 
-            if ((ji != null))
-            {
-                JournalController.Instance.DeleteJournalItemByKey(portalId, objectKey);
-            }
+        //    if ((ji != null))
+        //    {
+        //        JournalController.Instance.DeleteJournalItemByKey(portalId, objectKey);
+        //    }
 
-            ji = new JournalItem
-            {
-                PortalId = portalId,
-                ProfileId = journalUserId,
-                UserId = journalUserId,
-                ContentItemId = objEntry.ContentItemId,
-                Title = title,
-                ItemData = new ItemData { Url = url },
-                Summary = "", // objComment.Comment,
-                Body = null,
-                JournalTypeId = GetCommentJournalTypeID(portalId),
-                ObjectKey = objectKey,
-                SecuritySet = "E,"
-            };
+        //    ji = new JournalItem
+        //    {
+        //        PortalId = portalId,
+        //        ProfileId = journalUserId,
+        //        UserId = journalUserId,
+        //        ContentItemId = objEntry.ContentItemId,
+        //        Title = title,
+        //        ItemData = new ItemData { Url = url },
+        //        Summary = "", // objComment.Comment,
+        //        Body = null,
+        //        JournalTypeId = GetCommentJournalTypeID(portalId),
+        //        ObjectKey = objectKey,
+        //        SecuritySet = "E,"
+        //    };
 
-            JournalController.Instance.SaveJournalItem(ji, objEntry.TabID);
-        }
+        //    JournalController.Instance.SaveJournalItem(ji, objEntry.TabID);
+        //}
 
         /// <summary>
         /// Deletes a journal item associated with the specific comment.

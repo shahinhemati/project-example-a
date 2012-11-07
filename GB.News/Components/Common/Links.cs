@@ -24,7 +24,8 @@ using DotNetNuke.UI.Modules;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Tabs;
 
-namespace DotNetNuke.DNNQA.Components.Common {
+namespace GB.Album.Components.Common
+{
 
 	/// <summary>
 	/// A class to hold common functions used throughout the module. 

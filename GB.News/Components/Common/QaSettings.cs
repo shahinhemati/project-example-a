@@ -22,10 +22,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Common.Utilities;
-using DotNetNuke.DNNQA.Components.Controllers;
-using DotNetNuke.DNNQA.Components.Entities;
+using GB.Album.Components.Controllers;
+using GB.Album.Components.Entities;
+using SettingInfo = GB.Album.Components.Entities.SettingInfo;
 
-namespace DotNetNuke.DNNQA.Components.Common
+namespace GB.Album.Components.Common
 {
 
     /// <summary>
@@ -51,26 +52,28 @@ namespace DotNetNuke.DNNQA.Components.Common
             switch (colOpThreshSettings.Count())
             {
                 case 0:
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.PostChangeVoteWindowMinutes.ToString(), Constants.DefaultOpPostChangeVoteWindowMinutes));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.PostFlagCompleteCount.ToString(), Constants.DefaultOpPostFlagCompleteCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.PostFlagWindowHours.ToString(), Constants.DefaultOpPostFlagWindowHours));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.QuestionCloseCompleteVoteCount.ToString(), Constants.DefaultOpQuestionCloseCompleteVoteCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.QuestionCloseWindowDays.ToString(), Constants.DefaultOpQuestionCloseWindowDays));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.QuestionFlagHomeRemoveCount.ToString(), Constants.DefaultOpQuestionFlagHomeRemoveCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TagCloseWindowDays.ToString(), Constants.DefaultOpTagCloseWindowDays));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TagFlagCompleteCount.ToString(), Constants.DefaultOpTagFlagCompleteCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TagFlagWindowHours.ToString(), Constants.DefaultOpTagFlagWindowHours));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TermSynonymApproveCount.ToString(), Constants.DefaultOpTermSynonymApproveCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TermSynonymRejectCount.ToString(), Constants.DefaultOpTermSynonymRejectCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TermSynonymMaxCount.ToString(), Constants.DefaultOpTermSynonymMaxCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserCloseVoteCount.ToString(), Constants.DefaultOpUserCloseVoteCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserFlagPostModerateCount.ToString(), Constants.DefaultOpUserFlagPostModerateCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserFlagPostSpamCount.ToString(), Constants.DefaultOpUserFlagPostSpamCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserTermSynonymCreateMinAnswerCount.ToString(), Constants.DefaultOpUserTermSynonymCreateMinAnswerCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserTermSynonymVoteMinAnswerScoreCount.ToString(), Constants.DefaultOpUserTermSynonymVoteMinAnswerScoreCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserUpVoteAnswerCount.ToString(), Constants.DefaultOpUserUpVoteAnswerCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserUpVoteQuestionCount.ToString(), Constants.DefaultOpUserUpVoteQuestionCount));
-                    colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.QuestionHomeMinScore.ToString(), Constants.DefaultOpHomeQuestionMinScore));
+
+                    //todo Add New default values to database
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.PostChangeVoteWindowMinutes.ToString(), Constants.DefaultOpPostChangeVoteWindowMinutes));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.PostFlagCompleteCount.ToString(), Constants.DefaultOpPostFlagCompleteCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.PostFlagWindowHours.ToString(), Constants.DefaultOpPostFlagWindowHours));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.QuestionCloseCompleteVoteCount.ToString(), Constants.DefaultOpQuestionCloseCompleteVoteCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.QuestionCloseWindowDays.ToString(), Constants.DefaultOpQuestionCloseWindowDays));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.QuestionFlagHomeRemoveCount.ToString(), Constants.DefaultOpQuestionFlagHomeRemoveCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TagCloseWindowDays.ToString(), Constants.DefaultOpTagCloseWindowDays));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TagFlagCompleteCount.ToString(), Constants.DefaultOpTagFlagCompleteCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TagFlagWindowHours.ToString(), Constants.DefaultOpTagFlagWindowHours));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TermSynonymApproveCount.ToString(), Constants.DefaultOpTermSynonymApproveCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TermSynonymRejectCount.ToString(), Constants.DefaultOpTermSynonymRejectCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.TermSynonymMaxCount.ToString(), Constants.DefaultOpTermSynonymMaxCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserCloseVoteCount.ToString(), Constants.DefaultOpUserCloseVoteCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserFlagPostModerateCount.ToString(), Constants.DefaultOpUserFlagPostModerateCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserFlagPostSpamCount.ToString(), Constants.DefaultOpUserFlagPostSpamCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserTermSynonymCreateMinAnswerCount.ToString(), Constants.DefaultOpUserTermSynonymCreateMinAnswerCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserTermSynonymVoteMinAnswerScoreCount.ToString(), Constants.DefaultOpUserTermSynonymVoteMinAnswerScoreCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserUpVoteAnswerCount.ToString(), Constants.DefaultOpUserUpVoteAnswerCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.UserUpVoteQuestionCount.ToString(), Constants.DefaultOpUserUpVoteQuestionCount));
+                    //colOpThresholds.Add(BuildOpThreshold(Constants.OpThresholds.QuestionHomeMinScore.ToString(), Constants.DefaultOpHomeQuestionMinScore));
                     break;
                 case 19:
                     var objNewSetting = new SettingInfo
@@ -81,8 +84,8 @@ namespace DotNetNuke.DNNQA.Components.Common
                         Value = Constants.DefaultOpHomeQuestionMinScore.ToString()
                     };
 
-                    var cntQa = new DnnqaController();
-                    cntQa.UpdateQaPortalSetting(objNewSetting);
+                    var cntQa = new SettingController();
+                    cntQa.UpdateSetting(objNewSetting);
 
                     DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.QaSettingsCacheKey + portalId);
 
@@ -193,8 +196,8 @@ namespace DotNetNuke.DNNQA.Components.Common
                         Value = Constants.DefaultScoreAcceptedAnswer.ToString()
                     };
 
-                    var cntQa = new DnnqaController();
-                    cntQa.UpdateQaPortalSetting(objNewSetting);
+                    var cntQa = new SettingController();
+                    cntQa.UpdateSetting(objNewSetting);
 
                     DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.QaSettingsCacheKey + portalId);
 

@@ -19,12 +19,12 @@
 //
 
 using System.Web.UI.WebControls;
-using DotNetNuke.DNNQA.Components.Entities;
+using GB.Album.Components.Entities;
 using DotNetNuke.Web.Mvp;
-using DotNetNuke.DNNQA.Components.Common;
+using GB.Album.Components.Common;
 using System;
 
-namespace DotNetNuke.DNNQA.Components.Views
+namespace GB.Album.Components.Views
 {
 
 	/// <summary>

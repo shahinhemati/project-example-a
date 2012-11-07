@@ -23,7 +23,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using DotNetNuke.DNNQA.Components.Entities;
+using GB.Album.Components.Entities;
 using DotNetNuke.Framework;
 using DotNetNuke.Security;
 using DotNetNuke.Services.Localization;
@@ -40,7 +40,10 @@ using DotNetNuke.Entities.Host;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Modules;
 using System.Collections.Generic;
-namespace DotNetNuke.DNNQA.Components.Common
+using DotNetNuke.Web.Client.ClientResourceManagement;
+
+
+namespace GB.Album.Components.Common
 {
 
     public class Utils
@@ -50,46 +53,46 @@ namespace DotNetNuke.DNNQA.Components.Common
         /// 
         /// </summary>
         /// <returns></returns>
-        public static List<BadgeTierInfo> GetBadgeTiers()
-        {
-            //TODO: Utilize caching
-            var colTiers = new List<BadgeTierInfo>();
+        //public static List<BadgeTierInfo> GetBadgeTiers()
+        //{
+        //    //TODO: Utilize caching
+        //    var colTiers = new List<BadgeTierInfo>();
 
-            var bronzeTier = new BadgeTierInfo
-            {
-                Id = (int) Constants.BadgeTiers.Bronze,
-                Key = Constants.BadgeTiers.Bronze.ToString(),
-                Name = @"Tier_" + Constants.BadgeTiers.Bronze,
-                Description = @"Tier_" + Constants.BadgeTiers.Bronze + @"_Desc",
-                IconClass = Constants.BadgeTiers.Bronze.ToString().ToLower(),
-                TitlePrefixKey = "TierTitle_" + Constants.BadgeTiers.Bronze
-            };
-            colTiers.Add(bronzeTier);
+        //    var bronzeTier = new BadgeTierInfo
+        //    {
+        //        Id = (int) Constants.BadgeTiers.Bronze,
+        //        Key = Constants.BadgeTiers.Bronze.ToString(),
+        //        Name = @"Tier_" + Constants.BadgeTiers.Bronze,
+        //        Description = @"Tier_" + Constants.BadgeTiers.Bronze + @"_Desc",
+        //        IconClass = Constants.BadgeTiers.Bronze.ToString().ToLower(),
+        //        TitlePrefixKey = "TierTitle_" + Constants.BadgeTiers.Bronze
+        //    };
+        //    colTiers.Add(bronzeTier);
 
-            var silverTier = new BadgeTierInfo
-            {
-                Id = (int)Constants.BadgeTiers.Silver,
-                Key = Constants.BadgeTiers.Silver.ToString(),
-                Name = @"Tier_" + Constants.BadgeTiers.Silver,
-                Description = @"Tier_" + Constants.BadgeTiers.Silver + @"_Desc",
-                IconClass = Constants.BadgeTiers.Silver.ToString().ToLower(),
-                TitlePrefixKey = "TierTitle_" + Constants.BadgeTiers.Silver
-            };
-            colTiers.Add(silverTier);
+        //    var silverTier = new BadgeTierInfo
+        //    {
+        //        Id = (int)Constants.BadgeTiers.Silver,
+        //        Key = Constants.BadgeTiers.Silver.ToString(),
+        //        Name = @"Tier_" + Constants.BadgeTiers.Silver,
+        //        Description = @"Tier_" + Constants.BadgeTiers.Silver + @"_Desc",
+        //        IconClass = Constants.BadgeTiers.Silver.ToString().ToLower(),
+        //        TitlePrefixKey = "TierTitle_" + Constants.BadgeTiers.Silver
+        //    };
+        //    colTiers.Add(silverTier);
 
-            var goldTier = new BadgeTierInfo
-            {
-                Id = (int)Constants.BadgeTiers.Gold,
-                Key = Constants.BadgeTiers.Gold.ToString(),
-                Name = @"Tier_" + Constants.BadgeTiers.Gold,
-                Description = @"Tier_" + Constants.BadgeTiers.Gold + @"_Desc",
-                IconClass = Constants.BadgeTiers.Gold.ToString().ToLower(),
-                TitlePrefixKey = "TierTitle_" + Constants.BadgeTiers.Gold
-            };
-            colTiers.Add(goldTier);
+        //    var goldTier = new BadgeTierInfo
+        //    {
+        //        Id = (int)Constants.BadgeTiers.Gold,
+        //        Key = Constants.BadgeTiers.Gold.ToString(),
+        //        Name = @"Tier_" + Constants.BadgeTiers.Gold,
+        //        Description = @"Tier_" + Constants.BadgeTiers.Gold + @"_Desc",
+        //        IconClass = Constants.BadgeTiers.Gold.ToString().ToLower(),
+        //        TitlePrefixKey = "TierTitle_" + Constants.BadgeTiers.Gold
+        //    };
+        //    colTiers.Add(goldTier);
 
-            return colTiers;
-        }
+        //    return colTiers;
+        //}
 
         /// <summary>
         /// Ensures registration of dnn.js, jQuery, jQuery UI, hoverIntent, and qaTooltip.
@@ -111,18 +114,18 @@ namespace DotNetNuke.DNNQA.Components.Common
         /// <param name="userScore"></param>
         /// <param name="editMode"></param>
         /// <returns></returns>
-        public static bool HasPrivilege(QaSettingInfo objPrivilege, int userScore, bool editMode)
-        {
-            if (editMode)
-            {
-                return true;
-            }
-            if (userScore >= objPrivilege.Value)
-            {
-                return true;
-            }
-            return false;
-        }
+        //public static bool HasPrivilege(QaSettingInfo objPrivilege, int userScore, bool editMode)
+        //{
+        //    if (editMode)
+        //    {
+        //        return true;
+        //    }
+        //    if (userScore >= objPrivilege.Value)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         #region Friendly Display
 
@@ -399,14 +402,16 @@ namespace DotNetNuke.DNNQA.Components.Common
         /// <param name="objQuestion"></param>
         /// <param name="modContext"></param>
         /// <remarks>Need to wire in page to accept page param in URL.</remarks>
-        public static void SetQuestionPageMeta(CDefault defaultPage, QuestionInfo objQuestion, ModuleInstanceContext modContext)
+        public static void SetQuestionPageMeta(CDefault defaultPage,AlbumInfo objQuestion, ModuleInstanceContext modContext)
         {
-            var title = TruncateString(objQuestion.Title + " - " + modContext.PortalSettings.PortalName, Constants.SeoTitleLimit, false);
-            var content = TruncateString(objQuestion.Body, Constants.SeoDescriptionLimit, false);
-            var link = Links.ViewQuestion(objQuestion.PostId, objQuestion.Title, modContext.PortalSettings.ActiveTab, modContext.PortalSettings);
+            var title = TruncateString(objQuestion.AlbumName + " - " + modContext.PortalSettings.PortalName, Constants.SeoTitleLimit, false);
+            var content = TruncateString(objQuestion.ShortContent, Constants.SeoDescriptionLimit, false);
+            var link = Links.ViewQuestion(objQuestion.AlbumID, objQuestion.AlbumName, modContext.PortalSettings.ActiveTab, modContext.PortalSettings);
             var keyWords = "";
             var keyCount = 1;
             var count = keyCount;
+
+            var terms=Conten
 
             foreach (var term in objQuestion.Terms.TakeWhile(term => count <= Constants.SeoKeywordsLimit))
             {
@@ -651,10 +656,10 @@ namespace DotNetNuke.DNNQA.Components.Common
                 const string configString = "<configuration>" +
                                             "<nodes configfile=\"web.config\">" +
                                             "<node path=\"/configuration/system.web/httpModules/add[@name='RequestFilter']\" action=\"insertbefore\" key=\"name\" collision=\"ignore\">" +
-                                            "<add name=\"DNNQAUrlRewrite\" type=\"DotNetNuke.DNNQA.Components.Modules.UrlModule, DotNetNuke.Modules.DNNQA\" />" +
+                                            "<add name=\"DNNQAUrlRewrite\" type=\"GB.Album.Components.Modules.UrlModule, DotNetNuke.Modules.DNNQA\" />" +
                                             "</node>" +
                                             "<node path=\"/configuration/system.webServer/modules/add[@name='RequestFilter']\" action=\"insertbefore\" key=\"name\" collision=\"ignore\">" +
-                                            "<add name=\"DNNQAUrlRewrite\" type=\"DotNetNuke.DNNQA.Components.Modules.UrlModule, DotNetNuke.Modules.DNNQA\" preCondition=\"managedHandler\" />" +
+                                            "<add name=\"DNNQAUrlRewrite\" type=\"GB.Album.Components.Modules.UrlModule, DotNetNuke.Modules.DNNQA\" preCondition=\"managedHandler\" />" +
                                             "</node>" +
                                             "</nodes>" +
                                             "</configuration>";
@@ -712,8 +717,8 @@ namespace DotNetNuke.DNNQA.Components.Common
                 {
                     return false;
                 }
-                var providerConfig = Framework.Providers.ProviderConfiguration.GetProviderConfiguration("friendlyUrl");
-                var objProvider = (Framework.Providers.Provider)providerConfig.Providers[providerConfig.DefaultProvider];
+                var providerConfig = DotNetNuke.Framework.Providers.ProviderConfiguration.GetProviderConfiguration("friendlyUrl");
+                var objProvider = (DotNetNuke.Framework.Providers.Provider)providerConfig.Providers[providerConfig.DefaultProvider];
                 if (objProvider.Name == "DNNFriendlyUrl" && objProvider.Attributes["urlFormat"].ToLower() == "humanfriendly")
                 {
                     return true;

@@ -19,9 +19,9 @@
 //
 
 using System.Collections.Generic;
-using DotNetNuke.DNNQA.Components.Entities;
+using GB.Album.Components.Entities;
 
-namespace DotNetNuke.DNNQA.Components.Models
+namespace GB.Album.Components.Models
 {
 
 	public class TagDetailModel 

@@ -19,7 +19,7 @@
 //
 
 using System;
-using DotNetNuke.DNNQA.Components.Common;
+using GB.Album.Components.Common;
 
 namespace GB.Album.Components.Entities
 {

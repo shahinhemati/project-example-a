@@ -23,7 +23,7 @@ using System.Data;
 using DotNetNuke.Common.Utilities;
 using Microsoft.ApplicationBlocks.Data;
 
-namespace DotNetNuke.DNNQA.Providers.Data.SqlDataProvider {
+namespace GB.Album.Providers.Data.SqlDataProvider {
 
 	/// <summary>
 	/// SQL Server implementation (ie. concrete provider) of the abstract DataProvider class

@@ -18,7 +18,7 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-namespace DotNetNuke.DNNQA.Components.Common
+namespace GB.Album.Components.Common
 {
     public class Caching
     {

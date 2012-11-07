@@ -18,14 +18,16 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-namespace DotNetNuke.DNNQA.Components.Common {
+namespace GB.Album.Components.Common
+{
 
 	public class Constants
-	{
+    {
+       
 
-		#region Module Settings
-	
-		// General
+        #region Module Settings
+
+        // General
 		internal const string SettingNameFormat = "DNNQA_NameFormat";
 		internal const string SettingEnableRss = "DNNQA_EnableRss";
 		
@@ -479,8 +481,6 @@ namespace DotNetNuke.DNNQA.Components.Common {
 			VoteSynonymUp = 2,
 			CloseQuestion = 10
 		}
-
 		#endregion
-	
-	}
+    }
 }

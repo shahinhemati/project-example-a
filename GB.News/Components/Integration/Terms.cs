@@ -21,10 +21,10 @@
 using System.Linq;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Entities.Content;
-using DotNetNuke.DNNQA.Components.Entities;
+using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Content.Taxonomy;
 
-namespace DotNetNuke.DNNQA.Components.Integration {
+namespace GB.Album.Components.Integration {
 
 	public class Terms {
 
@@ -33,11 +33,13 @@ namespace DotNetNuke.DNNQA.Components.Integration {
 		/// </summary>
 		/// <param name="objPost">The content item we are associating categories with. In this module, it will always be a question (first post).</param>
 		/// <param name="objContent"></param>
-		internal void ManageQuestionTerms(PostInfo objPost, ContentItem objContent)
+		internal void ManageQuestionTerms(AlbumInfo objAlbum, ContentItem objContent)
 		{
 			RemoveQuestionTerms(objContent);
 
-			foreach (var term in objPost.Terms) {
+		    var terms = Util.GetContentController().GetContentItem(objAlbum.AlbumID).Terms;
+
+			foreach (var term in terms) {
 				Util.GetTermController().AddTermToContent(term, objContent);
 			}
 		}

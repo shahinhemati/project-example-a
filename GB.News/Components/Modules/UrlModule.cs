@@ -21,12 +21,13 @@
 using System;
 using System.Web;
 using System.Text.RegularExpressions;
-using DotNetNuke.DNNQA.Components.Common;
+using GB.Album.Components.Common;
 using DotNetNuke.Entities.Portals;
-using DotNetNuke.DNNQA.Components.Entities;
-using DotNetNuke.DNNQA.Components.Controllers;
+using GB.Album.Components.Entities;
+using IB.Album.Components.Controllers;
 
-namespace DotNetNuke.DNNQA.Components.Modules
+
+namespace GB.Album.Components.Modules
 {
 
     public class UrlModule : IHttpModule
@@ -136,7 +137,7 @@ namespace DotNetNuke.DNNQA.Components.Modules
                             //    tagRegEx = new Regex("/Tag/(.+)\\.aspx$", RegexOptions.IgnoreCase);
                             //}
 
-                            var dnnqa = new DnnqaController();
+                            var albumCtr = new AlbumController();
                             var tInfo = Utils.GetTabFromUrl(portalSettings);
                             
                             if (tInfo != null && Utils.IsModuleOnTab(tInfo.TabID))
@@ -152,11 +153,11 @@ namespace DotNetNuke.DNNQA.Components.Modules
                                     if (tInfo != null)
                                     {
 
-                                        QuestionInfo qInfo = dnnqa.GetQuestion(questionId, portalSettings.PortalId);
+                                        AlbumInfo qInfo = albumCtr.GetAlbum(questionId, portalSettings.PortalId);
 
                                         if (qInfo != null)
                                         {
-                                            if (Utils.CreateFriendlySlug(qInfo.Title).ToLower() == questionTitle.ToLower())
+                                            if (Utils.CreateFriendlySlug(qInfo.AlbumName).ToLower() == questionTitle.ToLower())
                                             {
                                                 relativePath = Links.ViewQuestion(questionId, tInfo.TabID, portalSettings).Replace("http://", "").Replace("https://", "").Replace(objPortalAlias.HTTPAlias.Contains("/") ? objPortalAlias.HTTPAlias.Substring(0, objPortalAlias.HTTPAlias.IndexOf("/")) : objPortalAlias.HTTPAlias, "");
 
@@ -164,7 +165,7 @@ namespace DotNetNuke.DNNQA.Components.Modules
                                                 return;
                                             }
                                             context.Response.Status = "301 Moved Permanently";
-                                            context.Response.RedirectLocation = Links.ViewQuestion(questionId, qInfo.Title, tInfo, portalSettings);
+                                            context.Response.RedirectLocation = Links.ViewQuestion(questionId, qInfo.AlbumName, tInfo, portalSettings);
                                         }
                                     }
                                 }

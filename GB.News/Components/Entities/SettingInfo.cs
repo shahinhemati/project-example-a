@@ -17,7 +17,7 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-namespace DotNetNuke.DNNQA.Components.Entities
+namespace  GB.Album.Components.Entities
 {
 
     public class SettingInfo
@@ -27,7 +27,6 @@ namespace DotNetNuke.DNNQA.Components.Entities
         public string Value { get; set; }
         public int TypeId { get; set; }
         public int PortalId { get; set; }
-
         public int SettingsId { get; set; }
 
     }
