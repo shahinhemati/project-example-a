@@ -22,11 +22,12 @@ namespace GB.Album.Components.Common
 {
 
 	public class Constants
-	{
+    {
+       
 
-		#region Module Settings
-	
-		// General
+        #region Module Settings
+
+        // General
 		internal const string SettingNameFormat = "DNNQA_NameFormat";
 		internal const string SettingEnableRss = "DNNQA_EnableRss";
 		
