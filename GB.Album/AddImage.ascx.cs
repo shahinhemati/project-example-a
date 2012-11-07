@@ -10,17 +10,22 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using IB.Common.Base;
+using DotNetNuke.Web.Mvp;
+using GB.Album.Components.Models;
+using GB.Album.Components.Presenters;
+using WebFormsMvp;
+
 
 namespace IB.Album
 {
-    public partial class AddImageToAlbum : V_Base
+    [PresenterBinding(typeof(AddImagePresenter))]
+    public partial class AddImageToAlbum : ModuleView<AddImageModel>
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request["albumid"] != null)
             {
-                LoadAlbum();
+
             }
         }
 
@@ -29,27 +34,6 @@ namespace IB.Album
             get
             {
                 return Request["albumid"].ToString();
-            }
-        }
-        public string PortalID
-        {
-            get
-            {
-                return PortalId.ToString();
-            }
-        }
-
-        private void LoadAlbum()
-        {
-            int id = int.Parse(Request["albumid"].ToString());
-            var product = (from p in Data.CV_Albums
-                           where p.AlbumID == id
-                           select p).FirstOrDefault();
-            if (product != null)
-            {
-                lblTitle.Text = product.AlbumName;
-                lblDescription.Text = product.ShortContent;
-                this.imgThumbAlbum.ImageUrl=GetWebImageOfThumb(LocationImage.Album,product.ImageName);
             }
         }
     }

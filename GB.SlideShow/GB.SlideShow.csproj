@@ -227,6 +227,9 @@
     <Folder Include="Provider\SiteMap\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BuildScripts\ModulePackage.targets" />
+    <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
+    <None Include="GB.SlideShow.dnn" />
     <None Include="Provider\Data\SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="Provider\Data\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
@@ -258,12 +261,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetPath) $(dnn6)\bin /y
-xcopy $(ProjectDir)*.ascx $(dnn6)\desktopmodules\IBusiness\IB.SlideShow /y
-xcopy $(ProjectDir)*.png $(dnn6)\desktopmodules\IBusiness\IB.SlideShow  /y/s
-xcopy $(ProjectDir)*.js $(dnn6)\desktopmodules\IBusiness\IB.SlideShow   /y/s
-xcopy $(ProjectDir)*.css $(dnn6)\desktopmodules\IBusiness\IB.SlideShow   /y/s
-</PostBuildEvent>
+<PropertyGroup>
+    <Extension>zip</Extension>
+    <DNNFileName>GB.SlideShow</DNNFileName>
+    <PackageName>GB.SlideShow</PackageName>
+    <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\BuildScripts</MSBuildCommunityTasksPath>
   </PropertyGroup>
+  <Import Project="BuildScripts\ModulePackage.Targets" />
+  <Target Name="AfterBuild" DependsOnTargets="PackageModule">
+  </Target>
 </Project>
