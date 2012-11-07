@@ -23,7 +23,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace DotNetNuke.DNNQA.Components.Common
+namespace GB.Album.Components.Common
 {
 	/// <summary>
 	/// Wrapper for interacting with TinyUrl API

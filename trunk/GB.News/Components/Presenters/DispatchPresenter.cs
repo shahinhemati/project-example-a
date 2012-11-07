@@ -18,15 +18,15 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-using DotNetNuke.DNNQA.Providers.Data.SqlDataProvider;
+
 using DotNetNuke.Web.Mvp;
-using DotNetNuke.DNNQA.Components.Controllers;
-using DotNetNuke.DNNQA.Components.Models;
-using DotNetNuke.DNNQA.Components.Views;
+using GB.Album.Components.Controllers;
+using GB.Album.Components.Models;
+using GB.Album.Components.Views;
 using System;
 using DotNetNuke.Common.Utilities;
 
-namespace DotNetNuke.DNNQA.Components.Presenters {
+namespace GB.Album.Components.Presenters {
 
 	/// <summary>
 	/// 
@@ -35,7 +35,6 @@ namespace DotNetNuke.DNNQA.Components.Presenters {
 
 		#region Private Members
 
-		protected IDnnqaController Controller { get; private set; }
 
 		/// <summary>
 		/// 
@@ -63,38 +62,24 @@ namespace DotNetNuke.DNNQA.Components.Presenters {
 		private const string CtlPostHistory = "/PostHistory.ascx";
 		private const string CtlPrivilege = "/Privilege.ascx";
 		private const string CtlEditPost = "/EditPost.ascx";
-		//private const string CtlBadges = "/Badges.ascx";
-		//private const string CtlBadge = "/Badge.ascx";
 		private const string CtlProfile = "/Profile.ascx";
 
 		#endregion
 
 		#region Constructor
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="view"></param>
-		public DispatchPresenter(IDispatchView view)
-			: this(view, new DnnqaController(new SqlDataProvider())) {
-		}
+		
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="view"></param>
 		/// <param name="controller"></param>
-		public DispatchPresenter(IDispatchView view, IDnnqaController controller)
-			: base(view) {
+		public DispatchPresenter(IDispatchView view):base(view){
 			if (view == null) {
 				throw new ArgumentException(@"View is nothing.", "view");
 			}
 
-			if (controller == null) {
-				throw new ArgumentException(@"Controller is nothing.", "controller");
-			}
-
-			Controller = controller;
 		}
 
 		#endregion

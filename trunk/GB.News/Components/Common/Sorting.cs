@@ -20,9 +20,10 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using DotNetNuke.DNNQA.Components.Entities;
+using GB.Album.Components.Entities;
+using TermInfo = GB.Album.Components.Entities.TermInfo;
 
-namespace DotNetNuke.DNNQA.Components.Common
+namespace GB.Album.Components.Common
 {
 
     /// <summary>
@@ -97,7 +98,7 @@ namespace DotNetNuke.DNNQA.Components.Common
             }
         }
 
-        internal static IEnumerable<PostInfo> GetAnswerCollection(int pageSize, int pageIndex, SortInfo objSorting, IEnumerable<PostInfo> resultsCollection)
+        internal static IEnumerable<AlbumInfo> GetAnswerCollection(int pageSize, int pageIndex, SortInfo objSorting, IEnumerable<AlbumInfo> resultsCollection)
         {
             var defaultResults = resultsCollection.Skip(pageSize * pageIndex).Take(pageSize).ToList();
 
@@ -108,70 +109,71 @@ namespace DotNetNuke.DNNQA.Components.Common
                         switch (objSorting.Direction)
                         {
                             case Constants.SortDirection.Descending:
-                                return (from t in resultsCollection orderby t.AnswerId descending, t.CreatedDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.AlbumID descending, t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
                             default:
-                                return (from t in resultsCollection orderby t.AnswerId descending, t.CreatedDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.AlbumID descending, t.CreatedOnDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
                         }
                     case "active":
                         switch (objSorting.Direction)
                         {
                             case Constants.SortDirection.Descending:
-                                return (from t in resultsCollection orderby t.AnswerId descending, t.LastModifiedDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.AlbumID descending, t.LastModifiedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
                             default:
-                                return (from t in resultsCollection orderby t.AnswerId descending, t.LastModifiedDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.AlbumID descending, t.LastModifiedOnDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
                         }
                     default: // "votes";
+                        //CUONGVV
                         switch (objSorting.Direction)
                         {
-                                // we always want the accepted answer first, then number of votes, and finally if 2+ answers have same number of votes, we want the newest one on top.
+                            // we always want the accepted answer first, then number of votes, and finally if 2+ answers have same number of votes, we want the newest one on top.
                             case Constants.SortDirection.Descending:
-                                return (from t in resultsCollection orderby t.AnswerId descending, t.Score descending, t.CreatedDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.AlbumID descending, t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
                             default:
-                                return (from t in resultsCollection orderby t.AnswerId descending, t.Score ascending, t.CreatedDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.AlbumID descending,t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
                         }
                 }
             return defaultResults;
         }
 
-        internal static IEnumerable<QuestionInfo> GetKeywordSearchCollection(int pageSize, int pageIndex, SortInfo objSorting, IEnumerable<QuestionInfo> resultsCollection)
-        {
-            var defaultResults = resultsCollection.Skip(pageSize * pageIndex).Take(pageSize).ToList();
+        //internal static IEnumerable<AlbumInfo> GetKeywordSearchCollection(int pageSize, int pageIndex, SortInfo objSorting, IEnumerable<AlbumInfo> resultsCollection)
+        //{
+        //    var defaultResults = resultsCollection.Skip(pageSize * pageIndex).Take(pageSize).ToList();
 
-            if (objSorting != null)
-                switch (objSorting.Column)
-                {
-                    case "newest":
-                        switch (objSorting.Direction)
-                        {
-                            case Constants.SortDirection.Descending:
-                                return (from t in resultsCollection orderby t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
-                            default:
-                                return (from t in resultsCollection orderby t.CreatedOnDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
-                        }
-                    case "votes":
-                        switch (objSorting.Direction)
-                        {
-                            case Constants.SortDirection.Descending:
-                                return (from t in resultsCollection orderby t.Score descending select t).Skip(pageSize * pageIndex).Take(pageSize);
-                            default:
-                                return (from t in resultsCollection orderby t.Score ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
-                        }
-                    default: // "active";
-                        switch (objSorting.Direction)
-                        {
-                            case Constants.SortDirection.Descending:
-                                return (from t in resultsCollection orderby t.LastApprovedDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
-                            default:
-                                return (from t in resultsCollection orderby t.LastApprovedDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
-                        }
-                }
-            return defaultResults;
-        }
+        //    if (objSorting != null)
+        //        switch (objSorting.Column)
+        //        {
+        //            case "newest":
+        //                switch (objSorting.Direction)
+        //                {
+        //                    case Constants.SortDirection.Descending:
+        //                        return (from t in resultsCollection orderby t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+        //                    default:
+        //                        return (from t in resultsCollection orderby t.CreatedOnDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
+        //                }
+        //            case "votes":
+        //                switch (objSorting.Direction)
+        //                {
+        //                    case Constants.SortDirection.Descending:
+        //                        return (from t in resultsCollection orderby t.Score descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+        //                    default:
+        //                        return (from t in resultsCollection orderby t.Score ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
+        //                }
+        //            default: // "active";
+        //                switch (objSorting.Direction)
+        //                {
+        //                    case Constants.SortDirection.Descending:
+        //                        return (from t in resultsCollection orderby t.LastApprovedDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+        //                    default:
+        //                        return (from t in resultsCollection orderby t.LastApprovedDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
+        //                }
+        //        }
+        //    return defaultResults;
+        //}
 
-        internal static IEnumerable<UserScoreLogInfo> GetUserRepCollection(int pageSize, IEnumerable<UserScoreLogInfo> resultsCollection)
-        {
-            return (from t in resultsCollection where t.Score != 0 orderby t.CreatedOnDate descending select t).Skip(0).Take(pageSize);
-        }
+        //internal static IEnumerable<UserScoreLogInfo> GetUserRepCollection(int pageSize, IEnumerable<UserScoreLogInfo> resultsCollection)
+        //{
+        //    return (from t in resultsCollection where t.Score != 0 orderby t.CreatedOnDate descending select t).Skip(0).Take(pageSize);
+        //}
 
     }
 }

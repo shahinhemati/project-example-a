@@ -20,12 +20,8 @@
 
 using System;
 
-namespace DotNetNuke.DNNQA.Components.Common
+namespace GB.Album.Components.Common
 {
-
-#pragma warning disable 1587
-	/// This File contains all the classes we need for our custom events for UI's (views) 
-#pragma warning restore 1587
 
 	#region Public Methods 
 

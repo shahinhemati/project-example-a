@@ -24,20 +24,20 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
-using DotNetNuke.DNNQA.Components.Common;
-using DotNetNuke.DNNQA.Components.Entities;
-using DotNetNuke.DNNQA.Components.Integration;
-using DotNetNuke.DNNQA.Providers.Data;
-using DotNetNuke.DNNQA.Providers.Data.SqlDataProvider;
+using GB.Album.Components.Common;
+using GB.Album.Components.Entities;
+using GB.Album.Components.Integration;
+using GB.Album.Providers.Data;
+using GB.Album.Providers.Data.SqlDataProvider;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Security;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.Web.Mvp;
-using DotNetNuke.DNNQA.Components.Controllers;
-using DotNetNuke.DNNQA.Components.Models;
-using DotNetNuke.DNNQA.Components.Views;
+using GB.Album.Components.Controllers;
+using GB.Album.Components.Models;
+using GB.Album.Components.Views;
 
-namespace DotNetNuke.DNNQA.Components.Presenters
+namespace GB.Album.Components.Presenters
 {
 
 	/// <summary>
