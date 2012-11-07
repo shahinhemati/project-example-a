@@ -89,99 +89,53 @@
     <Compile Include="AddImageToProduct.ascx.designer.cs">
       <DependentUpon>AddImageToProduct.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Components\Args\AddImageEventArgs.cs" />
+    <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
     <Compile Include="Components\Common\Caching.cs" />
     <Compile Include="Components\Common\Constants.cs" />
     <Compile Include="Components\Common\Links.cs" />
+    <Compile Include="Components\Common\ModuleSecurity.cs" />
     <Compile Include="Components\Common\QaSettings.cs" />
     <Compile Include="Components\Common\Sorting.cs" />
     <Compile Include="Components\Common\UIEventArgs.cs" />
     <Compile Include="Components\Common\UIListEventArgs.cs" />
     <Compile Include="Components\Common\UrlShorteningService.cs" />
     <Compile Include="Components\Common\Utils.cs" />
-    <Compile Include="Components\Controllers\DnnqaController.cs" />
-    <Compile Include="Components\Controllers\IDnnqaController.cs" />
-    <Compile Include="Components\Entities\BadgeInfo.cs" />
-    <Compile Include="Components\Entities\CategoryInfo.cs" />
-    <Compile Include="Components\Entities\CommentInfo.cs" />
-    <Compile Include="Components\Entities\ModerationLogInfo.cs" />
-    <Compile Include="Components\Entities\PostHistoryInfo.cs" />
-    <Compile Include="Components\Entities\PostInfo.cs" />
-    <Compile Include="Components\Entities\ProductInfo.cs" />
-    <Compile Include="Components\Entities\QuestionInfo.cs" />
-    <Compile Include="Components\Entities\QuestionServiceInfo.cs" />
+    <Compile Include="Components\Controllers\AlbumController.cs" />
+    <Compile Include="Components\Controllers\AlbumImageController.cs" />
+    <Compile Include="Components\Controllers\SettingController.cs" />
+    <Compile Include="Components\Entities\AlbumInfo.cs" />
+    <Compile Include="Components\Entities\ImageInfo.cs" />
     <Compile Include="Components\Entities\SettingInfo.cs" />
-    <Compile Include="Components\Entities\SubscriptionInfo.cs" />
     <Compile Include="Components\Entities\TermHistoryInfo.cs" />
     <Compile Include="Components\Entities\TermInfo.cs" />
     <Compile Include="Components\Entities\TermSynonymInfo.cs" />
-    <Compile Include="Components\Entities\UserBadgeInfo.cs" />
-    <Compile Include="Components\Entities\UserScoreInfo.cs" />
-    <Compile Include="Components\Entities\UserScoreLogInfo.cs" />
     <Compile Include="Components\Entities\UtilityInfo.cs" />
-    <Compile Include="Components\Entities\VoteInfo.cs" />
     <Compile Include="Components\Integration\Content.cs" />
     <Compile Include="Components\Integration\Journal.cs" />
     <Compile Include="Components\Integration\Notifications.cs" />
     <Compile Include="Components\Integration\Terms.cs" />
-    <Compile Include="Components\Models\AskQuestionModel.cs" />
-    <Compile Include="Components\Models\BadgeManagerModel.cs" />
-    <Compile Include="Components\Models\BadgeModel.cs" />
-    <Compile Include="Components\Models\BadgesModel.cs" />
-    <Compile Include="Components\Models\BrowseModel.cs" />
+    <Compile Include="Components\Models\AddImageModel.cs" />
     <Compile Include="Components\Models\DispatchModel.cs" />
-    <Compile Include="Components\Models\EditPostModel.cs" />
-    <Compile Include="Components\Models\EditTermModel.cs" />
+    <Compile Include="Components\Models\EditAlbumModel.cs" />
     <Compile Include="Components\Models\HomeModel.cs" />
-    <Compile Include="Components\Models\PostHistoryModel.cs" />
-    <Compile Include="Components\Models\PrivilegeManagerModel.cs" />
-    <Compile Include="Components\Models\PrivilegeModel.cs" />
-    <Compile Include="Components\Models\ProfileModel.cs" />
-    <Compile Include="Components\Models\QuestionModel.cs" />
-    <Compile Include="Components\Models\ScoringManagerModel.cs" />
-    <Compile Include="Components\Models\SubscriptionsModel.cs" />
     <Compile Include="Components\Models\TagDetailModel.cs" />
     <Compile Include="Components\Models\TagHistoryModel.cs" />
     <Compile Include="Components\Models\TagListModel.cs" />
     <Compile Include="Components\Modules\UrlModule.cs" />
-    <Compile Include="Components\Presenters\AskQuestionPresenter.cs" />
-    <Compile Include="Components\Presenters\BadgeManagerPresenter.cs" />
-    <Compile Include="Components\Presenters\BadgePresenter.cs" />
-    <Compile Include="Components\Presenters\BadgesPresenter.cs" />
-    <Compile Include="Components\Presenters\BrowsePresenter.cs" />
+    <Compile Include="Components\Presenters\AddImagePresenter.cs" />
     <Compile Include="Components\Presenters\DispatchPresenter.cs" />
-    <Compile Include="Components\Presenters\EditPostPresenter.cs" />
-    <Compile Include="Components\Presenters\EditTermPresenter.cs" />
+    <Compile Include="Components\Presenters\EditAlbumPresenter.cs" />
     <Compile Include="Components\Presenters\HomePresenter.cs" />
-    <Compile Include="Components\Presenters\PostHistoryPresenter.cs" />
-    <Compile Include="Components\Presenters\PrivilegeManagerPresenter.cs" />
-    <Compile Include="Components\Presenters\PrivilegePresenter.cs" />
-    <Compile Include="Components\Presenters\ProfilePresenter.cs" />
-    <Compile Include="Components\Presenters\QAServicePresenter.cs" />
-    <Compile Include="Components\Presenters\QuestionPresenter.cs" />
-    <Compile Include="Components\Presenters\ScoringManagerPresenter.cs" />
-    <Compile Include="Components\Presenters\SubscriptionsPresenter.cs" />
     <Compile Include="Components\Presenters\TagDetailPresenter.cs" />
     <Compile Include="Components\Presenters\TagHistoryPresenter.cs" />
     <Compile Include="Components\Presenters\TagListPresenter.cs" />
     <Compile Include="Components\Services\QAServiceController.cs" />
     <Compile Include="Components\Tasks\Emailer.cs" />
-    <Compile Include="Components\Views\IAskQuestionView.cs" />
-    <Compile Include="Components\Views\IBadgeManagerView.cs" />
-    <Compile Include="Components\Views\IBadgesView.cs" />
-    <Compile Include="Components\Views\IBadgeView.cs" />
-    <Compile Include="Components\Views\IBrowseView.cs" />
+    <Compile Include="Components\Views\IAddImageView.cs" />
     <Compile Include="Components\Views\IDispatchView.cs" />
-    <Compile Include="Components\Views\IEditPostView.cs" />
-    <Compile Include="Components\Views\IEditTermView.cs" />
+    <Compile Include="Components\Views\IEditAlbumView.cs" />
     <Compile Include="Components\Views\IHomeView.cs" />
-    <Compile Include="Components\Views\IPostHistoryView.cs" />
-    <Compile Include="Components\Views\IPrivilegeManagerView.cs" />
-    <Compile Include="Components\Views\IPrivilegeView.cs" />
-    <Compile Include="Components\Views\IProfileView.cs" />
-    <Compile Include="Components\Views\IQaServiceView.cs" />
-    <Compile Include="Components\Views\IQuestionView.cs" />
-    <Compile Include="Components\Views\IScoringManagerView.cs" />
-    <Compile Include="Components\Views\ISubscriptionsView.cs" />
     <Compile Include="Components\Views\ITagDetailView.cs" />
     <Compile Include="Components\Views\ITagHistoryView.cs" />
     <Compile Include="Components\Views\ITagListView.cs" />
@@ -209,7 +163,7 @@
     <Compile Include="ManagerProduct.ascx.designer.cs">
       <DependentUpon>ManagerProduct.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Provider\Data\SqlDataProvider\SqlDataProvider.cs" />
+    <Compile Include="Provider\SiteMap\Core.cs" />
     <Compile Include="Settings.ascx.cs">
       <DependentUpon>Settings.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -232,18 +186,13 @@
     <Folder Include="Controls\" />
     <Folder Include="Documents\" />
     <Folder Include="Properties\" />
-    <Folder Include="Provider\SiteMap\" />
+    <Folder Include="Provider\Search\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildScripts\ModulePackage.targets" />
     <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
     <None Include="GB.Product.dnn" />
     <None Include="Provider\Data\SqlDataProvider\01.00.00.SqlDataProvider" />
-    <None Include="Provider\Data\SqlDataProvider\01.00.01.SqlDataProvider" />
-    <None Include="Provider\Data\SqlDataProvider\01.00.02.SqlDataProvider" />
-    <None Include="Provider\Data\SqlDataProvider\01.00.03.SqlDataProvider" />
-    <None Include="Provider\Data\SqlDataProvider\01.01.00.SqlDataProvider" />
-    <None Include="Provider\Data\SqlDataProvider\01.01.01.SqlDataProvider" />
     <None Include="Provider\Data\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -274,7 +223,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
- <PropertyGroup>
+  <PropertyGroup>
     <Extension>zip</Extension>
     <DNNFileName>GB.Product</DNNFileName>
     <PackageName>GB.Product</PackageName>
