@@ -235,6 +235,9 @@
     <Folder Include="Provider\SiteMap\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BuildScripts\ModulePackage.targets" />
+    <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
+    <None Include="GB.Product.dnn" />
     <None Include="Provider\Data\SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="Provider\Data\SqlDataProvider\01.00.01.SqlDataProvider" />
     <None Include="Provider\Data\SqlDataProvider\01.00.02.SqlDataProvider" />
@@ -271,12 +274,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetPath) $(dnn6)\bin /y
-xcopy $(ProjectDir)*.ascx $(dnn6)\desktopmodules\IBusiness\IB.Product /y/s
-xcopy $(ProjectDir)*.css $(dnn6)\desktopmodules\IBusiness\IB.Product /y/s
-xcopy $(ProjectDir)*.js $(dnn6)\desktopmodules\IBusiness\IB.Product /y/s
-xcopy $(ProjectDir)*.gif $(dnn6)\desktopmodules\IBusiness\IB.Product /y/s
-xcopy $(ProjectDir)*.ashx $(dnn6)\desktopmodules\IBusiness\IB.Product /y/s</PostBuildEvent>
+ <PropertyGroup>
+    <Extension>zip</Extension>
+    <DNNFileName>GB.Product</DNNFileName>
+    <PackageName>GB.Product</PackageName>
+    <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\BuildScripts</MSBuildCommunityTasksPath>
   </PropertyGroup>
+  <Import Project="BuildScripts\ModulePackage.Targets" />
+  <Target Name="AfterBuild" DependsOnTargets="PackageModule">
+  </Target>
 </Project>

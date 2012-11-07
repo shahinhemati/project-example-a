@@ -126,6 +126,12 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetPath) $(dnn6)\bin /y</PostBuildEvent>
+    <Extension>zip</Extension>
+    <DNNFileName>GB.Common</DNNFileName>
+    <PackageName>GB.Common</PackageName>
+    <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\BuildScripts</MSBuildCommunityTasksPath>
   </PropertyGroup>
+  <Import Project="BuildScripts\ModulePackage.Targets" />
+  <Target Name="AfterBuild" DependsOnTargets="PackageModule">
+  </Target>
 </Project>

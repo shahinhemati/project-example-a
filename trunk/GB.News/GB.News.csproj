@@ -223,6 +223,9 @@
     <Folder Include="Provider\SiteMap\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BuildScripts\ModulePackage.targets" />
+    <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
+    <None Include="GB.News.dnn" />
     <None Include="Provider\Data\SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="Provider\Data\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
@@ -254,8 +257,12 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetPath) $(dnn6)\bin /y
-xcopy $(ProjectDir)*.ascx $(dnn6)\desktopmodules\IBusiness\IB.News /y/s
-xcopy $(ProjectDir)*.css $(dnn6)\desktopmodules\IBusiness\IB.News /y/s</PostBuildEvent>
+    <Extension>zip</Extension>
+    <DNNFileName>GB.News</DNNFileName>
+    <PackageName>GB.News</PackageName>
+    <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\BuildScripts</MSBuildCommunityTasksPath>
   </PropertyGroup>
+  <Import Project="BuildScripts\ModulePackage.Targets" />
+  <Target Name="AfterBuild" DependsOnTargets="PackageModule">
+  </Target>
 </Project>
