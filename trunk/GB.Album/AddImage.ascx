@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AddImageToAlbum.ascx.cs" Inherits="IB.Album.AddImageToAlbum" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AddImage.ascx.cs" Inherits="IB.Album.AddImageToAlbum" %>
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/base/jquery-ui.css"
     id="theme">
 <link rel="stylesheet" href='<%=ControlPath+"UpLoad/jquery.fileupload-ui.css"%>'>

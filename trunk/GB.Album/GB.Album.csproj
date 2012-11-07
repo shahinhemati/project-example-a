@@ -82,7 +82,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddImageToAlbum.ascx" />
+    <Content Include="AddImage.ascx" />
     <Content Include="Dispatch.ascx" />
     <Content Include="EditAlbum.ascx" />
     <Content Include="ManagerAlbum.ascx" />
@@ -97,12 +97,14 @@
     <Content Include="UpLoad\style.css" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddImageToAlbum.ascx.cs">
-      <DependentUpon>AddImageToAlbum.ascx</DependentUpon>
+    <Compile Include="AddImage.ascx.cs">
+      <DependentUpon>AddImage.ascx</DependentUpon>
     </Compile>
-    <Compile Include="AddImageToAlbum.ascx.designer.cs">
-      <DependentUpon>AddImageToAlbum.ascx</DependentUpon>
+    <Compile Include="AddImage.ascx.designer.cs">
+      <DependentUpon>AddImage.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Components\Args\AddImageEventArgs.cs" />
+    <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
     <Compile Include="Components\Common\Caching.cs" />
     <Compile Include="Components\Common\Constants.cs" />
     <Compile Include="Components\Common\Links.cs" />
@@ -127,18 +129,27 @@
     <Compile Include="Components\Integration\Journal.cs" />
     <Compile Include="Components\Integration\Notifications.cs" />
     <Compile Include="Components\Integration\Terms.cs" />
+    <Compile Include="Components\Models\AddImageModel.cs" />
     <Compile Include="Components\Models\DispatchModel.cs" />
+    <Compile Include="Components\Models\EditAlbumModel.cs" />
+    <Compile Include="Components\Models\HomeModel.cs" />
     <Compile Include="Components\Models\TagDetailModel.cs" />
     <Compile Include="Components\Models\TagHistoryModel.cs" />
     <Compile Include="Components\Models\TagListModel.cs" />
     <Compile Include="Components\Modules\UrlModule.cs" />
+    <Compile Include="Components\Presenters\AddImagePresenter.cs" />
     <Compile Include="Components\Presenters\DispatchPresenter.cs" />
+    <Compile Include="Components\Presenters\EditAlbumPresenter.cs" />
+    <Compile Include="Components\Presenters\HomePresenter.cs" />
     <Compile Include="Components\Presenters\TagDetailPresenter.cs" />
     <Compile Include="Components\Presenters\TagHistoryPresenter.cs" />
     <Compile Include="Components\Presenters\TagListPresenter.cs" />
     <Compile Include="Components\Services\QAServiceController.cs" />
     <Compile Include="Components\Tasks\Emailer.cs" />
+    <Compile Include="Components\Views\IAddImageView.cs" />
     <Compile Include="Components\Views\IDispatchView.cs" />
+    <Compile Include="Components\Views\IEditAlbumView.cs" />
+    <Compile Include="Components\Views\IHomeView.cs" />
     <Compile Include="Components\Views\ITagDetailView.cs" />
     <Compile Include="Components\Views\ITagHistoryView.cs" />
     <Compile Include="Components\Views\ITagListView.cs" />
@@ -151,6 +162,7 @@
     </Compile>
     <Compile Include="EditAlbum.ascx.cs">
       <DependentUpon>EditAlbum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditAlbum.ascx.designer.cs">
       <DependentUpon>EditAlbum.ascx</DependentUpon>

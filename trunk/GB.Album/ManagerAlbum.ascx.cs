@@ -10,10 +10,9 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using IB.Common.Base;
 using IB.Common.Entities;
 
-namespace IB.Album
+namespace GB.Album.UI
 {
     public partial class ManagerAlbum : V_Base
     {

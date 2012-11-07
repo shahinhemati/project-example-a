@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="True" CodeBehind="Dispatch.ascx.cs" Inherits="IB.Album.Dispatch" %>
+﻿<%@ Control Language="C#" AutoEventWireup="True" CodeBehind="Dispatch.ascx.cs" Inherits="GB.Album.Dispatch" %>
 <div class="dnnClear">
 	<asp:PlaceHolder ID="phUserControl" runat="server" />
 </div>
