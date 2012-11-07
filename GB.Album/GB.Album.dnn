@@ -1,13 +1,13 @@
 ﻿<dotnetnuke type="Package" version="5.0">
     <packages>
-        <package name="DNNQA" type="Module" version="01.01.01">
-            <friendlyname>DNN Q and A</friendlyname>
-            <description>A DotNetNuke Questions and Answers module.</description>
+        <package name="GB.Album" type="Module" version="01.01.01">
+            <friendlyname>Global business album</friendlyname>
+            <description>Global business album module.</description>
             <iconFile>~/DesktopModules/DNNQA/images/QandA.png</iconFile>
             <owner>
                 <name>DotNetNuke Q and A Module</name>
-                <organization>DotNetNuke Corporation</organization>
-                <url>dnnqanda.codeplex.com</url>
+                <organization>Global Business Corporation</organization>
+                <url>http://</url>
                 <email />
             </owner>
             <license src="License.txt"></license>
@@ -18,13 +18,13 @@
             <components>
                 <component type="Module">
                     <desktopModule>
-                        <moduleName>DNNQA</moduleName>
-                        <foldername>DNNQA</foldername>
+                        <moduleName>GB.Album</moduleName>
+                        <foldername>GB.Album</foldername>
                         <businessControllerClass />
                         <supportedFeatures />
                         <moduleDefinitions>
                             <moduleDefinition>
-                                <friendlyName>DNNQA</friendlyName>
+                                <friendlyName>GB.Album</friendlyName>
                                 <defaultCacheTime>-1</defaultCacheTime>
                                 <moduleControls>
                                     <moduleControl>
@@ -130,7 +130,7 @@
                 </component>
                 <component type="ResourceFile">
                     <resourceFiles>
-                        <basePath>DesktopModules\DNNQA</basePath>
+                        <basePath>DesktopModules\GB.Album</basePath>
                         <resourceFile>
                             <name>Resources.zip</name>
                             <sourceFileName>Resources.zip</sourceFileName>
