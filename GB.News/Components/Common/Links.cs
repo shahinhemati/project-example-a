@@ -24,7 +24,7 @@ using DotNetNuke.UI.Modules;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Tabs;
 
-namespace GB.Album.Components.Common
+namespace GB.News.Components.Common
 {
 
 	/// <summary>

@@ -20,7 +20,7 @@
 
 using System;
 
-namespace GB.Album.Components.Entities
+namespace GB.Product.Components.Entities
 {
 
     /// <summary>

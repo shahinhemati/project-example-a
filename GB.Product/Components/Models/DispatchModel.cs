@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GB.Album.Components.Models
+namespace GB.Product.Components.Models
 {
     public class DispatchModel
     {

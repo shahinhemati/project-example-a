@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using DotNetNuke.Web.Mvp;
 
-namespace GB.Album.Components.Views
+namespace GB.SlideShow.Components.Views
 {
-    public interface IHomeView :IModuleView<GB.Album.Components.Models.HomeModel>
+    public interface IHomeView :IModuleView<GB.SlideShow.Components.Models.HomeModel>
     {
         void Refresh();
     }

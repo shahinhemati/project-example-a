@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GB.Album.Components.Entities;
+using GB.SlideShow.Components.Entities;
 
-namespace GB.Album.Components.Controllers
+namespace GB.SlideShow.Components.Controllers
 {
     public class SettingController
     {

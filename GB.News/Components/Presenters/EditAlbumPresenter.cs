@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Args;
-using GB.Album.Components.Entities;
-using GB.Album.Components.Views;
-using GB.Album.Components.Models;
+using GB.News.Components.Args;
+using GB.News.Components.Entities;
+using GB.News.Components.Views;
+using GB.News.Components.Models;
 using IB.Album.Components.Controllers;
 
-namespace GB.Album.Components.Presenters
+namespace GB.News.Components.Presenters
 {
     public class EditAlbumPresenter:ModulePresenter<IEditAlbumView,EditAlbumModel>
     {

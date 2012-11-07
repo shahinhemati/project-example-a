@@ -19,12 +19,12 @@
 //
 
 using System.Web.UI.WebControls;
-using GB.Album.Components.Entities;
+using GB.SlideShow.Components.Entities;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Common;
+using GB.SlideShow.Components.Common;
 using System;
 
-namespace GB.Album.Components.Views
+namespace GB.SlideShow.Components.Views
 {
 
 	/// <summary>

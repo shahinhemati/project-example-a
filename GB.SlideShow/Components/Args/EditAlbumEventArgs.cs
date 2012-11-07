@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GB.Album.Components.Args
+namespace GB.SlideShow.Components.Args
 {
     public class EditAlbumEventArgs<TAlbumInfo,TNotify,TTags> :EventArgs
     {

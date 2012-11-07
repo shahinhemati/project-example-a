@@ -23,7 +23,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace GB.Album.Components.Common
+namespace GB.News.Components.Common
 {
 	/// <summary>
 	/// Wrapper for interacting with TinyUrl API

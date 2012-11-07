@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Args;
-using GB.Album.Components.Entities;
-using GB.Album.Components.Views;
-using GB.Album.Components.Models;
+using GB.SlideShow.Components.Args;
+using GB.SlideShow.Components.Entities;
+using GB.SlideShow.Components.Views;
+using GB.SlideShow.Components.Models;
 
-namespace GB.Album.Components.Presenters
+namespace GB.SlideShow.Components.Presenters
 {
     public class AddImagePresenter : ModulePresenter<IAddImageView,AddImageModel>
     {

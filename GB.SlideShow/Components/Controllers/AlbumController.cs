@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DotNetNuke.Common.Utilities;
-using GB.Album.Components.Common;
-using GB.Album.Components.Entities;
-using GB.Album.Components.Integration;
+using GB.SlideShow.Components.Common;
+using GB.SlideShow.Components.Entities;
+using GB.SlideShow.Components.Integration;
 using IB.Common.Entities;
 
 namespace IB.Album.Components.Controllers
@@ -41,7 +41,7 @@ namespace IB.Album.Components.Controllers
         /// </summary>
         /// <param name="album"></param>
         /// <returns></returns>
-        public int AddAlbum(GB.Album.Components.Entities.AlbumInfo album)
+        public int AddAlbum(GB.SlideShow.Components.Entities.AlbumInfo album)
         {
             int rt=-1;
             

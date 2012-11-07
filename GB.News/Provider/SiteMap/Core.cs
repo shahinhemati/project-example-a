@@ -18,14 +18,14 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-using GB.Album.Components.Common;
-using GB.Album.Components.Entities;
+using GB.News.Components.Common;
+using GB.News.Components.Entities;
 using DotNetNuke.Entities.Portals;
 using System.Collections.Generic;
 using DotNetNuke.Services.Sitemap;
 using IB.Album.Components.Controllers;
 
-namespace GB.Album.Providers.Sitemap
+namespace GB.News.Providers.Sitemap
 {
 
 	public class Core : SitemapProvider

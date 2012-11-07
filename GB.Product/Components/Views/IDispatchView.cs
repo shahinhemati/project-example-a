@@ -20,7 +20,7 @@
 
 using DotNetNuke.Web.Mvp;
 
-namespace GB.Album.Components.Views {
+namespace GB.Product.Components.Views {
 
 	/// <summary>
 	/// 

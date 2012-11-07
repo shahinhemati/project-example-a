@@ -21,13 +21,13 @@
 using System;
 using System.Web;
 using System.Text.RegularExpressions;
-using GB.Album.Components.Common;
+using GB.Product.Components.Common;
 using DotNetNuke.Entities.Portals;
-using GB.Album.Components.Entities;
+using GB.Product.Components.Entities;
 using IB.Album.Components.Controllers;
 
 
-namespace GB.Album.Components.Modules
+namespace GB.Product.Components.Modules
 {
 
     public class UrlModule : IHttpModule

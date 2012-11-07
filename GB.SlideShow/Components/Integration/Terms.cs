@@ -21,10 +21,10 @@
 using System.Linq;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Entities.Content;
-using GB.Album.Components.Entities;
+using GB.SlideShow.Components.Entities;
 using DotNetNuke.Entities.Content.Taxonomy;
 
-namespace GB.Album.Components.Integration {
+namespace GB.SlideShow.Components.Integration {
 
 	public class Terms {
 

@@ -21,11 +21,11 @@
 using System.Linq;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Entities.Content;
-using GB.Album.Components.Common;
-using GB.Album.Components.Entities;
+using GB.Product.Components.Common;
+using GB.Product.Components.Entities;
 using DotNetNuke.Common.Utilities;
 
-namespace GB.Album.Components.Integration
+namespace GB.Product.Components.Integration
 {
 
 	public class Content

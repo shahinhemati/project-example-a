@@ -22,15 +22,15 @@ using System;
 using System.Linq;
 using System.Text;
 using DotNetNuke.Common.Utilities;
-using GB.Album.Components.Common;
-using GB.Album.Components.Controllers;
-using GB.Album.Providers.Data.SqlDataProvider;
+using GB.Product.Components.Common;
+using GB.Product.Components.Controllers;
+using GB.Product.Providers.Data.SqlDataProvider;
 using DotNetNuke.Entities.Content;
 using DotNetNuke.Entities.Host;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Services.Mail;
 
-namespace GB.Album.Components.Tasks 
+namespace GB.Product.Components.Tasks 
 {
 
 	/// <summary>

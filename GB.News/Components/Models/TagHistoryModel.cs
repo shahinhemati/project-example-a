@@ -19,10 +19,10 @@
 //
 
 using System.Collections.Generic;
-using GB.Album.Components.Entities;
+using GB.News.Components.Entities;
 using DotNetNuke.Entities.Content.Taxonomy;
 
-namespace GB.Album.Components.Models
+namespace GB.News.Components.Models
 {
 
 	public class TagHistoryModel 

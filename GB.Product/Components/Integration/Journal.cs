@@ -19,11 +19,11 @@
 //
 
 using System.Linq;
-using GB.Album.Components.Common;
-using GB.Album.Components.Entities;
+using GB.Product.Components.Common;
+using GB.Product.Components.Entities;
 using DotNetNuke.Services.Journal;
 
-namespace GB.Album.Components.Integration
+namespace GB.Product.Components.Integration
 {
     public class Journal
     {

@@ -23,7 +23,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using GB.Album.Components.Entities;
+using GB.News.Components.Entities;
 using DotNetNuke.Framework;
 using DotNetNuke.Security;
 using DotNetNuke.Services.Localization;
@@ -43,7 +43,7 @@ using System.Collections.Generic;
 using DotNetNuke.Web.Client.ClientResourceManagement;
 
 
-namespace GB.Album.Components.Common
+namespace GB.News.Components.Common
 {
 
     public class Utils
@@ -656,10 +656,10 @@ namespace GB.Album.Components.Common
                 const string configString = "<configuration>" +
                                             "<nodes configfile=\"web.config\">" +
                                             "<node path=\"/configuration/system.web/httpModules/add[@name='RequestFilter']\" action=\"insertbefore\" key=\"name\" collision=\"ignore\">" +
-                                            "<add name=\"DNNQAUrlRewrite\" type=\"GB.Album.Components.Modules.UrlModule, DotNetNuke.Modules.DNNQA\" />" +
+                                            "<add name=\"DNNQAUrlRewrite\" type=\"GB.News.Components.Modules.UrlModule, DotNetNuke.Modules.DNNQA\" />" +
                                             "</node>" +
                                             "<node path=\"/configuration/system.webServer/modules/add[@name='RequestFilter']\" action=\"insertbefore\" key=\"name\" collision=\"ignore\">" +
-                                            "<add name=\"DNNQAUrlRewrite\" type=\"GB.Album.Components.Modules.UrlModule, DotNetNuke.Modules.DNNQA\" preCondition=\"managedHandler\" />" +
+                                            "<add name=\"DNNQAUrlRewrite\" type=\"GB.News.Components.Modules.UrlModule, DotNetNuke.Modules.DNNQA\" preCondition=\"managedHandler\" />" +
                                             "</node>" +
                                             "</nodes>" +
                                             "</configuration>";

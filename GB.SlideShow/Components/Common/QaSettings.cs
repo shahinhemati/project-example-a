@@ -22,11 +22,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Common.Utilities;
-using GB.Album.Components.Controllers;
-using GB.Album.Components.Entities;
-using SettingInfo = GB.Album.Components.Entities.SettingInfo;
+using GB.SlideShow.Components.Controllers;
+using GB.SlideShow.Components.Entities;
+using SettingInfo = GB.SlideShow.Components.Entities.SettingInfo;
 
-namespace GB.Album.Components.Common
+namespace GB.SlideShow.Components.Common
 {
 
     /// <summary>

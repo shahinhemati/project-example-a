@@ -19,12 +19,12 @@
 //
 
 using System.Collections.Generic;
-using GB.Album.Components.Common;
-using GB.Album.Components.Entities;
+using GB.News.Components.Common;
+using GB.News.Components.Entities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Social.Notifications;
 
-namespace GB.Album.Components.Integration
+namespace GB.News.Components.Integration
 {
     public class Notifications
     {

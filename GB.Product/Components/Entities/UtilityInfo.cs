@@ -19,9 +19,9 @@
 //
 
 using System;
-using GB.Album.Components.Common;
+using GB.Product.Components.Common;
 
-namespace GB.Album.Components.Entities
+namespace GB.Product.Components.Entities
 {
 
     public class BadgeTierInfo

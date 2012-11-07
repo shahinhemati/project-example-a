@@ -5,7 +5,7 @@ using System.Web;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Security.Permissions;
 
-namespace GB.Album.Components.Common
+namespace GB.News.Components.Common
 {
     public class ModuleSecurity
     {

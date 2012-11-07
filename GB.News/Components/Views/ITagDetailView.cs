@@ -19,12 +19,12 @@
 //
 
 using System.Web.UI.WebControls;
-using GB.Album.Components.Entities;
+using GB.News.Components.Entities;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Common;
+using GB.News.Components.Common;
 using System;
 
-namespace GB.Album.Components.Views
+namespace GB.News.Components.Views
 {
 
 	/// <summary>
