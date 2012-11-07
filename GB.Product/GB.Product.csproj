@@ -89,6 +89,56 @@
     <Compile Include="AddImageToProduct.ascx.designer.cs">
       <DependentUpon>AddImageToProduct.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Components\Args\AddImageEventArgs.cs" />
+    <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
+    <Compile Include="Components\Common\Caching.cs" />
+    <Compile Include="Components\Common\Constants.cs" />
+    <Compile Include="Components\Common\Links.cs" />
+    <Compile Include="Components\Common\ModuleSecurity.cs" />
+    <Compile Include="Components\Common\QaSettings.cs" />
+    <Compile Include="Components\Common\Sorting.cs" />
+    <Compile Include="Components\Common\UIEventArgs.cs" />
+    <Compile Include="Components\Common\UIListEventArgs.cs" />
+    <Compile Include="Components\Common\UrlShorteningService.cs" />
+    <Compile Include="Components\Common\Utils.cs" />
+    <Compile Include="Components\Controllers\AlbumController.cs" />
+    <Compile Include="Components\Controllers\AlbumImageController.cs" />
+    <Compile Include="Components\Controllers\SettingController.cs" />
+    <Compile Include="Components\Entities\AlbumInfo.cs" />
+    <Compile Include="Components\Entities\ImageInfo.cs" />
+    <Compile Include="Components\Entities\SettingInfo.cs" />
+    <Compile Include="Components\Entities\TermHistoryInfo.cs" />
+    <Compile Include="Components\Entities\TermInfo.cs" />
+    <Compile Include="Components\Entities\TermSynonymInfo.cs" />
+    <Compile Include="Components\Entities\UtilityInfo.cs" />
+    <Compile Include="Components\Integration\Content.cs" />
+    <Compile Include="Components\Integration\Journal.cs" />
+    <Compile Include="Components\Integration\Notifications.cs" />
+    <Compile Include="Components\Integration\Terms.cs" />
+    <Compile Include="Components\Models\AddImageModel.cs" />
+    <Compile Include="Components\Models\DispatchModel.cs" />
+    <Compile Include="Components\Models\EditAlbumModel.cs" />
+    <Compile Include="Components\Models\HomeModel.cs" />
+    <Compile Include="Components\Models\TagDetailModel.cs" />
+    <Compile Include="Components\Models\TagHistoryModel.cs" />
+    <Compile Include="Components\Models\TagListModel.cs" />
+    <Compile Include="Components\Modules\UrlModule.cs" />
+    <Compile Include="Components\Presenters\AddImagePresenter.cs" />
+    <Compile Include="Components\Presenters\DispatchPresenter.cs" />
+    <Compile Include="Components\Presenters\EditAlbumPresenter.cs" />
+    <Compile Include="Components\Presenters\HomePresenter.cs" />
+    <Compile Include="Components\Presenters\TagDetailPresenter.cs" />
+    <Compile Include="Components\Presenters\TagHistoryPresenter.cs" />
+    <Compile Include="Components\Presenters\TagListPresenter.cs" />
+    <Compile Include="Components\Services\QAServiceController.cs" />
+    <Compile Include="Components\Tasks\Emailer.cs" />
+    <Compile Include="Components\Views\IAddImageView.cs" />
+    <Compile Include="Components\Views\IDispatchView.cs" />
+    <Compile Include="Components\Views\IEditAlbumView.cs" />
+    <Compile Include="Components\Views\IHomeView.cs" />
+    <Compile Include="Components\Views\ITagDetailView.cs" />
+    <Compile Include="Components\Views\ITagHistoryView.cs" />
+    <Compile Include="Components\Views\ITagListView.cs" />
     <Compile Include="EditCatProduct.ascx.cs">
       <DependentUpon>EditCatProduct.ascx</DependentUpon>
     </Compile>
@@ -113,6 +163,7 @@
     <Compile Include="ManagerProduct.ascx.designer.cs">
       <DependentUpon>ManagerProduct.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Provider\SiteMap\Core.cs" />
     <Compile Include="Settings.ascx.cs">
       <DependentUpon>Settings.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -135,11 +186,14 @@
     <Folder Include="Controls\" />
     <Folder Include="Documents\" />
     <Folder Include="Properties\" />
+    <Folder Include="Provider\Search\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildScripts\ModulePackage.targets" />
     <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
     <None Include="GB.Product.dnn" />
+    <None Include="Provider\Data\SqlDataProvider\01.00.00.SqlDataProvider" />
+    <None Include="Provider\Data\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
