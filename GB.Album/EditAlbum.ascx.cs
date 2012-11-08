@@ -15,7 +15,7 @@ using GB.Album.Components.Args;
 using GB.Album.Components.Entities;
 using GB.Album.Components.Models;
 using GB.Album.Components.Presenters;
-using IB.Common.Entities;
+using GB.Common.Entities;
 using WebFormsMvp;
 using GB.Album.Components.Views;
 

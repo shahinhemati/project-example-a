@@ -96,40 +96,5 @@ namespace GB.Common.Entities
             public static IEnumerable<T> Query(Sql sql) { return repo.Query<T>(sql); }
 
         }
-
-
-    }
-
-    public class ContentItemDnn
-    {
-        [ResultColumn]
-        public string Content { set; get; }
-
-        [ResultColumn]
-        public int ContentTypeID { set; get; }
-
-        [ResultColumn]
-        public int TabID { set; get; }
-
-        [ResultColumn]
-        public int ModuleID { set; get; }
-
-        [ResultColumn]
-        public int ContentKey { set; get; }
-
-        [ResultColumn]
-        public bool Indexed { set; get; }
-
-        [ResultColumn]
-        public int CreatedByUserID { set; get; }
-
-        [ResultColumn]
-        public DateTime CreatedOnDate { set; get; }
-
-        [ResultColumn]
-        public int LastModifiedByUserID { set; get; }
-
-        [ResultColumn]
-        public DateTime LastModifiedOnDate { set; get; }
     }
 }

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DotNetNuke.Common.Utilities;
+using DotNetNuke.Entities.Content;
 using GB.Album.Components.Common;
 using GB.Album.Components.Entities;
 using GB.Album.Components.Integration;
-using IB.Common.Entities;
+using GB.Common.Entities;
 
 namespace IB.Album.Components.Controllers
 {
@@ -37,17 +38,33 @@ namespace IB.Album.Components.Controllers
 
         #region CRUD Album
         /// <summary>
-        /// Get Data from database
+        /// Add Album To DataBase
+        /// I - Steps :
+        /// 1 . first : Add ContentItem 
+        /// 2 . Seconde :Add Album to DataBase
+        /// 3 . Store Album into Cache
         /// </summary>
         /// <param name="album"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// Id of album
+        /// </returns>
         public int AddAlbum(GB.Album.Components.Entities.AlbumInfo album)
         {
             int rt=-1;
             
+            ContentItem item=new ContentItem()
+                                 {
+                                     Content = album.Content,
+                                     ContentKey = album.ContentKey,
+                                     ContentTypeId = album.ContentTypeID,
+                                     ModuleID = album.ModuleID,
+                                     TabID = album.TabID,
+                                 };
+            Utils.
             //todo 1 store the album to database and store ContentItem to DataBase
             //todo 2 if process store error then store error in LogSystem dnn and throw an exception
-
+            
+            
             SqlServerDb.GetInstance().Insert(album);
             
             return rt;
@@ -129,6 +146,16 @@ namespace IB.Album.Components.Controllers
         }
 
         public IEnumerable<AlbumInfo> GetSitemapQuestions(int portalId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public AlbumInfo GetQuestionByContentItem(object contentItemId)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object GetAnswersByDate(DateTime lastRunDate, DateTime currentRunDate)
         {
             throw new NotImplementedException();
         }

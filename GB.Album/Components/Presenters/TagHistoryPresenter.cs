@@ -24,8 +24,6 @@ using System.Web.UI.WebControls;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
 using GB.Album.Components.Entities;
-using GB.Album.Providers.Data;
-using GB.Album.Providers.Data.SqlDataProvider;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Entities.Content.Taxonomy;
 using DotNetNuke.Entities.Users;
@@ -37,6 +35,7 @@ using GB.Album.Components.Models;
 using GB.Album.Components.Views;
 using GB.Album.Components.Common;
 using DotNetNuke.Web.UI.WebControls;
+using TermController = GB.Album.Components.Controllers.TermController;
 
 namespace GB.Album.Components.Presenters
 {
@@ -49,7 +48,7 @@ namespace GB.Album.Components.Presenters
 
 		#region Members
 
-		protected IDnnqaController Controller { get; private set; }
+		protected TermController Controller { get; private set; }
 
 		/// <summary>
 		/// The tag we want to search for (based on a parameter in the URL). 
@@ -78,34 +77,23 @@ namespace GB.Album.Components.Presenters
 
 		#region Constructors
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="view"></param>
-		public TagHistoryPresenter(ITagHistoryView view)
-			: this(view, new DnnqaController(new SqlDataProvider()))
-		{
-		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="view"></param>
 		/// <param name="controller"></param>
-		public TagHistoryPresenter(ITagHistoryView view, IDnnqaController controller)
+		public TagHistoryPresenter(ITagHistoryView view)
 			: base(view)
 		{
+            
 			if (view == null)
 			{
 				throw new ArgumentException(@"View is nothing.", "view");
 			}
 
-			if (controller == null)
-			{
-				throw new ArgumentException(@"Controller is nothing.", "controller");
-			}
 
-			Controller = controller;
+			Controller = TermController.GetInstance();
 			View.Load += ViewLoad;
 		}
 
