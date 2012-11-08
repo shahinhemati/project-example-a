@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using IB.Common.Entities;
+using GB.Common.Entities;
 using PetaPoco;
 
 

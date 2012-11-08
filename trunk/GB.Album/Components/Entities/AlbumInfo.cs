@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using IB.Common.Entities;
+using GB.Common.Entities;
 using PetaPoco;
 
 
@@ -22,9 +22,7 @@ namespace GB.Album.Components.Entities
         [Column]
         public string ImageName { get; set; }
         [Column]
-        public int? PortalID { get; set; }
-        [Column]
-        public int ContentItemId { get; set; }
-        
+        public int PortalID { get; set; }
+
     }
 }

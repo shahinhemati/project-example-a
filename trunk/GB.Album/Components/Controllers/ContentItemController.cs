@@ -1,21 +1,22 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GB.Album.Components.Entities;
+using GB.Common.Entities;
 
 namespace GB.Album.Components.Controllers
 {
-    public class SettingController
+    public class ContentItemController
     {
         #region Create new Instance
         public interface IFactory
         {
-            SettingController GetInstance();
+            ContentItemController GetInstance();
         }
 
         public static IFactory Factory { get; set; }
-        public static SettingController GetInstance()
+        public static ContentItemController GetInstance()
         {
             if (_instance != null)
                 return _instance;
@@ -23,25 +24,15 @@ namespace GB.Album.Components.Controllers
             if (Factory != null)
                 return Factory.GetInstance();
             else
-                return new SettingController();
+                return new ContentItemController();
         }
 
         [ThreadStatic]
-        static SettingController _instance;
+        static ContentItemController _instance;
 
         #endregion
 
-        public void AddSetting(SettingInfo infoSS)
-        {
-            
-        }
-
-        public void UpdateSetting(SettingInfo infoSS)
-        {
-
-        }
-
-        public List<SettingInfo> GetQaPortalSettings(object portalId)
+        public List<ContentItemDnn> GetContentItemsByTypeAndCreated(int contentTypeId, DateTime lastRunDate, DateTime currentRunDate)
         {
             throw new NotImplementedException();
         }

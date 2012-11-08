@@ -69,6 +69,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ContentItemDnn.cs" />
     <Compile Include="Entities\PetaPoco.cs" />
     <Compile Include="Entities\SqlServerDb.cs" />
     <Compile Include="Paging\IPagedList.cs" />

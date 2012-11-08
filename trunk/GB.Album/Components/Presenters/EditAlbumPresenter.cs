@@ -35,6 +35,8 @@ namespace GB.Album.Components.Presenters
             AlbumInfo albumInfo=new AlbumInfo();
             albumInfo.AlbumName = e.Album.AlbumName;
 
+            
+
             Controller.AddAlbum(albumInfo);
 
             throw new NotImplementedException();
