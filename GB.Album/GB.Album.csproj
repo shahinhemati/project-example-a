@@ -17,6 +17,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
     <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -118,17 +119,8 @@
     <Compile Include="Components\Common\Utils.cs" />
     <Compile Include="Components\Controllers\AlbumController.cs" />
     <Compile Include="Components\Controllers\AlbumImageController.cs" />
-    <Compile Include="Components\Controllers\ContentItemController.cs" />
-    <Compile Include="Components\Controllers\ScheduleItemSettingController.cs" />
-    <Compile Include="Components\Controllers\SettingController.cs" />
-    <Compile Include="Components\Controllers\TermController.cs" />
     <Compile Include="Components\Entities\AlbumInfo.cs" />
     <Compile Include="Components\Entities\ImageInfo.cs" />
-    <Compile Include="Components\Entities\SettingInfo.cs" />
-    <Compile Include="Components\Entities\TermHistoryInfo.cs" />
-    <Compile Include="Components\Entities\TermInfo.cs" />
-    <Compile Include="Components\Entities\TermSynonymInfo.cs" />
-    <Compile Include="Components\Entities\UtilityInfo.cs" />
     <Compile Include="Components\Integration\Content.cs" />
     <Compile Include="Components\Integration\Journal.cs" />
     <Compile Include="Components\Integration\Notifications.cs" />
@@ -157,7 +149,6 @@
     <Compile Include="Components\Views\ITagDetailView.cs" />
     <Compile Include="Components\Views\ITagHistoryView.cs" />
     <Compile Include="Components\Views\ITagListView.cs" />
-    <Compile Include="Controls\Comments.cs" />
     <Compile Include="Controls\HeaderNav.ascx.cs">
       <DependentUpon>HeaderNav.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IB.Album.Controls {
+namespace GB.Album.Controls {
     
     
     public partial class HeaderNav {

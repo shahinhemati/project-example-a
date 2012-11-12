@@ -32,7 +32,7 @@ using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Modules;
 using DotNetNuke.UI.Utilities;
 
-namespace IB.Album.Controls
+namespace GB.Album.Controls
 {
 
 	public partial class HeaderNav : System.Web.UI.UserControl

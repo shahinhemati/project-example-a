@@ -159,5 +159,10 @@ namespace IB.Album.Components.Controllers
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<object> GetUserSubscriptions(int portalId, int userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
