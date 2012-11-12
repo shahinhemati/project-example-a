@@ -32,8 +32,9 @@ using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Tabs;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Modules;
+using IB.Album.Components.Controllers;
 
-namespace IB.Album.Controls
+namespace GB.Album.Controls
 {
 
 	/// <summary>
@@ -46,7 +47,7 @@ namespace IB.Album.Controls
 
 		#region Private Members
 
-		protected IDnnqaController Controller { get; private set; }
+		protected AlbumController Controller { get; private set; }
 		public event EventHandler SubscribeClick;
 
 		private LinkButton _cmdSubscribe;
@@ -64,27 +65,20 @@ namespace IB.Album.Controls
 
 		#region Constructors
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public Tags()
-			: this(new DnnqaController(new SqlDataProvider()))
-		{
-
-		}
-
-		/// <summary>
+        /// <summary>
 		/// 
 		/// </summary>
 		/// <param name="controller"></param>
-		public Tags(IDnnqaController controller)
+		public Tags()
 		{
-			if (controller == null)
-			{
-				throw new ArgumentException(@"Controller is nothing.", "controller");
-			}
 
-			Controller = controller;
+            //if (controller == null)
+            //{
+            //    throw new ArgumentException(@"Controller is nothing.", "controller");
+            //}
+
+			Controller = AlbumController.Factory.GetInstance();
+			
 		}
 
 		#endregion
@@ -135,21 +129,22 @@ namespace IB.Album.Controls
 
 						_cmdSubscribe.Command += SubscribeCommand;
 
-						var colUserSubs = Controller.GetUserSubscriptions(ModContext.PortalId, ModContext.PortalSettings.UserId);
-						var term1 = term;
-						var objSub = (from t in colUserSubs where t.TermId == term1.TermId select t).SingleOrDefault();
-						if (objSub == null)
-						{
-							_cmdSubscribe.CommandName = "subscribe";
-							_cmdSubscribe.Text = Localization.GetString("Subscribe.Text", SharedResourceFile);
-							_cmdSubscribe.CommandArgument = term.TermId.ToString();
-						}
-						else
-						{
-							_cmdSubscribe.Text = Localization.GetString("Unsubscribe.Text", SharedResourceFile);
-							_cmdSubscribe.CommandName = "unsubscribe";
-							_cmdSubscribe.CommandArgument = objSub.SubscriptionId.ToString();
-						}
+                        //@cuongvv:Comment  ?
+                        //var colUserSubs = Controller.GetUserSubscriptions(ModContext.PortalId, ModContext.PortalSettings.UserId);
+                        //var term1 = term;
+                        //var objSub = (from t in colUserSubs where t.TermId == term1.TermId select t).SingleOrDefault();
+                        //if (objSub == null)
+                        //{
+                        //    _cmdSubscribe.CommandName = "subscribe";
+                        //    _cmdSubscribe.Text = Localization.GetString("Subscribe.Text", SharedResourceFile);
+                        //    _cmdSubscribe.CommandArgument = term.TermId.ToString();
+                        //}
+                        //else
+                        //{
+                        //    _cmdSubscribe.Text = Localization.GetString("Unsubscribe.Text", SharedResourceFile);
+                        //    _cmdSubscribe.CommandName = "unsubscribe";
+                        //    _cmdSubscribe.CommandArgument = objSub.SubscriptionId.ToString();
+                        //}
 
 						++count;
 
@@ -363,7 +358,7 @@ namespace IB.Album.Controls
 		#region Private Methods
 
 		/// <summary>
-		/// 
+		/// @cuongvv : Subcriber
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="remove"></param>

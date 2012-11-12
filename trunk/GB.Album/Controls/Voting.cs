@@ -30,7 +30,7 @@ using GB.Album.Components.Entities;
 using GB.Album.Components.Integration;
 using DotNetNuke.UI.Modules;
 
-namespace IB.Album.Controls
+namespace GB.Album.Controls
 {
 
 	/// <summary>

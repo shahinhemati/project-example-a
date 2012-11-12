@@ -229,97 +229,96 @@ namespace GB.Album.Components.Tasks
 				
 					break;
 				default:
-					var colAnswers = ControllerAlbum.GetAnswersByDate(lastRunDate, currentRunDate);
+                    #region Cuongvv don't anything herer 
+                    //var colAnswers = ControllerAlbum.GetAnswersByDate(lastRunDate, currentRunDate);
                     
-					if (colAnswers.Count() > 0)
-					{
-						// for each content item in the collection, get a list of subscribers and send the emails off one by one. 
-						foreach (var item in colAnswers)
-						{
-							var objQuestion = Controller.GetQuestionByContentItem(item.ContentItemId);
-							// use the post item to build the email subject/body/content (sub question for content item now)
-							var colEmail = QaSettings.GetEmailCollection(Controller.GetQaPortalSettings(item.PortalId), item.PortalId);
-							var senderEmail = colEmail.Single(s => s.Key == Constants.EmailSettings.FromAddress.ToString()).Value;
-							//var urlBase = colEmail.Single(s => s.Key == Constants.EmailSettings.PrimaryUrl.ToString()).Value;
-							var answerTemplate = colEmail.Single(s => s.Key == Constants.EmailSettings.AnswerTemplate.ToString()).Value;
-							var ps = new PortalSettings(item.PortalId);
+                    //if (colAnswers.Count() > 0)
+                    //{
+                    //    // for each content item in the collection, get a list of subscribers and send the emails off one by one. 
+                    //    foreach (var item in colAnswers)
+                    //    {
+                    //        var objQuestion = Controller.GetQuestionByContentItem(item.ContentItemId);
+                    //        // use the post item to build the email subject/body/content (sub question for content item now)
+                    //        var colEmail = QaSettings.GetEmailCollection(Controller.GetQaPortalSettings(item.PortalId), item.PortalId);
+                    //        var senderEmail = colEmail.Single(s => s.Key == Constants.EmailSettings.FromAddress.ToString()).Value;
+                    //        //var urlBase = colEmail.Single(s => s.Key == Constants.EmailSettings.PrimaryUrl.ToString()).Value;
+                    //        var answerTemplate = colEmail.Single(s => s.Key == Constants.EmailSettings.AnswerTemplate.ToString()).Value;
+                    //        var ps = new PortalSettings(item.PortalId);
 
-							var titleLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/question/id/" + objQuestion.PostId + "/" + DotNetNuke.Common.Globals.glbDefaultPage;
-							var subscribeLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/subscriptions/" + DotNetNuke.Common.Globals.glbDefaultPage;
+                    //        var titleLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/question/id/" + objQuestion.PostId + "/" + DotNetNuke.Common.Globals.glbDefaultPage;
+                    //        var subscribeLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/subscriptions/" + DotNetNuke.Common.Globals.glbDefaultPage;
 
-							answerTemplate = answerTemplate.Replace("[AUTHOR]", item.PostCreatedDisplayName);
-							answerTemplate = answerTemplate.Replace("[TITLELINK]", titleLink);
-							answerTemplate = answerTemplate.Replace("[TITLE]", objQuestion.Title);
-							answerTemplate = answerTemplate.Replace("[BODY]", Utils.ProcessDisplayPostBody(item.Body));
-							answerTemplate = answerTemplate.Replace("[SUBSCRIBELINK]", subscribeLink);
+                    //        answerTemplate = answerTemplate.Replace("[AUTHOR]", item.PostCreatedDisplayName);
+                    //        answerTemplate = answerTemplate.Replace("[TITLELINK]", titleLink);
+                    //        answerTemplate = answerTemplate.Replace("[TITLE]", objQuestion.Title);
+                    //        answerTemplate = answerTemplate.Replace("[BODY]", Utils.ProcessDisplayPostBody(item.Body));
+                    //        answerTemplate = answerTemplate.Replace("[SUBSCRIBELINK]", subscribeLink);
 
-							var colSubscribers = Controller.GetSubscribersByQuestion(item.ParentId, (int)Constants.SubscriptionType.InstantPost, item.PortalId);
-							foreach (var subscriber in colSubscribers)
-							{
-								// send off the email one by one (same email to multiple subscribers)
-								Mail.SendMail(senderEmail, subscriber.Email, "", "", MailPriority.Normal,
-											  HtmlUtils.StripWhiteSpace(objQuestion.Title, true), MailFormat.Html, Encoding.UTF8, answerTemplate,
-											  "", Host.SMTPServer, Host.SMTPAuthentication, Host.SMTPUsername,
-											  Host.SMTPPassword, Host.EnableSMTPSSL);
-							}
+                    //        var colSubscribers = Controller.GetSubscribersByQuestion(item.ParentId, (int)Constants.SubscriptionType.InstantPost, item.PortalId);
+                    //        foreach (var subscriber in colSubscribers)
+                    //        {
+                    //            // send off the email one by one (same email to multiple subscribers)
+                    //            Mail.SendMail(senderEmail, subscriber.Email, "", "", MailPriority.Normal,
+                    //                          HtmlUtils.StripWhiteSpace(objQuestion.Title, true), MailFormat.Html, Encoding.UTF8, answerTemplate,
+                    //                          "", Host.SMTPServer, Host.SMTPAuthentication, Host.SMTPUsername,
+                    //                          Host.SMTPPassword, Host.EnableSMTPSSL);
+                    //        }
 
-							strErrors = "Instant Post: Sent " + colSubscribers.Count + " emails - " + objQuestion.Title + "<br />";
-						}
-					}
-					else
-					{
-						strErrors = "Instant Post: No new answers to email <br />";
-					}
+                    //        strErrors = "Instant Post: Sent " + colSubscribers.Count + " emails - " + objQuestion.Title + "<br />";
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    strErrors = "Instant Post: No new answers to email <br />";
+                    //}
 
-					// now we move onto comments
-					var colComments = Controller.GetCommentsByDate(lastRunDate, currentRunDate);
+                    //// now we move onto comments
+                    //var colComments = Controller.GetCommentsByDate(lastRunDate, currentRunDate);
 
-					if (colComments.Count() > 0)
-					{
-						foreach (var item in colComments)
-						{
-							var objPost = Controller.GetPost(item.PostId, -1);
-							var ps = new PortalSettings(objPost.PortalId);
-							var objQuestion = objPost.ParentId == 0 ? objPost : Controller.GetQuestionByContentItem(objPost.ContentItemId);
-							var colEmail = QaSettings.GetEmailCollection(Controller.GetQaPortalSettings(objQuestion.PortalId), objPost.PortalId);
-							var commentTemplate = colEmail.Single(s => s.Key == Constants.EmailSettings.CommentTemplate.ToString()).Value;
-							var senderEmail = colEmail.Single(s => s.Key == Constants.EmailSettings.FromAddress.ToString()).Value;
+                    //if (colComments.Count() > 0)
+                    //{
+                    //    foreach (var item in colComments)
+                    //    {
+                    //        var objPost = Controller.GetPost(item.PostId, -1);
+                    //        var ps = new PortalSettings(objPost.PortalId);
+                    //        var objQuestion = objPost.ParentId == 0 ? objPost : Controller.GetQuestionByContentItem(objPost.ContentItemId);
+                    //        var colEmail = QaSettings.GetEmailCollection(Controller.GetQaPortalSettings(objQuestion.PortalId), objPost.PortalId);
+                    //        var commentTemplate = colEmail.Single(s => s.Key == Constants.EmailSettings.CommentTemplate.ToString()).Value;
+                    //        var senderEmail = colEmail.Single(s => s.Key == Constants.EmailSettings.FromAddress.ToString()).Value;
 
-							var titleLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/question/id/" + objQuestion.PostId + "/" + DotNetNuke.Common.Globals.glbDefaultPage;
-							var subscribeLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/subscriptions/" + DotNetNuke.Common.Globals.glbDefaultPage;
+                    //        var titleLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/question/id/" + objQuestion.PostId + "/" + DotNetNuke.Common.Globals.glbDefaultPage;
+                    //        var subscribeLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/subscriptions/" + DotNetNuke.Common.Globals.glbDefaultPage;
 
-							commentTemplate = commentTemplate.Replace("[AUTHOR]", DotNetNuke.Entities.Users.UserController.GetUserById(objQuestion.PortalId, item.UserId).DisplayName);
-							commentTemplate = commentTemplate.Replace("[TITLELINK]", titleLink);
-							commentTemplate = commentTemplate.Replace("[TITLE]", objQuestion.Title);
-							commentTemplate = commentTemplate.Replace("[COMMENT]", Utils.ProcessDisplayPostBody(item.Comment));
-							commentTemplate = commentTemplate.Replace("[SUBSCRIBELINK]", subscribeLink);
+                    //        commentTemplate = commentTemplate.Replace("[AUTHOR]", DotNetNuke.Entities.Users.UserController.GetUserById(objQuestion.PortalId, item.UserId).DisplayName);
+                    //        commentTemplate = commentTemplate.Replace("[TITLELINK]", titleLink);
+                    //        commentTemplate = commentTemplate.Replace("[TITLE]", objQuestion.Title);
+                    //        commentTemplate = commentTemplate.Replace("[COMMENT]", Utils.ProcessDisplayPostBody(item.Comment));
+                    //        commentTemplate = commentTemplate.Replace("[SUBSCRIBELINK]", subscribeLink);
 
-							var colSubscribers = Controller.GetSubscribersByQuestion(objQuestion.PostId, (int)Constants.SubscriptionType.InstantPost, objQuestion.PortalId);
-							foreach (var subscriber in colSubscribers)
-							{
-								// send off the email one by one (same email to multiple subscribers)
-								Mail.SendMail(senderEmail, subscriber.Email, "", "", MailPriority.Normal,
-											  HtmlUtils.StripWhiteSpace(objQuestion.Title, true), MailFormat.Html, Encoding.UTF8, commentTemplate,
-											  "", Host.SMTPServer, Host.SMTPAuthentication, Host.SMTPUsername,
-											  Host.SMTPPassword, Host.EnableSMTPSSL);
-							}
-							// we also have to remember to check if we emailed notification of a comment around this question already (only within this method, to avoid to comments on question being emailed 2x). 
-							// also avoid emailing someone of their own comment
+                    //        var colSubscribers = Controller.GetSubscribersByQuestion(objQuestion.PostId, (int)Constants.SubscriptionType.InstantPost, objQuestion.PortalId);
+                    //        foreach (var subscriber in colSubscribers)
+                    //        {
+                    //            // send off the email one by one (same email to multiple subscribers)
+                    //            Mail.SendMail(senderEmail, subscriber.Email, "", "", MailPriority.Normal,
+                    //                          HtmlUtils.StripWhiteSpace(objQuestion.Title, true), MailFormat.Html, Encoding.UTF8, commentTemplate,
+                    //                          "", Host.SMTPServer, Host.SMTPAuthentication, Host.SMTPUsername,
+                    //                          Host.SMTPPassword, Host.EnableSMTPSSL);
+                    //        }
+                    //        // we also have to remember to check if we emailed notification of a comment around this question already (only within this method, to avoid to comments on question being emailed 2x). 
+                    //        // also avoid emailing someone of their own comment
 
-						}
-					}
-					else
-					{
-						strErrors = "Instant Post: No new comments to email <br />";
-					}
-
-					break;
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    strErrors = "Instant Post: No new comments to email <br />";
+                    //}
+                    #endregion
+                    break;
 			}
 			
 			return strErrors;
 		}
-
 		#endregion
-	
 	}
 }
