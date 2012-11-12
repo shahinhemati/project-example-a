@@ -70,6 +70,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonBase\Constants.cs" />
     <Compile Include="Controller\ContentItemController.cs" />
     <Compile Include="Controller\ScheduleItemSettingController.cs" />
     <Compile Include="Controller\SettingController.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Entities\TermHistoryInfo.cs" />
     <Compile Include="Entities\TermInfo.cs" />
     <Compile Include="Entities\TermSynonymInfo.cs" />
+    <Compile Include="Entities\UtilityInfo.cs" />
     <Compile Include="Paging\IPagedList.cs" />
     <Compile Include="Paging\PagedList.cs" />
     <Compile Include="Paging\Pager.cs" />
