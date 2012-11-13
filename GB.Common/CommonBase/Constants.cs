@@ -27,36 +27,36 @@ namespace GB.Album.Common.CommonBase
         #region Module Settings
 
         // General
-		internal const string SettingNameFormat = "DNNQA_NameFormat";
-		internal const string SettingEnableRss = "DNNQA_EnableRss";
+		public const string SettingNameFormat = "DNNQA_NameFormat";
+		public const string SettingEnableRss = "DNNQA_EnableRss";
 		
 		// Ask Question
-		internal const string SettingMinTitleChars = "DNNQA_MinimumTitleCharacters";
-		internal const string SettingMinBodyChars = "DNNQA_MinimumBodyCharacters";
-		internal const string SettingMaxQuestionTags = "DNNQA_MaximumQuestionTags";
-		internal const string SettingAutoApprove = "DNNQA_AutoApprove";
+		public const string SettingMinTitleChars = "DNNQA_MinimumTitleCharacters";
+		public const string SettingMinBodyChars = "DNNQA_MinimumBodyCharacters";
+		public const string SettingMaxQuestionTags = "DNNQA_MaximumQuestionTags";
+		public const string SettingAutoApprove = "DNNQA_AutoApprove";
 
 		// UI
-		internal const string SettingHomePageSize = "DNNQA_HomePageSize";
-		internal const string SettingHomeMaxTags = "DNNQA_HomeMaxTags";
-		internal const string SettingHomeTagTimeFrame = "DNNQA_HomeTagTimeFrame";
-		internal const string SettingBrowseQPageSize = "DNNQA_BrowseQPageSize";
-		internal const string SettingAnswerPageSize = "DNNQA_AnswerPageSize";
-		internal const string SettingMaxTagsTags = "DNNQA_MaxTagsTags";
+		public const string SettingHomePageSize = "DNNQA_HomePageSize";
+		public const string SettingHomeMaxTags = "DNNQA_HomeMaxTags";
+		public const string SettingHomeTagTimeFrame = "DNNQA_HomeTagTimeFrame";
+		public const string SettingBrowseQPageSize = "DNNQA_BrowseQPageSize";
+		public const string SettingAnswerPageSize = "DNNQA_AnswerPageSize";
+		public const string SettingMaxTagsTags = "DNNQA_MaxTagsTags";
 
-		internal const string SettingsFacebookAppId = "DNNQA_FacebookAppId";
-		internal const string SettingsEnablePlusOne = "DNNQA_EnablePlusOne";
-		internal const string SettingsEnableTwitter = "DNNQA_EnableTwitter";
-		internal const string SettingsEnableLinkedIn = "DNNQA_EnableLinkedIn";
+		public const string SettingsFacebookAppId = "DNNQA_FacebookAppId";
+		public const string SettingsEnablePlusOne = "DNNQA_EnablePlusOne";
+		public const string SettingsEnableTwitter = "DNNQA_EnableTwitter";
+		public const string SettingsEnableLinkedIn = "DNNQA_EnableLinkedIn";
 
-		internal const string DefaultNameFormat = "DisplayName";
-		internal const bool DefaultEnableRss = false;
-		internal const bool DefaultAutoApprove = true;
+		public const string DefaultNameFormat = "DisplayName";
+		public const bool DefaultEnableRss = false;
+		public const bool DefaultAutoApprove = true;
 
 		// UI
-		internal const int DefaultPageSize = 20;
-		internal const int DefaultHomeMaxTags = 20;
-		internal const string DefaultHomeTagTimeFrame = "DailyUsage";
+		public const int DefaultPageSize = 20;
+		public const int DefaultHomeMaxTags = 20;
+		public const string DefaultHomeTagTimeFrame = "DailyUsage";
 
 		#endregion
 
@@ -138,25 +138,25 @@ namespace GB.Album.Common.CommonBase
 		/// <summary>
 		/// The prefix to be applied to all cached objects in this module (to help ensure the name is unique). 
 		/// </summary>
-		internal const string ModuleCacheKey = "DNNQA_";
+		public const string ModuleCacheKey = "DNNQA_";
 
-		internal const string QaSettingsCacheKey = "qaSettings_";
+		public const string QaSettingsCacheKey = "qaSettings_";
 
-		internal const string HomeQuestionsCacheKey = "qaHomeQuestions_";
+		public const string HomeQuestionsCacheKey = "qaHomeQuestions_";
 
-		internal const string HomeTermsCacheKey = "qaHomeTerms_";
+		public const string HomeTermsCacheKey = "qaHomeTerms_";
 
-		internal const string ModuleTermsCacheKey = "qaModuleTerms_";
+		public const string ModuleTermsCacheKey = "qaModuleTerms_";
 
-		internal const string ContentTermsCacheKey = "qaContentTerms_";
+		public const string ContentTermsCacheKey = "qaContentTerms_";
 
-		internal const string UserScoreCacheKey = "qaUserScore_";
+		public const string UserScoreCacheKey = "qaUserScore_";
 
-		internal const string IsFriendlyUrlModuleInstalled = "IsFriendlyUrlModuleInstalled";
+		public const string IsFriendlyUrlModuleInstalled = "IsFriendlyUrlModuleInstalled";
 
-		internal const string ModuleQuestionsCacheKey = "qaModuleQuestions_";
+		public const string ModuleQuestionsCacheKey = "qaModuleQuestions_";
 
-		internal const string TermSynonymsCacheKey = "qaTermSynonyms_";
+		public const string TermSynonymsCacheKey = "qaTermSynonyms_";
 
 		#endregion
 

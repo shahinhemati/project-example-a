@@ -52,6 +52,7 @@ namespace GB.Common.Controllers
         public List<Term> GetTermsByContentType(int portalId, int contentTypeId, int moduleId, int vocabularyId)
         {
             //get Terms  
+            
             throw new NotImplementedException();
         }
 
