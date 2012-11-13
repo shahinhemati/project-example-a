@@ -23,7 +23,7 @@ namespace IB.Album.Components.Controllers
         }
 
         private static IFactory Factory { get; set; }
-        public static AlbumController GetInstance()
+        public static AlbumController GetInstance(string prefixCache)
         {
             if (_instance != null)
                 return _instance;
@@ -172,6 +172,11 @@ namespace IB.Album.Components.Controllers
         }
 
         public bool DeleteSubscription(int portalId, int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static AlbumController GetInstance()
         {
             throw new NotImplementedException();
         }

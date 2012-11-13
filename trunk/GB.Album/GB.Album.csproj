@@ -77,6 +77,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.UI, Version=2012.1.411.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL" />
     <Reference Include="WebFormsMvp">
       <HintPath>..\DLLBuild\WebFormsMvp.dll</HintPath>
     </Reference>
@@ -149,6 +150,9 @@
     <Compile Include="Components\Views\ITagHistoryView.cs" />
     <Compile Include="Components\Views\ITagListView.cs" />
     <Compile Include="Controls\Tags.cs" />
+    <Compile Include="Controls\Voting.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Dispatch.ascx.cs">
       <DependentUpon>Dispatch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -165,6 +169,7 @@
     </Compile>
     <Compile Include="ManagerAlbum.ascx.cs">
       <DependentUpon>ManagerAlbum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManagerAlbum.ascx.designer.cs">
       <DependentUpon>ManagerAlbum.ascx</DependentUpon>

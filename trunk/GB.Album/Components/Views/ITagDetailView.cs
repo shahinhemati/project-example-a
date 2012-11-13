@@ -23,6 +23,7 @@ using GB.Album.Components.Entities;
 using DotNetNuke.Web.Mvp;
 using GB.Album.Components.Common;
 using System;
+using GB.Common.Entities;
 
 namespace GB.Album.Components.Views
 {
@@ -37,7 +38,7 @@ namespace GB.Album.Components.Views
 		void ShowSuggestedSynonyms(bool show);
 		void ShowAddSynonym(bool show);
 		
-		event EventHandler<TermSynonymListEventArgs<Controls.Voting, Controls.Tags, TermSynonymInfo, ImageButton>> ItemDataBound;
+		event EventHandler<TermSynonymListEventArgs<Controls.Voting,Controls.Tags, TermSynonymInfo, ImageButton>> ItemDataBound;
 		event EventHandler<AddTermSynonymEventArgs<string>> AddSynonym;
 		event EventHandler<DeleteSuggestedSynonymEventArgs<ImageButton>> DeleteSynonym;
 

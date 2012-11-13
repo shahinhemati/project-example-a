@@ -20,7 +20,6 @@
 
 
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Controllers;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
 using System;

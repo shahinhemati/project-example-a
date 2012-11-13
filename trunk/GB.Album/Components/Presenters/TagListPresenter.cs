@@ -22,16 +22,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Common.Utilities;
+using GB.Album.Common.CommonBase;
 using GB.Album.Components.Entities;
-using GB.Album.Providers.Data;
-using GB.Album.Providers.Data.SqlDataProvider;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Controllers;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
 using GB.Album.Components.Common;
 using System.Web.UI.WebControls;
+using GB.Common.Controllers;
+using GB.Common.Entities;
 
 namespace GB.Album.Components.Presenters
 {
@@ -44,7 +44,7 @@ namespace GB.Album.Components.Presenters
 
 		#region Members
 
-		protected IDnnqaController Controller { get; private set; }
+		protected TermController Controller { get; private set; }
 
 		/// <summary>
 		/// 
@@ -126,21 +126,13 @@ namespace GB.Album.Components.Presenters
 
 		#region Constructors
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="view"></param>
-		public TagListPresenter(ITagListView view)
-			: this(view, new DnnqaController(new SqlDataProvider()))
-		{
-		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="view"></param>
 		/// <param name="controller"></param>
-		public TagListPresenter(ITagListView view, IDnnqaController controller)
+		public TagListPresenter(ITagListView view,string prefixCache)
 			: base(view)
 		{
 			if (view == null)
@@ -148,12 +140,7 @@ namespace GB.Album.Components.Presenters
 				throw new ArgumentException(@"View is nothing.", "view");
 			}
 
-			if (controller == null)
-			{
-				throw new ArgumentException(@"Controller is nothing.", "controller");
-			}
-
-			Controller = controller;
+		    Controller = TermController.GetInstance(prefixCache);
 			View.Load += ViewLoad;
 		}
 

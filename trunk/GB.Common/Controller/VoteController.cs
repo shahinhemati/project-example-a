@@ -1,29 +1,27 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GB.Album.Components.Entities;
 using GB.Common.Entities;
 
-namespace GB.Common.Controllers
+namespace GB.Common.Controller
 {
-    public class ScheduleItemSettingController
+    public class VoteController
     {
         #region Variables
-
         public static string PrefixCache { set; get; }
-
         #endregion
+
         #region Create new Instance
         public interface IFactory
         {
-            ScheduleItemSettingController GetInstance();
+            VoteController GetInstance();
         }
 
         static IFactory Factory { get; set; }
-        public static ScheduleItemSettingController GetInstance(string prefixCache)
+        public static VoteController GetInstance(string prefixCache)
         {
+
             PrefixCache = prefixCache;
             if (_instance != null)
                 return _instance;
@@ -31,28 +29,34 @@ namespace GB.Common.Controllers
             if (Factory != null)
                 return Factory.GetInstance();
             else
-                return new ScheduleItemSettingController();
+                return new VoteController();
         }
 
         [ThreadStatic]
-        static ScheduleItemSettingController _instance;
-
+        static VoteController _instance;
         #endregion
-        public void UpdateScheduleItemSetting(int scheduleId, string toString, string p2)
+
+        public List<SettingInfo> GetQaPortalSettings(int portalId)
         {
             throw new NotImplementedException();
         }
 
-        internal object GetContentItemsByTypeAndCreated(int p, DateTime lastRunDate, DateTime currentRunDate)
+        public UserScoreInfo GetUserScore(int userId, int portalId)
         {
             throw new NotImplementedException();
         }
 
-        public object GetQuestionByContentItem(object contentItemId)
+        public List<TermSynonymInfo> GetTermSynonyms(int p)
         {
             throw new NotImplementedException();
         }
-        public List<SubscriberInfo> GetSubscribersByContentItem(object contentItemId, int instantTerm, object portalId)
+
+        public void GetPost(int currentPostId, int portalId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetPostVotes(int CurrentPostID)
         {
             throw new NotImplementedException();
         }

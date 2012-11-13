@@ -22,9 +22,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Common.Utilities;
-using GB.Album.Components.Controllers;
+using GB.Album.Common.CommonBase;
 using GB.Album.Components.Entities;
-using SettingInfo = GB.Album.Components.Entities.SettingInfo;
+using GB.Common.Controllers;
+using GB.Common.Entities;
 
 namespace GB.Album.Components.Common
 {

@@ -7,6 +7,6 @@ namespace GB.Album.Components.Common
 {
     public class AlbumCommon
     {
-        private const string PrefixCache = "Album_";
+        public const string PrefixCache = "Album_";
     }
 }
