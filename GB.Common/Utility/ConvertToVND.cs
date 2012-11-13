@@ -7,11 +7,11 @@ using System.Collections;
 
 namespace IB.Common
 {
-    class ConvertMoneyToVND
+    class ConvertToVND
     {
         static Hashtable hs = new Hashtable();
         static Hashtable h = new Hashtable();
-        public static string Doisosangchu(string chuoi)
+        public static string ConvertToMoney(string number)
         {
 
             h["0"] = " nghìn ";
@@ -53,7 +53,7 @@ namespace IB.Common
 
             string chuoicd;
 
-            chuoicd = ThemDauPhayVaoChuoi(chuoi);
+            chuoicd = AddCommaToString(number);
 
             int countdauphay = 0;
             foreach (char item in chuoicd)
@@ -80,15 +80,15 @@ namespace IB.Common
 
         }
 
-        public static string ThemDauPhayVaoChuoi(string chuoi)
+        public static string AddCommaToString(string strInput)
         {
             string chuoicd;
-            int sodu = chuoi.Length % 3;
+            int sodu = strInput.Length % 3;
 
             if (sodu != 0)
             {
-                chuoicd = chuoi.Insert(sodu, ",");
-                for (int i = 1; i < chuoi.Length / 3; i++)
+                chuoicd = strInput.Insert(sodu, ",");
+                for (int i = 1; i < strInput.Length / 3; i++)
                 {
                     sodu += 4;
                     chuoicd = chuoicd.Insert(sodu, ",");
@@ -97,8 +97,8 @@ namespace IB.Common
             else
             {
                 sodu += 3;
-                chuoicd = chuoi;
-                for (int i = 1; i < chuoi.Length / 3; i++)
+                chuoicd = strInput;
+                for (int i = 1; i < strInput.Length / 3; i++)
                 {
                     chuoicd = chuoicd.Insert(sodu, ",");
                     sodu += 4;
@@ -107,6 +107,8 @@ namespace IB.Common
             }
             return chuoicd;
         }
+
+
         private static string KTText(string text)
         {
             string kqua = "";

@@ -7,15 +7,21 @@ namespace GB.Common.Controllers
 {
     public class TermController
     {
+        #region Variables
+        public static string PrefixCache { set; get; }
+        #endregion
+
         #region Create new Instance
         public interface IFactory
         {
             TermController GetInstance();
         }
 
-        public static IFactory Factory { get; set; }
-        public static TermController GetInstance()
+        static IFactory Factory { get; set; }
+        public static TermController GetInstance(string prefixCache)
         {
+
+            PrefixCache = prefixCache;
             if (_instance != null)
                 return _instance;
 

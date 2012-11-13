@@ -9,15 +9,22 @@ namespace GB.Common.Controllers
 {
     public class ContentItemController
     {
+        #region Variables
+
+        public static string PrefixCache { set; get; }
+
+        #endregion
         #region Create new Instance
         public interface IFactory
         {
             ContentItemController GetInstance();
         }
 
-        public static IFactory Factory { get; set; }
-        public static ContentItemController GetInstance()
+        static IFactory Factory { get; set; }
+        public static ContentItemController GetInstance(string prefixCache)
         {
+            PrefixCache = prefixCache;
+
             if (_instance != null)
                 return _instance;
 
@@ -29,7 +36,6 @@ namespace GB.Common.Controllers
 
         [ThreadStatic]
         static ContentItemController _instance;
-
         #endregion
 
         public List<ContentItemDnn> GetContentItemsByTypeAndCreated(int contentTypeId, DateTime lastRunDate, DateTime currentRunDate)
