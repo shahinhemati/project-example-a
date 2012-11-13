@@ -11,7 +11,7 @@ namespace GB.Album.Components.Entities
     [TableName("CV_ImageAlbum")]
     [PrimaryKey("ImageID")]
     [ExplicitColumns]
-    public partial class ImageInfo : SqlServerDb.Record<ImageInfo>
+    public partial class ImageInfo : Record<ImageInfo>
     {
         [Column]
         public int ImageID { get; set; }

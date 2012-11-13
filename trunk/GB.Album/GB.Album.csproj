@@ -83,7 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddImage.ascx" />
-    <Content Include="Controls\HeaderNav.ascx" />
     <Content Include="Dispatch.ascx" />
     <Content Include="EditAlbum.ascx" />
     <Content Include="ManagerAlbum.ascx" />
@@ -107,8 +106,8 @@
     </Compile>
     <Compile Include="Components\Args\AddImageEventArgs.cs" />
     <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
+    <Compile Include="Components\Common\AlbumCommon.cs" />
     <Compile Include="Components\Common\Caching.cs" />
-    <Compile Include="Components\Common\Constants.cs" />
     <Compile Include="Components\Common\Links.cs" />
     <Compile Include="Components\Common\ModuleSecurity.cs" />
     <Compile Include="Components\Common\QaSettings.cs" />
@@ -149,15 +148,7 @@
     <Compile Include="Components\Views\ITagDetailView.cs" />
     <Compile Include="Components\Views\ITagHistoryView.cs" />
     <Compile Include="Components\Views\ITagListView.cs" />
-    <Compile Include="Controls\HeaderNav.ascx.cs">
-      <DependentUpon>HeaderNav.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controls\HeaderNav.ascx.designer.cs">
-      <DependentUpon>HeaderNav.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Controls\Tags.cs" />
-    <Compile Include="Controls\Voting.cs" />
     <Compile Include="Dispatch.ascx.cs">
       <DependentUpon>Dispatch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,6 +209,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_LocalResources\" />
+    <Folder Include="Controls\App_LocalResources\" />
     <Folder Include="Documents\" />
     <Folder Include="Properties\" />
     <Folder Include="Provider\Search\" />
@@ -236,9 +228,6 @@
       <Project>{0637401F-3FCD-4CA0-9112-E3A4651110E8}</Project>
       <Name>GB.Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Controls\App_LocalResources\HeaderNav.ascx.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
