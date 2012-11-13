@@ -26,12 +26,13 @@ using System.Text;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using System;
+using GB.Album.Common.CommonBase;
 using GB.Album.Components.Common;
-using GB.Album.Components.Controllers;
 using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Tabs;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Modules;
+using GB.Common.Entities;
 using IB.Album.Components.Controllers;
 
 namespace GB.Album.Controls
@@ -77,7 +78,7 @@ namespace GB.Album.Controls
             //    throw new ArgumentException(@"Controller is nothing.", "controller");
             //}
 
-			Controller = AlbumController.Factory.GetInstance();
+			Controller = AlbumController.GetInstance();
 			
 		}
 
@@ -343,8 +344,6 @@ namespace GB.Album.Controls
 								writer.Write(term.TotalTermUsage + Localization.GetString("questions", SharedResourceFile));
 								break;
 						}
-						
-
 
 						// </span>
 						writer.RenderEndTag();

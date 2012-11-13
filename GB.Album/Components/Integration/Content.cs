@@ -21,6 +21,7 @@
 using System.Linq;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Entities.Content;
+using GB.Album.Common.CommonBase;
 using GB.Album.Components.Common;
 using GB.Album.Components.Entities;
 using DotNetNuke.Common.Utilities;

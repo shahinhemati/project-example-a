@@ -19,6 +19,7 @@
 //
 
 using System.Linq;
+using GB.Album.Common.CommonBase;
 using GB.Album.Components.Common;
 using GB.Album.Components.Entities;
 using DotNetNuke.Services.Journal;

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Web;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Content;
-using GB.Album.Components.Common;
+using GB.Album.Common.CommonBase;
 using GB.Album.Components.Entities;
 using GB.Album.Components.Integration;
+using GB.Common.Controllers;
 using GB.Common.Entities;
+
 
 namespace IB.Album.Components.Controllers
 {
@@ -20,7 +22,7 @@ namespace IB.Album.Components.Controllers
             AlbumController GetInstance();
         }
 
-        public static IFactory Factory { get; set; }
+        private static IFactory Factory { get; set; }
         public static AlbumController GetInstance()
         {
             if (_instance != null)
@@ -60,11 +62,12 @@ namespace IB.Album.Components.Controllers
                                      ModuleID = album.ModuleID,
                                      TabID = album.TabID,
                                  };
-            Utils.
+
             //todo 1 store the album to database and store ContentItem to DataBase
             //todo 2 if process store error then store error in LogSystem dnn and throw an exception
-            
-            
+
+
+
             SqlServerDb.GetInstance().Insert(album);
             
             return rt;
@@ -136,8 +139,6 @@ namespace IB.Album.Components.Controllers
             return null;
         }
 
-        
-
         #endregion
 
         internal AlbumInfo GetAlbum(int questionId, int p)
@@ -161,6 +162,16 @@ namespace IB.Album.Components.Controllers
         }
 
         public IEnumerable<object> GetUserSubscriptions(int portalId, int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int AddSubscription(SubscriptionInfo objSub)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteSubscription(int portalId, int id)
         {
             throw new NotImplementedException();
         }
