@@ -1,5 +1,4 @@
-﻿//
-// DotNetNuke® - http://www.dotnetnuke.com
+﻿// DotNetNuke® - http://www.dotnetnuke.com
 // Copyright (c) 2002-2012
 // by DotNetNuke Corporation
 //
@@ -18,23 +17,23 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-using System.Collections.Generic;
-using GB.Album.Components.Entities;
-using DotNetNuke.Entities.Content.Taxonomy;
-using GB.Common.Entities;
-
-namespace GB.Album.Components.Models
+namespace GB.Common.Entities
 {
 
-	public class TagHistoryModel 
-	{
+    public class UserScoreInfo
+    {
 
-		public int CurrentUserID { get; set; }
-		public Term SelectedCoreTerm { get; set; }
-		public TermInfo SelectedTerm { get; set; }
-		public List<TermHistoryInfo> TermHistory { get; set; }
-		public string PageTitle { get; set; }
-		public string PageDescription { get; set; }
+        public int UserId { get; set; }
 
-	}
+        public int PortalId { get; set; }
+
+        public int Score { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>255 char limit</remarks>
+        public string Message { get; set; }
+
+    }
 }

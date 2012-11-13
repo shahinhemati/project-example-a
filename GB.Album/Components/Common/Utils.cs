@@ -23,6 +23,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using GB.Album.Common.CommonBase;
 using GB.Album.Components.Entities;
 using DotNetNuke.Framework;
 using DotNetNuke.Security;
@@ -41,6 +42,7 @@ using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Modules;
 using System.Collections.Generic;
 using DotNetNuke.Web.Client.ClientResourceManagement;
+using GB.Common.Entities;
 using UtilContent=DotNetNuke.Entities.Content.Common.Util;
 
 namespace GB.Album.Components.Common

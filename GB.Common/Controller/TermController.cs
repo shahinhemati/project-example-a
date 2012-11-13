@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DotNetNuke.Entities.Content.Taxonomy;
+using GB.Common.Entities;
+
 namespace GB.Common.Controllers
 {
     public class TermController
@@ -56,7 +58,52 @@ namespace GB.Common.Controllers
             throw new NotImplementedException();
         }
 
-        internal List<Term> GetTermsByAlbumID(int albumId)
+        public List<Term> GetTermsByAlbumID(int albumId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TermInfo> GetTermsByContentType(int p, int p_2, int VocabularyId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<SettingInfo> GetQaPortalSettings(int portalId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TermHistoryInfo> GetTermHistory(int p, int p_2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserScoreInfo GetUserScore(int userId, int portalId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<TermSynonymInfo> GetTermSynonyms(int portalId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddTermSynonym(TermSynonymInfo objSynonym)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<UserScoreLogInfo> GetUserScoreLogByKey(int relatedTermId, int p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteUserScoreLog(int userId, int portalId, int userScoringActionId, int score, int relatedTermId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteTermSynonym(int termId, int relatedTermId, int portalId)
         {
             throw new NotImplementedException();
         }

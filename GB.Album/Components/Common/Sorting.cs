@@ -20,8 +20,9 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using GB.Album.Common.CommonBase;
 using GB.Album.Components.Entities;
-using TermInfo = GB.Album.Components.Entities.TermInfo;
+using GB.Common.Entities;
 
 namespace GB.Album.Components.Common
 {
@@ -175,5 +176,15 @@ namespace GB.Album.Components.Common
         //    return (from t in resultsCollection where t.Score != 0 orderby t.CreatedOnDate descending select t).Skip(0).Take(pageSize);
         //}
 
+
+        internal static object GetTermCollection(int PageSize, int currentPage, SortInfo objSort, List<DotNetNuke.Entities.Content.Taxonomy.Term> topTags)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        internal static List<TermInfo> GetTermCollection(int PageSize, int currentPage, SortInfo objSort, List<GB.Common.Entities.TermInfo> topTags)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

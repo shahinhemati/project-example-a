@@ -23,19 +23,19 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
+using DotNetNuke.Entities.Content.Taxonomy;
 using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Content.Common;
-using DotNetNuke.Entities.Content.Taxonomy;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Security;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Controllers;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
 using GB.Album.Components.Common;
 using DotNetNuke.Web.UI.WebControls;
-using TermController = GB.Album.Components.Controllers.TermController;
+using GB.Common.Entities;
+using TermController = GB.Common.Controllers.TermController;
 
 namespace GB.Album.Components.Presenters
 {
@@ -93,7 +93,7 @@ namespace GB.Album.Components.Presenters
 			}
 
 
-			Controller = TermController.GetInstance();
+			Controller = TermController.GetInstance(AlbumCommon.PrefixCache);
 			View.Load += ViewLoad;
 		}
 

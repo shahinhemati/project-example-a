@@ -24,11 +24,14 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using System;
+using GB.Album.Common.CommonBase;
 using GB.Album.Components.Common;
-using GB.Album.Components.Controllers;
 using GB.Album.Components.Entities;
 using GB.Album.Components.Integration;
 using DotNetNuke.UI.Modules;
+using GB.Common.Controller;
+using GB.Common.Entities;
+using Services=DotNetNuke.Services;
 
 namespace GB.Album.Controls
 {
@@ -43,7 +46,7 @@ namespace GB.Album.Controls
 
 		#region Private Members
 
-		protected IDnnqaController Controller { get; private set; }
+		protected VoteController Controller { get; private set; }
 		public event EventHandler VoteClick;
 
 		private LinkButton _voteUp;
@@ -98,10 +101,10 @@ namespace GB.Album.Controls
 			}
 		}
 
-		private QuestionInfo Question
-		{
-			get { return Controller.GetQuestion(QuestionID, ModContext.PortalId); }
-		}
+        //private QuestionInfo Question
+        //{
+        //    get { return Controller.GetQuestion(QuestionID, ModContext.PortalId); }
+        //}
 
 		#endregion
 
@@ -111,22 +114,8 @@ namespace GB.Album.Controls
 		/// 
 		/// </summary>
 		public Voting()
-			: this(new DnnqaController(new SqlDataProvider()))
+			
 		{
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="controller"></param>
-		public Voting(IDnnqaController controller)
-		{
-			if (controller == null)
-			{
-				throw new ArgumentException(@"Controller is nothing.", "controller");
-			}
-
-			Controller = controller;
 		}
 
 		#endregion

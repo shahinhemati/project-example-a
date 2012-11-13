@@ -18,23 +18,34 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-using System.Collections.Generic;
-using GB.Album.Components.Entities;
-using DotNetNuke.Entities.Content.Taxonomy;
-using GB.Common.Entities;
+namespace GB.Common.Entities {
 
-namespace GB.Album.Components.Models
-{
+    /// <summary>
+    /// This is our Info class that represents columns in our data store that are associated with the DNNQA_User_Badge table.
+    /// </summary>
+    public class UserBadgeInfo 
+    {
 
-	public class TagHistoryModel 
-	{
+        #region Public Properties
 
-		public int CurrentUserID { get; set; }
-		public Term SelectedCoreTerm { get; set; }
-		public TermInfo SelectedTerm { get; set; }
-		public List<TermHistoryInfo> TermHistory { get; set; }
-		public string PageTitle { get; set; }
-		public string PageDescription { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>FK</remarks>
+        public int BadgeId { get; set; }
 
-	}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>FK</remarks>
+        public int UserId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int PortalId { get; set; }
+
+        #endregion
+
+    }
 }

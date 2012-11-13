@@ -23,183 +23,184 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using DotNetNuke.Common.Utilities;
+using GB.Album.Common.CommonBase;
 using GB.Album.Components.Common;
-using GB.Album.Components.Controllers;
 using DotNetNuke.Entities.Content;
 using DotNetNuke.Entities.Host;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Services.Mail;
+using GB.Common.Controllers;
 using IB.Album.Components.Controllers;
 
-namespace GB.Album.Components.Tasks 
+namespace GB.Album.Components.Tasks
 {
 
-	/// <summary>
-	/// 
-	/// </summary>
-	public class Emailer : DotNetNuke.Services.Scheduling.SchedulerClient
-	{
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Emailer : DotNetNuke.Services.Scheduling.SchedulerClient
+    {
 
-		#region Constructor
+        #region Constructor
 
-	    private ScheduleItemSettingController ControllerSchedule { set; get; }
+        private ScheduleItemSettingController ControllerSchedule { set; get; }
         private SettingController ControllerSetting { set; get; }
         private AlbumController ControllerAlbum { set; get; }
         private ContentItemController ControllerItem { set; get; }
         private TermController ControllerTerm { set; get; }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="objScheduleHistoryItem"></param>
-		/// <param name="controller"></param>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="objScheduleHistoryItem"></param>
+        /// <param name="controller"></param>
         public Emailer(DotNetNuke.Services.Scheduling.ScheduleHistoryItem objScheduleHistoryItem)
-		{
-		    ControllerAlbum = AlbumController.Factory.GetInstance();
-		    ControllerSetting = SettingController.Factory.GetInstance();
-		    ControllerSchedule = ScheduleItemSettingController.Factory.GetInstance();
-		    ControllerItem = ContentItemController.Factory.GetInstance();
-		    ControllerTerm = TermController.Factory.GetInstance();
-			ScheduleHistoryItem = objScheduleHistoryItem;
-		}
+        {
+            ControllerAlbum = AlbumController.GetInstance(AlbumCommon.PrefixCache);
+            ControllerSetting = SettingController.GetInstance(AlbumCommon.PrefixCache);
+            ControllerSchedule = ScheduleItemSettingController.GetInstance(AlbumCommon.PrefixCache);
+            ControllerItem = ContentItemController.GetInstance(AlbumCommon.PrefixCache);
+            ControllerTerm = TermController.GetInstance(AlbumCommon.PrefixCache);
+            ScheduleHistoryItem = objScheduleHistoryItem;
+        }
 
-		#endregion
+        #endregion
 
 
 
-		#region Public Method
+        #region Public Method
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public override void DoWork()
-		{
-			try
-			{
-				Progressing(); // OPTIONAL
-			
-				var currentRunDate = DateTime.Now;
-				var lastInstantRun = DateTime.Now;
-				var lastDailyRun = DateTime.MinValue;
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void DoWork()
+        {
+            try
+            {
+                Progressing(); // OPTIONAL
 
-				var colScheduleItemSettings = DotNetNuke.Services.Scheduling.SchedulingProvider.Instance().GetScheduleItemSettings(ScheduleHistoryItem.ScheduleID);
+                var currentRunDate = DateTime.Now;
+                var lastInstantRun = DateTime.Now;
+                var lastDailyRun = DateTime.MinValue;
 
-				if (colScheduleItemSettings.Count > 0)
-				{
-					if (colScheduleItemSettings.ContainsKey(Constants.ScheduleItemSettings.InstantLastRunDate.ToString()))
-					{
-						lastInstantRun = Convert.ToDateTime(colScheduleItemSettings[Constants.ScheduleItemSettings.InstantLastRunDate.ToString()]);
-					}
+                var colScheduleItemSettings = DotNetNuke.Services.Scheduling.SchedulingProvider.Instance().GetScheduleItemSettings(ScheduleHistoryItem.ScheduleID);
 
-					if (colScheduleItemSettings.ContainsKey(Constants.ScheduleItemSettings.DailyLastRunDate.ToString()))
-					{
-						lastDailyRun = Convert.ToDateTime(colScheduleItemSettings[Constants.ScheduleItemSettings.DailyLastRunDate.ToString()]);
-					}
+                if (colScheduleItemSettings.Count > 0)
+                {
+                    if (colScheduleItemSettings.ContainsKey(Constants.ScheduleItemSettings.InstantLastRunDate.ToString()))
+                    {
+                        lastInstantRun = Convert.ToDateTime(colScheduleItemSettings[Constants.ScheduleItemSettings.InstantLastRunDate.ToString()]);
+                    }
 
-				}
-				else
-				{                
-					DotNetNuke.Services.Scheduling.SchedulingProvider.Instance().AddScheduleItemSetting(ScheduleHistoryItem.ScheduleID, Constants.ScheduleItemSettings.InstantLastRunDate.ToString(), lastInstantRun.ToString());
-					DotNetNuke.Services.Scheduling.SchedulingProvider.Instance().AddScheduleItemSetting(ScheduleHistoryItem.ScheduleID, Constants.ScheduleItemSettings.DailyLastRunDate.ToString(), lastDailyRun.ToString());
-				}
+                    if (colScheduleItemSettings.ContainsKey(Constants.ScheduleItemSettings.DailyLastRunDate.ToString()))
+                    {
+                        lastDailyRun = Convert.ToDateTime(colScheduleItemSettings[Constants.ScheduleItemSettings.DailyLastRunDate.ToString()]);
+                    }
 
-				// handle instant notifications
-				var strResults = GenerateNotifications(lastInstantRun, currentRunDate, Constants.SubscriptionType.InstantPost);
-				strResults += GenerateNotifications(lastInstantRun, currentRunDate, Constants.SubscriptionType.InstantTerm);
-				// update settings (we have to create a method since the core doesn't have one for us)
+                }
+                else
+                {
+                    DotNetNuke.Services.Scheduling.SchedulingProvider.Instance().AddScheduleItemSetting(ScheduleHistoryItem.ScheduleID, Constants.ScheduleItemSettings.InstantLastRunDate.ToString(), lastInstantRun.ToString());
+                    DotNetNuke.Services.Scheduling.SchedulingProvider.Instance().AddScheduleItemSetting(ScheduleHistoryItem.ScheduleID, Constants.ScheduleItemSettings.DailyLastRunDate.ToString(), lastDailyRun.ToString());
+                }
 
-				ControllerSchedule.UpdateScheduleItemSetting(ScheduleHistoryItem.ScheduleID, Constants.ScheduleItemSettings.InstantLastRunDate.ToString(), currentRunDate.ToString());
+                // handle instant notifications
+                var strResults = GenerateNotifications(lastInstantRun, currentRunDate, Constants.SubscriptionType.InstantPost);
+                strResults += GenerateNotifications(lastInstantRun, currentRunDate, Constants.SubscriptionType.InstantTerm);
+                // update settings (we have to create a method since the core doesn't have one for us)
 
-				// handle daily
-				// first, see if we need to even attempt a daily (get daily run's last date, see if it has been 24 hours)
-				if (lastDailyRun < currentRunDate.AddHours(-24))
-				{
-					strResults += GenerateNotifications(lastDailyRun, currentRunDate, Constants.SubscriptionType.DailyTerm);
+                ControllerSchedule.UpdateScheduleItemSetting(ScheduleHistoryItem.ScheduleID, Constants.ScheduleItemSettings.InstantLastRunDate.ToString(), currentRunDate.ToString());
 
-					// update settings (we have to create a method since the core doesn't have one for us) - only update when we send the emails
-					ControllerSchedule.UpdateScheduleItemSetting(ScheduleHistoryItem.ScheduleID, Constants.ScheduleItemSettings.DailyLastRunDate.ToString(), currentRunDate.ToString());
-				}
+                // handle daily
+                // first, see if we need to even attempt a daily (get daily run's last date, see if it has been 24 hours)
+                if (lastDailyRun < currentRunDate.AddHours(-24))
+                {
+                    strResults += GenerateNotifications(lastDailyRun, currentRunDate, Constants.SubscriptionType.DailyTerm);
 
-				ScheduleHistoryItem.Succeeded = true; // REQUIRED
-				ScheduleHistoryItem.AddLogNote(strResults); // OPTIONAL
-			}
-			catch (Exception exc)
-			{
-				ScheduleHistoryItem.Succeeded = false; // REQUIRED
-				ScheduleHistoryItem.AddLogNote("Q&A Emailer Task Failed. " + exc); // OPTIONAL
-				//this.Errored(exc); // REQUIRED
-				DotNetNuke.Services.Exceptions.Exceptions.LogException(exc); // OPTIONAL
-				throw;
-			}
-		}
+                    // update settings (we have to create a method since the core doesn't have one for us) - only update when we send the emails
+                    ControllerSchedule.UpdateScheduleItemSetting(ScheduleHistoryItem.ScheduleID, Constants.ScheduleItemSettings.DailyLastRunDate.ToString(), currentRunDate.ToString());
+                }
 
-		#endregion
+                ScheduleHistoryItem.Succeeded = true; // REQUIRED
+                ScheduleHistoryItem.AddLogNote(strResults); // OPTIONAL
+            }
+            catch (Exception exc)
+            {
+                ScheduleHistoryItem.Succeeded = false; // REQUIRED
+                ScheduleHistoryItem.AddLogNote("Q&A Emailer Task Failed. " + exc); // OPTIONAL
+                //this.Errored(exc); // REQUIRED
+                DotNetNuke.Services.Exceptions.Exceptions.LogException(exc); // OPTIONAL
+                throw;
+            }
+        }
 
-		#region Private Methods
+        #endregion
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns></returns>
-		private string GenerateNotifications(DateTime lastRunDate, DateTime currentRunDate, Constants.SubscriptionType subType)
-		{
-			var strErrors = "";
+        #region Private Methods
 
-			// based on subscription type, generate list of content additions to email
-			switch (subType)
-			{
-				case Constants.SubscriptionType.DailyTerm:
-					// daily term (all questions created between dates)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private string GenerateNotifications(DateTime lastRunDate, DateTime currentRunDate, Constants.SubscriptionType subType)
+        {
+            var strErrors = "";
 
-					// This email is going to be user specific, so we need to start w/ a list of subscribers (based on type daily term); each user can have multiple terms
-					// -- select all questions where 
+            // based on subscription type, generate list of content additions to email
+            switch (subType)
+            {
+                case Constants.SubscriptionType.DailyTerm:
+                    // daily term (all questions created between dates)
 
-					// we retrieve a collection of questions, each question will have a contentItem associated with it (we only retrieve stuff not voted out)
+                    // This email is going to be user specific, so we need to start w/ a list of subscribers (based on type daily term); each user can have multiple terms
+                    // -- select all questions where 
 
-					// we need to retrieve a collection of terms, based on content item collection from above
-					strErrors = "Daily Term: Sent " + 0 + " emails <br />";
-					break;
-				case Constants.SubscriptionType.InstantTerm:
-					var typeController = new ContentTypeController();
-					var colContentTypes = (from t in typeController.GetContentTypes() where t.ContentType == Constants.ContentTypeName select t);
+                    // we retrieve a collection of questions, each question will have a contentItem associated with it (we only retrieve stuff not voted out)
 
-					if (colContentTypes.Count() > 0)
-					{
-						var contentType = colContentTypes.Single();
-						var colContentItems = ControllerItem.GetContentItemsByTypeAndCreated(contentType.ContentTypeId, lastRunDate, currentRunDate);
-                        
+                    // we need to retrieve a collection of terms, based on content item collection from above
+                    strErrors = "Daily Term: Sent " + 0 + " emails <br />";
+                    break;
+                case Constants.SubscriptionType.InstantTerm:
+                    var typeController = new ContentTypeController();
+                    var colContentTypes = (from t in typeController.GetContentTypes() where t.ContentType == Constants.ContentTypeName select t);
 
-						foreach (var item in colContentItems)
-						{
-							// we are using the question object because content item doesn't have a title association yet (for core integration)
-							var objQuestion = ControllerAlbum.GetQuestionByContentItem(item.ContentItemId);
-							
-							if (objQuestion != null)
-							{
-								// use the content item to build the email subject/body/content (sub question for content item now)
-								var colEmail = QaSettings.GetEmailCollection(ControllerSetting.GetQaPortalSettings(objQuestion.PortalID), objQuestion.PortalID);
-								var senderEmail = colEmail.Single(s => s.Key == Constants.EmailSettings.FromAddress.ToString()).Value;
-								//var urlBase = colEmail.Single(s => s.Key == Constants.EmailSettings.PrimaryUrl.ToString()).Value;
-								var questionTemplate =  colEmail.Single(s => s.Key == Constants.EmailSettings.SingleQuestionTemplate.ToString()).Value;
-								var ps = new PortalSettings(objQuestion.PortalID);
-                                
-								var titleLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/question/id/" + objQuestion.AlbumID + "/" + DotNetNuke.Common.Globals.glbDefaultPage;
-								var subscribeLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/subscriptions/" + DotNetNuke.Common.Globals.glbDefaultPage;
+                    if (colContentTypes.Count() > 0)
+                    {
+                        var contentType = colContentTypes.Single();
+                        var colContentItems = ControllerItem.GetContentItemsByTypeAndCreated(contentType.ContentTypeId, lastRunDate, currentRunDate);
+
+
+                        foreach (var item in colContentItems)
+                        {
+                            // we are using the question object because content item doesn't have a title association yet (for core integration)
+                            var objQuestion = ControllerAlbum.GetQuestionByContentItem(item.ContentItemId);
+
+                            if (objQuestion != null)
+                            {
+                                // use the content item to build the email subject/body/content (sub question for content item now)
+                                var colEmail = QaSettings.GetEmailCollection(ControllerSetting.GetQaPortalSettings(objQuestion.PortalID), objQuestion.PortalID);
+                                var senderEmail = colEmail.Single(s => s.Key == Constants.EmailSettings.FromAddress.ToString()).Value;
+                                //var urlBase = colEmail.Single(s => s.Key == Constants.EmailSettings.PrimaryUrl.ToString()).Value;
+                                var questionTemplate = colEmail.Single(s => s.Key == Constants.EmailSettings.SingleQuestionTemplate.ToString()).Value;
+                                var ps = new PortalSettings(objQuestion.PortalID);
+
+                                var titleLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/question/id/" + objQuestion.AlbumID + "/" + DotNetNuke.Common.Globals.glbDefaultPage;
+                                var subscribeLink = "http://" + ps.DefaultPortalAlias + "/tabid/" + objQuestion.TabID + "/view/subscriptions/" + DotNetNuke.Common.Globals.glbDefaultPage;
 
 
                                 var termsInAlbum = ControllerTerm.GetTermsByAlbumID(objQuestion.AlbumID);
-							    var terms = "";
-								var i = 0;
-								foreach (var t in termsInAlbum)
-								{
-									terms += t.Name;
-									i += 1;
+                                var terms = "";
+                                var i = 0;
+                                foreach (var t in termsInAlbum)
+                                {
+                                    terms += t.Name;
+                                    i += 1;
 
-									if (termsInAlbum.Count != i)
-									{
-										terms += ", ";
-									}
-								}
+                                    if (termsInAlbum.Count != i)
+                                    {
+                                        terms += ", ";
+                                    }
+                                }
 
                                 //questionTemplate = questionTemplate.Replace("[AUTHOR]", objQuestion.CreatedByUserID.);
                                 //questionTemplate = questionTemplate.Replace("[TERMS]", terms);
@@ -208,30 +209,30 @@ namespace GB.Album.Components.Tasks
                                 //questionTemplate = questionTemplate.Replace("[BODY]", Utils.ProcessDisplayPostBody(objQuestion.Body));
                                 //questionTemplate = questionTemplate.Replace("[SUBSCRIBELINK]", subscribeLink);
 
-								var colSubscribers = ControllerSchedule.GetSubscribersByContentItem(item.ContentItemId, (int)Constants.SubscriptionType.InstantTerm, objQuestion.AlbumID);
-								foreach (var subscriber in colSubscribers)
-								{
-									// send off the email one by one (same email to multiple subscribers)
-									Mail.SendMail(senderEmail, subscriber.Email, "", "", MailPriority.Normal,
-												  HtmlUtils.StripWhiteSpace(objQuestion.AlbumName, true), MailFormat.Html, Encoding.UTF8, questionTemplate,
-												  "", Host.SMTPServer, Host.SMTPAuthentication, Host.SMTPUsername,
-												  Host.SMTPPassword, Host.EnableSMTPSSL);
-								}
+                                var colSubscribers = ControllerSchedule.GetSubscribersByContentItem(item.ContentItemId, (int)Constants.SubscriptionType.InstantTerm, objQuestion.AlbumID);
+                                foreach (var subscriber in colSubscribers)
+                                {
+                                    // send off the email one by one (same email to multiple subscribers)
+                                    Mail.SendMail(senderEmail, subscriber.Email, "", "", MailPriority.Normal,
+                                                  HtmlUtils.StripWhiteSpace(objQuestion.AlbumName, true), MailFormat.Html, Encoding.UTF8, questionTemplate,
+                                                  "", Host.SMTPServer, Host.SMTPAuthentication, Host.SMTPUsername,
+                                                  Host.SMTPPassword, Host.EnableSMTPSSL);
+                                }
 
-								strErrors = "Instant Term: Sent " + colSubscribers.Count + " emails - " + objQuestion.AlbumName + "<br />";
-							}
-						}
-					}
-					else
-					{
-						strErrors = "Instant Term: No email to send <br />";
-					}
-				
-					break;
-				default:
-                    #region Cuongvv don't anything herer 
+                                strErrors = "Instant Term: Sent " + colSubscribers.Count + " emails - " + objQuestion.AlbumName + "<br />";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        strErrors = "Instant Term: No email to send <br />";
+                    }
+
+                    break;
+                default:
+                    #region Cuongvv don't anything herer
                     //var colAnswers = ControllerAlbum.GetAnswersByDate(lastRunDate, currentRunDate);
-                    
+
                     //if (colAnswers.Count() > 0)
                     //{
                     //    // for each content item in the collection, get a list of subscribers and send the emails off one by one. 
@@ -315,10 +316,10 @@ namespace GB.Album.Components.Tasks
                     //}
                     #endregion
                     break;
-			}
-			
-			return strErrors;
-		}
-		#endregion
-	}
+            }
+
+            return strErrors;
+        }
+        #endregion
+    }
 }

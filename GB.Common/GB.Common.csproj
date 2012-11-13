@@ -77,6 +77,8 @@
     <Compile Include="Controller\ScheduleItemSettingController.cs" />
     <Compile Include="Controller\SettingController.cs" />
     <Compile Include="Controller\TermController.cs" />
+    <Compile Include="Controller\VoteController.cs" />
+    <Compile Include="Entities\BadgeInfo.cs" />
     <Compile Include="Entities\ContentItemDnn.cs" />
     <Compile Include="Controller\PetaPoco.cs" />
     <Compile Include="Entities\Record.cs" />
@@ -86,7 +88,11 @@
     <Compile Include="Entities\TermHistoryInfo.cs" />
     <Compile Include="Entities\TermInfo.cs" />
     <Compile Include="Entities\TermSynonymInfo.cs" />
+    <Compile Include="Entities\UserBadgeInfo.cs" />
+    <Compile Include="Entities\UserScoreInfo.cs" />
+    <Compile Include="Entities\UserScoreLogInfo.cs" />
     <Compile Include="Entities\UtilityInfo.cs" />
+    <Compile Include="Entities\VoteInfo.cs" />
     <Compile Include="Paging\IPagedList.cs" />
     <Compile Include="Paging\PagedList.cs" />
     <Compile Include="Paging\Pager.cs" />

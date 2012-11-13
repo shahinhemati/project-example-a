@@ -20,6 +20,7 @@
 
 using System.Collections.Generic;
 using GB.Album.Components.Entities;
+using GB.Common.Entities;
 
 namespace GB.Album.Components.Models
 {
