@@ -52,11 +52,9 @@ namespace GB.Common.Controllers
         {
             throw new NotImplementedException();
         }
-
         public List<SubscriberInfo> GetSubscribersByContentItem(object contentItemId, int instantTerm, object portalId)
         {
             throw new NotImplementedException();
         }
-
     }
 }
