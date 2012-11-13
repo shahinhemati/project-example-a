@@ -10,15 +10,21 @@ namespace GB.Common.Controllers
 {
     public class ScheduleItemSettingController
     {
+        #region Variables
+
+        public static string PrefixCache { set; get; }
+
+        #endregion
         #region Create new Instance
         public interface IFactory
         {
             ScheduleItemSettingController GetInstance();
         }
 
-        public static IFactory Factory { get; set; }
-        public static ScheduleItemSettingController GetInstance()
+        static IFactory Factory { get; set; }
+        public static ScheduleItemSettingController GetInstance(string prefixCache)
         {
+            PrefixCache = prefixCache;
             if (_instance != null)
                 return _instance;
 

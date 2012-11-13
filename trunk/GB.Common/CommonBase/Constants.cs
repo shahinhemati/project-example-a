@@ -23,8 +23,7 @@ namespace GB.Album.Common.CommonBase
 
 	public class Constants
     {
-       
-
+        
         #region Module Settings
 
         // General
