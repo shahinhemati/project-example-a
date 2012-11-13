@@ -70,13 +70,16 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonBase\Constants.cs" />
+    <Compile Include="CommonBase\Constants.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controller\ContentItemController.cs" />
     <Compile Include="Controller\ScheduleItemSettingController.cs" />
     <Compile Include="Controller\SettingController.cs" />
     <Compile Include="Controller\TermController.cs" />
     <Compile Include="Entities\ContentItemDnn.cs" />
     <Compile Include="Controller\PetaPoco.cs" />
+    <Compile Include="Entities\Record.cs" />
     <Compile Include="Entities\SettingInfo.cs" />
     <Compile Include="Controller\SqlServerDb.cs" />
     <Compile Include="Entities\SubscriptionInfo.cs" />
