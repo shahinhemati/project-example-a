@@ -41,7 +41,6 @@ namespace GB.Album.Components.Services
 
         public void RegisterRoutes(IMapRoute mapRouteManager)
         {
-
             mapRouteManager.MapRoute("DNNQA", "{controller}.ashx/{action}", new[] { "GB.Album.Components.Services" });
         }
 
