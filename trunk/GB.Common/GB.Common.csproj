@@ -46,6 +46,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLLBuild\DotNetNuke.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetNuke.Web.Client, Version=6.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLBuild\DotNetNuke.Web.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetNuke.WebUtility, Version=4.2.1.783, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLBuild\DotNetNuke.WebUtility.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,14 +78,22 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonBase\Caching.cs" />
     <Compile Include="CommonBase\Constants.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CommonBase\Links.cs" />
+    <Compile Include="CommonBase\Sorting.cs" />
+    <Compile Include="CommonBase\Utils.cs" />
+    <Compile Include="CompositeControl\Tags.cs" />
+    <Compile Include="CompositeControl\Voting.cs" />
     <Compile Include="Controller\BadgeController.cs" />
     <Compile Include="Controller\ContentItemController.cs" />
     <Compile Include="Controller\ControllerCommon.cs" />
+    <Compile Include="Controller\IGBEntityController.cs" />
     <Compile Include="Controller\ScheduleItemSettingController.cs" />
     <Compile Include="Controller\SettingController.cs" />
+    <Compile Include="Controller\SubcriptionController.cs" />
     <Compile Include="Controller\TermController.cs" />
     <Compile Include="Controller\TermHistoryController.cs" />
     <Compile Include="Controller\TermSynonymController.cs" />
@@ -87,6 +103,7 @@
     <Compile Include="Entities\BadgeInfo.cs" />
     <Compile Include="Entities\ContentItemDnn.cs" />
     <Compile Include="Controller\PetaPoco.cs" />
+    <Compile Include="Entities\IGBEntityInfo.cs" />
     <Compile Include="Entities\Record.cs" />
     <Compile Include="Entities\SettingInfo.cs" />
     <Compile Include="Controller\SqlServerDb.cs" />

@@ -20,11 +20,10 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using GB.Album.Common.CommonBase;
 using GB.Album.Components.Entities;
 using GB.Common.Entities;
 
-namespace GB.Album.Components.Common
+namespace GB.Common.CommonBase
 {
 
     /// <summary>

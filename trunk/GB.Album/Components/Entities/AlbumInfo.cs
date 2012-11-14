@@ -12,7 +12,7 @@ namespace GB.Album.Components.Entities
     [TableName("CV_Album")]
     [PrimaryKey("AlbumID")]
     [ExplicitColumns]
-    public partial class AlbumInfo : Record<AlbumInfo>
+    public partial class AlbumInfo : Record<AlbumInfo>,IGBEntityInfo
     {
         [Column]
         public int AlbumID { get; set; }

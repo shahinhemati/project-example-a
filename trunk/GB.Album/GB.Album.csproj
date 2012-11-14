@@ -110,16 +110,12 @@
     <Compile Include="Components\Args\AddImageEventArgs.cs" />
     <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
     <Compile Include="Components\Common\AlbumCommon.cs" />
-    <Compile Include="Components\Common\Caching.cs" />
     <Compile Include="Components\Controllers\Controller.cs" />
-    <Compile Include="Components\Common\Links.cs" />
     <Compile Include="Components\Common\ModuleSecurity.cs" />
     <Compile Include="Components\Common\QaSettings.cs" />
-    <Compile Include="Components\Common\Sorting.cs" />
     <Compile Include="Components\Common\UIEventArgs.cs" />
     <Compile Include="Components\Common\UIListEventArgs.cs" />
     <Compile Include="Components\Common\UrlShorteningService.cs" />
-    <Compile Include="Components\Common\Utils.cs" />
     <Compile Include="Components\Controllers\AlbumController.cs" />
     <Compile Include="Components\Controllers\AlbumImageController.cs" />
     <Compile Include="Components\Entities\AlbumInfo.cs" />
@@ -152,10 +148,6 @@
     <Compile Include="Components\Views\ITagDetailView.cs" />
     <Compile Include="Components\Views\ITagHistoryView.cs" />
     <Compile Include="Components\Views\ITagListView.cs" />
-    <Compile Include="Controls\Tags.cs" />
-    <Compile Include="Controls\Voting.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Dispatch.ascx.cs">
       <DependentUpon>Dispatch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -217,7 +209,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_LocalResources\" />
-    <Folder Include="Controls\App_LocalResources\" />
     <Folder Include="Documents\" />
     <Folder Include="Properties\" />
     <Folder Include="Provider\Search\" />

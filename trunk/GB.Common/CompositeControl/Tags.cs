@@ -27,13 +27,12 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System;
 using GB.Album.Common.CommonBase;
-using GB.Album.Components.Common;
 using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Tabs;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Modules;
+using GB.Common.Controller;
 using GB.Common.Entities;
-using IB.Album.Components.Controllers;
 
 namespace GB.Album.Controls
 {
@@ -48,7 +47,7 @@ namespace GB.Album.Controls
 
 		#region Private Members
 
-		protected AlbumController Controller { get; private set; }
+		protected SubcriptionController Controller { get; private set; }
 		public event EventHandler SubscribeClick;
 
 		private LinkButton _cmdSubscribe;
@@ -78,7 +77,7 @@ namespace GB.Album.Controls
             //    throw new ArgumentException(@"Controller is nothing.", "controller");
             //}
 
-			Controller = AlbumController.GetInstance();
+            //Controller = AlbumController.GetInstance();
 			
 		}
 

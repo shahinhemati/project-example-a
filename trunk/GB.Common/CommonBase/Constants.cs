@@ -18,7 +18,7 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-namespace GB.Album.Common.CommonBase
+namespace GB.Common.CommonBase
 {
 
 	public class Constants
