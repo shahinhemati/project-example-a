@@ -23,9 +23,8 @@ using System.Web;
 using DotNetNuke.UI.Modules;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Tabs;
-using GB.Album.Common.CommonBase;
 
-namespace GB.Album.Components.Common
+namespace GB.Common.CommonBase
 {
 
 	/// <summary>
