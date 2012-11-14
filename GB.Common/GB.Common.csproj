@@ -73,10 +73,16 @@
     <Compile Include="CommonBase\Constants.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controller\BadgeController.cs" />
     <Compile Include="Controller\ContentItemController.cs" />
+    <Compile Include="Controller\ControllerCommon.cs" />
     <Compile Include="Controller\ScheduleItemSettingController.cs" />
     <Compile Include="Controller\SettingController.cs" />
     <Compile Include="Controller\TermController.cs" />
+    <Compile Include="Controller\TermHistoryController.cs" />
+    <Compile Include="Controller\TermSynonymController.cs" />
+    <Compile Include="Controller\UserScoreController.cs" />
+    <Compile Include="Controller\UserScoreLogController.cs" />
     <Compile Include="Controller\VoteController.cs" />
     <Compile Include="Entities\BadgeInfo.cs" />
     <Compile Include="Entities\ContentItemDnn.cs" />
