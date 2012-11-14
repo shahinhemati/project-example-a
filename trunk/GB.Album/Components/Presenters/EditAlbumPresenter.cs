@@ -17,7 +17,7 @@ namespace GB.Album.Components.Presenters
 
         public EditAlbumPresenter(IEditAlbumView view) : base(view)
         {
-            Controller = AlbumController.Factory.GetInstance();
+            Controller = AlbumController.GetInstance();
             view.Load+=LoadAlbumView;
         }
 
