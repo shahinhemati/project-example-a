@@ -109,6 +109,7 @@
     <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
     <Compile Include="Components\Common\AlbumCommon.cs" />
     <Compile Include="Components\Common\Caching.cs" />
+    <Compile Include="Components\Controllers\Controller.cs" />
     <Compile Include="Components\Common\Links.cs" />
     <Compile Include="Components\Common\ModuleSecurity.cs" />
     <Compile Include="Components\Common\QaSettings.cs" />

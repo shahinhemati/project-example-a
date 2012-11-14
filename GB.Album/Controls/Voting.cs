@@ -32,6 +32,8 @@ using DotNetNuke.UI.Modules;
 using GB.Common.Controller;
 using GB.Common.Entities;
 using Services=DotNetNuke.Services;
+using IB.Album.Components.Controllers;
+using GB.Common.Controllers;
 
 namespace GB.Album.Controls
 {
@@ -46,7 +48,7 @@ namespace GB.Album.Controls
 
 		#region Private Members
 
-		protected VoteController Controller { get; private set; }
+		private Controller Controller { get; set; }
 		public event EventHandler VoteClick;
 
 		private LinkButton _voteUp;
@@ -58,7 +60,7 @@ namespace GB.Album.Controls
 		{
 			get
 			{
-				return QaSettings.GetOpThresholdCollection(Controller.GetQaPortalSettings(ModContext.PortalId), ModContext.PortalId);
+				return QaSettings.GetOpThresholdCollection(Controller.SettingCtr.GetQaPortalSettings(ModContext.PortalId), ModContext.PortalId);
 			}
 		}
 
@@ -66,7 +68,7 @@ namespace GB.Album.Controls
 		{
 			get
 			{
-				return QaSettings.GetUserScoringCollection(Controller.GetQaPortalSettings(ModContext.PortalId), ModContext.PortalId);
+				return QaSettings.GetUserScoringCollection(Controller.SettingCtr.GetQaPortalSettings(ModContext.PortalId), ModContext.PortalId);
 			}
 		}
 
@@ -74,7 +76,7 @@ namespace GB.Album.Controls
 		{
 			get
 			{
-				return QaSettings.GetPrivilegeCollection(Controller.GetQaPortalSettings(ModContext.PortalId), ModContext.PortalId);
+				return QaSettings.GetPrivilegeCollection(Controller.SettingCtr.GetQaPortalSettings(ModContext.PortalId), ModContext.PortalId);
 			}
 		}
 
@@ -84,7 +86,7 @@ namespace GB.Album.Controls
 			{
 				if (ModContext.PortalSettings.UserId > 0)
 				{
-					var usersScore = Controller.GetUserScore(ModContext.PortalSettings.UserId, ModContext.PortalId);
+					var usersScore = Controller.UserScoreCtr.GetUserScore(ModContext.PortalSettings.UserId, ModContext.PortalId);
 					if (usersScore != null)
 					{
 						return usersScore;
@@ -101,10 +103,10 @@ namespace GB.Album.Controls
 			}
 		}
 
-        //private QuestionInfo Question
-        //{
-        //    get { return Controller.GetQuestion(QuestionID, ModContext.PortalId); }
-        //}
+        private AlbumInfo Question
+        {
+            get { return Controller.AlbumCtr.GetAlbum(QuestionID, ModContext.PortalId); }
+        }
 
 		#endregion
 
@@ -323,7 +325,7 @@ namespace GB.Album.Controls
 			switch (VotingMode)
 			{
 				case Constants.VoteMode.Synonym :
-					var portalSynonyms = Controller.GetTermSynonyms(ModContext.PortalId);
+					var portalSynonyms = Controller.TermCtr.GetTermSynonyms(ModContext.PortalId);
 						var objSynonym = (from t in portalSynonyms where t.RelatedTermId == RelatedTermId select t).SingleOrDefault();
 						if (objSynonym != null)
 						{
@@ -336,7 +338,7 @@ namespace GB.Album.Controls
 				default:
 					if (ModContext != null)
 					{
-						var objPost = Controller.GetPost(CurrentPostID, ModContext.PortalId);
+						var objPost = Controller.AlbumCtr.GetAlbum(CurrentPostID, ModContext.PortalId);
 
 						if (objPost != null)
 						{
@@ -385,14 +387,14 @@ namespace GB.Album.Controls
 				switch (VotingMode)
 				{
 					case Constants.VoteMode.Synonym:
-						var col = Controller.GetTermSynonymVotes(RelatedTermId, ModContext.PortalId);
+						var col = Controller.VoteCtr.GetTermSynonymVotes(RelatedTermId, ModContext.PortalId);
 						objUserVote = (from t in col where ((t.CreatedByUserId == ModContext.PortalSettings.UserId) && ((t.VoteTypeId == (int)Constants.VoteType.VoteSynonymUp) || (t.VoteTypeId == (int)Constants.VoteType.VoteSynonymDown))) select t).SingleOrDefault();
 						break;
 					//case Constants.VoteMode.Term:
 					//    objUserVote = (from t in Controller.GetPostVotes(CurrentPostID) where ((t.CreatedByUserId == ModContext.PortalSettings.UserId) && (t.VoteTypeId == (int)Constants.VoteType.FlagPost)) select t).SingleOrDefault();
 						//break;
 					default: // question/answer
-						var colPostVotes = Controller.GetPostVotes(CurrentPostID);
+						var colPostVotes = Controller.VoteCtr.GetPostVotes(CurrentPostID);
 						objUserVote = (from t in colPostVotes where ((t.CreatedByUserId == ModContext.PortalSettings.UserId) && ((t.VoteTypeId == (int)Constants.VoteType.VoteUpPost) || (t.VoteTypeId == (int)Constants.VoteType.VoteDownPost))) select t).SingleOrDefault();
 						break;
 				}
@@ -438,7 +440,7 @@ namespace GB.Album.Controls
 					switch (VotingMode)
 					{
 						case Constants.VoteMode.Synonym:
-							var colPortalSynonyms = Controller.GetTermSynonyms(ModContext.PortalId);
+							var colPortalSynonyms = Controller.TermCtr.GetTermSynonyms(ModContext.PortalId);
 							var objSynonym = (from t in colPortalSynonyms where ((t.RelatedTermId == RelatedTermId) && (t.PortalId == ModContext.PortalId) && (t.MasterTermId == TermId)) select t).SingleOrDefault();
 
 							if (objSynonym.CreatedByUserId == ModContext.PortalSettings.UserId)
@@ -460,11 +462,11 @@ namespace GB.Album.Controls
 						//        _voteDown.Enabled = ((UserScore >= privVoteDown.Value) || (ModContext.IsEditable));
 						//    break;
 						default : // question/answer
-							var objPost = Controller.GetPost(CurrentPostID, ModContext.PortalId);
+							var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
 
 							if (objPost != null)
 							{
-								if (objPost.CreatedUserId == ModContext.PortalSettings.UserId)
+								if (objPost.CreatedByUserID == ModContext.PortalSettings.UserId)
 								{
 									_voteUp.Enabled = false;
 									_voteDown.Enabled = false;
@@ -512,7 +514,7 @@ namespace GB.Album.Controls
 			switch (VotingMode)
 			{
 				case Constants.VoteMode.Synonym:
-					var colTermVotes = Controller.GetTermSynonymVotes(RelatedTermId, ModContext.PortalId);
+					var colTermVotes = Controller.VoteCtr.GetTermSynonymVotes(RelatedTermId, ModContext.PortalId);
 
 					switch (voteValue)
 					{
@@ -526,7 +528,7 @@ namespace GB.Album.Controls
 
 							if (objUserVoteSd != null)
 							{
-								Controller.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId, (int)Constants.UserScoringActions.VotedSynonymDown, voteSDown, RelatedTermId);
+								Controller.UserScoreLogCtr.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId, (int)Constants.UserScoringActions.VotedSynonymDown, voteSDown, RelatedTermId);
 							}
 							else
 							{
@@ -540,7 +542,7 @@ namespace GB.Album.Controls
 									CreatedOnDate = DateTime.Now
 								};
 
-								Controller.AddScoringLog(objScoreLog, PrivilegeCollection);
+								Controller.UserScoreLogCtr.AddScoringLog(objScoreLog, PrivilegeCollection);
 								VotingThresholdCheck(Constants.OpThresholds.TermSynonymRejectCount, Constants.VoteType.VoteSynonymDown);
 							}
 							break;
@@ -554,7 +556,7 @@ namespace GB.Album.Controls
 							
 							if (objUserVoteSu != null)
 							{
-								Controller.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId, (int)Constants.UserScoringActions.VotedSynonymUp, voteSUp, RelatedTermId);
+								Controller.UserScoreLogCtr.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId, (int)Constants.UserScoringActions.VotedSynonymUp, voteSUp, RelatedTermId);
 							}
 							else
 							{
@@ -568,7 +570,7 @@ namespace GB.Album.Controls
 									CreatedOnDate = DateTime.Now
 								};
 
-								Controller.AddScoringLog(objScoreLog, PrivilegeCollection);
+								Controller.UserScoreLogCtr.AddScoringLog(objScoreLog, PrivilegeCollection);
 								VotingThresholdCheck(Constants.OpThresholds.TermSynonymApproveCount, Constants.VoteType.VoteSynonymUp);
 							}
 							break;
@@ -578,7 +580,7 @@ namespace GB.Album.Controls
 				//    //objVote.VoteTypeId = (int)Constants.VoteType.FlagPost;
 				//    break;
 				default: // post=question/answer
-					var colPostVotes = Controller.GetPostVotes(CurrentPostID);
+					var colPostVotes = Controller.VoteCtr.GetPostVotes(CurrentPostID);
 
 					switch (voteValue)
 					{
@@ -592,23 +594,23 @@ namespace GB.Album.Controls
 							{
 								if (VotingMode == Constants.VoteMode.Question)
 								{
-									Controller.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId,
+									Controller.UserScoreLogCtr.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.VotedDownQuestion, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedDownQuestion.ToString()).Value,
 																  CurrentPostID);
 
-									var objPost = Controller.GetPost(CurrentPostID, ModContext.PortalId);
-									Controller.DeleteUserScoreLog(objPost.CreatedUserId, ModContext.PortalId,
+									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									Controller.UserScoreLogCtr.DeleteUserScoreLog(objPost.CreatedByUserID, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.AskedQuestionVotedDown, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.AskedQuestionVotedDown.ToString()).Value,
 																  CurrentPostID);
 								}
 								else
 								{
-									Controller.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId,
+									Controller.UserScoreLogCtr.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.VotedDownAnswer, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedDownAnswer.ToString()).Value,
 																  CurrentPostID);
 
-									var objPost = Controller.GetPost(CurrentPostID, ModContext.PortalId);
-									Controller.DeleteUserScoreLog(objPost.CreatedUserId, ModContext.PortalId,
+									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									Controller.UserScoreLogCtr.DeleteUserScoreLog(objPost.CreatedByUserID, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.ProvidedAnswerVotedDown, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.ProvidedAnswerVotedDown.ToString()).Value,
 																  CurrentPostID);
 								}
@@ -628,14 +630,14 @@ namespace GB.Album.Controls
 									objScoreLogD.UserScoringActionId = (int)Constants.UserScoringActions.VotedDownQuestion;
 									objScoreLogD.Score = UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedDownQuestion.ToString()).Value;
 
-									Controller.AddScoringLog(objScoreLogD, PrivilegeCollection);
+									Controller.UserScoreLogCtr.AddScoringLog(objScoreLogD, PrivilegeCollection);
 
 									// handle reputation credit for question up-vote
-									var objPost = Controller.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
 
 									var objUserScoringLog = new UserScoreLogInfo
 									{
-										UserId = objPost.CreatedUserId,
+										UserId = objPost.CreatedByUserID,
 										PortalId = ModContext.PortalId,
 										KeyId = CurrentPostID,
 										CreatedOnDate = DateTime.Now,
@@ -646,7 +648,7 @@ namespace GB.Album.Controls
 												s.Key == Constants.UserScoringActions.AskedQuestionVotedDown.ToString()).
 											Value
 									};
-									Controller.AddScoringLog(objUserScoringLog, PrivilegeCollection);
+									Controller.UserScoreLogCtr.AddScoringLog(objUserScoringLog, PrivilegeCollection);
 
 									//VotingThresholdCheck(Constants.OpThresholds.UserDownVoteQuestionCount, Constants.VoteType.VoteDownPost);
 								}
@@ -655,14 +657,14 @@ namespace GB.Album.Controls
 									objScoreLogD.UserScoringActionId = (int)Constants.UserScoringActions.VotedDownAnswer;
 									objScoreLogD.Score = UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedDownAnswer.ToString()).Value;
 
-									Controller.AddScoringLog(objScoreLogD, PrivilegeCollection);
+									Controller.UserScoreLogCtr.AddScoringLog(objScoreLogD, PrivilegeCollection);
 
 									// handle reputation credit for answer up-vote
-									var objPost = Controller.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
 
 									var objUserScoringLog = new UserScoreLogInfo
 									{
-										UserId = objPost.CreatedUserId,
+										UserId = objPost.CreatedByUserID,
 										PortalId = ModContext.PortalId,
 										KeyId = CurrentPostID,
 										CreatedOnDate = DateTime.Now,
@@ -673,7 +675,7 @@ namespace GB.Album.Controls
 												s.Key == Constants.UserScoringActions.ProvidedAnswerVotedDown.ToString()).
 											Value
 									};
-									Controller.AddScoringLog(objUserScoringLog, PrivilegeCollection);
+									Controller.UserScoreLogCtr.AddScoringLog(objUserScoringLog, PrivilegeCollection);
 
 									//VotingThresholdCheck(Constants.OpThresholds.UserDownVoteAnswerCount, Constants.VoteType.VoteDownPost);
 								}
@@ -690,23 +692,23 @@ namespace GB.Album.Controls
 							{
 								if (VotingMode == Constants.VoteMode.Question)
 								{
-									Controller.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId,
+									Controller.UserScoreLogCtr.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.VotedUpQuestion, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedUpQuestion.ToString()).Value,
 																  CurrentPostID);
 
-									var objPost = Controller.GetPost(CurrentPostID, ModContext.PortalId);
-									Controller.DeleteUserScoreLog(objPost.CreatedUserId, ModContext.PortalId,
+									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									Controller.UserScoreLogCtr.DeleteUserScoreLog(objPost.CreatedByUserID, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.AskedQuestionVotedUp, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.AskedQuestionVotedUp.ToString()).Value,
 																  CurrentPostID);
 								}
 								else
 								{
-									Controller.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId,
+									Controller.UserScoreLogCtr.DeleteUserScoreLog(ModContext.PortalSettings.UserId, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.VotedUpAnswer, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedUpAnswer.ToString()).Value,
 																  CurrentPostID);
 
-									var objPost = Controller.GetPost(CurrentPostID, ModContext.PortalId);
-									Controller.DeleteUserScoreLog(objPost.CreatedUserId, ModContext.PortalId,
+									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									Controller.UserScoreLogCtr.DeleteUserScoreLog(objPost.CreatedByUserID, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.ProvidedAnswerVotedUp, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.ProvidedAnswerVotedUp.ToString()).Value,
 																  CurrentPostID);
 								}
@@ -726,14 +728,14 @@ namespace GB.Album.Controls
 									objScoreLogU.UserScoringActionId = (int)Constants.UserScoringActions.VotedUpQuestion;
 									objScoreLogU.Score = UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedUpQuestion.ToString()).Value;
 
-									Controller.AddScoringLog(objScoreLogU, PrivilegeCollection);
+									Controller.UserScoreLogCtr.AddScoringLog(objScoreLogU, PrivilegeCollection);
 
 									// handle reputation credit for question up-vote
-									var objPost = Controller.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
 
 									var objUserScoringLog = new UserScoreLogInfo
 																{
-																	UserId = objPost.CreatedUserId,
+																	UserId = objPost.CreatedByUserID,
 																	PortalId = ModContext.PortalId,
 																	KeyId = CurrentPostID,
 																	CreatedOnDate = DateTime.Now,
@@ -744,7 +746,7 @@ namespace GB.Album.Controls
 																			s.Key == Constants.UserScoringActions.AskedQuestionVotedUp.ToString()).
 																		Value
 																};
-									Controller.AddScoringLog(objUserScoringLog, PrivilegeCollection);
+									Controller.UserScoreLogCtr.AddScoringLog(objUserScoringLog, PrivilegeCollection);
 
 									VotingThresholdCheck(Constants.OpThresholds.UserUpVoteQuestionCount, Constants.VoteType.VoteUpPost);
 								}
@@ -753,14 +755,14 @@ namespace GB.Album.Controls
 									objScoreLogU.UserScoringActionId = (int)Constants.UserScoringActions.VotedUpAnswer;
 									objScoreLogU.Score = UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedUpAnswer.ToString()).Value;
 
-									Controller.AddScoringLog(objScoreLogU, PrivilegeCollection);
+									Controller.UserScoreLogCtr.AddScoringLog(objScoreLogU, PrivilegeCollection);
 
 									// handle reputation credit for answer up-vote
-									var objPost = Controller.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
 
 									var objUserScoringLog = new UserScoreLogInfo
 									{
-										UserId = objPost.CreatedUserId,
+										UserId = objPost.CreatedByUserID,
 										PortalId = ModContext.PortalId,
 										KeyId = CurrentPostID,
 										CreatedOnDate = DateTime.Now,
@@ -771,7 +773,7 @@ namespace GB.Album.Controls
 												s.Key == Constants.UserScoringActions.ProvidedAnswerVotedUp.ToString()).
 											Value
 									};
-									Controller.AddScoringLog(objUserScoringLog, PrivilegeCollection);
+									Controller.UserScoreLogCtr.AddScoringLog(objUserScoringLog, PrivilegeCollection);
 
 
 									VotingThresholdCheck(Constants.OpThresholds.UserUpVoteAnswerCount, Constants.VoteType.VoteUpPost);
@@ -786,19 +788,19 @@ namespace GB.Album.Controls
 			switch (VotingMode)
 			{
 				case Constants.VoteMode.Synonym:
-					var col = Controller.GetTermSynonymVotes(RelatedTermId, ModContext.PortalId);
+					var col = Controller.VoteCtr.GetTermSynonymVotes(RelatedTermId, ModContext.PortalId);
 					objExistingVote = (from t in col where ((t.CreatedByUserId == ModContext.PortalSettings.UserId) && ((t.VoteTypeId == (int)Constants.VoteType.VoteSynonymUp) || (t.VoteTypeId == (int)Constants.VoteType.VoteSynonymDown))) select t).SingleOrDefault();
 					break;
 				//case Constants.VoteMode.Term:
 				//    objUserVote = (from t in Controller.GetPostVotes(CurrentPostID) where ((t.CreatedByUserId == ModContext.PortalSettings.UserId) && (t.VoteTypeId == (int)Constants.VoteType.FlagPost)) select t).SingleOrDefault();
 				//break;
 				default: // question/answer
-					var colPostVotes = Controller.GetPostVotes(CurrentPostID);
+					var colPostVotes = Controller.VoteCtr.GetPostVotes(CurrentPostID);
 					objExistingVote = (from t in colPostVotes where ((t.CreatedByUserId == ModContext.PortalSettings.UserId) && ((t.VoteTypeId == (int)Constants.VoteType.VoteUpPost) || (t.VoteTypeId == (int)Constants.VoteType.VoteDownPost))) select t).SingleOrDefault();
 					break;
 			}
 
-			objVote.VoteId = Controller.AddVote(objVote, ModContext.ModuleId);
+			objVote.VoteId = Controller.VoteCtr.AddVote(objVote, ModContext.ModuleId);
 
 			if (objVote.VoteTypeId == Convert.ToInt32(Constants.VoteType.FlagPost)) return;
 			if (objExistingVote != null)
@@ -810,20 +812,20 @@ namespace GB.Album.Controls
 			{
 				var cntJournal = new Journal();
 				string summary;
-				var title = Question.Title;
-				var questionUrl = Links.ViewQuestion(Question.PostId, Question.Title, ModContext.PortalSettings.ActiveTab, ModContext.PortalSettings);
+				var title = Question.AlbumName;
+				var questionUrl = Links.ViewQuestion(Question.AlbumID, Question.AlbumName, ModContext.PortalSettings.ActiveTab, ModContext.PortalSettings);
 
 				switch (objVote.VoteTypeId)
 				{
 					case (int)Constants.VoteType.VoteDownPost:
-						summary = Services.Localization.Localization.GetString(objVote.PostId == Question.PostId ? "VoteDownTitleQuestion" : "VoteDownTitleAnswer", SharedResourceFile);
+						summary = Services.Localization.Localization.GetString(objVote.PostId == Question.AlbumID ? "VoteDownTitleQuestion" : "VoteDownTitleAnswer", SharedResourceFile);
 						cntJournal.AddVoteToJournal(Question, objVote.VoteId, title, summary, ModContext.PortalId, ModContext.PortalSettings.UserId, questionUrl);
 						break;
 					case (int)Constants.VoteType.VoteSynonymDown:
 
 						break;
 					case (int)Constants.VoteType.VoteUpPost:
-						summary = Services.Localization.Localization.GetString(objVote.PostId == Question.PostId ? "VoteUpTitleQuestion" : "VoteUpTitleAnswer", SharedResourceFile);
+						summary = Services.Localization.Localization.GetString(objVote.PostId == Question.AlbumID ? "VoteUpTitleQuestion" : "VoteUpTitleAnswer", SharedResourceFile);
 						cntJournal.AddVoteToJournal(Question, objVote.VoteId, title, summary, ModContext.PortalId, ModContext.PortalSettings.UserId, questionUrl);
 						break;
 					case (int)Constants.VoteType.VoteSynonymUp:
@@ -846,16 +848,16 @@ namespace GB.Album.Controls
 			switch (voteType)
 			{
 				case Constants.VoteType.VoteDownPost:
-					votes = (from t in Controller.GetPostVotes(CurrentPostID) where (t.VoteTypeId == (int)Constants.VoteType.VoteDownPost) select t).ToList();
+					votes = (from t in Controller.VoteCtr.GetPostVotes(CurrentPostID) where (t.VoteTypeId == (int)Constants.VoteType.VoteDownPost) select t).ToList();
 					break;
 				case Constants.VoteType.VoteUpPost:
-					votes = (from t in Controller.GetPostVotes(CurrentPostID) where (t.VoteTypeId == (int)Constants.VoteType.VoteUpPost) select t).ToList();
+					votes = (from t in Controller.VoteCtr.GetPostVotes(CurrentPostID) where (t.VoteTypeId == (int)Constants.VoteType.VoteUpPost) select t).ToList();
 					break;
 				case Constants.VoteType.VoteSynonymUp:
-					votes = (from t in Controller.GetTermSynonymVotes(RelatedTermId, ModContext.PortalId) where (t.VoteTypeId == (int)Constants.VoteType.VoteSynonymUp) select t).ToList();
+					votes = (from t in Controller.VoteCtr.GetTermSynonymVotes(RelatedTermId, ModContext.PortalId) where (t.VoteTypeId == (int)Constants.VoteType.VoteSynonymUp) select t).ToList();
 					break;
 				case Constants.VoteType.VoteSynonymDown:
-					votes = (from t in Controller.GetTermSynonymVotes(RelatedTermId, ModContext.PortalId) where (t.VoteTypeId == (int)Constants.VoteType.VoteSynonymDown) select t).ToList();
+					votes = (from t in Controller.VoteCtr.GetTermSynonymVotes(RelatedTermId, ModContext.PortalId) where (t.VoteTypeId == (int)Constants.VoteType.VoteSynonymDown) select t).ToList();
 					break;
 					// term cases possible in future
 			} 
@@ -868,7 +870,7 @@ namespace GB.Album.Controls
 					case Constants.OpThresholds.TermSynonymApproveCount :
 						// give the author any credit due for suggesting a sysnonym that was approved
 						// we need to get the userId to given them some rep
-						var colPortalSynonyms = Controller.GetTermSynonyms(ModContext.PortalId);
+						var colPortalSynonyms = Controller.TermSynonymCtr.GetTermSynonyms(ModContext.PortalId);
 						var objSynonym = (from t in colPortalSynonyms where ((t.RelatedTermId == RelatedTermId) && (t.PortalId == ModContext.PortalId) && (t.MasterTermId == TermId)) select t).SingleOrDefault();
 
 						var objScoreLogApprove = new UserScoreLogInfo
@@ -883,7 +885,7 @@ namespace GB.Album.Controls
 							CreatedOnDate = DateTime.Now
 						};
 
-						Controller.AddScoringLog(objScoreLogApprove, PrivilegeCollection);
+						Controller.UserScoreLogCtr.AddScoringLog(objScoreLogApprove, PrivilegeCollection);
 
 						// TODO: handle remapping of tags (keep count)? (or do we only update the new posts added)
 
