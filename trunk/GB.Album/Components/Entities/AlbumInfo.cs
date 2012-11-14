@@ -25,5 +25,6 @@ namespace GB.Album.Components.Entities
         [Column]
         public int PortalID { get; set; }
 
+        public int Score { set; get; }
     }
 }

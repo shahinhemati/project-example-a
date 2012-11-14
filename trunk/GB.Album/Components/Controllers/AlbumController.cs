@@ -180,5 +180,10 @@ namespace IB.Album.Components.Controllers
         {
             throw new NotImplementedException();
         }
+
+        internal AlbumInfo GetPost(int CurrentPostID, int p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
