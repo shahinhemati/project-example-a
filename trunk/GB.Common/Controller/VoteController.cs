@@ -56,7 +56,17 @@ namespace GB.Common.Controller
             throw new NotImplementedException();
         }
 
-        public object GetPostVotes(int CurrentPostID)
+        public IEnumerable<VoteInfo> GetPostVotes(int CurrentPostID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<VoteInfo> GetTermSynonymVotes(int relatedTermId, int portalId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int AddVote(VoteInfo objVote, int p)
         {
             throw new NotImplementedException();
         }
