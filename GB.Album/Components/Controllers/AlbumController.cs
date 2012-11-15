@@ -7,6 +7,7 @@ using DotNetNuke.Entities.Content;
 using GB.Album.Common.CommonBase;
 using GB.Album.Components.Entities;
 using GB.Album.Components.Integration;
+using GB.Common.CommonBase;
 using GB.Common.Controllers;
 using GB.Common.Entities;
 

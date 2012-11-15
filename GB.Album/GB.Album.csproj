@@ -112,7 +112,6 @@
     <Compile Include="Components\Common\AlbumCommon.cs" />
     <Compile Include="Components\Controllers\Controller.cs" />
     <Compile Include="Components\Common\ModuleSecurity.cs" />
-    <Compile Include="Components\Common\QaSettings.cs" />
     <Compile Include="Components\Common\UIEventArgs.cs" />
     <Compile Include="Components\Common\UIListEventArgs.cs" />
     <Compile Include="Components\Common\UrlShorteningService.cs" />
@@ -120,10 +119,6 @@
     <Compile Include="Components\Controllers\AlbumImageController.cs" />
     <Compile Include="Components\Entities\AlbumInfo.cs" />
     <Compile Include="Components\Entities\ImageInfo.cs" />
-    <Compile Include="Components\Integration\Content.cs" />
-    <Compile Include="Components\Integration\Journal.cs" />
-    <Compile Include="Components\Integration\Notifications.cs" />
-    <Compile Include="Components\Integration\Terms.cs" />
     <Compile Include="Components\Models\AddImageModel.cs" />
     <Compile Include="Components\Models\DispatchModel.cs" />
     <Compile Include="Components\Models\EditAlbumModel.cs" />
@@ -131,7 +126,6 @@
     <Compile Include="Components\Models\TagDetailModel.cs" />
     <Compile Include="Components\Models\TagHistoryModel.cs" />
     <Compile Include="Components\Models\TagListModel.cs" />
-    <Compile Include="Components\Modules\UrlModule.cs" />
     <Compile Include="Components\Presenters\AddImagePresenter.cs" />
     <Compile Include="Components\Presenters\DispatchPresenter.cs" />
     <Compile Include="Components\Presenters\EditAlbumPresenter.cs" />
