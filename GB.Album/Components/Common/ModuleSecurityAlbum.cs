@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Security.Permissions;
+using GB.Common.CommonBase;
 
 namespace GB.Album.Components.Common
 {
-    public class ModuleSecurity
+    public class ModuleSecurityAlbum:ModuleSecurity
     {
         //constants
         public const string PermissionCode = "PermisionAlbumCode";
@@ -16,12 +17,10 @@ namespace GB.Album.Components.Common
         //private 
         private bool _permissionRead;
 
-        public ModuleSecurity(ModuleInfo moduleInfo)
+        public ModuleSecurityAlbum(ModuleInfo moduleInfo)
         {
             ModulePermissionCollection permCollection = moduleInfo.ModulePermissions;
             _permissionRead =ModulePermissionController.HasModulePermission(permCollection, PermissionRead);     
         }
-
-
     }
 }

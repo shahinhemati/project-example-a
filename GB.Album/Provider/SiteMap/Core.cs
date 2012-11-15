@@ -23,6 +23,7 @@ using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Portals;
 using System.Collections.Generic;
 using DotNetNuke.Services.Sitemap;
+using GB.Common.CommonBase;
 using IB.Album.Components.Controllers;
 
 namespace GB.Album.Providers.Sitemap
