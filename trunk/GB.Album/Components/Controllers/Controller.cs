@@ -7,7 +7,7 @@ using IB.Album.Components.Controllers;
 
 namespace GB.Common.Controllers
 {
-    public class Controller : ControllerCommon
+    public class Controller : CommonController
     {
         public AlbumController AlbumCtr
         {
