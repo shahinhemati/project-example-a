@@ -98,7 +98,7 @@ namespace GB.Common.CommonBase
             }
         }
 
-        internal static IEnumerable<AlbumInfo> GetAnswerCollection(int pageSize, int pageIndex, SortInfo objSorting, IEnumerable<AlbumInfo> resultsCollection)
+        internal static IEnumerable<IGBEntityInfo> GetAnswerCollection(int pageSize, int pageIndex, SortInfo objSorting, IEnumerable<IGBEntityInfo> resultsCollection)
         {
             var defaultResults = resultsCollection.Skip(pageSize * pageIndex).Take(pageSize).ToList();
 
@@ -109,17 +109,17 @@ namespace GB.Common.CommonBase
                         switch (objSorting.Direction)
                         {
                             case Constants.SortDirection.Descending:
-                                return (from t in resultsCollection orderby t.AlbumID descending, t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.EntityId descending, t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
                             default:
-                                return (from t in resultsCollection orderby t.AlbumID descending, t.CreatedOnDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.EntityId descending, t.CreatedOnDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
                         }
                     case "active":
                         switch (objSorting.Direction)
                         {
                             case Constants.SortDirection.Descending:
-                                return (from t in resultsCollection orderby t.AlbumID descending, t.LastModifiedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.EntityId descending, t.LastModifiedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
                             default:
-                                return (from t in resultsCollection orderby t.AlbumID descending, t.LastModifiedOnDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.EntityId descending, t.LastModifiedOnDate ascending select t).Skip(pageSize * pageIndex).Take(pageSize);
                         }
                     default: // "votes";
                         //CUONGVV
@@ -127,9 +127,9 @@ namespace GB.Common.CommonBase
                         {
                             // we always want the accepted answer first, then number of votes, and finally if 2+ answers have same number of votes, we want the newest one on top.
                             case Constants.SortDirection.Descending:
-                                return (from t in resultsCollection orderby t.AlbumID descending, t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.EntityId descending, t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
                             default:
-                                return (from t in resultsCollection orderby t.AlbumID descending,t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
+                                return (from t in resultsCollection orderby t.EntityId descending,t.CreatedOnDate descending select t).Skip(pageSize * pageIndex).Take(pageSize);
                         }
                 }
             return defaultResults;

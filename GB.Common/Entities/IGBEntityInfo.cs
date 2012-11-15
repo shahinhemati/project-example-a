@@ -7,9 +7,9 @@ namespace GB.Common.Entities
 {
     public interface IGBEntityInfo
     {
-        int AlbumID { get; set; }
+        int EntityId { get; set; }
 
-        string AlbumName { get; set; }
+        string Title { get; set; }
 
         string ShortContent { get; set; }
 
@@ -18,5 +18,15 @@ namespace GB.Common.Entities
         int PortalID { get; set; }
 
         int Score { set; get; }
+
+        int CreatedByUserID { set; get; }
+
+        int ModuleID { set; get; }
+
+        int ContentItemId { set; get; }
+        int TabID { set; get; }
+
+        DateTime CreatedOnDate { get; set; }
+        DateTime LastModifiedOnDate { get; set; }
     }
 }

@@ -7,8 +7,11 @@ using GB.Common.Controllers;
 namespace GB.Common.Controller
 {
     
-    public class ControllerCommon
+    public class CommonController
     {
+
+        public IGBEntityController GbEntityCtr;
+
         public BadgeController BadgeCtr
         {
             get { return new BadgeController(); }
