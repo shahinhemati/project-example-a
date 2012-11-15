@@ -24,18 +24,18 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
-using GB.Album.Common.CommonBase;
 using GB.Album.Components.Common;
 using GB.Album.Components.Entities;
-using GB.Album.Components.Integration;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Security;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.Web.Mvp;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
+using GB.Common.CommonBase;
 using GB.Common.Controllers;
 using GB.Common.Entities;
+using GB.Common.Integration;
 
 namespace GB.Album.Components.Presenters
 {

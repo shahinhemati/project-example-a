@@ -22,7 +22,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Common.Utilities;
-using GB.Album.Common.CommonBase;
 using GB.Album.Components.Entities;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.Web.Mvp;
@@ -30,6 +29,7 @@ using GB.Album.Components.Models;
 using GB.Album.Components.Views;
 using GB.Album.Components.Common;
 using System.Web.UI.WebControls;
+using GB.Common.CommonBase;
 using GB.Common.Controllers;
 using GB.Common.Entities;
 

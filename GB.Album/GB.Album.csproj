@@ -134,7 +134,6 @@
     <Compile Include="Components\Presenters\TagHistoryPresenter.cs" />
     <Compile Include="Components\Presenters\TagListPresenter.cs" />
     <Compile Include="Components\Services\QAServiceController.cs" />
-    <Compile Include="Components\Tasks\Emailer.cs" />
     <Compile Include="Components\Views\IAddImageView.cs" />
     <Compile Include="Components\Views\IDispatchView.cs" />
     <Compile Include="Components\Views\IEditAlbumView.cs" />

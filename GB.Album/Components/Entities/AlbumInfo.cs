@@ -12,19 +12,19 @@ namespace GB.Album.Components.Entities
     [TableName("CV_Album")]
     [PrimaryKey("AlbumID")]
     [ExplicitColumns]
-    public partial class AlbumInfo : Record<AlbumInfo>,IGBEntityInfo
+    public partial class AlbumInfo : Record<AlbumInfo>, IGBEntityInfo
     {
-        [Column]
-        public int AlbumID { get; set; }
-        [Column]
-        public string AlbumName { get; set; }
+        [Column("AlbumID")]
+        public int EntityId { get; set; }
+        [Column("AlbumName")]
+        public string Title { get; set; }
         [Column]
         public string ShortContent { get; set; }
         [Column]
         public string ImageName { get; set; }
-        [Column]
+        [Column("PortalID")]
         public int PortalID { get; set; }
-
+        [Column("Score")]
         public int Score { set; get; }
     }
 }
