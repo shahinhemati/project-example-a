@@ -26,11 +26,11 @@ using System.Text;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using System;
-using GB.Album.Common.CommonBase;
 using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Tabs;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Modules;
+using GB.Common.CommonBase;
 using GB.Common.Controller;
 using GB.Common.Entities;
 

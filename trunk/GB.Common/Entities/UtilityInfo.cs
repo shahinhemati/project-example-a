@@ -19,7 +19,7 @@
 //
 
 using System;
-using GB.Album.Common.CommonBase;
+using GB.Common.CommonBase;
 
 namespace GB.Album.Components.Entities
 {

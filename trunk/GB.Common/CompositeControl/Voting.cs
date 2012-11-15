@@ -24,15 +24,14 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using System;
-using GB.Album.Common.CommonBase;
 using GB.Album.Components.Common;
 using GB.Album.Components.Entities;
-using GB.Album.Components.Integration;
 using DotNetNuke.UI.Modules;
+using GB.Common.CommonBase;
 using GB.Common.Controller;
 using GB.Common.Entities;
+using GB.Common.Integration;
 using Services=DotNetNuke.Services;
-using IB.Album.Components.Controllers;
 using GB.Common.Controllers;
 
 namespace GB.Album.Controls
@@ -48,7 +47,7 @@ namespace GB.Album.Controls
 
 		#region Private Members
 
-		private Controller Controller { get; set; }
+		private  CommonController Controller { get; set; }
 		public event EventHandler VoteClick;
 
 		private LinkButton _voteUp;
@@ -103,9 +102,9 @@ namespace GB.Album.Controls
 			}
 		}
 
-        private AlbumInfo Question
+        private IGBEntityInfo Question
         {
-            get { return Controller.AlbumCtr.GetAlbum(QuestionID, ModContext.PortalId); }
+            get { return Controller.GbEntityCtr.GetEntityInfo(QuestionID, ModContext.PortalId); }
         }
 
 		#endregion
@@ -338,7 +337,7 @@ namespace GB.Album.Controls
 				default:
 					if (ModContext != null)
 					{
-						var objPost = Controller.AlbumCtr.GetAlbum(CurrentPostID, ModContext.PortalId);
+						var objPost = Controller.GbEntityCtr.GetEntityInfo(CurrentPostID, ModContext.PortalId);
 
 						if (objPost != null)
 						{
@@ -462,7 +461,7 @@ namespace GB.Album.Controls
 						//        _voteDown.Enabled = ((UserScore >= privVoteDown.Value) || (ModContext.IsEditable));
 						//    break;
 						default : // question/answer
-							var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+							var objPost = Controller.GbEntityCtr.GetEntityInfo(CurrentPostID, ModContext.PortalId);
 
 							if (objPost != null)
 							{
@@ -598,7 +597,7 @@ namespace GB.Album.Controls
 																  (int)Constants.UserScoringActions.VotedDownQuestion, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedDownQuestion.ToString()).Value,
 																  CurrentPostID);
 
-									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.GbEntityCtr.GetEntityInfo(CurrentPostID, ModContext.PortalId);
 									Controller.UserScoreLogCtr.DeleteUserScoreLog(objPost.CreatedByUserID, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.AskedQuestionVotedDown, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.AskedQuestionVotedDown.ToString()).Value,
 																  CurrentPostID);
@@ -609,7 +608,7 @@ namespace GB.Album.Controls
 																  (int)Constants.UserScoringActions.VotedDownAnswer, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedDownAnswer.ToString()).Value,
 																  CurrentPostID);
 
-									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.GbEntityCtr.GetEntityInfo(CurrentPostID, ModContext.PortalId);
 									Controller.UserScoreLogCtr.DeleteUserScoreLog(objPost.CreatedByUserID, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.ProvidedAnswerVotedDown, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.ProvidedAnswerVotedDown.ToString()).Value,
 																  CurrentPostID);
@@ -633,7 +632,7 @@ namespace GB.Album.Controls
 									Controller.UserScoreLogCtr.AddScoringLog(objScoreLogD, PrivilegeCollection);
 
 									// handle reputation credit for question up-vote
-									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.GbEntityCtr.GetEntityInfo(CurrentPostID, ModContext.PortalId);
 
 									var objUserScoringLog = new UserScoreLogInfo
 									{
@@ -660,7 +659,7 @@ namespace GB.Album.Controls
 									Controller.UserScoreLogCtr.AddScoringLog(objScoreLogD, PrivilegeCollection);
 
 									// handle reputation credit for answer up-vote
-									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.GbEntityCtr.GetEntityInfo(CurrentPostID, ModContext.PortalId);
 
 									var objUserScoringLog = new UserScoreLogInfo
 									{
@@ -696,7 +695,7 @@ namespace GB.Album.Controls
 																  (int)Constants.UserScoringActions.VotedUpQuestion, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedUpQuestion.ToString()).Value,
 																  CurrentPostID);
 
-									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.GbEntityCtr.GetEntityInfo(CurrentPostID, ModContext.PortalId);
 									Controller.UserScoreLogCtr.DeleteUserScoreLog(objPost.CreatedByUserID, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.AskedQuestionVotedUp, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.AskedQuestionVotedUp.ToString()).Value,
 																  CurrentPostID);
@@ -707,7 +706,7 @@ namespace GB.Album.Controls
 																  (int)Constants.UserScoringActions.VotedUpAnswer, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.VotedUpAnswer.ToString()).Value,
 																  CurrentPostID);
 
-									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.GbEntityCtr.GetEntityInfo(CurrentPostID, ModContext.PortalId);
 									Controller.UserScoreLogCtr.DeleteUserScoreLog(objPost.CreatedByUserID, ModContext.PortalId,
 																  (int)Constants.UserScoringActions.ProvidedAnswerVotedUp, UserScoringCollection.Single(s => s.Key == Constants.UserScoringActions.ProvidedAnswerVotedUp.ToString()).Value,
 																  CurrentPostID);
@@ -731,7 +730,7 @@ namespace GB.Album.Controls
 									Controller.UserScoreLogCtr.AddScoringLog(objScoreLogU, PrivilegeCollection);
 
 									// handle reputation credit for question up-vote
-									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.GbEntityCtr.GetEntityInfo(CurrentPostID, ModContext.PortalId);
 
 									var objUserScoringLog = new UserScoreLogInfo
 																{
@@ -758,7 +757,7 @@ namespace GB.Album.Controls
 									Controller.UserScoreLogCtr.AddScoringLog(objScoreLogU, PrivilegeCollection);
 
 									// handle reputation credit for answer up-vote
-									var objPost = Controller.AlbumCtr.GetPost(CurrentPostID, ModContext.PortalId);
+									var objPost = Controller.GbEntityCtr.GetEntityInfo(CurrentPostID, ModContext.PortalId);
 
 									var objUserScoringLog = new UserScoreLogInfo
 									{
@@ -812,20 +811,20 @@ namespace GB.Album.Controls
 			{
 				var cntJournal = new Journal();
 				string summary;
-				var title = Question.AlbumName;
-				var questionUrl = Links.ViewQuestion(Question.AlbumID, Question.AlbumName, ModContext.PortalSettings.ActiveTab, ModContext.PortalSettings);
+				var title = Question.Title;
+				var questionUrl = Links.ViewQuestion(Question.EntityId, Question.Title, ModContext.PortalSettings.ActiveTab, ModContext.PortalSettings);
 
 				switch (objVote.VoteTypeId)
 				{
 					case (int)Constants.VoteType.VoteDownPost:
-						summary = Services.Localization.Localization.GetString(objVote.PostId == Question.AlbumID ? "VoteDownTitleQuestion" : "VoteDownTitleAnswer", SharedResourceFile);
+						summary = Services.Localization.Localization.GetString(objVote.PostId == Question.EntityId ? "VoteDownTitleQuestion" : "VoteDownTitleAnswer", SharedResourceFile);
 						cntJournal.AddVoteToJournal(Question, objVote.VoteId, title, summary, ModContext.PortalId, ModContext.PortalSettings.UserId, questionUrl);
 						break;
 					case (int)Constants.VoteType.VoteSynonymDown:
 
 						break;
 					case (int)Constants.VoteType.VoteUpPost:
-						summary = Services.Localization.Localization.GetString(objVote.PostId == Question.AlbumID ? "VoteUpTitleQuestion" : "VoteUpTitleAnswer", SharedResourceFile);
+						summary = Services.Localization.Localization.GetString(objVote.PostId == Question.EntityId ? "VoteUpTitleQuestion" : "VoteUpTitleAnswer", SharedResourceFile);
 						cntJournal.AddVoteToJournal(Question, objVote.VoteId, title, summary, ModContext.PortalId, ModContext.PortalSettings.UserId, questionUrl);
 						break;
 					case (int)Constants.VoteType.VoteSynonymUp:
