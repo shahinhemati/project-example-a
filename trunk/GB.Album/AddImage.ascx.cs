@@ -19,7 +19,7 @@ using WebFormsMvp;
 namespace IB.Album
 {
     [PresenterBinding(typeof(AddImagePresenter))]
-    public partial class AddImageToAlbum : ModuleView<AddImageModel>
+    public partial class AddImageToAlbum : ModuleView<AddImageModel>,IAddImageToAlbum
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,4 +37,6 @@ namespace IB.Album
             }
         }
     }
+
+
 }

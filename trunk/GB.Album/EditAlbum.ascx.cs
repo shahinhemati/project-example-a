@@ -28,7 +28,7 @@ namespace IB.Album
         public void Refresh()
         {
             //load data
-            txtName.Text = Model.Album.AlbumName;
+            txtName.Text = Model.Album.Title;
         }
 
         public event EventHandler<EditAlbumEventArgs<AlbumInfo, bool, string>> SaveData;
@@ -37,7 +37,7 @@ namespace IB.Album
         {
             AlbumInfo albumInfo=new AlbumInfo()
                                     {
-                                        AlbumName = txtName.Text
+                                        Title =  txtName.Text
                                     };
             SaveData(sender,new EditAlbumEventArgs<AlbumInfo, bool, string>(albumInfo,true,"tag1,tag2"));
         }
