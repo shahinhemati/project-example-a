@@ -83,7 +83,7 @@ namespace GB.Common.CommonBase
         /// <param name="tagMode"></param>
         /// <param name="resultsCollection"></param>
         /// <returns></returns>
-        internal static IEnumerable<TermInfo> GetHomeTermCollection(int pageSize, Constants.TagMode tagMode, IEnumerable<TermInfo> resultsCollection)
+        public static IEnumerable<TermInfo> GetHomeTermCollection(int pageSize, Constants.TagMode tagMode, IEnumerable<TermInfo> resultsCollection)
         {
             switch (tagMode)
             {
@@ -98,7 +98,7 @@ namespace GB.Common.CommonBase
             }
         }
 
-        internal static IEnumerable<IGBEntityInfo> GetAnswerCollection(int pageSize, int pageIndex, SortInfo objSorting, IEnumerable<IGBEntityInfo> resultsCollection)
+        public static IEnumerable<IGBEntityInfo> GetAnswerCollection(int pageSize, int pageIndex, SortInfo objSorting, IEnumerable<IGBEntityInfo> resultsCollection)
         {
             var defaultResults = resultsCollection.Skip(pageSize * pageIndex).Take(pageSize).ToList();
 
@@ -176,12 +176,12 @@ namespace GB.Common.CommonBase
         //}
 
 
-        internal static object GetTermCollection(int PageSize, int currentPage, SortInfo objSort, List<DotNetNuke.Entities.Content.Taxonomy.Term> topTags)
+        public static object GetTermCollection(int PageSize, int currentPage, SortInfo objSort, List<DotNetNuke.Entities.Content.Taxonomy.Term> topTags)
         {
             throw new System.NotImplementedException();
         }
 
-        internal static List<TermInfo> GetTermCollection(int PageSize, int currentPage, SortInfo objSort, List<GB.Common.Entities.TermInfo> topTags)
+        public static List<TermInfo> GetTermCollection(int PageSize, int currentPage, SortInfo objSort, List<GB.Common.Entities.TermInfo> topTags)
         {
             throw new System.NotImplementedException();
         }

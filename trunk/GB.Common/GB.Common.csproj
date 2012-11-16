@@ -84,6 +84,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CommonBase\Links.cs" />
+    <Compile Include="CommonBase\ModuleSecurity.cs" />
     <Compile Include="CommonBase\QaSettings.cs" />
     <Compile Include="CommonBase\Sorting.cs" />
     <Compile Include="CommonBase\Utils.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Paging\IPagedList.cs" />
     <Compile Include="Paging\PagedList.cs" />
     <Compile Include="Paging\Pager.cs" />
+    <Compile Include="Tasks\Emailer.cs" />
     <Compile Include="Utility\ConvertToVND.cs" />
   </ItemGroup>
   <ItemGroup>

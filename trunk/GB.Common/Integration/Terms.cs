@@ -35,12 +35,10 @@ namespace GB.Common.Integration
 		/// </summary>
 		/// <param name="objPost">The content item we are associating categories with. In this module, it will always be a question (first post).</param>
 		/// <param name="objContent"></param>
-		internal void ManageQuestionTerms(IGBEntityInfo objAlbum, ContentItem objContent)
+		public void ManageQuestionTerms(IGBEntityInfo objAlbum, ContentItem objContent)
 		{
 			RemoveQuestionTerms(objContent);
-
 		    var terms = Util.GetContentController().GetContentItem(objAlbum.TabID).Terms;
-
 			foreach (var term in terms) {
 				Util.GetTermController().AddTermToContent(term, objContent);
 			}
@@ -50,7 +48,7 @@ namespace GB.Common.Integration
 		/// Removes terms associated w/ a specific ContentItem.
 		/// </summary>
 		/// <param name="objContent"></param>
-		internal void RemoveQuestionTerms(ContentItem objContent)
+		public void RemoveQuestionTerms(ContentItem objContent)
 		{
 			Util.GetTermController().RemoveTermsFromContent(objContent);
 		}
@@ -61,7 +59,7 @@ namespace GB.Common.Integration
 		/// <param name="name"></param>
 		/// <param name="vocabularyId"></param>
 		/// <returns>The core 'Term'.</returns>
-		internal static Term CreateAndReturnTerm(string name, int vocabularyId)
+		public static Term CreateAndReturnTerm(string name, int vocabularyId)
 		{
 			var termController = Util.GetTermController();
 			var existantTerm = termController.GetTermsByVocabulary(vocabularyId).Where(t => t.Name.ToLower() == name.ToLower()).FirstOrDefault();
@@ -80,12 +78,14 @@ namespace GB.Common.Integration
 		/// <param name="id"></param>
 		/// <param name="vocabularyId"></param>
 		/// <returns>The core 'Term'.</returns>
-		internal static Term GetTermById(int id, int vocabularyId)
+		public static Term GetTermById(int id, int vocabularyId)
 		{
 			var termController = Util.GetTermController();
 			var existantTerm = termController.GetTermsByVocabulary(vocabularyId).Where(t => t.TermId == id).FirstOrDefault();
 			return existantTerm;
 		}
 
-	}
+
+        
+    }
 }
