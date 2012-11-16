@@ -180,6 +180,4 @@ namespace IB.Paging
             return link;
         }
     }
-
-
 }

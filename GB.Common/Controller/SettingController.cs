@@ -48,7 +48,7 @@ namespace GB.Common.Controllers
 
         }
 
-        public List<SettingInfo> GetQaPortalSettings(object portalId)
+        public List<SettingInfo> GetQaPortalSettings(int portalId)
         {
             throw new NotImplementedException();
         }

@@ -9,5 +9,7 @@ namespace GB.Common.Controller
     public interface IGBEntityController
     {
         IGBEntityInfo GetEntityInfo(int questionId, int portalId);
+
+        IGBEntityInfo GetQuestionByContentItem(int p);
     }
 }

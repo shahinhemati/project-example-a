@@ -38,7 +38,7 @@ namespace GB.Common.Integration
 		/// </summary>
 		/// <returns>The newly created ContentItemID from the data store.</returns>
 		/// <remarks>This is for the first question in the thread. Not for replies or items with ParentID > 0.</remarks>
-		internal ContentItem CreateContentItem(IGBEntityInfo objPost, int tabId)
+		public ContentItem CreateContentItem(IGBEntityInfo objPost, int tabId)
 		{
 			var typeController = new ContentTypeController();
 			var colContentTypes = (from t in typeController.GetContentTypes() where t.ContentType == Constants.ContentTypeName select t);
@@ -76,7 +76,7 @@ namespace GB.Common.Integration
 		/// <summary>
 		/// This is used to update the content in the ContentItems table. Should be called when a question is updated.
 		/// </summary>
-		internal void UpdateContentItem(IGBEntityInfo objAlbum, int tabId)
+		public void UpdateContentItem(IGBEntityInfo objAlbum, int tabId)
 		{
 			var objContent = Util.GetContentController().GetContentItem(objAlbum.ContentItemId);
 
@@ -96,7 +96,7 @@ namespace GB.Common.Integration
 		/// This removes a content item associated with a question/thread from the data store. Should run every time an entire thread is deleted.
 		/// </summary>
 		/// <param name="contentItemID"></param>
-		internal void DeleteContentItem(int contentItemID)
+		public void DeleteContentItem(int contentItemID)
 		{
 			if (contentItemID <= Null.NullInteger) return;
 			var objContent = Util.GetContentController().GetContentItem(contentItemID);
@@ -113,7 +113,7 @@ namespace GB.Common.Integration
 		/// This is used to determine the ContentTypeID (part of the Core API) based on this module's content type. If the content type doesn't exist yet for the module, it is created.
 		/// </summary>
 		/// <returns>The primary key value (ContentTypeID) from the core API's Content Types table.</returns>
-		internal static int GetContentTypeID()
+		public static int GetContentTypeID()
 		{
 			var typeController = new ContentTypeController();
 			var colContentTypes = (from t in typeController.GetContentTypes() where t.ContentType == Constants.ContentTypeName select t);
