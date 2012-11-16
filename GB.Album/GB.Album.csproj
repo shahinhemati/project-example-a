@@ -123,6 +123,7 @@
     <Compile Include="Components\Models\DispatchModel.cs" />
     <Compile Include="Components\Models\EditAlbumModel.cs" />
     <Compile Include="Components\Models\HomeModel.cs" />
+    <Compile Include="Components\Models\ManagerAlbumModel.cs" />
     <Compile Include="Components\Models\TagDetailModel.cs" />
     <Compile Include="Components\Models\TagHistoryModel.cs" />
     <Compile Include="Components\Models\TagListModel.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Components\Presenters\DispatchPresenter.cs" />
     <Compile Include="Components\Presenters\EditAlbumPresenter.cs" />
     <Compile Include="Components\Presenters\HomePresenter.cs" />
+    <Compile Include="Components\Presenters\ManagerAlbumPresenter.cs" />
     <Compile Include="Components\Presenters\TagDetailPresenter.cs" />
     <Compile Include="Components\Presenters\TagHistoryPresenter.cs" />
     <Compile Include="Components\Presenters\TagListPresenter.cs" />
@@ -138,6 +140,7 @@
     <Compile Include="Components\Views\IDispatchView.cs" />
     <Compile Include="Components\Views\IEditAlbumView.cs" />
     <Compile Include="Components\Views\IHomeView.cs" />
+    <Compile Include="Components\Views\IManagerAlbumView.cs" />
     <Compile Include="Components\Views\ITagDetailView.cs" />
     <Compile Include="Components\Views\ITagHistoryView.cs" />
     <Compile Include="Components\Views\ITagListView.cs" />
