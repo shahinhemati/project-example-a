@@ -1,19 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using DotNetNuke.Common.Utilities;
-using DotNetNuke.Entities.Content;
-using GB.Album.Components.Entities;
-using GB.Common.CommonBase;
-using GB.Common.Controllers;
-using GB.Common.Entities;
-using GB.Common.Integration;
+﻿//
+// GB (Globalization Bussiness)
+// Copyright (c) 2002-2012
+// by CuongVV
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
+// documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
+// the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and 
+// to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions 
+// of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
+// TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
+// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
+// CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+// DEALINGS IN THE SOFTWARE.
+//
+
+
 
 
 namespace IB.Album.Components.Controllers
 {
-    
+
+
+    using System;
+    using System.Collections.Generic;
+    using DotNetNuke.Common.Utilities;
+    using GB.Album.Components.Entities;
+    using GB.Common.CommonBase;
+    using GB.Common.Controllers;
+    using GB.Common.Entities;
+    using GB.Common.Integration;
+
     public class AlbumController
     {
         #region Create new Instance
@@ -43,85 +63,79 @@ namespace IB.Album.Components.Controllers
         /// Add Album To DataBase
         /// I - Steps :
         /// 1 . first : Add ContentItem 
-        /// 2 . Seconde :Add Album to DataBase
+        /// 2 . Second :Add Album to DataBase
         /// 3 . Store Album into Cache
         /// </summary>
         /// <param name="album"></param>
         /// <returns>
         /// Id of album
         /// </returns>
-        public int AddAlbum(GB.Album.Components.Entities.AlbumInfo album)
+        public int AddAlbum(AlbumInfo album, int tabid)
         {
-            int rt=-1;
-            
-            ContentItem item=new ContentItem()
-                                 {
-                                     Content = album.Content,
-                                     ContentKey = album.ContentKey,
-                                     ContentTypeId = album.ContentTypeID,
-                                     ModuleID = album.ModuleID,
-                                     TabID = album.TabID,
-                                 };
+            int rt = -1;
 
-            //todo 1 store the album to database and store ContentItem to DataBase
-            //todo 2 if process store error then store error in LogSystem dnn and throw an exception
+            // # 1 Save ContentItem to DataBase
+            Content content = new Content();
+            content.CreateContentItem(album, tabid);
 
+            // # 2 Store Album to DataBase
+            rt = ((AlbumInfo)SqlServerDb.GetInstance().Insert(album)).EntityId;
 
+            // # 3 Store Cache
 
-            SqlServerDb.GetInstance().Insert(album);
-            
             return rt;
         }
-
 
         #endregion
 
         #region Private functions ContentItem and so many
         #region Private Methods
 
-		/// <summary>
-		/// This completes the things necessary for creating a content item in the data store. 
-		/// </summary>
-		/// <param name="objPost">The PostInfo entity we just created in the data store.</param>
-		/// <param name="tabId">The page we will associate with our content item.</param>
-		/// <returns>The ContentItemId primary key created in the Core ContentItems table.</returns>
-		private static int CompleteQuestionCreation(AlbumInfo objPost, int tabId) {
-			var cntTaxonomy = new Content();
-			var objContentItem = cntTaxonomy.CreateContentItem(objPost, tabId);
+        /// <summary>
+        /// This completes the things necessary for creating a content item in the data store. 
+        /// </summary>
+        /// <param name="objPost">The PostInfo entity we just created in the data store.</param>
+        /// <param name="tabId">The page we will associate with our content item.</param>
+        /// <returns>The ContentItemId primary key created in the Core ContentItems table.</returns>
+        private static int CompleteQuestionCreation(AlbumInfo objPost, int tabId)
+        {
+            var cntTaxonomy = new Content();
+            var objContentItem = cntTaxonomy.CreateContentItem(objPost, tabId);
 
-			return objContentItem.ContentItemId;
-		}
+            return objContentItem.ContentItemId;
+        }
 
-		/// <summary>
-		/// Handles any content item/taxonomy updates, then deals with cache clearing. 
-		/// </summary>
-		/// <param name="objAlbum"></param>
-		/// <param name="tabId"></param>
-		private static void CompleteQuestionUpdate(AlbumInfo objAlbum, int tabId) {
-			var cntTaxonomy = new Content();
-			cntTaxonomy.UpdateContentItem(objAlbum, tabId);
+        /// <summary>
+        /// Handles any content item/taxonomy updates, then deals with cache clearing. 
+        /// </summary>
+        /// <param name="objAlbum"></param>
+        /// <param name="tabId"></param>
+        private static void CompleteQuestionUpdate(AlbumInfo objAlbum, int tabId)
+        {
+            var cntTaxonomy = new Content();
+            cntTaxonomy.UpdateContentItem(objAlbum, tabId);
 
-			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.HomeQuestionsCacheKey + objAlbum.ModuleID);
+            DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.HomeQuestionsCacheKey + objAlbum.ModuleID);
 
             //if (objAlbum.ParentId >= 1) return;
-			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.HomeTermsCacheKey + objAlbum.ModuleID);
-			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.ModuleTermsCacheKey + objAlbum.ModuleID);
-			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.ModuleQuestionsCacheKey + objAlbum.ModuleID);
-			DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.ContentTermsCacheKey + objAlbum.ContentItemId);
+            DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.HomeTermsCacheKey + objAlbum.ModuleID);
+            DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.ModuleTermsCacheKey + objAlbum.ModuleID);
+            DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.ModuleQuestionsCacheKey + objAlbum.ModuleID);
+            DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.ContentTermsCacheKey + objAlbum.ContentItemId);
 
-		}
+        }
 
-		/// <summary>
-		/// Cleanup any taxonomy related items.
-		/// </summary>
-		/// <param name="contentItemID"></param>
-		private static void CompleteQuestionDelete(int contentItemID)
-		{
-			var cntTaxonomy = new Content();
-			cntTaxonomy.DeleteContentItem(contentItemID);
-		}
+        /// <summary>
+        /// Cleanup any taxonomy related items.
+        /// </summary>
+        /// <param name="contentItemID"></param>
+        private static void CompleteQuestionDelete(int contentItemID)
+        {
+            var cntTaxonomy = new Content();
+            cntTaxonomy.DeleteContentItem(contentItemID);
+        }
 
-		#endregion
+        #endregion
         #endregion
 
         #region GetData Relative about albums
@@ -187,3 +201,4 @@ namespace IB.Album.Components.Controllers
         }
     }
 }
+
