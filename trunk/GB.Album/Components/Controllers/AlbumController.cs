@@ -19,7 +19,7 @@
 //
 
 
-
+using GB.Album.Entities;
 
 namespace IB.Album.Components.Controllers
 {
@@ -195,6 +195,11 @@ namespace IB.Album.Components.Controllers
         }
 
         internal AlbumInfo GetPost(int CurrentPostID, int p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<QuestionServiceInfo> SearchQuestionTitles(int moduleId, string searchPhrase)
         {
             throw new NotImplementedException();
         }

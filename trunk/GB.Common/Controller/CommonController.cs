@@ -9,6 +9,7 @@ namespace GB.Common.Controller
     
     public class CommonController
     {
+        
 
         public IGBEntityController GbEntityCtr;
 

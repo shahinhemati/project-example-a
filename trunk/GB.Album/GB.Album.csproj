@@ -90,6 +90,7 @@
     <Content Include="EditAlbum.ascx" />
     <Content Include="ManagerAlbum.ascx" />
     <Content Include="module.css" />
+    <Content Include="Qa.asmx" />
     <Content Include="Settings.ascx" />
     <Content Include="UpLoad\application.js" />
     <Content Include="UpLoad\index.html" />
@@ -120,6 +121,7 @@
     <Compile Include="Components\Controllers\AlbumImageController.cs" />
     <Compile Include="Components\Entities\AlbumInfo.cs" />
     <Compile Include="Components\Entities\ImageInfo.cs" />
+    <Compile Include="Components\Entities\QuestionServiceInfo.cs" />
     <Compile Include="Components\Models\AddImageModel.cs" />
     <Compile Include="Components\Models\DispatchModel.cs" />
     <Compile Include="Components\Models\EditAlbumModel.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="Components\Presenters\EditAlbumPresenter.cs" />
     <Compile Include="Components\Presenters\HomePresenter.cs" />
     <Compile Include="Components\Presenters\ManagerAlbumPresenter.cs" />
+    <Compile Include="Components\Presenters\QAServicePresenter.cs" />
     <Compile Include="Components\Presenters\TagDetailPresenter.cs" />
     <Compile Include="Components\Presenters\TagHistoryPresenter.cs" />
     <Compile Include="Components\Presenters\TagListPresenter.cs" />
@@ -142,6 +145,7 @@
     <Compile Include="Components\Views\IEditAlbumView.cs" />
     <Compile Include="Components\Views\IHomeView.cs" />
     <Compile Include="Components\Views\IManagerAlbumView.cs" />
+    <Compile Include="Components\Views\IQaServiceView.cs" />
     <Compile Include="Components\Views\ITagDetailView.cs" />
     <Compile Include="Components\Views\ITagHistoryView.cs" />
     <Compile Include="Components\Views\ITagListView.cs" />
@@ -167,6 +171,10 @@
       <DependentUpon>ManagerAlbum.ascx</DependentUpon>
     </Compile>
     <Compile Include="Provider\SiteMap\Core.cs" />
+    <Compile Include="Qa.asmx.cs">
+      <DependentUpon>Qa.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Settings.ascx.cs">
       <DependentUpon>Settings.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
