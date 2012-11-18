@@ -89,6 +89,7 @@
     <Content Include="Dispatch.ascx" />
     <Content Include="EditAlbum.ascx" />
     <Content Include="ManagerAlbum.ascx" />
+    <Content Include="module.css" />
     <Content Include="Settings.ascx" />
     <Content Include="UpLoad\application.js" />
     <Content Include="UpLoad\index.html" />

@@ -101,7 +101,6 @@ namespace IB.Album.Components.Controllers
         {
             var cntTaxonomy = new Content();
             var objContentItem = cntTaxonomy.CreateContentItem(objPost, tabId);
-
             return objContentItem.ContentItemId;
         }
 

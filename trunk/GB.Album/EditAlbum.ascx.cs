@@ -41,5 +41,15 @@ namespace IB.Album
                                     };
             SaveData(sender,new EditAlbumEventArgs<AlbumInfo, bool, string>(albumInfo,true,"tag1,tag2"));
         }
+
+        protected void CmdSaveClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void CmdDeleteClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
