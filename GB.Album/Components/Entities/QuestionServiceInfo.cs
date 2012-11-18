@@ -20,11 +20,12 @@
 
 using System;
 using DotNetNuke.Common.Utilities;
-using DotNetNuke.DNNQA.Components.Common;
+using GB.Album.Components.Entities;
+using GB.Common.CommonBase;
 
-namespace DotNetNuke.DNNQA.Components.Entities {
+namespace GB.Album.Entities {
 
-	public class QuestionServiceInfo : PostInfo {
+	public class QuestionServiceInfo : AlbumInfo {
 
 		public int UpVotes { get; set; }
 
@@ -41,7 +42,7 @@ namespace DotNetNuke.DNNQA.Components.Entities {
 		{
 			get
 			{
-				return CreatedByUserID > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalId, CreatedByUserID).Username : "Anonymous";
+				return CreatedByUserID > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalID, CreatedByUserID).Username : "Anonymous";
 			}
 		}
 
@@ -49,7 +50,7 @@ namespace DotNetNuke.DNNQA.Components.Entities {
 		{
 			get
 			{
-				return LastModifiedByUserID > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalId, LastModifiedByUserID).Username : "Anonymous";
+				return LastModifiedByUserID > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalID, LastModifiedByUserID).Username : "Anonymous";
 			}
 		}
 
@@ -57,7 +58,7 @@ namespace DotNetNuke.DNNQA.Components.Entities {
 		{
 			get
 			{
-				return LastApprovedUserId > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalId, LastApprovedUserId).Username : "Anonymous";
+				return LastApprovedUserId > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalID, LastApprovedUserId).Username : "Anonymous";
 			}
 		}
 
@@ -68,51 +69,7 @@ namespace DotNetNuke.DNNQA.Components.Entities {
 
 		public string QuestionUrl
 		{
-			get { return Links.ViewQuestion(TabID, PostId); } 
+			get { return Links.ViewQuestion(TabID, EntityId); } 
 		}
-
-		#region IHydratable Implementation
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="dr"></param>
-		public override void Fill(System.Data.IDataReader dr) {
-			//Call the base classes fill method to populate base class proeprties (we get a circular reference issue when using these)
-			//base.Fill(dr);
-			//base.FillInternal(dr);
-
-			PostId = Null.SetNullInteger(dr["PostId"]);
-			Title = Null.SetNullString(dr["Title"]);
-			Body = Null.SetNullString(dr["Body"]);
-			ParentId = Null.SetNullInteger(dr["ParentId"]);
-			PortalId = Null.SetNullInteger(dr["PortalID"]);
-			ViewCount = Null.SetNullInteger(dr["ViewCount"]);
-			Score = Null.SetNullInteger(dr["Score"]);
-			Approved = Null.SetNullBoolean(dr["Approved"]);
-			ApprovedDate = Null.SetNullDateTime(dr["ApprovedDate"]);
-			AnswerId = Null.SetNullInteger(dr["AnswerId"]);
-			AnswerDate = Null.SetNullDateTime(dr["AnswerDate"]);
-			Closed = Null.SetNullBoolean(dr["Closed"]);
-			ClosedDate = Null.SetNullDateTime(dr["ClosedDate"]);
-			CreatedUserId = Null.SetNullInteger(dr["CreatedUserId"]);
-			//CreatedDate = Null.SetNullDateTime(dr["CreatedDate"]);
-			//LastModifiedUserId = Null.SetNullInteger(dr["LastModifiedUserId"]);
-			//LastModifiedDate = Null.SetNullDateTime(dr["LastModifiedDate"]);
-			TotalRecords = Null.SetNullInteger(dr["TotalRecords"]);
-
-			TabID = Null.SetNullInteger(dr["TabID"]);
-			//ModuleID = Null.SetNullInteger(dr["ModuleID"]);
-
-			TotalAnswers = Null.SetNullInteger(dr["TotalAnswers"]);
-			UpVotes = Null.SetNullInteger(dr["UpVotes"]);
-			DownVotes = Null.SetNullInteger(dr["DownVotes"]);
-			LastApprovedUserId = Null.SetNullInteger(dr["LastApprovedUserId"]);
-			LastApprovedDate = Null.SetNullDateTime(dr["LastApprovedDate"]);
-		}
-
-		#endregion
-
 	}
-
 }
