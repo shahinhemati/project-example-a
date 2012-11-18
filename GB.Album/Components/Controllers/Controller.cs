@@ -17,7 +17,6 @@ namespace GB.Common.Controllers
             }
         }
 
-
         public AlbumImageController ImageCtr
         {
             get
