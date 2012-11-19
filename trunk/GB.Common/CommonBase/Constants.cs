@@ -27,27 +27,27 @@ namespace GB.Common.CommonBase
         #region Module Settings
 
         // General
-		public const string SettingNameFormat = "DNNQA_NameFormat";
-		public const string SettingEnableRss = "DNNQA_EnableRss";
+		public const string SettingNameFormat = "GB_NameFormat";
+		public const string SettingEnableRss = "GB_EnableRss";
 		
 		// Ask Question
-		public const string SettingMinTitleChars = "DNNQA_MinimumTitleCharacters";
-		public const string SettingMinBodyChars = "DNNQA_MinimumBodyCharacters";
-		public const string SettingMaxQuestionTags = "DNNQA_MaximumQuestionTags";
-		public const string SettingAutoApprove = "DNNQA_AutoApprove";
+		public const string SettingMinTitleChars = "GB_MinimumTitleCharacters";
+		public const string SettingMinBodyChars = "GB_MinimumBodyCharacters";
+		public const string SettingMaxQuestionTags = "GB_MaximumQuestionTags";
+		public const string SettingAutoApprove = "GB_AutoApprove";
 
 		// UI
-		public const string SettingHomePageSize = "DNNQA_HomePageSize";
-		public const string SettingHomeMaxTags = "DNNQA_HomeMaxTags";
-		public const string SettingHomeTagTimeFrame = "DNNQA_HomeTagTimeFrame";
-		public const string SettingBrowseQPageSize = "DNNQA_BrowseQPageSize";
-		public const string SettingAnswerPageSize = "DNNQA_AnswerPageSize";
-		public const string SettingMaxTagsTags = "DNNQA_MaxTagsTags";
+		public const string SettingHomePageSize = "GB_HomePageSize";
+		public const string SettingHomeMaxTags = "GB_HomeMaxTags";
+		public const string SettingHomeTagTimeFrame = "GB_HomeTagTimeFrame";
+		public const string SettingBrowseQPageSize = "GB_BrowseQPageSize";
+		public const string SettingAnswerPageSize = "GB_AnswerPageSize";
+		public const string SettingMaxTagsTags = "GB_MaxTagsTags";
 
-		public const string SettingsFacebookAppId = "DNNQA_FacebookAppId";
-		public const string SettingsEnablePlusOne = "DNNQA_EnablePlusOne";
-		public const string SettingsEnableTwitter = "DNNQA_EnableTwitter";
-		public const string SettingsEnableLinkedIn = "DNNQA_EnableLinkedIn";
+		public const string SettingsFacebookAppId = "GB_FacebookAppId";
+		public const string SettingsEnablePlusOne = "GB_EnablePlusOne";
+		public const string SettingsEnableTwitter = "GB_EnableTwitter";
+		public const string SettingsEnableLinkedIn = "GB_EnableLinkedIn";
 
 		public const string DefaultNameFormat = "DisplayName";
 		public const bool DefaultEnableRss = false;
@@ -138,25 +138,25 @@ namespace GB.Common.CommonBase
 		/// <summary>
 		/// The prefix to be applied to all cached objects in this module (to help ensure the name is unique). 
 		/// </summary>
-		public const string ModuleCacheKey = "DNNQA_";
+		public const string ModuleCacheKey = "GB_";
 
-		public const string QaSettingsCacheKey = "qaSettings_";
+		public const string QaSettingsCacheKey = "gbSettings_";
 
-		public const string HomeQuestionsCacheKey = "qaHomeQuestions_";
+		public const string HomeQuestionsCacheKey = "gbHomeQuestions_";
 
-		public const string HomeTermsCacheKey = "qaHomeTerms_";
+		public const string HomeTermsCacheKey = "gbHomeTerms_";
 
-		public const string ModuleTermsCacheKey = "qaModuleTerms_";
+		public const string ModuleTermsCacheKey = "gbModuleTerms_";
 
-		public const string ContentTermsCacheKey = "qaContentTerms_";
+		public const string ContentTermsCacheKey = "gbContentTerms_";
 
-		public const string UserScoreCacheKey = "qaUserScore_";
+		public const string UserScoreCacheKey = "gbUserScore_";
 
 		public const string IsFriendlyUrlModuleInstalled = "IsFriendlyUrlModuleInstalled";
 
-		public const string ModuleQuestionsCacheKey = "qaModuleQuestions_";
+		public const string ModuleQuestionsCacheKey = "gbModuleQuestions_";
 
-		public const string TermSynonymsCacheKey = "qaTermSynonyms_";
+		public const string TermSynonymsCacheKey = "gbTermSynonyms_";
 
 		#endregion
 
@@ -165,13 +165,13 @@ namespace GB.Common.CommonBase
 		/// <summary>
 		/// The name of the content type stored in the ContentTypes table of the core.
 		/// </summary>
-		public const string ContentTypeName = "DNN_DNNQA_Question";
+		public const string ContentTypeName = "DNN_GB_Question";
 		public const string JournalVoteTypeName = "vote";
 		public const string JournalCommentTypeName = "comment";
 		public const string JournalQuestionTypeName = "question";
 		public const string JournalAnswerTypeName = "answer";
 
-	    public const string NotificationQaFlag = "DNN_DNNQA_Flag";
+	    public const string NotificationQaFlag = "DNN_GB_Flag";
 
 		// This may be abstracted at some point.
 		public const string JournalPrivilegeTypeName = "privilege";
@@ -179,7 +179,7 @@ namespace GB.Common.CommonBase
 		/// <summary>
 		/// The relative path to the shared resource file for this module.
 		/// </summary>
-		public const string SharedResourceFileName = "~/DesktopModules/DNNQA/App_LocalResources/SharedResources.resx";
+		public const string SharedResourceFileName = "~/DesktopModules/GB/App_LocalResources/SharedResources.resx";
 
 		/// <summary>
 		/// Allows an easy way to enable/disable in the module itself without having to alter the entire install (although it does require a compile to change/deployl). 
@@ -429,7 +429,7 @@ namespace GB.Common.CommonBase
 			AskedQuestionVotedUp = 6,
 			BountyPaid = 7,
 			BountyReceived = 8,
-			//CreatedTag = 9,, // we are not using this
+			//CreatedTag = 9, // we are not using this
 			CreatedTagSynonym = 10,
 			Commented = 11,
 			EditedPost = 12,

@@ -34,7 +34,7 @@ using GB.Common.Integration;
 using Services=DotNetNuke.Services;
 using GB.Common.Controllers;
 
-namespace GB.Album.Controls
+namespace GB.Common.Controls
 {
 
 	/// <summary>

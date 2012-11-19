@@ -7,6 +7,5 @@ namespace GB.Common.CommonBase
 {
     public class ModuleSecurity
     {
-
     }
 }

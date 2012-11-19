@@ -156,6 +156,11 @@ namespace IB.Album.Components.Controllers
 
         internal AlbumInfo GetAlbum(int questionId, int p)
         {
+            SqlServerDb.GetInstance().SingleOrDefault<AlbumInfo>("select * from dnn_GBAlbum where id=@0",questionId);
+            SqlServerDb.GetInstance().Query<AlbumInfo>(PetaPoco.Sql.Builder.Append("select * from dnn_GBAlbum").Append("where id =@0",questionId));
+
+
+
             throw new NotImplementedException();
         }
 
@@ -200,6 +205,16 @@ namespace IB.Album.Components.Controllers
         }
 
         public List<QuestionServiceInfo> SearchQuestionTitles(int moduleId, string searchPhrase)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<AlbumInfo> GetAnswers(int postId, int portalId)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddAlbum(AlbumInfo albumInfo)
         {
             throw new NotImplementedException();
         }

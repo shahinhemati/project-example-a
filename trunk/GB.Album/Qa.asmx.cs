@@ -23,6 +23,11 @@ using System.Collections.Generic;
 using System.Web.Services;
 using System.Web.Script.Services;
 using DotNetNuke.Web.Mvp;
+using GB.Album.Components.Presenters;
+using GB.Album.Entities;
+using GB.Album.Views;
+using GB.Common.CommonBase;
+using IB.Album.Components.Controllers;
 using WebFormsMvp;
 using System.Linq;
 using DotNetNuke.Entities.Content.Common;
@@ -76,15 +81,17 @@ namespace DotNetNuke.DNNQA
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int GetLastQuestionPostId(int postId)
         {
-            var dnnqa = new Components.Controllers.DnnqaController();
+            var dnnqa =new  AlbumController();
             var ps = Common.Globals.GetPortalSettings();
 
             var answers = dnnqa.GetAnswers(postId, ps.PortalId);
             if (answers.Count > 0)
             {
-                return (from p in answers
-                        orderby p.CreatedDate descending
-                        select p).FirstOrDefault().PostId;
+                var firstOrDefault = (from p in answers
+                                      orderby p.CreatedOnDate descending
+                                      select p).FirstOrDefault();
+                if (firstOrDefault != null)
+                    return firstOrDefault.EntityId;
             }
             return 0;
         }
