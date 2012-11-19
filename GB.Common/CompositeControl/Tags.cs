@@ -34,7 +34,7 @@ using GB.Common.CommonBase;
 using GB.Common.Controller;
 using GB.Common.Entities;
 
-namespace GB.Album.Controls
+namespace GB.Common.Controls
 {
 
 	/// <summary>

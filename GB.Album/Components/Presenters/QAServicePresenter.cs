@@ -24,7 +24,7 @@ using DotNetNuke.Web.Mvp;
 using GB.Album.Views;
 using IB.Album.Components.Controllers;
 
-namespace DotNetNuke.DNNQA.Components.Presenters
+namespace GB.Album.Components.Presenters
 {
 
     /// <summary>
@@ -60,30 +60,7 @@ namespace DotNetNuke.DNNQA.Components.Presenters
             e.Result = Controller.SearchQuestionTitles(e.ModuleId, e.SearchPhrase);
         }
 
-        private static IDataProvider GetRepository()
-        {
-            var ctl = ComponentFactory.GetComponent<IDataProvider>();
-
-            if (ctl == null)
-            {
-                ctl = new SqlDataProvider();
-                ComponentFactory.RegisterComponentInstance<IDataProvider>(ctl);
-            }
-            return ctl;
-        }
-
-        private static IDnnqaController GetQaController(IDataProvider repository)
-        {
-            var ctl = ComponentFactory.GetComponent<IDnnqaController>();
-
-            if (ctl == null)
-            {
-                ctl = new DnnqaController(repository);
-                ComponentFactory.RegisterComponentInstance<IDnnqaController>(ctl);
-            }
-            return ctl;
-        }
-
+        
         #endregion
 
     }

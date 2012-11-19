@@ -88,6 +88,11 @@
     <Content Include="AddImage.ascx" />
     <Content Include="Dispatch.ascx" />
     <Content Include="EditAlbum.ascx" />
+    <Content Include="js\BadgeManager.js" />
+    <Content Include="js\jquery.qaplaceholder.js" />
+    <Content Include="js\jquery.qatooltip.js" />
+    <Content Include="js\jquery.smartWizard-2.0.js" />
+    <Content Include="js\jquery.tagify.js" />
     <Content Include="ManagerAlbum.ascx" />
     <Content Include="module.css" />
     <Content Include="Qa.asmx" />
@@ -213,7 +218,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="App_LocalResources\" />
     <Folder Include="Documents\" />
     <Folder Include="Properties\" />
     <Folder Include="Provider\Search\" />
@@ -232,6 +236,9 @@
       <Project>{0637401F-3FCD-4CA0-9112-E3A4651110E8}</Project>
       <Name>GB.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\EditAlbum.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
