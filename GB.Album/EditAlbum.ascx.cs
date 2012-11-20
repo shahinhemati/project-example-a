@@ -51,4 +51,4 @@ namespace IB.Album
             throw new NotImplementedException();
         }
     }
-}
+}   

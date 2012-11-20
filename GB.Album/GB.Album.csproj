@@ -85,9 +85,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddAlbum.ascx" />
     <Content Include="AddImage.ascx" />
     <Content Include="Dispatch.ascx" />
+    <Content Include="DisplayAlbum.ascx" />
     <Content Include="EditAlbum.ascx" />
+    <Content Include="EditImage.ascx" />
+    <Content Include="Home.ascx" />
     <Content Include="js\BadgeManager.js" />
     <Content Include="js\jquery.qaplaceholder.js" />
     <Content Include="js\jquery.qatooltip.js" />
@@ -96,7 +100,7 @@
     <Content Include="ManagerAlbum.ascx" />
     <Content Include="module.css" />
     <Content Include="Qa.asmx" />
-    <Content Include="Settings.ascx" />
+    <Content Include="AlbumSettings.ascx" />
     <Content Include="UpLoad\application.js" />
     <Content Include="UpLoad\index.html" />
     <Content Include="UpLoad\jquery.fileupload-ui.css" />
@@ -107,6 +111,13 @@
     <Content Include="UpLoad\style.css" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAlbum.ascx.cs">
+      <DependentUpon>AddAlbum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddAlbum.ascx.designer.cs">
+      <DependentUpon>AddAlbum.ascx</DependentUpon>
+    </Compile>
     <Compile Include="AddImage.ascx.cs">
       <DependentUpon>AddImage.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,17 +138,25 @@
     <Compile Include="Components\Entities\AlbumInfo.cs" />
     <Compile Include="Components\Entities\ImageInfo.cs" />
     <Compile Include="Components\Entities\QuestionServiceInfo.cs" />
+    <Compile Include="Components\Models\AddAlbumModel.cs" />
     <Compile Include="Components\Models\AddImageModel.cs" />
+    <Compile Include="Components\Models\AlbumSettingsModel.cs" />
     <Compile Include="Components\Models\DispatchModel.cs" />
+    <Compile Include="Components\Models\DisplayAlbumModel.cs" />
     <Compile Include="Components\Models\EditAlbumModel.cs" />
+    <Compile Include="Components\Models\EditImageModel.cs" />
     <Compile Include="Components\Models\HomeModel.cs" />
     <Compile Include="Components\Models\ManagerAlbumModel.cs" />
     <Compile Include="Components\Models\TagDetailModel.cs" />
     <Compile Include="Components\Models\TagHistoryModel.cs" />
     <Compile Include="Components\Models\TagListModel.cs" />
+    <Compile Include="Components\Presenters\AddAlbumPresenter.cs" />
     <Compile Include="Components\Presenters\AddImagePresenter.cs" />
+    <Compile Include="Components\Presenters\AlbumSettingsPresenter.cs" />
     <Compile Include="Components\Presenters\DispatchPresenter.cs" />
+    <Compile Include="Components\Presenters\DisplayAlbumPresenter.cs" />
     <Compile Include="Components\Presenters\EditAlbumPresenter.cs" />
+    <Compile Include="Components\Presenters\EditImagePresenter.cs" />
     <Compile Include="Components\Presenters\HomePresenter.cs" />
     <Compile Include="Components\Presenters\ManagerAlbumPresenter.cs" />
     <Compile Include="Components\Presenters\QAServicePresenter.cs" />
@@ -145,12 +164,16 @@
     <Compile Include="Components\Presenters\TagHistoryPresenter.cs" />
     <Compile Include="Components\Presenters\TagListPresenter.cs" />
     <Compile Include="Components\Services\QAServiceController.cs" />
+    <Compile Include="Components\Views\IAddAlbumView.cs" />
     <Compile Include="Components\Views\IAddImageView.cs" />
     <Compile Include="Components\Views\IDispatchView.cs" />
+    <Compile Include="Components\Views\IDisplayAlbumView.cs" />
     <Compile Include="Components\Views\IEditAlbumView.cs" />
+    <Compile Include="Components\Views\IEditImageView.cs" />
     <Compile Include="Components\Views\IHomeView.cs" />
     <Compile Include="Components\Views\IManagerAlbumView.cs" />
     <Compile Include="Components\Views\IQaServiceView.cs" />
+    <Compile Include="Components\Views\ISettingsView.cs" />
     <Compile Include="Components\Views\ITagDetailView.cs" />
     <Compile Include="Components\Views\ITagHistoryView.cs" />
     <Compile Include="Components\Views\ITagListView.cs" />
@@ -161,12 +184,33 @@
     <Compile Include="Dispatch.ascx.designer.cs">
       <DependentUpon>Dispatch.ascx</DependentUpon>
     </Compile>
+    <Compile Include="DisplayAlbum.ascx.cs">
+      <DependentUpon>DisplayAlbum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisplayAlbum.ascx.designer.cs">
+      <DependentUpon>DisplayAlbum.ascx</DependentUpon>
+    </Compile>
     <Compile Include="EditAlbum.ascx.cs">
       <DependentUpon>EditAlbum.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditAlbum.ascx.designer.cs">
       <DependentUpon>EditAlbum.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditImage.ascx.cs">
+      <DependentUpon>EditImage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditImage.ascx.designer.cs">
+      <DependentUpon>EditImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.ascx.cs">
+      <DependentUpon>Home.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.ascx.designer.cs">
+      <DependentUpon>Home.ascx</DependentUpon>
     </Compile>
     <Compile Include="ManagerAlbum.ascx.cs">
       <DependentUpon>ManagerAlbum.ascx</DependentUpon>
@@ -180,12 +224,12 @@
       <DependentUpon>Qa.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Settings.ascx.cs">
-      <DependentUpon>Settings.ascx</DependentUpon>
+    <Compile Include="AlbumSettings.ascx.cs">
+      <DependentUpon>AlbumSettings.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Settings.ascx.designer.cs">
-      <DependentUpon>Settings.ascx</DependentUpon>
+    <Compile Include="AlbumSettings.ascx.designer.cs">
+      <DependentUpon>AlbumSettings.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

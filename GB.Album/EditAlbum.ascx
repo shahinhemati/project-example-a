@@ -6,8 +6,7 @@
 <%@ Register TagPrefix="dnn" TagName="Audit" Src="~/controls/ModuleAuditControl.ascx" %>
 <%@ Register TagPrefix="dnn" Namespace="GB.Common.Controls" %>
 <div class="dnnForm qaEditPost dnnClear" id="qaEditPost">
-    <h2 class="dnnFormSectionHead">
-        <%= Localization.GetString("EditPost", LocalResourceFile) %></h2>
+    <h2 class="dnnFormSectionHead"><%= Localization.GetString("EditPost", LocalResourceFile) %></h2>
     <div class="dnnFormItem dnnFormHelp dnnClear">
         <p class="dnnFormRequired">
             <span>

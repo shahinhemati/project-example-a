@@ -11,9 +11,9 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-namespace IB.Album
+namespace GB.Album
 {
-    public partial class Settings :DotNetNuke.Entities.Modules.ModuleSettingsBase
+    public partial class AlbumSettings :DotNetNuke.Entities.Modules.ModuleSettingsBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
