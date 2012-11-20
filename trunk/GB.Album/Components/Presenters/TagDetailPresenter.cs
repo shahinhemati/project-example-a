@@ -34,6 +34,7 @@ using GB.Album.Components.Models;
 using GB.Album.Components.Views;
 using GB.Common.CommonBase;
 using GB.Common.Controllers;
+using GB.Common.Controls;
 using GB.Common.Entities;
 using GB.Common.Integration;
 
@@ -322,12 +323,12 @@ namespace GB.Album.Components.Presenters
 			}
 		}
 
-		/// <summary>
+	  /// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		protected void ItemDataBound(object sender, TermSynonymListEventArgs<Controls.Voting, Controls.Tags, TermSynonymInfo, ImageButton> e)
+		protected void ItemDataBound(object sender, TermSynonymListEventArgs<Voting,Tags, TermSynonymInfo, ImageButton> e)
 		{
 			// because a term may not be assigned to a question (and therefore not available via content type), we need to get the core term (we know it exists at core level @)
 			var objTermInfo = new TermInfo();

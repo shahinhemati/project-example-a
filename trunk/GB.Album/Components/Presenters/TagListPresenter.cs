@@ -31,6 +31,7 @@ using GB.Album.Components.Common;
 using System.Web.UI.WebControls;
 using GB.Common.CommonBase;
 using GB.Common.Controllers;
+using GB.Common.Controls;
 using GB.Common.Entities;
 
 namespace GB.Album.Components.Presenters
@@ -163,7 +164,7 @@ namespace GB.Album.Components.Presenters
 				View.Model.PageTitle = Localization.GetString("TagListMetaTitle", LocalResourceFile);
 				View.Model.PageDescription = Localization.GetString("TagListMetaDescription", LocalResourceFile);
 				View.Model.PageLink = Links.ViewTags(ModuleContext);
-				View.ItemDataBound += ItemDataBound;
+				//View.ItemDataBound += ItemDataBound;
 				View.PagerChanged += PagerChanged;
 				View.TagFiltered += TagFiltered;
 
@@ -180,7 +181,7 @@ namespace GB.Album.Components.Presenters
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		protected void ItemDataBound(object sender, TagListEventArgs<Literal, Literal, TermInfo, Controls.Tags, Literal> e)
+		protected void ItemDataBound(object sender, TagListEventArgs<Literal, Literal, TermInfo, Tags, Literal> e)
 		{
 			var colTerms = new List<TermInfo> {e.Term};
 

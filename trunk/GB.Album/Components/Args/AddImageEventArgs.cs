@@ -18,12 +18,7 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-
-
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace GB.Album.Components.Args
 {
@@ -39,7 +34,6 @@ namespace GB.Album.Components.Args
             Notify = notify;
             Tags = tags;
         }
-
 
     }
 }
