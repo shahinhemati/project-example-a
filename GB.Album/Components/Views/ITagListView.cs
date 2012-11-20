@@ -23,6 +23,7 @@ using DotNetNuke.Web.Mvp;
 using GB.Album.Components.Common;
 using System.Web.UI.WebControls;
 using System;
+using GB.Common.Controls;
 using GB.Common.Entities;
 
 namespace GB.Album.Components.Views
@@ -38,7 +39,7 @@ namespace GB.Album.Components.Views
 		void ShowBackButton(bool show);
 		void ShowNextButton(bool show);
 
-		event EventHandler<TagListEventArgs<Literal, Literal, TermInfo, Controls.Tags, Literal>> ItemDataBound;
+		event EventHandler<TagListEventArgs<Literal, Literal, TermInfo, Tags, Literal>> ItemDataBound;
 		event EventHandler<PagerChangedEventArgs<LinkButton, string>> PagerChanged;
 		event EventHandler<TagSearchEventArgs<string>> TagFiltered;
 

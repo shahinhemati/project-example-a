@@ -13,7 +13,7 @@ using System.Xml.Linq;
 using DotNetNuke.Web.Mvp;
 
 
-namespace GB.Album.UI
+namespace GB.Album
 {
     public partial class ManagerAlbum :ModuleView
     {

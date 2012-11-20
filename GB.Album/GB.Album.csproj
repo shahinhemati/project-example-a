@@ -101,6 +101,9 @@
     <Content Include="module.css" />
     <Content Include="Qa.asmx" />
     <Content Include="AlbumSettings.ascx" />
+    <Content Include="TagDetail.ascx" />
+    <Content Include="TagHistory.ascx" />
+    <Content Include="TagList.ascx" />
     <Content Include="UpLoad\application.js" />
     <Content Include="UpLoad\index.html" />
     <Content Include="UpLoad\jquery.fileupload-ui.css" />
@@ -126,6 +129,7 @@
       <DependentUpon>AddImage.ascx</DependentUpon>
     </Compile>
     <Compile Include="Components\Args\AddImageEventArgs.cs" />
+    <Compile Include="Components\Args\AlbumEventArgs.cs" />
     <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
     <Compile Include="Components\Common\AlbumCommon.cs" />
     <Compile Include="Components\Controllers\Controller.cs" />
@@ -231,6 +235,27 @@
     <Compile Include="AlbumSettings.ascx.designer.cs">
       <DependentUpon>AlbumSettings.ascx</DependentUpon>
     </Compile>
+    <Compile Include="TagDetail.ascx.cs">
+      <DependentUpon>TagDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TagDetail.ascx.designer.cs">
+      <DependentUpon>TagDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TagHistory.ascx.cs">
+      <DependentUpon>TagHistory.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TagHistory.ascx.designer.cs">
+      <DependentUpon>TagHistory.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TagList.ascx.cs">
+      <DependentUpon>TagList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TagList.ascx.designer.cs">
+      <DependentUpon>TagList.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Handler.ashx" />
@@ -283,6 +308,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\EditAlbum.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\AddAlbum.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\AddImage.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ManageAlbum.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\AlbumSettings.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Dispatch.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\DisplayAlbum.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Home.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\EditImage.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

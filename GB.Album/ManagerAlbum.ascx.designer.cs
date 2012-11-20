@@ -7,10 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IB.Album {
+namespace GB.Album {
     
     
     public partial class ManagerAlbum {
-
     }
 }

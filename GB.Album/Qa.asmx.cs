@@ -33,7 +33,7 @@ using System.Linq;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Common.Utilities;
 
-namespace DotNetNuke.DNNQA
+namespace GB.Album
 {
 
     /// <summary>
@@ -82,7 +82,7 @@ namespace DotNetNuke.DNNQA
         public int GetLastQuestionPostId(int postId)
         {
             var dnnqa =new  AlbumController();
-            var ps = Common.Globals.GetPortalSettings();
+            var ps =  DotNetNuke.Common.Globals.GetPortalSettings();
 
             var answers = dnnqa.GetAnswers(postId, ps.PortalId);
             if (answers.Count > 0)
