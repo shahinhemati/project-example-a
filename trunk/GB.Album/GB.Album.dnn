@@ -5,7 +5,7 @@
             <description>Global business album module.</description>
             <iconFile>~/DesktopModules/DNNQA/images/QandA.png</iconFile>
             <owner>
-                <name>DotNetNuke Q and A Module</name>
+                <name>DotNetNuke Album Module</name>
                 <organization>Global Business Corporation</organization>
                 <url>http://</url>
                 <email />
@@ -29,7 +29,7 @@
                                 <moduleControls>
                                     <moduleControl>
                                         <controlKey />
-                                        <controlSrc>DesktopModules/DNNQA/Dispatch.ascx</controlSrc>
+                                        <controlSrc>DesktopModules/GB.Album/Dispatch.ascx</controlSrc>
                                         <controlTitle />
                                         <controlType>View</controlType>
                                         <iconFile />
@@ -39,7 +39,7 @@
                                     </moduleControl>
                                     <moduleControl>
                                         <controlKey>Settings</controlKey>
-                                        <controlSrc>DesktopModules/DNNQA/Settings.ascx</controlSrc>
+                                        <controlSrc>DesktopModules/GB.Album/AlbumSettings.ascx</controlSrc>
                                         <controlTitle />
                                         <controlType>Edit</controlType>
                                         <iconFile />
@@ -47,30 +47,7 @@
                                         <supportsPartialRendering>True</supportsPartialRendering>
                                         <supportsPopUps>True</supportsPopUps>
                                     </moduleControl>
-                                    <moduleControl>
-                                        <controlKey>ManagePrivileges</controlKey>
-                                        <controlSrc>DesktopModules/DNNQA/PrivilegeManager.ascx</controlSrc>
-                                        <controlTitle />
-                                        <controlType>Admin</controlType>
-                                        <iconFile />
-                                        <helpUrl />
-                                        <supportsPartialRendering>False</supportsPartialRendering>
-                                        <supportsPopUps>False</supportsPopUps>
-                                    </moduleControl>
-                                    <moduleControl>
-                                        <controlKey>ManageScoring</controlKey>
-                                        <controlSrc>DesktopModules/DNNQA/ScoringManager.ascx</controlSrc>
-                                        <controlTitle />
-                                        <controlType>Admin</controlType>
-                                        <iconFile />
-                                        <helpUrl />
-                                        <supportsPartialRendering>False</supportsPartialRendering>
-                                        <supportsPopUps>False</supportsPopUps>
-                                    </moduleControl>
                                 </moduleControls>
-                                <permissions>
-                                    <permission code="DNNQANDA" key="MODERATE" name="Moderate" />
-                                </permissions>
                             </moduleDefinition>
                         </moduleDefinitions>
                     </desktopModule>
@@ -78,15 +55,15 @@
                 <component type="Assembly">
                     <assemblies>
                         <assembly>
-                            <name>DotNetNuke.Modules.DNNQA.dll</name>
-                            <sourceFileName>DotNetNuke.Modules.DNNQA.dll</sourceFileName>
+                            <name>GB.Album.dll</name>
+                            <sourceFileName>GB.Album.dll</sourceFileName>
                             <version>01.01.01</version>
                         </assembly>
                     </assemblies>
                 </component>
                 <component type="File">
                     <files>
-                        <basePath>DesktopModules\DNNQA\Documentation</basePath>
+                        <basePath>DesktopModules\GB.Album\Documentation</basePath>
                         <file>
                             <name>License.txt</name>
                         </file>
@@ -101,26 +78,6 @@
                         <script type="Install">
                             <name>01.00.00.SqlDataProvider</name>
                             <version>01.00.00</version>
-                        </script>
-                        <script type="Install">
-                            <name>01.00.01.SqlDataProvider</name>
-                            <version>01.00.01</version>
-                        </script>
-                        <script type="Install">
-                            <name>01.00.02.SqlDataProvider</name>
-                            <version>01.00.02</version>
-                        </script>
-                        <script type="Install">
-                            <name>01.00.03.SqlDataProvider</name>
-                            <version>01.00.03</version>
-                        </script>
-                        <script type="Install">
-                            <name>01.01.00.SqlDataProvider</name>
-                            <version>01.01.00</version>
-                        </script>
-                        <script type="Install">
-                            <name>01.01.01.SqlDataProvider</name>
-                            <version>01.01.01</version>
                         </script>
                         <script type="UnInstall">
                             <name>Uninstall.SqlDataProvider</name>

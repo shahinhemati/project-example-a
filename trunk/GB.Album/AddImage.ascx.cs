@@ -51,10 +51,8 @@ namespace IB.Album
         {
             get
             {
-                return Request["albumid"].ToString();
+                return Request["albumid"]?? string.Empty;
             }
         }
     }
-
-
 }
