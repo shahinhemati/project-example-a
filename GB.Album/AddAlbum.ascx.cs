@@ -23,17 +23,19 @@ namespace GB.Album
 
         }
 
-
-        void Btn_Click(object sender,EventArgs e)
+        public void Btn_Click(object sender,EventArgs e)
         {
             AlbumInfo albumInfo=new AlbumInfo();
+            albumInfo.Title = txtTitle.Text.Trim();
+            albumInfo.ShortContent = teShortContent.Text;
+            albumInfo.Content = teContent.Text;
+
             //set up value from form
             var evt = new AlbumEventArgs<AlbumInfo>(albumInfo);
 
             //save album 
             AddNewAlbum(sender, evt);
         }
-
         public event EventHandler<AlbumEventArgs<AlbumInfo>> AddNewAlbum;
     }
 }

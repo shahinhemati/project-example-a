@@ -132,6 +132,7 @@
     <Compile Include="Components\Args\AlbumEventArgs.cs" />
     <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
     <Compile Include="Components\Common\AlbumCommon.cs" />
+    <Compile Include="Components\Common\LinkAlbum.cs" />
     <Compile Include="Components\Controllers\Controller.cs" />
     <Compile Include="Components\Common\ModuleSecurityAlbum.cs" />
     <Compile Include="Components\Common\UIEventArgs.cs" />
