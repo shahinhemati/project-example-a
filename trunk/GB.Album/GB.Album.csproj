@@ -55,6 +55,9 @@
     <Reference Include="DotNetNuke.WebUtility">
       <HintPath>..\DLLBuild\DotNetNuke.WebUtility.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Data.Schema, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Data.Schema.UnitTesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -87,6 +90,9 @@
   <ItemGroup>
     <Content Include="AddAlbum.ascx" />
     <Content Include="AddImage.ascx" />
+    <Content Include="ReleaseNotes.txt">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Dispatch.ascx" />
     <Content Include="DisplayAlbum.ascx" />
     <Content Include="EditAlbum.ascx" />
@@ -130,6 +136,7 @@
     </Compile>
     <Compile Include="Components\Args\AddImageEventArgs.cs" />
     <Compile Include="Components\Args\AlbumEventArgs.cs" />
+    <Compile Include="Components\Args\AlbumSettingsEventArgs.cs" />
     <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
     <Compile Include="Components\Common\AlbumCommon.cs" />
     <Compile Include="Components\Common\LinkAlbum.cs" />
@@ -217,6 +224,9 @@
     <Compile Include="Home.ascx.designer.cs">
       <DependentUpon>Home.ascx</DependentUpon>
     </Compile>
+    <Content Include="License.txt">
+      <SubType>Designer</SubType>
+    </Content>
     <Compile Include="ManagerAlbum.ascx.cs">
       <DependentUpon>ManagerAlbum.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

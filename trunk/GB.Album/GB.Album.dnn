@@ -29,7 +29,7 @@
                                 <moduleControls>
                                     <moduleControl>
                                         <controlKey />
-                                        <controlSrc>DesktopModules/GB.Album/Dispatch.ascx</controlSrc>
+                                        <controlSrc>DesktopModules/GB/GB.Album/Dispatch.ascx</controlSrc>
                                         <controlTitle />
                                         <controlType>View</controlType>
                                         <iconFile />
@@ -39,7 +39,7 @@
                                     </moduleControl>
                                     <moduleControl>
                                         <controlKey>Settings</controlKey>
-                                        <controlSrc>DesktopModules/GB.Album/AlbumSettings.ascx</controlSrc>
+                                        <controlSrc>DesktopModules/GB/GB.Album/AlbumSettings.ascx</controlSrc>
                                         <controlTitle />
                                         <controlType>Edit</controlType>
                                         <iconFile />
@@ -63,7 +63,7 @@
                 </component>
                 <component type="File">
                     <files>
-                        <basePath>DesktopModules\GB.Album\Documentation</basePath>
+                        <basePath>DesktopModules\GB\GB.Album\Documentation</basePath>
                         <file>
                             <name>License.txt</name>
                         </file>
@@ -74,7 +74,7 @@
                 </component>
                 <component type="Script">
                     <scripts>
-                        <basePath>DesktopModules\DNNQA\Providers\Data\SqlDataProvider</basePath>
+                        <basePath>DesktopModules\GB\GB.album\Providers\Data\SqlDataProvider</basePath>
                         <script type="Install">
                             <name>01.00.00.SqlDataProvider</name>
                             <version>01.00.00</version>
@@ -87,7 +87,7 @@
                 </component>
                 <component type="ResourceFile">
                     <resourceFiles>
-                        <basePath>DesktopModules\GB.Album</basePath>
+                        <basePath>DesktopModules\GB\GB.Album</basePath>
                         <resourceFile>
                             <name>Resources.zip</name>
                             <sourceFileName>Resources.zip</sourceFileName>
