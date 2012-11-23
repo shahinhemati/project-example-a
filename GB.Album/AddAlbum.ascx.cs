@@ -18,6 +18,12 @@ namespace GB.Album
     [PresenterBinding(typeof(AddAlbumPresenter))]
     public partial class AddAlbum : ModuleView<AddAlbumModel>, IAddAlbumView
     {
+        #region Control
+
+        protected  DotNetNuke.UI.UserControls.TextEditor teShortContent;
+        protected DotNetNuke.UI.UserControls.TextEditor teContent;
+
+        #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -36,6 +42,7 @@ namespace GB.Album
             //save album 
             AddNewAlbum(sender, evt);
         }
+
         public event EventHandler<AlbumEventArgs<AlbumInfo>> AddNewAlbum;
     }
 }
