@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DotNetNuke.Entities.Modules;
 using DotNetNuke.Web.Mvp;
 using GB.Album.Components.Args;
 using GB.Album.Components.Common;
@@ -10,28 +11,55 @@ using GB.Common.Entities;
 namespace GB.Album.Components.Presenters
 {
 
-    public class AlbumSettingsPresenter : ModuleSettingsPresenter<IAlbumSettingsView, AlbumSettingsModel>
+    public class AlbumSettingsPresenter : ModulePresenter<IAlbumSettingsView, AlbumSettingsModel>
     {
         public AlbumSettingsPresenter(IAlbumSettingsView view)
             : base(view)
         {
-            view.addSetting += new EventHandler<AlbumSettingsEventArgs<IList<SettingInfo>>>(view_addSetting);
-          
-            //view.OnSaveSettings+=new EventHandler(view_OnSaveSettings);
+            this.View.Load += Load;
+            this.View.GetSettings += GetSettings;
+            this.View.SaveSettings += SaveSettings;
         }
 
-        void view_addSetting(object sender, AlbumSettingsEventArgs<IList<SettingInfo>> e)
+        private void Load(object sender, EventArgs e)
         {
-            IList<SettingInfo> settingInfo = e.ListSetting;
+            // page load equivalent
 
-            //foreach (SettingInfo info in settingInfo)
-            //{
-            //    this.Settings.Add(info.Key, info.Value);
-            //}
+        }
 
-            Settings.Add("key1","value1");
+        private void GetSettings(object sender, EventArgs eventArgs)
+        {
+            View.Model.Description = GetSetting("Description");
+            View.Model.Title = GetSetting("Title");
 
-            this.SaveSettings();
+            #region Assign ModuleSetting to Model
+            
+            #endregion
+
+            #region Assign PortalSetting To Model
+            
+            #endregion
+
+        }
+
+        private void SaveSettings(object sender, EventArgs eventArgs)
+        {
+            var moduleController = new ModuleController();
+            moduleController.UpdateModuleSetting(this.ModuleId, "Description", this.View.Model.Description);
+            moduleController.UpdateModuleSetting(this.ModuleId, "Title", this.View.Model.Title);
+
+            #region Save ModuleSetting 
+
+            #endregion
+
+            #region Save PortalSetting 
+
+            #endregion
+        }
+
+        private string GetSetting(string settingKey)
+        {
+            return this.Settings.ContainsKey(settingKey) ? this.Settings[settingKey] : string.Empty;
         }
     }
 }

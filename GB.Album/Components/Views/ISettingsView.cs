@@ -7,8 +7,9 @@ using GB.Common.Entities;
 
 namespace GB.Album.Components.Views
 {
-    public interface IAlbumSettingsView:ISettingsView<AlbumSettingsModel>
+    public interface IAlbumSettingsView : IModuleView<AlbumSettingsModel>
     {
-        event EventHandler<AlbumSettingsEventArgs<IList<SettingInfo>>> addSetting;
+        event EventHandler GetSettings;
+        event EventHandler SaveSettings;
     }
 }
