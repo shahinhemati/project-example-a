@@ -136,7 +136,6 @@
     </Compile>
     <Compile Include="Components\Args\AddImageEventArgs.cs" />
     <Compile Include="Components\Args\AlbumEventArgs.cs" />
-    <Compile Include="Components\Args\AlbumSettingsEventArgs.cs" />
     <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
     <Compile Include="Components\Common\AlbumCommon.cs" />
     <Compile Include="Components\Common\LinkAlbum.cs" />
