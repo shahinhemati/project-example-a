@@ -5,15 +5,14 @@ using System.Web;
 
 namespace GB.Album.Components.Args
 {
-    public class AlbumSettingsEventArgs<TKey,TValue>:EventArgs
+    public class AlbumSettingsEventArgs<TListSetting>:EventArgs
     {
-        public TKey Key { set; get; }
-        public TValue Value { set; get; }
+        public TListSetting ListSetting { set; get; }
+        
 
-        public AlbumSettingsEventArgs(TKey key,TValue value)
+        public AlbumSettingsEventArgs(TListSetting ltSetting)
         {
-            Key = key;
-            Value = Value;
+            ListSetting = ltSetting;
         }
     }
 }
