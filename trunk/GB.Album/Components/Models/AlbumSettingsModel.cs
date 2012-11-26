@@ -18,7 +18,8 @@ namespace GB.Album.Components.Models
         #region AskQuestionSetting
 
         public int CharacterTitleMin { set; get; }
-        public int TagQuestionMin { set; get; }
+        public int BodyCharsMin { set; get; }
+        public int MaxTags { set; get; }
 
         #endregion
 

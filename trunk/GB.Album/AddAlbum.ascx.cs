@@ -36,13 +36,16 @@ namespace GB.Album
             albumInfo.ShortContent = teShortContent.Text;
             albumInfo.Content = teContent.Text;
 
+            string tags = txtTags.Text;
+
             //set up value from form
-            var evt = new AlbumEventArgs<AlbumInfo>(albumInfo);
+            var evt = new AlbumEventArgs<AlbumInfo,string>(albumInfo,tags);
+            
 
             //save album 
             AddNewAlbum(sender, evt);
         }
 
-        public event EventHandler<AlbumEventArgs<AlbumInfo>> AddNewAlbum;
+        public event EventHandler<AlbumEventArgs<AlbumInfo,string>> AddNewAlbum;
     }
 }

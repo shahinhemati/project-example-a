@@ -34,13 +34,13 @@ namespace GB.Album.Components.Presenters
 
         private void Load(object sender, EventArgs e)
         {
-            View.AddNewAlbum += new EventHandler<Args.AlbumEventArgs<Entities.AlbumInfo>>(View_AddNewAlbum);
+            View.AddNewAlbum += new EventHandler<Args.AlbumEventArgs<Entities.AlbumInfo,string>>(View_AddNewAlbum);
         }
 
-        void View_AddNewAlbum(object sender, Args.AlbumEventArgs<Entities.AlbumInfo> e)
+        void View_AddNewAlbum(object sender, Args.AlbumEventArgs<Entities.AlbumInfo,string> e)
         {
             //Insert new Album to DataBase
-
+            
             throw new NotImplementedException();
         }
     }

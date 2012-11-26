@@ -34,6 +34,8 @@ namespace GB.Album.Components.Presenters
 
             #region Assign ModuleSetting to Model
             
+
+
             #endregion
 
             #region Assign PortalSetting To Model
