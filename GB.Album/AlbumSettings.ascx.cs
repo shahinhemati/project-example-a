@@ -1,24 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
 using DotNetNuke.UI.Modules;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Args;
-using GB.Album.Components.Common;
 using GB.Album.Components.Models;
 using GB.Album.Components.Presenters;
 using GB.Album.Components.Views;
-using GB.Common.Entities;
 using WebFormsMvp;
 
 namespace GB.Album
@@ -36,7 +21,7 @@ namespace GB.Album
         public void LoadSettings()
         {
             // ensure the event is wired up before proceeding
-            if (this.GetSettings == null)
+            if (GetSettings == null)
                 return;
 
             // defer to presenter to set the model with any needed information
@@ -46,15 +31,20 @@ namespace GB.Album
             //this.DescriptionTextBox.Text = this.Model.Description;
             //this.NameTextBox.Text = this.Model.Title;
 
-            this.txtbxFromEmail.Text = Model.EmailAddress;
-            this.txtbxQuestionEmailTemplate.Text = Model.EmailQuestionTemplate;
-            this.txtAnswerEmailTemplate.Text = Model.EmailAnswerTemplate;
-            this.txtbxCommentEmailTemplate.Text = Model.EmailCommentTemplate;
-            this.txtbxSummaryEmailTemplate.Text = Model.EmailSummaryTemplate;
+            //txtbxFromEmail.Text = Model.EmailAddress;
+            //txtbxQuestionEmailTemplate.Text = Model.EmailQuestionTemplate;
+            //txtAnswerEmailTemplate.Text = Model.EmailAnswerTemplate;
+            //txtbxCommentEmailTemplate.Text = Model.EmailCommentTemplate;
+            //txtbxSummaryEmailTemplate.Text = Model.EmailSummaryTemplate;
 
-            this.dntxtbxMinTitleChars.Value = Convert.ToInt32(Model.CharacterTitleMin);
-            
+            //dntxtbxMinTitleChars.Value =Model.CharacterTitleMin;
+            //dntxtbxMinBodyChars.Value = Model.BodyCharsMin;
+            //dntxtbxMaxTags.Value = Model.MaxTags;
 
+            //Create combobox Vocabroot
+            //ddlVocabRoot.
+
+            //this.chkAutoApprove.Checked=Model.
         }
 
         public void UpdateSettings()
@@ -66,11 +56,10 @@ namespace GB.Album
             // pull the values out of the form
             //this.Model.Description = this.DescriptionTextBox.Text;
             //this.Model.Title = this.NameTextBox.Text;
-            
-
+            //Model.EmailAddress=txtbxFromEmail.Text ;
 
             // ensure the event is wired up before proceeding
-            if (this.SaveSettings == null)
+            if (SaveSettings == null)
                 return;
 
             // defer to the presenter to update the database based on our model

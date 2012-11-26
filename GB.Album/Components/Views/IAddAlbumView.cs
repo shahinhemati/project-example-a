@@ -8,6 +8,6 @@ namespace GB.Album.Components.Views
 {
     public interface IAddAlbumView : IModuleView<AddAlbumModel>
     {
-        event EventHandler<AlbumEventArgs<AlbumInfo>> AddNewAlbum;
+        event EventHandler<AlbumEventArgs<AlbumInfo,string>> AddNewAlbum;
     }
 }
