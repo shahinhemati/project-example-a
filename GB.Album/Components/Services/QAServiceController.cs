@@ -25,7 +25,7 @@ using DotNetNuke.Common.Utilities;
 using DotNetNuke.Security;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Social.Notifications;
-using DotNetNuke.Web.Services;
+using DotNetNuke.Web.Api;
 
 namespace GB.Album.Components.Services
 {
@@ -33,15 +33,15 @@ namespace GB.Album.Components.Services
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
     //[SupportedModules("Social Events")]
     [DnnAuthorize]
-    [ValidateAntiForgeryToken]
-    public class SocialEventServiceController : DnnController, IServiceRouteMapper
+    [System.Web.Mvc.ValidateAntiForgeryToken]
+    public class SocialEventServiceController :  IServiceRouteMapper
     {
 
         #region Explicit Interface Methods
 
         public void RegisterRoutes(IMapRoute mapRouteManager)
         {
-            mapRouteManager.MapRoute("DNNQA", "{controller}.ashx/{action}", new[] { "GB.Album.Components.Services" });
+            mapRouteManager.MapHttpRoute("DNNQA", "{controller}.ashx/{action}","", new[] { "GB.Album.Components.Services" });
         }
 
         #endregion
@@ -69,45 +69,45 @@ namespace GB.Album.Components.Services
 
         #region Public Methods
 
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult UpdateAttendStatus(int portalId, int tabId, int groupId, int eventId, int status)
-        {
-            //var controller = new SocialEventsController();
-            //var @event = controller.GetEvent(
-            //    eventId, UserInfo.UserID, UserInfo.Profile.PreferredTimeZone);
-            //if (@event == null) return Json(new { Result = "success" });
+        //[AcceptVerbs(HttpVerbs.Post)]
+        //public ActionResult UpdateAttendStatus(int portalId, int tabId, int groupId, int eventId, int status)
+        //{
+        //    //var controller = new SocialEventsController();
+        //    //var @event = controller.GetEvent(
+        //    //    eventId, UserInfo.UserID, UserInfo.Profile.PreferredTimeZone);
+        //    //if (@event == null) return Json(new { Result = "success" });
 
-            //var objGuest = new EventGuestInfo
-            //{
-            //    EventId = @event.EventId,
-            //    UserId = UserInfo.UserID,
-            //    Email = UserInfo.Email,
-            //    InvitedOnDate = @event.CreatedOnDate,
-            //    RepliedOnDate = DateTime.Now,
-            //    RSVPStatus = status
-            //};
-            //controller.UpdateGuestStatus(objGuest);
+        //    //var objGuest = new EventGuestInfo
+        //    //{
+        //    //    EventId = @event.EventId,
+        //    //    UserId = UserInfo.UserID,
+        //    //    Email = UserInfo.Email,
+        //    //    InvitedOnDate = @event.CreatedOnDate,
+        //    //    RepliedOnDate = DateTime.Now,
+        //    //    RSVPStatus = status
+        //    //};
+        //    //controller.UpdateGuestStatus(objGuest);
 
-            //var url = DotNetNuke.Common.Globals.NavigateURL(tabId, "", "eventid=" + eventId);
-            //if (groupId > Null.NullInteger) url = DotNetNuke.Common.Globals.NavigateURL(tabId, "", "eventid=" + eventId, "groupid=" + groupId);
+        //    //var url = DotNetNuke.Common.Globals.NavigateURL(tabId, "", "eventid=" + eventId);
+        //    //if (groupId > Null.NullInteger) url = DotNetNuke.Common.Globals.NavigateURL(tabId, "", "eventid=" + eventId, "groupid=" + groupId);
 
-            //var cntJournal = new Journal();
-            //cntJournal.AddSocialEventAttendToJournal(objGuest, @event.Name, @event.GroupId, tabId, @event.PortalId, objGuest.UserId, url);
+        //    //var cntJournal = new Journal();
+        //    //cntJournal.AddSocialEventAttendToJournal(objGuest, @event.Name, @event.GroupId, tabId, @event.PortalId, objGuest.UserId, url);
 
-            //// Notification Integration
-            //var notificationType = NotificationsController.Instance.GetNotificationType(Constants.NotificationEventInviteTypeName);
-            //var notificationKey = string.Format("{0}:{1}:{2}:{3}", Constants.ContentTypeName, @event.EventId, @event.GroupId, PortalSettings.ActiveTab.TabID);
-            //var objNotify = NotificationsController.Instance.GetNotificationByContext(notificationType.NotificationTypeId, notificationKey).SingleOrDefault();
+        //    //// Notification Integration
+        //    //var notificationType = NotificationsController.Instance.GetNotificationType(Constants.NotificationEventInviteTypeName);
+        //    //var notificationKey = string.Format("{0}:{1}:{2}:{3}", Constants.ContentTypeName, @event.EventId, @event.GroupId, PortalSettings.ActiveTab.TabID);
+        //    //var objNotify = NotificationsController.Instance.GetNotificationByContext(notificationType.NotificationTypeId, notificationKey).SingleOrDefault();
 
-            //if (objNotify != null)
-            //{
-            //    NotificationsController.Instance.DeleteNotificationRecipient(objNotify.NotificationID, UserInfo.UserID);
-            //}
+        //    //if (objNotify != null)
+        //    //{
+        //    //    NotificationsController.Instance.DeleteNotificationRecipient(objNotify.NotificationID, UserInfo.UserID);
+        //    //}
 
-            var response = new { Value = eventId, Result = "success" };
+        //    var response = new { Value = eventId, Result = "success" };
 
-            return Json(response);
-        }
+        //    return JsonResult(response);
+        //}
 
         #endregion
 
