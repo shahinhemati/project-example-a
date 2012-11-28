@@ -13,6 +13,15 @@ namespace GB.Album {
     public partial class Dispatch {
         
         /// <summary>
+        /// link control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink link;
+        
+        /// <summary>
         /// phUserControl control.
         /// </summary>
         /// <remarks>

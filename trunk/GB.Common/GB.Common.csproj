@@ -39,20 +39,17 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotLiquid">
-      <HintPath>..\packages\DotLiquid.1.7.0\lib\NET35\DotLiquid.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetNuke, Version=6.0.0.2982, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DotNetNuke, Version=6.2.2.86, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DLLBuild\DotNetNuke.dll</HintPath>
+      <HintPath>..\ShareAssembly\DotNetNuke.dll</HintPath>
     </Reference>
     <Reference Include="DotNetNuke.Web.Client, Version=6.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DLLBuild\DotNetNuke.Web.Client.dll</HintPath>
+      <HintPath>..\ShareAssembly\DotNetNuke.Web.Client.dll</HintPath>
     </Reference>
     <Reference Include="DotNetNuke.WebUtility, Version=4.2.1.783, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DLLBuild\DotNetNuke.WebUtility.dll</HintPath>
+      <HintPath>..\ShareAssembly\DotNetNuke.WebUtility.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

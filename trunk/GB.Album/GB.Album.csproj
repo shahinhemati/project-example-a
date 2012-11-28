@@ -150,6 +150,7 @@
     <Compile Include="Components\Args\AlbumEventArgs.cs" />
     <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
     <Compile Include="Components\Common\AlbumCommon.cs" />
+    <Compile Include="Components\Common\AlbumSettingServices.cs" />
     <Compile Include="Components\Controllers\FileAlbumController.cs" />
     <Compile Include="Components\Common\LinkAlbum.cs" />
     <Compile Include="Components\Controllers\Controller.cs" />

@@ -18,5 +18,11 @@ namespace GB.Album.Components.Common
         public const string FolderImage = "Image";
 
         #endregion
+
+        #region Width
+        
+        #endregion
+        
+
     }
 }

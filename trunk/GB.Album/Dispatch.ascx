@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="True" CodeBehind="Dispatch.ascx.cs" Inherits="GB.Album.Dispatch" %>
 <div class="dnnClear">
+    <asp:HyperLink runat="server" ID="link" Text="add album"></asp:HyperLink>
 	<asp:PlaceHolder ID="phUserControl" runat="server" />
 </div>
 <script language="javascript" type="text/javascript">

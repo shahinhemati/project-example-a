@@ -1,37 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Web;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Services.FileSystem;
 using GB.Album.Components.Common;
+using GB.Common.Controllers;
+using GB.Common.Entities;
 
 namespace GB.Album.Components.Controller
 {
     public class FileAlbumController
     {
+
+        #region Properties
+
+        #endregion
+
         /// <summary>
         /// Store Images in album
         /// </summary>
         /// <param name="stream"></param>
         /// <param name="filename"></param>
         /// <param name="portalID"></param>
-        public void StoreImagesInAlbum(Stream stream, string filename, int portalID)
+        public void StoreImagesInAlbum(Stream stream, string filename, int portalID, int width)
         {
             //ensure all folders exist in this portal
             EnsureFolderExist(portalID);
 
             // Store File to Album
-            IFolderInfo folder = FolderManager.Instance.GetFolder(portalID,AlbumCommon.FolderImage);
+            IFolderInfo folder = FolderManager.Instance.GetFolder(portalID, AlbumCommon.FolderImage);
             FileManager.Instance.AddFile(folder, filename, stream);
 
             //Store File to AlbumThum
-            Stream streamThum =ConvertToThumImage(stream);
-            folder = FolderManager.Instance.GetFolder(portalID,AlbumCommon.FolderImageThum);
+            Stream streamThum = ConvertToThumImage(stream, width);
+            folder = FolderManager.Instance.GetFolder(portalID, AlbumCommon.FolderImageThum);
             FileManager.Instance.AddFile(folder, filename, streamThum);
-
+            
         }
 
         /// <summary>
@@ -40,7 +48,7 @@ namespace GB.Album.Components.Controller
         /// <param name="stream"></param>
         /// <param name="filename"></param>
         /// <param name="portalID"></param>
-        public void StoreImageOfAlbum(Stream stream, string filename, int portalID)
+        public void StoreImageOfAlbum(Stream stream, string filename, int portalID, int width)
         {
 
             //ensure all folders exist in this portal
@@ -51,23 +59,29 @@ namespace GB.Album.Components.Controller
             FileManager.Instance.AddFile(folder, filename, stream);
 
             //Store File to AlbumThum
-            Stream streamThum = ConvertToThumImage(stream);
+            Stream streamThum = ConvertToThumImage(stream, width);
             folder = FolderManager.Instance.GetFolder(portalID, AlbumCommon.FolderImageThum);
             FileManager.Instance.AddFile(folder, filename, streamThum);
+
+
         }
 
-        private Stream ConvertToThumImage(Stream stream)
+        #region Process Image to ThumbnailImage
+
+        private Stream ConvertToThumImage(Stream stream, int width)
         {
-            //get size thumb
-            int widht;
-            //ImageUtils.GetSize()
-            
             Image image = Image.FromStream(stream);
-            image=image.GetThumbnailImage(0,0,ThumbnailCallback,IntPtr.Zero);
-            return image.;
+            int height = image.Size.IsEmpty ? 0 : width * (image.Height / image.Width);
+            image = image.GetThumbnailImage(width, height, ThumbnailCallback, IntPtr.Zero);
+            image.Save(stream, ImageFormat.Png);
+
+            return stream;
         }
 
         private static bool ThumbnailCallback() { return false; }
+
+        #endregion
+
 
         private void EnsureFolderExist(int portalid)
         {
@@ -96,6 +110,5 @@ namespace GB.Album.Components.Controller
                 DataCache.SetCache(AlbumCommon.ModuleCacheKey + portalid.ToString(), "Exist");
             }
         }
-
     }
 }

@@ -20,7 +20,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Web;
 using DotNetNuke.Web.Mvp;
+using GB.Album.Components.Presenters;
 using GB.Album.Entities;
 
 namespace GB.Album.Views
@@ -30,6 +32,17 @@ namespace GB.Album.Views
     public interface IQaServiceView : IWebServiceView
     {
         event EventHandler<SearchQuestionTitleEventArgs> ListQuestionTitleCalled;
+        event EventHandler<UploadEventArgs<HttpContext>> UploadProcess;
+    }
+
+    public class UploadEventArgs<THttpContext>:EventArgs
+    {
+        public THttpContext HttpContextUpload { set; get; }
+        public List<ViewDataUploadFilesResult> Results;
+        public UploadEventArgs(THttpContext post)
+        {
+            HttpContextUpload = post;
+        }
     }
 
     public class SearchQuestionTitleEventArgs : EventArgs
@@ -46,5 +59,6 @@ namespace GB.Album.Views
         public List<QuestionServiceInfo> Result { get; set; }
 
     }
+
 
 }

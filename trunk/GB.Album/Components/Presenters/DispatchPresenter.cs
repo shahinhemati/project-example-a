@@ -50,18 +50,16 @@ namespace GB.Album.Components.Presenters {
 		}
 
 		private const string CtlHome = "/Home.ascx";
-		private const string CtlQuestion = "/Question.ascx";
-		private const string CtlAskQuestion = "/AskQuestion.ascx";
-		private const string CtlBrowse = "/Browse.ascx";
+		private const string CtlAddAlbum = "/AddAlbum.ascx";
+		private const string CtlEditAlbum = "/EditAlbum.ascx";
+		private const string CtlDisplayAlbum = "/DisplayAlbum.ascx";
+        private const string CtlAddImage = "/AddImage.ascx";
+        private const string CtlEditImage = "/EditImage.ascx";
+        
 		private const string CtlTagList = "/TagList.ascx";
 		private const string CtlTagDetail = "/TagDetail.ascx";
-		private const string CtlSubscriptions = "/Subscriptions.ascx";
 		private const string CtlTagHistory = "/TagHistory.ascx";
 		private const string CtlEditTag = "/EditTerm.ascx";
-		private const string CtlPostHistory = "/PostHistory.ascx";
-		private const string CtlPrivilege = "/Privilege.ascx";
-		private const string CtlEditPost = "/EditPost.ascx";
-		private const string CtlProfile = "/Profile.ascx";
 
 		#endregion
 
@@ -97,27 +95,32 @@ namespace GB.Album.Components.Presenters {
 			if ((ModuleContext.PortalSettings.ActiveTab.ParentId == ModuleContext.PortalSettings.UserTabId) || (ModuleContext.TabId == ModuleContext.PortalSettings.UserTabId))
 			{
 				// profile mode
-				View.Model.ControlToLoad = CtlProfile;
 				View.Model.InProfileMode = true;
 			}
 			else
 			{
 				switch (ControlView.ToLower())
 				{
+                    case "addalbum":
+				        View.Model.ControlToLoad = CtlAddAlbum;
+				        break;
+                    case "editalbum":
+                        View.Model.ControlToLoad = CtlEditAlbum;
+                        break;
+                    case "addimage":
+                        View.Model.ControlToLoad = CtlAddImage;
+                        break;
+                    case "editemage":
+                        View.Model.ControlToLoad = CtlEditImage;
+                        break;
+                    case "displayalbum":
+                        View.Model.ControlToLoad = CtlDisplayAlbum;
+                        break;
 					case "termsynonyms":
 						View.Model.ControlToLoad = CtlTagDetail;
 						break;
 					case "home":
 						View.Model.ControlToLoad = CtlHome;
-						break;
-					case "question":
-						View.Model.ControlToLoad = CtlQuestion;
-						break;
-					case "browse":
-						View.Model.ControlToLoad = CtlBrowse;
-						break;
-					case "ask":
-						View.Model.ControlToLoad = CtlAskQuestion;
 						break;
 					case "tags":
 						View.Model.ControlToLoad = CtlTagList;
@@ -125,30 +128,12 @@ namespace GB.Album.Components.Presenters {
 					case "termdetail":
 						View.Model.ControlToLoad = CtlTagDetail;
 						break;
-					case "subscriptions":
-						View.Model.ControlToLoad = CtlSubscriptions;
-						break;
 					case "termhistory":
 						View.Model.ControlToLoad = CtlTagHistory;
 						break;
 					case "editterm":
 						View.Model.ControlToLoad = CtlEditTag;
 						break;
-					case "posthistory":
-						View.Model.ControlToLoad = CtlPostHistory;
-						break;
-					case "privileges":
-						View.Model.ControlToLoad = CtlPrivilege;
-						break;
-					case "editpost":
-						View.Model.ControlToLoad = CtlEditPost;
-						break;
-					//case "badges":
-					//    View.Model.ControlToLoad = CtlBadges;
-					//    break;
-					//case "badge":
-					//    View.Model.ControlToLoad = CtlBadge;
-					//    break;
 					default:
 						View.Model.ControlToLoad = CtlHome;
 						break;
