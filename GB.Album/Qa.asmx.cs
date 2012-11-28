@@ -20,6 +20,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Services;
 using System.Web.Script.Services;
 using DotNetNuke.Web.Mvp;
@@ -46,8 +47,9 @@ namespace GB.Album
     [PresenterBinding(typeof(QaServicePresenter), ViewType = typeof(IQaServiceView))]
     public class Qa : WebServiceView, IQaServiceView
     {
-
+        
         public event EventHandler<SearchQuestionTitleEventArgs> ListQuestionTitleCalled;
+        public event EventHandler<UploadEventArgs<HttpContext>> UploadProcess;
 
         protected void OnSearchQuestionTitleCalled(SearchQuestionTitleEventArgs args)
         {
@@ -56,7 +58,20 @@ namespace GB.Album
                 ListQuestionTitleCalled(this, args);
             }
         }
-
+        
+        /// <summary>
+        /// Process Upload multiple
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string UploadImages(HttpContext context)
+        {
+            var eventArgs = new UploadEventArgs<HttpContext>(context);
+            UploadProcess(this,eventArgs);
+            return eventArgs.Results.ToJson();
+        }
         /// <summary>
         /// This method is used to search existing question titles and return the matching results, if any exist. 
         /// </summary>
@@ -93,6 +108,7 @@ namespace GB.Album
                 if (firstOrDefault != null)
                     return firstOrDefault.EntityId;
             }
+
             return 0;
         }
 
@@ -108,25 +124,5 @@ namespace GB.Album
                 .Select(term => term.Name);
             return terms.ToJson();
         }
-
-        //[WebMethod]
-        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        //public List<BadgeInfo> GetPortalBadges(int portalId)
-        //{
-        //    var dnnqa = new Components.Controllers.DnnqaController();
-        //    var colBadges = dnnqa.GetPortalBadges(portalId);
-        //    var portalSettings = new PortalSettings(portalId);
-
-        //    // we can created a new property in BadgeInfo (not stored as a column in data store)
-        //    foreach (var objBadge in colBadges)
-        //    {
-        //        objBadge.LocalizedName = Localization.GetString(objBadge.NameLocalizedKey, Constants.SharedResourceFileName, portalSettings, portalSettings.DefaultLanguage);
-        //        objBadge.LocalizedDesc = Localization.GetString(objBadge.DescriptionLocalizedKey, Constants.SharedResourceFileName, portalSettings, portalSettings.DefaultLanguage);
-        //    }
-
-        //    //NOTE: Consider caching result based on language? (not sure its worth the effort here, only ever utilized in badge manager view)
-        //    return colBadges;
-        //}
-
     }
 }

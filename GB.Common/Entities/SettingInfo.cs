@@ -22,13 +22,18 @@ namespace GB.Common.Entities
 
     public class SettingInfo
     {
-
         public string Key { get; set; }
         public string Value { get; set; }
         public int TypeId { get; set; }
         public int PortalId { get; set; }
+        public int SettingId { get; set; }
 
-        public int SettingsId { get; set; }
+        public SettingInfo(string key, string value)
+        {
+            Key = key;
+            Value = value;
+        }
 
+        public SettingInfo() { }
     }
 }

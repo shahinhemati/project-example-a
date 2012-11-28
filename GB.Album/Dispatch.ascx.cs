@@ -23,6 +23,7 @@ namespace GB.Album
         public Dispatch()
         {
             AutoDataBind = true;
+            
         }
 
         public DotNetNuke.Entities.Modules.Actions.ModuleActionCollection ModuleActions
@@ -33,7 +34,7 @@ namespace GB.Album
         public void Refresh()
         {
             Utils.RegisterClientDependencies(Page);
-
+            
             var ctlDirectory = TemplateSourceDirectory;
 
             var objControl = LoadControl(ctlDirectory + Model.ControlToLoad) as ModuleUserControlBase;
@@ -48,6 +49,8 @@ namespace GB.Album
             {
                 ViewState["CtlToLoad"] = Model.ControlToLoad;
             }
+
+            link.NavigateUrl = DotNetNuke.Common.Globals.NavigateURL("", "","view", "addalbum");
         }
     }
 }

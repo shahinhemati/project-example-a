@@ -19,8 +19,13 @@
 //
 
 using System;
+using System.Web;
+using System.Web.Script.Serialization;
+using DotNetNuke.Common.Utilities;
 using DotNetNuke.ComponentModel;
 using DotNetNuke.Web.Mvp;
+using GB.Album.Components.Common;
+using GB.Album.Components.Controller;
 using GB.Album.Views;
 using IB.Album.Components.Controllers;
 
@@ -49,6 +54,7 @@ namespace GB.Album.Components.Presenters
                 throw new ArgumentException(@"View is nothing.", "view");
             }
             View.ListQuestionTitleCalled += SearchQuestionTitle;
+            View.UploadProcess += ProcessUploadFile;
         }
 
         #endregion
@@ -60,8 +66,80 @@ namespace GB.Album.Components.Presenters
             e.Result = Controller.SearchQuestionTitles(e.ModuleId, e.SearchPhrase);
         }
 
-        
         #endregion
 
+        #region Process Upload File
+        public void ProcessUploadFile(object sender,UploadEventArgs<HttpContext> e)
+        {
+            lock (_locker)
+            {
+
+                var db =new AlbumImageController();
+                var flAlbum = new FileAlbumController();
+                int albumid = int.Parse(e.HttpContextUpload.Request.QueryString["albumid"].ToString());
+
+                //tim va thiet lap thong tin con thieu cho lop V_Base
+                int portalid = int.Parse(e.HttpContextUpload.Request.QueryString["portalid"].ToString());
+                var portalInfo = new DotNetNuke.Entities.Portals.PortalController().GetPortal(portalid);
+                string pathImgThumb = "/" + portalInfo.HomeDirectory + "/"+AlbumCommon.FolderImageThum+"/";
+
+                e.HttpContextUpload.Response.ContentType = "text/plain";//"application/json";
+
+                var r = new System.Collections.Generic.List<ViewDataUploadFilesResult>();
+
+                foreach (string file in e.HttpContextUpload.Request.Files)
+                {
+                    HttpPostedFile hpf = e.HttpContextUpload.Request.Files[file] as HttpPostedFile;
+                    string FileName = string.Empty;
+                    if (HttpContext.Request.Browser.Browser.ToUpper() == "IE")
+                    {
+                        string[] files = hpf.FileName.Split(new char[] { '\\' });
+                        FileName = files[files.Length - 1];
+                    }
+                    else
+                    {
+                        FileName = hpf.FileName;
+                    }
+                    if (hpf.ContentLength == 0)
+                        continue;
+
+                    //save file to album
+                    flAlbum.StoreImagesInAlbum(hpf.InputStream,FileName,portalid,44);
+                    //add Image to DB
+                    db.AddNewImage(albumid,FileName);
+
+                    r.Add(new ViewDataUploadFilesResult()
+                    {
+                        Thumbnail_url = pathImgThumb+FileName,
+                        Name = FileName,
+                        Length = hpf.ContentLength,
+                        Type = hpf.ContentType
+                    });
+                }
+
+                e.Results = r;
+            }
+        }
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        static readonly object _locker = new object();
+        #endregion
     }
+
+    public class ViewDataUploadFilesResult
+    {
+        public string Thumbnail_url { get; set; }
+        public string Name { get; set; }
+        public int Length { get; set; }
+        public string Type { get; set; }
+    }
+
+
 }
