@@ -3,7 +3,7 @@
         <package name="GB.Album" type="Module" version="01.01.01">
             <friendlyname>Global business album</friendlyname>
             <description>Global business album module.</description>
-            <iconFile>~/DesktopModules/DNNQA/images/QandA.png</iconFile>
+            <iconFile>~/DesktopModules/GBAlbum/images/QandA.png</iconFile>
             <owner>
                 <name>DotNetNuke Album Module</name>
                 <organization>Global Business Corporation</organization>
@@ -105,8 +105,8 @@
                         <uninstall>
                             <configuration>
                                 <nodes>
-                                    <node path="/configuration/system.webServer/modules/add[@name = 'DNNQAUrlRewrite']" action="remove" />
-                                    <node path="/configuration/system.web/httpModules/add[@name = 'DNNQAUrlRewrite']" action="remove" />
+                                    <node path="/configuration/system.webServer/modules/add[@name = 'GBAlbumUrlRewrite']" action="remove" />
+                                    <node path="/configuration/system.web/httpModules/add[@name = 'GBAlbumUrlRewrite']" action="remove" />
                                 </nodes>
                             </configuration>
                         </uninstall>

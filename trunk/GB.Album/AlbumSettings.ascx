@@ -5,7 +5,7 @@
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx" %>
 <%@ Register TagPrefix="dnn" Namespace="GB.Common.Controls" %>
-<div class="dnnForm dnnQASettings dnnClear" id="dnnQASettings">
+<div class="dnnForm GBAlbumSettings dnnClear" id="GBAlbumSettings">
     <asp:Panel ID="pnlNormalSettings" runat="server">
         <div class="dnnFormExpandContent">
             <a href="">

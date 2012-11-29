@@ -90,7 +90,7 @@ namespace GB.Album.Components.Presenters {
 			base.OnInit();
 
 			View.Model.IsEditable = IsEditable;
-
+            
 
 			if ((ModuleContext.PortalSettings.ActiveTab.ParentId == ModuleContext.PortalSettings.UserTabId) || (ModuleContext.TabId == ModuleContext.PortalSettings.UserTabId))
 			{

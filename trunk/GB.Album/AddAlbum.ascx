@@ -6,45 +6,29 @@
 <%@ Register TagPrefix="dnn" Namespace="GB.Common.Controls" %>
 
 <div class="dnnForm qaAskQuestion" id="qaAskQuestion">
-	<h2 class="dnnFormSectionHead"><%= Localization.GetString("litAskHeader", LocalResourceFile) %></h2>
-	<div class="dnnFormItem dnnFormHelp dnnClear"><p class="dnnFormRequired"><span><%=LocalizeString("RequiredFields")%></span></p></div>
 	<fieldset>
 		<div class="dnnFormItem">
-			<dnn:label id="dnnlblTitle" runat="server" controlname="txtTitle" suffix=":" />
+			<dnn:label id="dnnlblTitle" runat="server" controlname="txtTitle" suffix=":"  />
 			<asp:TextBox ID="txtTitle" runat="server" CssClass="dnnFormRequired qaplaceholder qaAskQuestion" MaxLength="150" TabIndex="0" />
 			<asp:RequiredFieldValidator ID="valTitle" runat="server" resourcekey="valTitle.ErrorMessage" Display="Dynamic" ControlToValidate="txtTitle" CssClass="dnnFormMessage dnnFormError" />
-			<div class="dnnClear"></div>
-			<label></label>
-			<div id="divSearchResults" class="qaSimilarPosts">
-				<p class="dnnClear"><%= Localization.GetString("Similar", LocalResourceFile) %></p>
-				<ul id="questions" class="dnnClear"></ul>
-			</div>
 		</div>
 		<div class="dnnFormItem">
 			<dnn:label id="dnnlblQuestion" runat="server" controlname="teShortContent" suffix=":" />
 			<div class="dnnLeft">
-				<dnn:texteditor id="teShortContent" runat="server" height="350px" width="500" ></dnn:texteditor>
+				<dnn:texteditor id="teShortContent" runat="server" height="250px" width="500"  ></dnn:texteditor>
 				<asp:Label ID="valQuestion" runat="server" resourcekey="valQuestion.ErrorMessage" Display="Dynamic" CssClass="dnnFormMessage dnnFormValidationSummary" Visible="false" />
 			</div>			
 		</div>
         <div class="dnnFormItem">
 			<dnn:label id="dnnlblShortQuestion" runat="server" controlname="teContent" suffix=":" />
 			<div class="dnnLeft">
-				<dnn:texteditor id="teContent" runat="server" height="350px" width="500" ></dnn:texteditor>
+				<dnn:texteditor id="teContent" runat="server" height="250px" width="500" ></dnn:texteditor>
 				<asp:Label ID="valShortQuestion" runat="server" resourcekey="valQuestion.ErrorMessage" Display="Dynamic" CssClass="dnnFormMessage dnnFormValidationSummary" Visible="false" />
 			</div>			
-		</div>
-		<div class="dnnFormItem">
-			<dnn:label id="dnnlblNotify" runat="server" controlname="chkNotify" suffix=":" />
-			<asp:CheckBox ID="chkNotify" runat="server" />
 		</div>
 		<asp:Panel class="dnnFormItem" id="pnlTags" runat="server">
 			<dnn:label id="dnnlblTags" runat="server" controlname="txtTags" suffix=":" />
 			<asp:TextBox ID="txtTags" runat="server" CssClass="dnnFormRequired" />	
-		</asp:Panel>
-		<asp:Panel class="" ID="pnlHowToAsk" runat="server" style="display: none;">
-			<h4><%= Localization.GetString("HowToAskTitle", LocalResourceFile) %></h4>
-			<p class="dnnClear"><%= Localization.GetString("HowToAsk", LocalResourceFile) %></p>
 		</asp:Panel>
 	</fieldset>
 	<ul class="dnnActions dnnClear">
@@ -58,12 +42,7 @@
 		var mydata;
 		(function ($, Sys) {
 			function setupAskQuestion() {
-				var testEvent;
-				var testUI;
-
-				$("#divSearchResults").hide();
-				$("#<%= txtTitle.ClientID  %>").blur(function () { searchQuestions($("#<%= txtTitle.ClientID  %>").val()); });
-
+			
 				function split(val) {
 					return val.split(/,\s*/);
 				}
@@ -77,7 +56,7 @@
 					source: function (request, response) {
 								$.ajax({
 									type:"POST",
-									url:'<%= ResolveUrl("~/DesktopModules/DNNQA/QA.asmx/SearchTags")%>',
+									url:'<%= ResolveUrl("~/DesktopModules/gb/gb.album/QA.asmx/SearchTags")%>',
 									data:"{'searchTerm' : '" + extractLast(request.term) + "'}",
 									contentType: "application/json",
 									dataType: "json",
@@ -94,36 +73,6 @@
 					minLength: 2,
 					close: function(event, ui) { myTextArea.tagify('add'); myTextArea.tagify('serialize'); }
 				});
-
-				function searchQuestions(searchPhrase) {
-					if(searchPhrase!="" && searchPhrase!="<%= Localization.GetString("overlayTitle", LocalResourceFile) %>"){
-						var moduleId = <%= ModuleContext.ModuleId %>;
-						$.ajax({
-							type: "POST",
-							url: '<%= ResolveUrl("~/DesktopModules/DNNQA/Qa.asmx/SearchQuestionTitle") %>',
-							data: "{ 'moduleId' : '" + moduleId + "' , 'searchPhrase' : '" + searchPhrase + "' }",
-							contentType: "application/json",
-							dataType: "json",
-							success: function (data) {
-								$("#questions").empty();
-								if(data.d.length > 0 )
-								{
-									$("#questionsTemplate").tmpl(data.d).appendTo("#questions");
-									// run the toggle effect
-									var options = {};
-									$("#divSearchResults").show('blind', options, 500);
-								}
-								else{
-									$("#divSearchResults").hide();
-								}
-							},
-							error: function (xhr, status, error) {
-								if(error!="")alert(error);
-							}
-						});
-					}
-					
-				};
 			};
 
 			$(document).ready(function () {

@@ -50,7 +50,6 @@ namespace GB.Album
                 ViewState["CtlToLoad"] = Model.ControlToLoad;
             }
 
-            link.NavigateUrl = DotNetNuke.Common.Globals.NavigateURL("", "","view", "addalbum");
         }
     }
 }

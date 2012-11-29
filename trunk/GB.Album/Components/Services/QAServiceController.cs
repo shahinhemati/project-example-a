@@ -41,7 +41,7 @@ namespace GB.Album.Components.Services
 
         public void RegisterRoutes(IMapRoute mapRouteManager)
         {
-            mapRouteManager.MapHttpRoute("DNNQA", "{controller}.ashx/{action}","", new[] { "GB.Album.Components.Services" });
+            mapRouteManager.MapHttpRoute("GBAlbum", "{controller}.ashx/{action}","", new[] { "GB.Album.Components.Services" });
         }
 
         #endregion
