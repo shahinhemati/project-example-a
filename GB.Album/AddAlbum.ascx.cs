@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DotNetNuke.UI.Skins.Controls;
+using DotNetNuke.Web.Client.ClientResourceManagement;
 using DotNetNuke.Web.Mvp;
 using GB.Album.Components.Args;
 using GB.Album.Components.Entities;
@@ -26,7 +27,19 @@ namespace GB.Album
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                //teContent.Mode
+            }
+        }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            DotNetNuke.Framework.jQuery.RequestUIRegistration();
+            ClientResourceManager.RegisterScript(Page, "http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.js");
+            ClientResourceManager.RegisterScript(Page, TemplateSourceDirectory + "/js/jquery.tagify.js");
         }
 
         public void Btn_Click(object sender,EventArgs e)
@@ -40,10 +53,9 @@ namespace GB.Album
 
             //set up value from form
             var evt = new AlbumEventArgs<AlbumInfo,string>(albumInfo,tags);
-            
 
             //save album 
-            AddNewAlbum(sender, evt);
+            AddNewAlbum(this, evt);
         }
 
         public event EventHandler<AlbumEventArgs<AlbumInfo,string>> AddNewAlbum;

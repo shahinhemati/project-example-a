@@ -260,7 +260,7 @@ function BadgeManager($, ko, settings) {
 // Settings passed in from .ascx file
 BadgeManager.defaultSettings = {
 	portalId: 0,
-	baseUrl: "/DesktopModules/DNNQA/QA.asmx",
+	baseUrl: "/DesktopModules/GBAlbum/QA.asmx",
 	labelNext: "next",
 	labelPrevious: "previous",
 	labelFinish: "finish",

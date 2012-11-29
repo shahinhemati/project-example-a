@@ -102,6 +102,20 @@
   <ItemGroup>
     <Content Include="AddAlbum.ascx" />
     <Content Include="AddImage.ascx" />
+    <Content Include="images\accepted.png" />
+    <Content Include="images\accepted_large.png" />
+    <Content Include="images\bronze-badge.png" />
+    <Content Include="images\comment.gif" />
+    <Content Include="images\down-arrow-nav.png" />
+    <Content Include="images\down-icn.png" />
+    <Content Include="images\down.png" />
+    <Content Include="images\gold-badge.png" />
+    <Content Include="images\QandA.png" />
+    <Content Include="images\searchButton_bg.png" />
+    <Content Include="images\silver-badge.png" />
+    <Content Include="images\up.png" />
+    <Content Include="images\vote-hover-icn.png" />
+    <Content Include="images\vote-icn.png" />
     <Content Include="ReleaseNotes.txt">
       <SubType>Designer</SubType>
     </Content>

@@ -77,7 +77,7 @@
 					source: function (request, response) {
 								$.ajax({
 									type:"POST",
-									url:'<%= ResolveUrl("~/DesktopModules/DNNQA/QA.asmx/SearchTags")%>',
+									url:'<%= ResolveUrl("~/DesktopModules/GBAlbum/QA.asmx/SearchTags")%>',
 									data:"{'searchTerm' : '" + extractLast(request.term) + "'}",
 									contentType: "application/json",
 									dataType: "json",
@@ -100,7 +100,7 @@
 						var moduleId = <%= ModuleContext.ModuleId %>;
 						$.ajax({
 							type: "POST",
-							url: '<%= ResolveUrl("~/DesktopModules/DNNQA/Qa.asmx/SearchQuestionTitle") %>',
+							url: '<%= ResolveUrl("~/DesktopModules/GBAlbum/Qa.asmx/SearchQuestionTitle") %>',
 							data: "{ 'moduleId' : '" + moduleId + "' , 'searchPhrase' : '" + searchPhrase + "' }",
 							contentType: "application/json",
 							dataType: "json",

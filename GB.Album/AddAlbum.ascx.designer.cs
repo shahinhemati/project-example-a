@@ -49,15 +49,6 @@ namespace GB.Album {
         protected global::System.Web.UI.UserControl dnnlblQuestion;
         
         /// <summary>
-        /// teShortContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-
-        
-        /// <summary>
         /// valQuestion control.
         /// </summary>
         /// <remarks>
@@ -76,15 +67,6 @@ namespace GB.Album {
         protected global::System.Web.UI.UserControl dnnlblShortQuestion;
         
         /// <summary>
-        /// teContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-     
-        
-        /// <summary>
         /// valShortQuestion control.
         /// </summary>
         /// <remarks>
@@ -92,24 +74,6 @@ namespace GB.Album {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label valShortQuestion;
-        
-        /// <summary>
-        /// dnnlblNotify control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UserControl dnnlblNotify;
-        
-        /// <summary>
-        /// chkNotify control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkNotify;
         
         /// <summary>
         /// pnlTags control.
@@ -137,15 +101,6 @@ namespace GB.Album {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTags;
-        
-        /// <summary>
-        /// pnlHowToAsk control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlHowToAsk;
         
         /// <summary>
         /// cmdSave control.
