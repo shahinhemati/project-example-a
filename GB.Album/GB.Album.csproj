@@ -165,6 +165,15 @@
     <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
     <Compile Include="Components\Common\AlbumCommon.cs" />
     <Compile Include="Components\Common\AlbumSettingServices.cs" />
+    <Compile Include="Components\Common\Constants.cs" />
+    <Compile Include="Components\Common\Links.cs" />
+    <Compile Include="Components\Common\ModuleSecurity.cs" />
+    <Compile Include="Components\Common\QaSettings.cs" />
+    <Compile Include="Components\Common\Sorting.cs" />
+    <Compile Include="Components\Common\Utils.cs" />
+    <Compile Include="Components\Controllers\BadgeController.cs" />
+    <Compile Include="Components\Controllers\CommonController.cs" />
+    <Compile Include="Components\Controllers\ContentItemController.cs" />
     <Compile Include="Components\Controllers\FileAlbumController.cs" />
     <Compile Include="Components\Common\LinkAlbum.cs" />
     <Compile Include="Components\Controllers\Controller.cs" />
@@ -174,9 +183,38 @@
     <Compile Include="Components\Common\UrlShorteningService.cs" />
     <Compile Include="Components\Controllers\AlbumController.cs" />
     <Compile Include="Components\Controllers\AlbumImageController.cs" />
+    <Compile Include="Components\Controllers\IGBEntityController.cs" />
+    <Compile Include="Components\Controllers\PetaPoco.cs" />
+    <Compile Include="Components\Controllers\ScheduleItemSettingController.cs" />
+    <Compile Include="Components\Controllers\SettingController.cs" />
+    <Compile Include="Components\Controllers\SqlServerDb.cs" />
+    <Compile Include="Components\Controllers\SubcriptionController.cs" />
+    <Compile Include="Components\Controllers\TermController.cs" />
+    <Compile Include="Components\Controllers\TermDnn.cs" />
+    <Compile Include="Components\Controllers\TermHistory.cs" />
+    <Compile Include="Components\Controllers\TermHistoryController.cs" />
+    <Compile Include="Components\Controllers\TermSynonymController.cs" />
+    <Compile Include="Components\Controllers\TernmSynonymController.cs" />
+    <Compile Include="Components\Controllers\UserScoreController.cs" />
+    <Compile Include="Components\Controllers\UserScoreLogController.cs" />
+    <Compile Include="Components\Controllers\VoteController.cs" />
     <Compile Include="Components\Entities\AlbumInfo.cs" />
+    <Compile Include="Components\Entities\BadgeInfo.cs" />
+    <Compile Include="Components\Entities\ContentItemDnn.cs" />
+    <Compile Include="Components\Entities\IGBEntityInfo.cs" />
     <Compile Include="Components\Entities\ImageInfo.cs" />
     <Compile Include="Components\Entities\QuestionServiceInfo.cs" />
+    <Compile Include="Components\Entities\Record.cs" />
+    <Compile Include="Components\Entities\SettingInfo.cs" />
+    <Compile Include="Components\Entities\SubscriptionInfo.cs" />
+    <Compile Include="Components\Entities\TermHistoryInfo.cs" />
+    <Compile Include="Components\Entities\TermInfo.cs" />
+    <Compile Include="Components\Entities\TermSynonymInfo.cs" />
+    <Compile Include="Components\Entities\UserBadgeInfo.cs" />
+    <Compile Include="Components\Entities\UserScoreInfo.cs" />
+    <Compile Include="Components\Entities\UserScoreLogInfo.cs" />
+    <Compile Include="Components\Entities\UtilityInfo.cs" />
+    <Compile Include="Components\Entities\VoteInfo.cs" />
     <Compile Include="Components\Models\AddAlbumModel.cs" />
     <Compile Include="Components\Models\AddImageModel.cs" />
     <Compile Include="Components\Models\AlbumSettingsModel.cs" />
@@ -216,6 +254,8 @@
     <Compile Include="Components\Views\ITagDetailView.cs" />
     <Compile Include="Components\Views\ITagHistoryView.cs" />
     <Compile Include="Components\Views\ITagListView.cs" />
+    <Compile Include="CompositeControl\Tags.cs" />
+    <Compile Include="CompositeControl\Voting.cs" />
     <Compile Include="Dispatch.ascx.cs">
       <DependentUpon>Dispatch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -251,9 +291,14 @@
     <Compile Include="Home.ascx.designer.cs">
       <DependentUpon>Home.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Tasks\Emailer.cs" />
     <Content Include="License.txt">
       <SubType>Designer</SubType>
     </Content>
+    <Compile Include="Integration\Content.cs" />
+    <Compile Include="Integration\Journal.cs" />
+    <Compile Include="Integration\Notifications.cs" />
+    <Compile Include="Integration\Terms.cs" />
     <Compile Include="ManagerAlbum.ascx.cs">
       <DependentUpon>ManagerAlbum.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -261,6 +306,7 @@
     <Compile Include="ManagerAlbum.ascx.designer.cs">
       <DependentUpon>ManagerAlbum.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\UrlModule.cs" />
     <Compile Include="Provider\SiteMap\Core.cs" />
     <Compile Include="Qa.asmx.cs">
       <DependentUpon>Qa.asmx</DependentUpon>
@@ -335,7 +381,7 @@
     <None Include="GB.Album.dnn">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Provider\Data\SqlDataProvider\01.00.00.SqlDataProvider" />
+    <None Include="Provider\Data\SqlDataProvider\01.01.02.SqlDataProvider" />
     <None Include="Provider\Data\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>

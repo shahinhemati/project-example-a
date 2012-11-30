@@ -18,7 +18,7 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-namespace DotNetNuke.DNNQA.Components.Entities {
+namespace GB.Common.Entities {
 
     /// <summary>
     /// This is our Info class that represents columns in our data store that are associated with the DNNQA_User_Badge table.

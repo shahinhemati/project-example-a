@@ -135,6 +135,12 @@
   <data name="dnnlblTitle.Text" xml:space="preserve">
     <value>Tên Album</value>
   </data>
+  <data name="RequiredTagInput" xml:space="preserve">
+    <value>Nhập ít nhất 1 tag</value>
+  </data>
+  <data name="SaveSuccess" xml:space="preserve">
+    <value>Thêm mới thành công !</value>
+  </data>
   <data name="valTitle.ErrorMessage" xml:space="preserve">
     <value>Nhập tiêu đề !</value>
   </data>

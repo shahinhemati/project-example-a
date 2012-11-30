@@ -22,7 +22,7 @@ using System;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 
-namespace DotNetNuke.DNNQA.Components.Entities {
+namespace GB.Common.Entities {
 
 	/// <summary>
 	/// This is our Info class that represents columns in our data store that are associated with the DNNQA_Vote table. Keep in mind, voting can occur on posts and terms.

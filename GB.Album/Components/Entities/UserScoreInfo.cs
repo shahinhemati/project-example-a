@@ -17,7 +17,7 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-namespace DotNetNuke.DNNQA.Components.Entities
+namespace GB.Common.Entities
 {
 
     public class UserScoreInfo
