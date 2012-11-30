@@ -1,5 +1,4 @@
-﻿//
-// DotNetNuke® - http://www.dotnetnuke.com
+﻿// DotNetNuke® - http://www.dotnetnuke.com
 // Copyright (c) 2002-2012
 // by DotNetNuke Corporation
 //
@@ -18,44 +17,23 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-using System;
-
 namespace GB.Common.Entities
 {
 
-    public class SubscriptionInfo
+    public class SettingInfo
     {
-
-        public int SubscriptionId { get; set; }
-
-        public int UserId { get; set; }
-
+        public string Key { get; set; }
+        public string Value { get; set; }
+        public int TypeId { get; set; }
         public int PortalId { get; set; }
+        public int SettingId { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>150 chars.</remarks>
-        public string EmailAddress { get; set; }
+        public SettingInfo(string key, string value)
+        {
+            Key = key;
+            Value = value;
+        }
 
-        public int PostId { get; set; }
-
-        public int TermId { get; set; }
-
-        public int SubscriptionType { get; set; }
-
-        public DateTime CreatedOnDate { get; set; }
-
-        public DateTime LastSentOnDate { get; set; }
-
-        // joins (terms and posts)
-        public string Name { get; set; }
-
-        public string Title { get; set; }
-
-        // via Users join
-        // DisplayName
-        // Email
-
+        public SettingInfo() { }
     }
 }

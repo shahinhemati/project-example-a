@@ -18,10 +18,12 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
+using System;
 using System.Linq;
-using DotNetNuke.DNNQA.Components.Common;
+using GB.Album.Components.Entities;
 
-namespace DotNetNuke.DNNQA.Components.Entities {
+
+namespace GB.Common.Entities {
 
     /// <summary>
     /// This is our Info class that represents columns in our data store that are associated with the DNNQA_Badge table.
@@ -131,10 +133,10 @@ namespace DotNetNuke.DNNQA.Components.Entities {
         {
             get
             {
-                var colTiers = Utils.GetBadgeTiers();
-                var objTier = colTiers.Single(s => s.Id == TierId);
-
-                return objTier;
+                //var colTiers = Utils.GetBadgeTiers();
+                //var objTier = colTiers.Single(s => s.Id == TierId);
+                //return objTier;
+                throw new NotImplementedException();
             }
         }
 

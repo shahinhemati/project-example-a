@@ -19,7 +19,7 @@
 
 using System;
 
-namespace DotNetNuke.DNNQA.Components.Entities
+namespace GB.Common.Entities
 {
 
     public class UserScoreLogInfo

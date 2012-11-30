@@ -19,43 +19,59 @@
 //
 
 using System;
+using DotNetNuke.Common.Utilities;
 
-namespace GB.Common.Entities
-{
+namespace GB.Common.Entities {
 
-    public class SubscriptionInfo
+    /// <summary>
+    /// 
+    /// </summary>
+    public class TermSynonymInfo
     {
 
-        public int SubscriptionId { get; set; }
+        #region Public Properties
 
-        public int UserId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int TermSynonymId { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public int MasterTermId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int RelatedTermId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Score { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int ChangedCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int PortalId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>150 chars.</remarks>
-        public string EmailAddress { get; set; }
+        public int CreatedByUserId { get; set; }
 
-        public int PostId { get; set; }
-
-        public int TermId { get; set; }
-
-        public int SubscriptionType { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public DateTime CreatedOnDate { get; set; }
 
-        public DateTime LastSentOnDate { get; set; }
-
-        // joins (terms and posts)
-        public string Name { get; set; }
-
-        public string Title { get; set; }
-
-        // via Users join
-        // DisplayName
-        // Email
+        #endregion
 
     }
 }

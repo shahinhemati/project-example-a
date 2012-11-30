@@ -1,6 +1,6 @@
 ﻿<dotnetnuke type="Package" version="5.0">
     <packages>
-        <package name="GB.Album" type="Module" version="01.01.01">
+        <package name="GB.Album" type="Module" version="01.01.02">
             <friendlyname>Global business album</friendlyname>
             <description>Global business album module.</description>
             <iconFile>~/DesktopModules/GBAlbum/images/QandA.png</iconFile>
@@ -76,12 +76,12 @@
                     <scripts>
                         <basePath>DesktopModules\GB\GB.album\Providers\Data\SqlDataProvider</basePath>
                         <script type="Install">
-                            <name>01.00.00.SqlDataProvider</name>
-                            <version>01.00.00</version>
+                            <name>01.01.02.SqlDataProvider</name>
+                            <version>01.01.02</version>
                         </script>
                         <script type="UnInstall">
                             <name>Uninstall.SqlDataProvider</name>
-                            <version>01.01.01</version>
+                            <version>01.01.02</version>
                         </script>
                     </scripts>
                 </component>
