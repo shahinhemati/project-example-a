@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DotNetNuke.UI.Modules;
-using GB.Common.CommonBase;
+using GB.Album.CommonBase;
 
 namespace GB.Album.Components.Common
 {

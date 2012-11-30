@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using PetaPoco;
 
-namespace GB.Common.Entities
+namespace GB.Album.Entities
 {
     public class ContentItemDnn
     {

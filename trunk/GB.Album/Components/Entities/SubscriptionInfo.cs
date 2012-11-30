@@ -20,7 +20,7 @@
 
 using System;
 
-namespace GB.Common.Entities
+namespace GB.Album.Entities
 {
 
     public class SubscriptionInfo

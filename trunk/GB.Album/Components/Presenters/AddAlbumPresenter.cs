@@ -12,9 +12,9 @@ using GB.Album.Components.Common;
 using GB.Album.Components.Controller;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
-using GB.Common.CommonBase;
-using GB.Common.Controller;
-using GB.Common.Integration;
+using GB.Album.CommonBase;
+using GB.Album.Controller;
+using GB.Album.Integration;
 using IB.Album.Components.Controllers;
 
 namespace GB.Album.Components.Presenters

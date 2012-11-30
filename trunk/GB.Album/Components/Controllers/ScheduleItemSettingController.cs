@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using GB.Album.Components.Entities;
-using GB.Common.Entities;
+using GB.Album.Entities;
 
-namespace GB.Common.Controllers
+namespace GB.Album.Controllers
 {
     public class ScheduleItemSettingController
     {

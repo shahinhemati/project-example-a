@@ -6,7 +6,7 @@ using DotNetNuke.Entities.Content;
 using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Entities.Content.Taxonomy;
 using GB.Album.Components.Entities;
-using GB.Common.Entities;
+using GB.Album.Entities;
 
 namespace GB.Album.Components.Controllers
 {

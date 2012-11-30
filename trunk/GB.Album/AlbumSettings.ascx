@@ -4,7 +4,7 @@
 <%@ Register TagPrefix="dnnweb" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx" %>
-<%@ Register TagPrefix="dnn" Namespace="GB.Common.Controls" %>
+<%@ Register TagPrefix="dnn" Namespace="GB.Album.Controls" %>
 <div class="dnnForm GBAlbumSettings dnnClear" id="GBAlbumSettings">
     <asp:Panel ID="pnlNormalSettings" runat="server">
         <div class="dnnFormExpandContent">

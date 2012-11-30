@@ -40,8 +40,8 @@ using DotNetNuke.Entities.Host;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Modules;
 using System.Collections.Generic;
-using GB.Common.CommonBase;
-using GB.Common.Entities;
+using GB.Album.CommonBase;
+using GB.Album.Entities;
 using UtilContent=DotNetNuke.Entities.Content.Common.Util;
 
 namespace GB.Album.Components.Common

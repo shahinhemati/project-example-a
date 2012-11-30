@@ -23,11 +23,11 @@ using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Common.Utilities;
 using GB.Album.Components.Entities;
-using GB.Common.CommonBase;
-using GB.Common.Controllers;
-using GB.Common.Entities;
+using GB.Album.CommonBase;
+using GB.Album.Controllers;
+using GB.Album.Entities;
 
-namespace GB.Common.CommonBase
+namespace GB.Album.CommonBase
 {
 
     /// <summary>

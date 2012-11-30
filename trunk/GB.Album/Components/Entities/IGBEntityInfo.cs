@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GB.Common.Entities
+namespace GB.Album.Entities
 {
     public interface IGBEntityInfo
     {

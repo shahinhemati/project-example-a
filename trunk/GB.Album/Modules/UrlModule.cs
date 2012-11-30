@@ -24,9 +24,9 @@ using System.Text.RegularExpressions;
 using GB.Album.Components.Common;
 using DotNetNuke.Entities.Portals;
 using GB.Album.Components.Entities;
-using GB.Common.CommonBase;
-using GB.Common.Controller;
-using GB.Common.Entities;
+using GB.Album.CommonBase;
+using GB.Album.Controller;
+using GB.Album.Entities;
 
 
 namespace GB.Album.Components.Modules

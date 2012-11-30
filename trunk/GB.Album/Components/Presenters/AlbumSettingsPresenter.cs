@@ -6,7 +6,7 @@ using GB.Album.Components.Args;
 using GB.Album.Components.Common;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
-using GB.Common.Entities;
+using GB.Album.Entities;
 
 namespace GB.Album.Components.Presenters
 {

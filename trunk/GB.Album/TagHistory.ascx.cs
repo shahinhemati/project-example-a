@@ -31,8 +31,8 @@ using GB.Album.Components.Common;
 using GB.Album.Components.Models;
 using GB.Album.Components.Presenters;
 using GB.Album.Components.Views;
-using GB.Common.CommonBase;
-using GB.Common.Entities;
+using GB.Album.CommonBase;
+using GB.Album.Entities;
 using WebFormsMvp;
 
 namespace GB.Album

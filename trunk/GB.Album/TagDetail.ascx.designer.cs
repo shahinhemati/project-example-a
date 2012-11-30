@@ -82,7 +82,7 @@ namespace GB.Album {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::GB.Common.Controls.Tags tagSynonyms;
+        protected global::GB.Album.Controls.Tags tagSynonyms;
         
         /// <summary>
         /// pnlNoSynonyms control.

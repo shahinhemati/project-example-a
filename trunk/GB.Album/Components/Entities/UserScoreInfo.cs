@@ -17,7 +17,7 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-namespace GB.Common.Entities
+namespace GB.Album.Entities
 {
 
     public class UserScoreInfo

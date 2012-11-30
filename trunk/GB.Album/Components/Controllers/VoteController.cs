@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GB.Common.Entities;
+using GB.Album.Entities;
 
-namespace GB.Common.Controller
+namespace GB.Album.Controller
 {
     public class VoteController
     {

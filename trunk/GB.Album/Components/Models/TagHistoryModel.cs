@@ -21,7 +21,7 @@
 using System.Collections.Generic;
 using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Content.Taxonomy;
-using GB.Common.Entities;
+using GB.Album.Entities;
 
 namespace GB.Album.Components.Models
 {

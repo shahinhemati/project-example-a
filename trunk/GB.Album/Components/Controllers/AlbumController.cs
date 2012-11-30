@@ -29,10 +29,10 @@ namespace IB.Album.Components.Controllers
     using System.Collections.Generic;
     using DotNetNuke.Common.Utilities;
     using GB.Album.Components.Entities;
-    using GB.Common.CommonBase;
-    using GB.Common.Controllers;
-    using GB.Common.Entities;
-    using GB.Common.Integration;
+    using GB.Album.CommonBase;
+    using GB.Album.Controllers;
+    using GB.Album.Entities;
+    using GB.Album.Integration;
 
     public class AlbumController
     {

@@ -27,14 +27,14 @@ using System;
 using GB.Album.Components.Common;
 using GB.Album.Components.Entities;
 using DotNetNuke.UI.Modules;
-using GB.Common.CommonBase;
-using GB.Common.Controller;
-using GB.Common.Entities;
-using GB.Common.Integration;
+using GB.Album.CommonBase;
+using GB.Album.Controller;
+using GB.Album.Entities;
+using GB.Album.Integration;
 using Services=DotNetNuke.Services;
-using GB.Common.Controllers;
+using GB.Album.Controllers;
 
-namespace GB.Common.Controls
+namespace GB.Album.Controls
 {
 
 	/// <summary>

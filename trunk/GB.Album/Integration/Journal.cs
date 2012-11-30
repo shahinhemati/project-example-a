@@ -22,10 +22,10 @@ using System.Linq;
 using GB.Album.Components.Common;
 using GB.Album.Components.Entities;
 using DotNetNuke.Services.Journal;
-using GB.Common.CommonBase;
-using GB.Common.Entities;
+using GB.Album.CommonBase;
+using GB.Album.Entities;
 
-namespace GB.Common.Integration
+namespace GB.Album.Integration
 {
     public class Journal
     {

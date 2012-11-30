@@ -29,10 +29,10 @@ using GB.Album.Components.Models;
 using GB.Album.Components.Views;
 using GB.Album.Components.Common;
 using System.Web.UI.WebControls;
-using GB.Common.CommonBase;
-using GB.Common.Controllers;
-using GB.Common.Controls;
-using GB.Common.Entities;
+using GB.Album.CommonBase;
+using GB.Album.Controllers;
+using GB.Album.Controls;
+using GB.Album.Entities;
 
 namespace GB.Album.Components.Presenters
 {

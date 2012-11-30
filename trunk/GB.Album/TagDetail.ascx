@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx"%>
 <%@ Import Namespace="DotNetNuke.Services.Localization" %>
 <%@ Register TagPrefix="dnnweb" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
-<%@ Register TagPrefix="dqa" Namespace="GB.Common.Controls" Assembly="GB.Common" %>
+<%@ Register TagPrefix="dqa" Namespace="GB.Album.Controls" Assembly="GB.Album" %>
 <div class="dnnForm dnnqa-answers">
 	<div class="qaTagInfoTagDetails">
 		<h2 class="dnnFormSectionHead"><%= Localization.GetString("Title", LocalResourceFile) %> //

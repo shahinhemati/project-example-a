@@ -23,7 +23,7 @@ using System.Linq;
 using GB.Album.Components.Entities;
 
 
-namespace GB.Common.Entities {
+namespace GB.Album.Entities {
 
     /// <summary>
     /// This is our Info class that represents columns in our data store that are associated with the DNNQA_Badge table.

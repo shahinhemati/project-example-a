@@ -21,7 +21,7 @@
 using System;
 using DotNetNuke.Common.Utilities;
 using GB.Album.Components.Entities;
-using GB.Common.CommonBase;
+using GB.Album.CommonBase;
 
 namespace GB.Album.Entities {
 

@@ -24,10 +24,10 @@ using DotNetNuke.Entities.Content;
 using GB.Album.Components.Common;
 using GB.Album.Components.Entities;
 using DotNetNuke.Common.Utilities;
-using GB.Common.CommonBase;
-using GB.Common.Entities;
+using GB.Album.CommonBase;
+using GB.Album.Entities;
 
-namespace GB.Common.Integration
+namespace GB.Album.Integration
 {
 
 	public class Content
