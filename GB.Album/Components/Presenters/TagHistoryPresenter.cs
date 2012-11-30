@@ -33,8 +33,8 @@ using DotNetNuke.Web.UI.WebControls;
 using GB.Album.Components.Common;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
-using GB.Common.Entities;
-using TermController = GB.Common.Controllers.TermController;
+using GB.Album.Entities;
+using TermController = GB.Album.Controllers.TermController;
 
 namespace GB.Album.Components.Presenters
 {

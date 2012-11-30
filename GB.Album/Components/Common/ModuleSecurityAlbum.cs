@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Security.Permissions;
-using GB.Common.CommonBase;
+using GB.Album.CommonBase;
 
 namespace GB.Album.Components.Common
 {

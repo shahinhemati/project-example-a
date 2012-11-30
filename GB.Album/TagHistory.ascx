@@ -3,7 +3,7 @@
 <%@ Import Namespace="DotNetNuke.Services.Localization" %>
 <%@ Register TagPrefix="dnnweb" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
 <%@ Import Namespace="GB.Album.Components.Common" %>
-<%@ Register TagPrefix="dqa" Namespace="GB.Common.Controls" Assembly="GB.Common" %>
+<%@ Register TagPrefix="dqa" Namespace="GB.Album.Controls" Assembly="GB.Album" %>
 
 <div class="dnnForm qaTagHistory" id="qaTagHistory">
 	<h2><%= Localization.GetString("History", LocalResourceFile) %> // <asp:HyperLink ID="hlTitle" runat="server" /></h2>

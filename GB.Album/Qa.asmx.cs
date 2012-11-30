@@ -27,7 +27,7 @@ using DotNetNuke.Web.Mvp;
 using GB.Album.Components.Presenters;
 using GB.Album.Entities;
 using GB.Album.Views;
-using GB.Common.CommonBase;
+using GB.Album.CommonBase;
 using IB.Album.Components.Controllers;
 using WebFormsMvp;
 using System.Linq;

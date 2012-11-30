@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using GB.Common.Entities;
+using GB.Album.Entities;
 
-namespace GB.Common.Controller
+namespace GB.Album.Controller
 {
     public interface IGBEntityController
     {

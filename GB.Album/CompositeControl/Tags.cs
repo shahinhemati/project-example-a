@@ -30,11 +30,11 @@ using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Tabs;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Modules;
-using GB.Common.CommonBase;
-using GB.Common.Controller;
-using GB.Common.Entities;
+using GB.Album.CommonBase;
+using GB.Album.Controller;
+using GB.Album.Entities;
 
-namespace GB.Common.Controls
+namespace GB.Album.Controls
 {
 
 	/// <summary>

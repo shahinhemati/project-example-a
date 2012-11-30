@@ -32,11 +32,11 @@ using DotNetNuke.Services.Localization;
 using DotNetNuke.Web.Mvp;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
-using GB.Common.CommonBase;
-using GB.Common.Controllers;
-using GB.Common.Controls;
-using GB.Common.Entities;
-using GB.Common.Integration;
+using GB.Album.CommonBase;
+using GB.Album.Controllers;
+using GB.Album.Controls;
+using GB.Album.Entities;
+using GB.Album.Integration;
 
 namespace GB.Album.Components.Presenters
 {

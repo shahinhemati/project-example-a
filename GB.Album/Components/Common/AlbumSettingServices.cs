@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GB.Common.CommonBase;
-using GB.Common.Entities;
+using GB.Album.CommonBase;
+using GB.Album.Entities;
 
 namespace GB.Album.Components.Common
 {

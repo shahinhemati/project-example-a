@@ -1,4 +1,4 @@
-﻿using GB.Common.Entities;
+﻿using GB.Album.Entities;
 using PetaPoco;
 
 

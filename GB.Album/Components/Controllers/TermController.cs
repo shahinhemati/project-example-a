@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DotNetNuke.Entities.Content.Taxonomy;
-using GB.Common.Entities;
+using GB.Album.Entities;
 
-namespace GB.Common.Controllers
+namespace GB.Album.Controllers
 {
     public class TermController
     {

@@ -23,9 +23,9 @@ using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Entities.Content;
 using GB.Album.Components.Entities;
 using DotNetNuke.Entities.Content.Taxonomy;
-using GB.Common.Entities;
+using GB.Album.Entities;
 
-namespace GB.Common.Integration
+namespace GB.Album.Integration
 {
 
 	public class Terms {

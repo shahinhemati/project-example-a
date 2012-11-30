@@ -21,9 +21,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using GB.Album.Components.Entities;
-using GB.Common.Entities;
+using GB.Album.Entities;
 
-namespace GB.Common.CommonBase
+namespace GB.Album.CommonBase
 {
 
     /// <summary>
@@ -181,7 +181,7 @@ namespace GB.Common.CommonBase
             throw new System.NotImplementedException();
         }
 
-        public static List<TermInfo> GetTermCollection(int PageSize, int currentPage, SortInfo objSort, List<GB.Common.Entities.TermInfo> topTags)
+        public static List<TermInfo> GetTermCollection(int PageSize, int currentPage, SortInfo objSort, List<GB.Album.Entities.TermInfo> topTags)
         {
             throw new System.NotImplementedException();
         }

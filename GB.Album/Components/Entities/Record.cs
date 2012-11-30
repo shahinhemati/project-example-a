@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GB.Common.Controllers;
+using GB.Album.Controllers;
 using PetaPoco;
 
-namespace GB.Common.Entities
+namespace GB.Album.Entities
 {
     public class Record<T> : ContentItemDnn where T : new()
     {

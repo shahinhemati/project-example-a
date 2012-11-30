@@ -23,8 +23,8 @@ using GB.Album.Components.Entities;
 using DotNetNuke.Web.Mvp;
 using GB.Album.Components.Common;
 using System;
-using GB.Common.Controls;
-using GB.Common.Entities;
+using GB.Album.Controls;
+using GB.Album.Entities;
 
 namespace GB.Album.Components.Views
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GB.Common.Controller
+namespace GB.Album.Controller
 {
     public class BadgeController
     {

@@ -8,8 +8,8 @@ using System.Web;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Services.FileSystem;
 using GB.Album.Components.Common;
-using GB.Common.Controllers;
-using GB.Common.Entities;
+using GB.Album.Controllers;
+using GB.Album.Entities;
 
 namespace GB.Album.Components.Controller
 {

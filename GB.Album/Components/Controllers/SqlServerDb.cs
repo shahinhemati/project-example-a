@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DotNetNuke.Entities.Content;
-using GB.Common.Entities;
+using GB.Album.Entities;
 using PetaPoco;
 
-namespace GB.Common.Controllers
+namespace GB.Album.Controllers
 {
 
     public partial class SqlServerDb : Database
