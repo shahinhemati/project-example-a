@@ -23,7 +23,6 @@ using System.Web;
 using System.Text.RegularExpressions;
 using GB.Album.Components.Common;
 using DotNetNuke.Entities.Portals;
-using GB.Album.Components.Entities;
 using GB.Album.CommonBase;
 using GB.Album.Controller;
 using GB.Album.Entities;
@@ -45,6 +44,25 @@ namespace GB.Album.Components.Modules
         public void Init(HttpApplication context)
         {
             context.BeginRequest += OnBeginRequest;
+         //   context.BeginRequest += OnCustomizeRequest;
+        }
+
+        private void OnCustomizeRequest(object sender, EventArgs e)
+        {
+            var app = (HttpApplication)sender;
+            var context = app.Context;
+            PortalSettings portalSettings;
+            PortalAliasController pac = new PortalAliasController();
+
+            PortalInfo portalInfo;
+            //var requestedPath = app.Request.Url.AbsoluteUri;
+            PortalAliasInfo objPortalAlias;
+
+            var url = context.Request.RawUrl.Replace("?" + context.Request.QueryString, "").ToLower();
+            if( url.EndsWith(".gb"))
+            {
+                
+            }
         }
 
         #endregion
@@ -193,5 +211,7 @@ namespace GB.Album.Components.Modules
             }
         }
 
+
+        
     }
 }
