@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Configuration;
-using DotNetNuke.Entities.Content;
-using GB.Album.Entities;
 using PetaPoco;
 
 

@@ -62,8 +62,7 @@
     <Reference Include="Microsoft.Data.Schema, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.Data.Schema.UnitTesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="PetaPoco, Version=5.0.1.17400, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="PetaPoco">
       <HintPath>..\ShareAssembly\PetaPoco.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -164,14 +163,13 @@
     <Compile Include="Components\Args\AddImageEventArgs.cs" />
     <Compile Include="Components\Args\AlbumEventArgs.cs" />
     <Compile Include="Components\Args\EditAlbumEventArgs.cs" />
-    <Compile Include="Components\Common\AlbumCommon.cs" />
     <Compile Include="Components\Common\AlbumSettingServices.cs" />
     <Compile Include="Components\Common\Constants.cs" />
     <Compile Include="Components\Common\Links.cs" />
     <Compile Include="Components\Common\ModuleSecurity.cs" />
     <Compile Include="Components\Common\QaSettings.cs" />
     <Compile Include="Components\Common\Sorting.cs" />
-    <Compile Include="Components\Common\Utils.cs" />
+    <Compile Include="Components\Common\UtilsGB.cs" />
     <Compile Include="Components\Controllers\BadgeController.cs" />
     <Compile Include="Components\Controllers\ContentItemController.cs" />
     <Compile Include="Components\Controllers\FileAlbumController.cs" />
@@ -182,13 +180,13 @@
     <Compile Include="Components\Common\UrlShorteningService.cs" />
     <Compile Include="Components\Controllers\AlbumController.cs" />
     <Compile Include="Components\Controllers\AlbumImageController.cs" />
+    <Compile Include="Components\Controllers\JournalDnnController.cs" />
+    <Compile Include="Components\Controllers\NotificationController.cs" />
     <Compile Include="Components\Controllers\ScheduleItemSettingController.cs" />
     <Compile Include="Components\Controllers\SettingController.cs" />
     <Compile Include="Components\Controllers\SqlServerDb.cs" />
     <Compile Include="Components\Controllers\SubcriptionController.cs" />
-    <Compile Include="Components\Controllers\TermController.cs" />
-    <Compile Include="Components\Controllers\TermDnn.cs" />
-    <Compile Include="Components\Controllers\TermHistory.cs" />
+    <Compile Include="Components\Controllers\TermDnnController.cs" />
     <Compile Include="Components\Controllers\TermHistoryController.cs" />
     <Compile Include="Components\Controllers\TermSynonymController.cs" />
     <Compile Include="Components\Controllers\TernmSynonymController.cs" />
@@ -279,10 +277,6 @@
     <Content Include="License.txt">
       <SubType>Designer</SubType>
     </Content>
-    <Compile Include="Integration\Content.cs" />
-    <Compile Include="Integration\Journal.cs" />
-    <Compile Include="Integration\Notifications.cs" />
-    <Compile Include="Integration\Terms.cs" />
     <Compile Include="ManagerAlbum.ascx.cs">
       <DependentUpon>ManagerAlbum.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

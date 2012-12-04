@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Web;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Services.FileSystem;
-using GB.Album.Components.Common;
-using GB.Album.Controllers;
-using GB.Album.Entities;
+using AlbumCommon = GB.Album.CommonBase.Constants;
 
 namespace GB.Album.Components.Controller
 {

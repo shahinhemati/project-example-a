@@ -23,7 +23,14 @@ namespace GB.Album.CommonBase
 
 	public class Constants
     {
-        
+        #region FolderName
+
+        public const string FolderAlbumThum = "AlbumThum";
+        public const string FolderAlbum = "Album";
+        public const string FolderImageThum = "ImageThum";
+        public const string FolderImage = "Image";
+
+        #endregion
         #region Module Settings
 
         // General

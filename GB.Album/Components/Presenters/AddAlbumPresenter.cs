@@ -14,9 +14,6 @@ using GB.Album.Components.Controllers;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
 using GB.Album.CommonBase;
-using GB.Album.Controller;
-using GB.Album.Controllers;
-using GB.Album.Integration;
 using IB.Album.Components.Controllers;
 
 namespace GB.Album.Components.Presenters
@@ -80,7 +77,7 @@ namespace GB.Album.Components.Presenters
 
             foreach (var s in userEnteredTerms)
             {
-                if (!Utils.ContainsSpecialCharacter(s)) continue;
+                if (!UtilsGB.ContainsSpecialCharacter(s)) continue;
                 var msg = Localization.GetString("UnAllowedCharacters", LocalResourceFile);
                 msg = msg.Replace("{0}", Constants.DisallowedCharacters);
                 DotNetNuke.UI.Skins.Skin.AddModuleMessage(sender as UserControl, msg, ModuleMessage.ModuleMessageType.RedError);
@@ -89,16 +86,19 @@ namespace GB.Album.Components.Presenters
 
             try
             {
+                //add news term to vocabularyid
                 var terms = new List<Term>();
-                userEnteredTerms.ForEach(t => terms.Add(Terms.CreateAndReturnTerm(t, VocabularyId)));
+                userEnteredTerms.ForEach(t => terms.Add(TermDnnController.CreateAndReturnTerm(t, VocabularyId)));
+
+                e.AlbumInfo.Terms = terms;
                 AlbumController album = new AlbumController();
                 album.AddAlbum(e.AlbumInfo, ModuleContext.TabId);
 
-                DotNetNuke.UI.Skins.Skin.AddModuleMessage(sender as UserControl, "Thanh công lưu", ModuleMessage.ModuleMessageType.GreenSuccess);
+                DotNetNuke.UI.Skins.Skin.AddModuleMessage(sender as UserControl, LocalizeString("SaveSuccess"), ModuleMessage.ModuleMessageType.GreenSuccess);
             }catch(Exception ex)
             {
                 ProcessModuleLoadException(ex);
-                DotNetNuke.UI.Skins.Skin.AddModuleMessage(sender as UserControl, LocalizeString("SaveSuccess"), ModuleMessage.ModuleMessageType.RedError);
+                DotNetNuke.UI.Skins.Skin.AddModuleMessage(sender as UserControl, LocalizeString("SaveError"), ModuleMessage.ModuleMessageType.RedError);
             }
         }
     }

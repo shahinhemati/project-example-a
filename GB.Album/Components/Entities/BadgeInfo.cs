@@ -19,7 +19,6 @@
 //
 
 using System;
-using System.Linq;
 using GB.Album.Components.Entities;
 
 

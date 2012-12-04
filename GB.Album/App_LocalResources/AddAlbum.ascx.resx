@@ -144,4 +144,7 @@
   <data name="valTitle.ErrorMessage" xml:space="preserve">
     <value>Nhập tiêu đề !</value>
   </data>
+  <data name="SaveError" xml:space="preserve">
+    <value>Không  thể  thực hiện !</value>
+  </data>
 </root>

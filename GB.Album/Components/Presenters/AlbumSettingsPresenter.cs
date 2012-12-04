@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Args;
-using GB.Album.Components.Common;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
-using GB.Album.Entities;
 
 namespace GB.Album.Components.Presenters
 {

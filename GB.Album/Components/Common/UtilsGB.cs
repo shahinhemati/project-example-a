@@ -47,7 +47,7 @@ using UtilContent=DotNetNuke.Entities.Content.Common.Util;
 namespace GB.Album.Components.Common
 {
 
-    public class Utils
+    public class UtilsGB
     {
 
         /// <summary>

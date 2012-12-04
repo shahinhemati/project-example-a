@@ -20,11 +20,7 @@
 
 using System;
 using System.Web;
-using System.Web.Script.Serialization;
-using DotNetNuke.Common.Utilities;
-using DotNetNuke.ComponentModel;
 using DotNetNuke.Web.Mvp;
-using GB.Album.Components.Common;
 using GB.Album.Components.Controller;
 using GB.Album.Views;
 using IB.Album.Components.Controllers;
@@ -81,7 +77,7 @@ namespace GB.Album.Components.Presenters
                 //tim va thiet lap thong tin con thieu cho lop V_Base
                 int portalid = int.Parse(e.HttpContextUpload.Request.QueryString["portalid"].ToString());
                 var portalInfo = new DotNetNuke.Entities.Portals.PortalController().GetPortal(portalid);
-                string pathImgThumb = "/" + portalInfo.HomeDirectory + "/"+AlbumCommon.FolderImageThum+"/";
+                string pathImgThumb = "/" + portalInfo.HomeDirectory + "/"+GB.Album.CommonBase.Constants.FolderImageThum+"/";
 
                 e.HttpContextUpload.Response.ContentType = "text/plain";//"application/json";
 
