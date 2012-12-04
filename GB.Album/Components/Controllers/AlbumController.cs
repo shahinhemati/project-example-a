@@ -210,6 +210,11 @@ namespace IB.Album.Components.Controllers
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<AlbumInfo> GetAlbums()
+        {
+            return SqlServerDb.GetInstance().Query<AlbumInfo>("select * from dnn_GBAlbum_Post");
+        }
     }
 }
 
