@@ -80,7 +80,7 @@ namespace IB.Album.Components.Controllers
             content.CreateContentItem(album, tabid);
 
             // # 2 Store Album to DataBase
-            rt = ((AlbumInfo)SqlServerDb.GetInstance().Insert(album)).PostId;
+            rt = int.Parse(SqlServerDb.GetInstance().Insert(album).ToString());
 
             // # 3 Store Cache
 
@@ -159,9 +159,6 @@ namespace IB.Album.Components.Controllers
         {
             SqlServerDb.GetInstance().SingleOrDefault<AlbumInfo>("select * from dnn_GBAlbum where id=@0",questionId);
             SqlServerDb.GetInstance().Query<AlbumInfo>(PetaPoco.Sql.Builder.Append("select * from dnn_GBAlbum").Append("where id =@0",questionId));
-
-
-
             throw new NotImplementedException();
         }
 

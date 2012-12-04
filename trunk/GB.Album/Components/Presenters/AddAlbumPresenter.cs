@@ -94,7 +94,7 @@ namespace GB.Album.Components.Presenters
                 AlbumController album = new AlbumController();
                 album.AddAlbum(e.AlbumInfo, ModuleContext.TabId);
 
-                DotNetNuke.UI.Skins.Skin.AddModuleMessage(sender as UserControl, LocalizeString("SaveSuccess"), ModuleMessage.ModuleMessageType.GreenSuccess);
+                DotNetNuke.UI.Skins.Skin.AddModuleMessage(sender as UserControl, "Thanh công lưu", ModuleMessage.ModuleMessageType.GreenSuccess);
             }catch(Exception ex)
             {
                 ProcessModuleLoadException(ex);

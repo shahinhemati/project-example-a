@@ -21,13 +21,13 @@ namespace GB.Album
     {
         #region Control
 
-        protected  DotNetNuke.UI.UserControls.TextEditor teShortContent;
+        protected DotNetNuke.UI.UserControls.TextEditor teShortContent;
         protected DotNetNuke.UI.UserControls.TextEditor teContent;
 
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 //teContent.Mode
             }
@@ -42,13 +42,13 @@ namespace GB.Album
             ClientResourceManager.RegisterScript(Page, TemplateSourceDirectory + "/js/jquery.tagify.js");
         }
 
-        public void Btn_Click(object sender,EventArgs e)
+        public void Btn_Click(object sender, EventArgs e)
         {
-            AlbumInfo albumInfo=new AlbumInfo();
-            
+            AlbumInfo albumInfo = new AlbumInfo();
+
             albumInfo.Title = txtTitle.Text.Trim();
             albumInfo.PortalId = ModuleContext.PortalId;
-            albumInfo.Body ="--";
+            albumInfo.Body = "--";
             albumInfo.TabID = ModuleContext.TabId;
             albumInfo.Score = 1;
             albumInfo.Approved = true;
@@ -60,12 +60,12 @@ namespace GB.Album
 
             string tags = txtTags.Text;
             //set up value from form
-            var evt = new AlbumEventArgs<AlbumInfo,string>(albumInfo,tags);
+            var evt = new AlbumEventArgs<AlbumInfo, string>(albumInfo, tags);
 
             //save album 
             AddNewAlbum(this, evt);
         }
 
-        public event EventHandler<AlbumEventArgs<AlbumInfo,string>> AddNewAlbum;
+        public event EventHandler<AlbumEventArgs<AlbumInfo, string>> AddNewAlbum;
     }
 }
