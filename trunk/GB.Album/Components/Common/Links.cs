@@ -100,7 +100,7 @@ namespace GB.Album.CommonBase
 		/// <returns></returns>
 		public static string ViewQuestion(int questionId, string questionTitle, TabInfo tab, PortalSettings ps)
 		{
-			if (Utils.IsFriendlyUrlModuleInstalled && Utils.UseFriendlyUrls)
+			if (UtilsGB.IsFriendlyUrlModuleInstalled && UtilsGB.UseFriendlyUrls)
 			{
 				// JS 1/25/12: This check is for removing the .aspx from the question and tags.
 				//             There appears to be conflicts between IIS7.5 installations that need to be address
@@ -111,9 +111,9 @@ namespace GB.Album.CommonBase
 
 				if (ps.HomeTabId == tab.TabID && DotNetNuke.Common.Globals.NavigateURL(tab.TabID).EndsWith("/"))
 				{
-					return DotNetNuke.Common.Globals.NavigateURL(tab.TabID).Replace(".aspx", "") + tab.IndentedTabName.Replace(" ","") + ("/" + Utils.GetQuestionUrlName() + "/" + questionId + "/" + Utils.CreateFriendlySlug(questionTitle) + ".aspx");
+					return DotNetNuke.Common.Globals.NavigateURL(tab.TabID).Replace(".aspx", "") + tab.IndentedTabName.Replace(" ","") + ("/" + UtilsGB.GetQuestionUrlName() + "/" + questionId + "/" + UtilsGB.CreateFriendlySlug(questionTitle) + ".aspx");
 				}
-				return DotNetNuke.Common.Globals.NavigateURL(tab.TabID).Replace(".aspx", "") + ("/" + Utils.GetQuestionUrlName() + "/" + questionId + "/" + Utils.CreateFriendlySlug(questionTitle) + ".aspx");
+				return DotNetNuke.Common.Globals.NavigateURL(tab.TabID).Replace(".aspx", "") + ("/" + UtilsGB.GetQuestionUrlName() + "/" + questionId + "/" + UtilsGB.CreateFriendlySlug(questionTitle) + ".aspx");
 				
 				
 			}
@@ -227,7 +227,7 @@ namespace GB.Album.CommonBase
 
 		public static string ViewTaggedQuestions(string termName, TabInfo tab, PortalSettings ps)
 		{
-			if (Utils.IsFriendlyUrlModuleInstalled && Utils.UseFriendlyUrls)
+			if (UtilsGB.IsFriendlyUrlModuleInstalled && UtilsGB.UseFriendlyUrls)
 			{
 				// JS 1/25/12: This check is for removing the .aspx from the question and tags.
 				//             There appears to be conflicts between IIS7.5 installations that need to be address
@@ -238,9 +238,9 @@ namespace GB.Album.CommonBase
 
 				termName = termName.Replace(" ", "-");
 				if (ps.HomeTabId == tab.TabID && DotNetNuke.Common.Globals.NavigateURL(tab.TabID).EndsWith("/")){
-					return DotNetNuke.Common.Globals.NavigateURL(tab.TabID) + tab.IndentedTabName.Replace(" ","") + ("/" + Utils.GetTagUrlName(ps) + "/" + HttpUtility.UrlEncode(termName) + ".aspx");
+					return DotNetNuke.Common.Globals.NavigateURL(tab.TabID) + tab.IndentedTabName.Replace(" ","") + ("/" + UtilsGB.GetTagUrlName(ps) + "/" + HttpUtility.UrlEncode(termName) + ".aspx");
 				}
-				return DotNetNuke.Common.Globals.NavigateURL(tab.TabID).Replace(".aspx", "") + ("/" + Utils.GetTagUrlName(ps) + "/" + HttpUtility.UrlEncode(termName) + ".aspx");
+				return DotNetNuke.Common.Globals.NavigateURL(tab.TabID).Replace(".aspx", "") + ("/" + UtilsGB.GetTagUrlName(ps) + "/" + HttpUtility.UrlEncode(termName) + ".aspx");
 			}
 			return DotNetNuke.Common.Globals.NavigateURL(tab.TabID, ps, "", "view=" + Constants.PageScope.Browse.ToString().ToLower(), "tag=" + HttpUtility.UrlEncode(termName));
 		}

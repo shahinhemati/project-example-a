@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using GB.Album.CommonBase;
-using GB.Album.Entities;
+﻿
 
 namespace GB.Album.Components.Common
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using GB.Album.CommonBase;
+    using GB.Album.Entities;
+
     public class AlbumSettingServices
     {
         /// <summary>

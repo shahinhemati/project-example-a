@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using DotNetNuke.Web.Mvp;
+﻿using DotNetNuke.Web.Mvp;
 using GB.Album.Components.Models;
 using GB.Album.Components.Views;
 

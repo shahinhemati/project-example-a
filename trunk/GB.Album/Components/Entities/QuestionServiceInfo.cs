@@ -19,7 +19,6 @@
 //
 
 using System;
-using DotNetNuke.Common.Utilities;
 using GB.Album.Components.Entities;
 using GB.Album.CommonBase;
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using DotNetNuke.Entities.Modules;
+﻿using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.UI.Modules;
 using DotNetNuke.Web.Mvp;
@@ -33,7 +27,7 @@ namespace GB.Album
 
         public void Refresh()
         {
-            Utils.RegisterClientDependencies(Page);
+            UtilsGB.RegisterClientDependencies(Page);
             
             var ctlDirectory = TemplateSourceDirectory;
 

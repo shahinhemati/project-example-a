@@ -19,7 +19,6 @@
 //
 
 using System;
-using DotNetNuke.Common.Utilities;
 
 namespace GB.Album.Entities {
 

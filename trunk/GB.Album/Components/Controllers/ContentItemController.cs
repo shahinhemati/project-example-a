@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Content;
 using DotNetNuke.Entities.Content.Common;
 using GB.Album.CommonBase;
+using GB.Album.Components.Controllers;
 using GB.Album.Components.Entities;
-using GB.Album.Entities;
-using GB.Album.Integration;
+
 
 namespace GB.Album.Controllers
 {
@@ -21,7 +17,7 @@ namespace GB.Album.Controllers
         /// </summary>
         /// <returns>The newly created ContentItemID from the data store.</returns>
         /// <remarks>This is for the first question in the thread. Not for replies or items with ParentID > 0.</remarks>
-        public ContentItem CreateContentItem(AlbumInfo objPost, int tabId)
+        internal ContentItem CreateContentItem(AlbumInfo objPost, int tabId)
         {
             var typeController = new ContentTypeController();
             var colContentTypes = (from t in typeController.GetContentTypes() where t.ContentType == Constants.ContentTypeName select t);
@@ -50,7 +46,7 @@ namespace GB.Album.Controllers
             objContent.ContentItemId = Util.GetContentController().AddContentItem(objContent);
 
             // Add Terms
-            var cntTerm = new Terms();
+            var cntTerm = new TermDnnController();
             cntTerm.ManageQuestionTerms(objPost, objContent);
 
             return objContent;
@@ -59,34 +55,34 @@ namespace GB.Album.Controllers
         /// <summary>
         /// This is used to update the content in the ContentItems table. Should be called when a question is updated.
         /// </summary>
-        public void UpdateContentItem(AlbumInfo objAlbum, int tabId)
+        internal void UpdateContentItem(AlbumInfo objPost, int tabId)
         {
-            var objContent = Util.GetContentController().GetContentItem(objAlbum.ContentItemId);
+            var objContent = Util.GetContentController().GetContentItem(objPost.ContentItemId);
 
             if (objContent == null) return;
-            objContent.Content = objAlbum.Body;
+            objContent.Content = objPost.Body;
             objContent.TabID = tabId;
-            objContent.ContentKey = "view=" + Constants.PageScope.Question.ToString().ToLower() + "&id=" + objAlbum.PostId;
+            objContent.ContentKey = "view=" + Constants.PageScope.Question.ToString().ToLower() + "&id=" + objPost.PostId;
 
             Util.GetContentController().UpdateContentItem(objContent);
 
             // Update Terms
-            var cntTerm = new Terms();
-            cntTerm.ManageQuestionTerms(objAlbum, objContent);
+            var cntTerm = new TermDnnController();
+            cntTerm.ManageQuestionTerms(objPost, objContent);
         }
 
         /// <summary>
         /// This removes a content item associated with a question/thread from the data store. Should run every time an entire thread is deleted.
         /// </summary>
         /// <param name="contentItemID"></param>
-        public void DeleteContentItem(int contentItemID)
+        internal void DeleteContentItem(int contentItemID)
         {
             if (contentItemID <= Null.NullInteger) return;
             var objContent = Util.GetContentController().GetContentItem(contentItemID);
             if (objContent == null) return;
 
             // remove any metadata/terms associated first (perhaps we should just rely on ContentItem cascade delete here?)
-            var cntTerms = new Terms();
+            var cntTerms = new TermDnnController();
             cntTerms.RemoveQuestionTerms(objContent);
 
             Util.GetContentController().DeleteContentItem(objContent);
@@ -96,7 +92,7 @@ namespace GB.Album.Controllers
         /// This is used to determine the ContentTypeID (part of the Core API) based on this module's content type. If the content type doesn't exist yet for the module, it is created.
         /// </summary>
         /// <returns>The primary key value (ContentTypeID) from the core API's Content Types table.</returns>
-        public static int GetContentTypeID()
+        internal static int GetContentTypeID()
         {
             var typeController = new ContentTypeController();
             var colContentTypes = (from t in typeController.GetContentTypes() where t.ContentType == Constants.ContentTypeName select t);
@@ -131,9 +127,5 @@ namespace GB.Album.Controllers
 
         #endregion
 
-        public IEnumerable<ContentItem> GetContentItemsByTypeAndCreated(int contentTypeId, DateTime lastRunDate, DateTime currentRunDate)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

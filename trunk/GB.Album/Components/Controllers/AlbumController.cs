@@ -17,11 +17,6 @@
 // CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 // DEALINGS IN THE SOFTWARE.
 //
-
-
-using DotNetNuke.Entities.Content;
-using GB.Album.Entities;
-
 namespace IB.Album.Components.Controllers
 {
 
@@ -33,8 +28,7 @@ namespace IB.Album.Components.Controllers
     using GB.Album.CommonBase;
     using GB.Album.Controllers;
     using GB.Album.Entities;
-    using GB.Album.Integration;
-
+ 
     public class AlbumController
     {
         #region Create new Instance
@@ -100,7 +94,7 @@ namespace IB.Album.Components.Controllers
         /// <returns>The ContentItemId primary key created in the Core ContentItems table.</returns>
         private static int CompleteQuestionCreation(AlbumInfo objPost, int tabId)
         {
-            var cntTaxonomy = new Content();
+            var cntTaxonomy = new ContentItemController();
             var objContentItem = cntTaxonomy.CreateContentItem(objPost, tabId);
             return objContentItem.ContentItemId;
         }
@@ -112,7 +106,7 @@ namespace IB.Album.Components.Controllers
         /// <param name="tabId"></param>
         private static void CompleteQuestionUpdate(AlbumInfo objAlbum, int tabId)
         {
-            var cntTaxonomy = new Content();
+            var cntTaxonomy = new ContentItemController();
             cntTaxonomy.UpdateContentItem(objAlbum, tabId);
 
             DataCache.RemoveCache(Constants.ModuleCacheKey + Constants.HomeQuestionsCacheKey + objAlbum.ModuleID);
@@ -131,7 +125,7 @@ namespace IB.Album.Components.Controllers
         /// <param name="contentItemID"></param>
         private static void CompleteQuestionDelete(int contentItemID)
         {
-            var cntTaxonomy = new Content();
+            var cntTaxonomy = new ContentItemController();
             cntTaxonomy.DeleteContentItem(contentItemID);
         }
 

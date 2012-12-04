@@ -17,14 +17,7 @@
 // CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 // DEALINGS IN THE SOFTWARE.
 //
-
-using System;
-using System.Linq;
-using System.Web.Mvc;
-using DotNetNuke.Common.Utilities;
 using DotNetNuke.Security;
-using DotNetNuke.Services.Exceptions;
-using DotNetNuke.Services.Social.Notifications;
 using DotNetNuke.Web.Api;
 
 namespace GB.Album.Components.Services

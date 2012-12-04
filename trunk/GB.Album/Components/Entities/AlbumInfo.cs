@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using DotNetNuke.Entities.Content.Taxonomy;
 using GB.Album.Entities;
 using PetaPoco;
 
@@ -50,5 +52,7 @@ namespace GB.Album.Components.Entities
         [Column]
         public DateTime? LastModifiedDate { get; set; }
 
+
+        public IList<Term> Terms { set; get; }
     }
 }
