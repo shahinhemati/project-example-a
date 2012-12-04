@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace IB.Paging
+namespace GB.Common.Paging
 {
     public interface IPagedList<T> : IList<T>
     {

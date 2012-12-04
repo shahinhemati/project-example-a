@@ -51,6 +51,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ShareAssembly\DotNetNuke.WebUtility.dll</HintPath>
     </Reference>
+    <Reference Include="PetaPoco">
+      <HintPath>..\ShareAssembly\PetaPoco.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
