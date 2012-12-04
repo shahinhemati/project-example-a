@@ -60,6 +60,8 @@ namespace GB.Album.Components.Presenters {
 		private const string CtlTagDetail = "/TagDetail.ascx";
 		private const string CtlTagHistory = "/TagHistory.ascx";
 		private const string CtlEditTag = "/EditTerm.ascx";
+        private const string CtlManagerAlbum = "/ManagerAlbum.ascx";
+        
 
 		#endregion
 
@@ -106,6 +108,9 @@ namespace GB.Album.Components.Presenters {
 				        break;
                     case "editalbum":
                         View.Model.ControlToLoad = CtlEditAlbum;
+                        break;
+                    case "manageralbum":
+                        View.Model.ControlToLoad = CtlManagerAlbum;
                         break;
                     case "addimage":
                         View.Model.ControlToLoad = CtlAddImage;
