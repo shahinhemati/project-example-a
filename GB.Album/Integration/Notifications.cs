@@ -40,7 +40,7 @@ namespace GB.Album.Integration
         /// <param name="subject"></param>
         /// <param name="body"></param>
         /// <remarks>The last part of this method is commented out but was setup to send to a role (based on a group). You can utilize this and/or also pass a list of users.</remarks>
-        public void ItemNotification(IGBEntityInfo objEntity, int portalId, int tabId, string subject, string body)
+        public void ItemNotification(AlbumInfo objEntity, int portalId, int tabId, string subject, string body)
         {
             var notificationType = NotificationsController.Instance.GetNotificationType(Constants.NotificationQaFlag);
 

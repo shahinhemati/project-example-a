@@ -38,7 +38,7 @@ namespace GB.Album.Integration
 		/// </summary>
 		/// <returns>The newly created ContentItemID from the data store.</returns>
 		/// <remarks>This is for the first question in the thread. Not for replies or items with ParentID > 0.</remarks>
-		public ContentItem CreateContentItem(IGBEntityInfo objPost, int tabId)
+		public ContentItem CreateContentItem(AlbumInfo objPost, int tabId)
 		{
 			var typeController = new ContentTypeController();
 			var colContentTypes = (from t in typeController.GetContentTypes() where t.ContentType == Constants.ContentTypeName select t);
@@ -56,10 +56,10 @@ namespace GB.Album.Integration
 
 			var objContent = new ContentItem
 								{
-									Content = objPost.ShortContent,
+									Content = objPost.Body,
 									ContentTypeId = contentTypeID,
 									Indexed = false,
-									ContentKey = "view=" + Constants.PageScope.Question.ToString().ToLower() + "&id=" + objPost.EntityId,
+									ContentKey = "view=" + Constants.PageScope.Question.ToString().ToLower() + "&id=" + objPost.PostId,
 									ModuleID = objPost.ModuleID,
 									TabID = tabId
 								};
@@ -76,14 +76,14 @@ namespace GB.Album.Integration
 		/// <summary>
 		/// This is used to update the content in the ContentItems table. Should be called when a question is updated.
 		/// </summary>
-		public void UpdateContentItem(IGBEntityInfo objAlbum, int tabId)
+		public void UpdateContentItem(AlbumInfo objAlbum, int tabId)
 		{
 			var objContent = Util.GetContentController().GetContentItem(objAlbum.ContentItemId);
 
 			if (objContent == null) return;
-			objContent.Content = objAlbum.ShortContent;
+			objContent.Content = objAlbum.Body;
 			objContent.TabID = tabId;
-			objContent.ContentKey = "view=" + Constants.PageScope.Question.ToString().ToLower() + "&id=" + objAlbum.EntityId;
+			objContent.ContentKey = "view=" + Constants.PageScope.Question.ToString().ToLower() + "&id=" + objAlbum.PostId;
 
 			Util.GetContentController().UpdateContentItem(objContent);
 

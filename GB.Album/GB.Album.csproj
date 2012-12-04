@@ -62,6 +62,10 @@
     <Reference Include="Microsoft.Data.Schema, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.Data.Schema.UnitTesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="PetaPoco, Version=5.0.1.17400, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ShareAssembly\PetaPoco.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -133,9 +137,6 @@
     <Content Include="module.css" />
     <Content Include="Qa.asmx" />
     <Content Include="AlbumSettings.ascx" />
-    <Content Include="TagDetail.ascx" />
-    <Content Include="TagHistory.ascx" />
-    <Content Include="TagList.ascx" />
     <Content Include="UpLoad\application.js" />
     <Content Include="UpLoad\index.html" />
     <Content Include="UpLoad\jquery.fileupload-ui.css" />
@@ -172,19 +173,15 @@
     <Compile Include="Components\Common\Sorting.cs" />
     <Compile Include="Components\Common\Utils.cs" />
     <Compile Include="Components\Controllers\BadgeController.cs" />
-    <Compile Include="Components\Controllers\CommonController.cs" />
     <Compile Include="Components\Controllers\ContentItemController.cs" />
     <Compile Include="Components\Controllers\FileAlbumController.cs" />
     <Compile Include="Components\Common\LinkAlbum.cs" />
-    <Compile Include="Components\Controllers\Controller.cs" />
     <Compile Include="Components\Common\ModuleSecurityAlbum.cs" />
     <Compile Include="Components\Common\UIEventArgs.cs" />
     <Compile Include="Components\Common\UIListEventArgs.cs" />
     <Compile Include="Components\Common\UrlShorteningService.cs" />
     <Compile Include="Components\Controllers\AlbumController.cs" />
     <Compile Include="Components\Controllers\AlbumImageController.cs" />
-    <Compile Include="Components\Controllers\IGBEntityController.cs" />
-    <Compile Include="Components\Controllers\PetaPoco.cs" />
     <Compile Include="Components\Controllers\ScheduleItemSettingController.cs" />
     <Compile Include="Components\Controllers\SettingController.cs" />
     <Compile Include="Components\Controllers\SqlServerDb.cs" />
@@ -201,7 +198,6 @@
     <Compile Include="Components\Entities\AlbumInfo.cs" />
     <Compile Include="Components\Entities\BadgeInfo.cs" />
     <Compile Include="Components\Entities\ContentItemDnn.cs" />
-    <Compile Include="Components\Entities\IGBEntityInfo.cs" />
     <Compile Include="Components\Entities\ImageInfo.cs" />
     <Compile Include="Components\Entities\QuestionServiceInfo.cs" />
     <Compile Include="Components\Entities\Record.cs" />
@@ -224,9 +220,6 @@
     <Compile Include="Components\Models\EditImageModel.cs" />
     <Compile Include="Components\Models\HomeModel.cs" />
     <Compile Include="Components\Models\ManagerAlbumModel.cs" />
-    <Compile Include="Components\Models\TagDetailModel.cs" />
-    <Compile Include="Components\Models\TagHistoryModel.cs" />
-    <Compile Include="Components\Models\TagListModel.cs" />
     <Compile Include="Components\Presenters\AddAlbumPresenter.cs" />
     <Compile Include="Components\Presenters\AddImagePresenter.cs" />
     <Compile Include="Components\Presenters\AlbumSettingsPresenter.cs" />
@@ -237,9 +230,6 @@
     <Compile Include="Components\Presenters\HomePresenter.cs" />
     <Compile Include="Components\Presenters\ManagerAlbumPresenter.cs" />
     <Compile Include="Components\Presenters\QAServicePresenter.cs" />
-    <Compile Include="Components\Presenters\TagDetailPresenter.cs" />
-    <Compile Include="Components\Presenters\TagHistoryPresenter.cs" />
-    <Compile Include="Components\Presenters\TagListPresenter.cs" />
     <Compile Include="Components\Services\QAServiceController.cs" />
     <Compile Include="Components\Views\IAddAlbumView.cs" />
     <Compile Include="Components\Views\IAddImageView.cs" />
@@ -251,11 +241,6 @@
     <Compile Include="Components\Views\IManagerAlbumView.cs" />
     <Compile Include="Components\Views\IQaServiceView.cs" />
     <Compile Include="Components\Views\ISettingsView.cs" />
-    <Compile Include="Components\Views\ITagDetailView.cs" />
-    <Compile Include="Components\Views\ITagHistoryView.cs" />
-    <Compile Include="Components\Views\ITagListView.cs" />
-    <Compile Include="CompositeControl\Tags.cs" />
-    <Compile Include="CompositeControl\Voting.cs" />
     <Compile Include="Dispatch.ascx.cs">
       <DependentUpon>Dispatch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -291,7 +276,6 @@
     <Compile Include="Home.ascx.designer.cs">
       <DependentUpon>Home.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Tasks\Emailer.cs" />
     <Content Include="License.txt">
       <SubType>Designer</SubType>
     </Content>
@@ -306,7 +290,6 @@
     <Compile Include="ManagerAlbum.ascx.designer.cs">
       <DependentUpon>ManagerAlbum.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Modules\UrlModule.cs" />
     <Compile Include="Provider\SiteMap\Core.cs" />
     <Compile Include="Qa.asmx.cs">
       <DependentUpon>Qa.asmx</DependentUpon>
@@ -318,27 +301,6 @@
     </Compile>
     <Compile Include="AlbumSettings.ascx.designer.cs">
       <DependentUpon>AlbumSettings.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="TagDetail.ascx.cs">
-      <DependentUpon>TagDetail.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TagDetail.ascx.designer.cs">
-      <DependentUpon>TagDetail.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="TagHistory.ascx.cs">
-      <DependentUpon>TagHistory.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TagHistory.ascx.designer.cs">
-      <DependentUpon>TagHistory.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="TagList.ascx.cs">
-      <DependentUpon>TagList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TagList.ascx.designer.cs">
-      <DependentUpon>TagList.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -43,7 +43,7 @@ namespace GB.Album.Integration
         /// <param name="journalUserId"></param>
         /// <param name="url"></param>
         /// <remarks>Do not send flagged posts to this method (they are technically 'votes'), keep those out of the journal.</remarks>
-        internal void AddVoteToJournal(IGBEntityInfo objPost, int voteId, string title, string summary, int portalId, int journalUserId, string url)
+        internal void AddVoteToJournal(AlbumInfo objPost, int voteId, string title, string summary, int portalId, int journalUserId, string url)
         {
             var objectKey = Constants.ContentTypeName + "_" + Constants.JournalVoteTypeName + "_" + string.Format("{0}:{1}", objPost.ModuleID, voteId);
             var ji = JournalController.Instance.GetJournalItemByKey(portalId, objectKey);
@@ -91,9 +91,9 @@ namespace GB.Album.Integration
         /// <param name="portalId"></param>
         /// <param name="journalUserId"></param>
         /// <param name="url"></param>
-        internal void AddAnswerToJournal(IGBEntityInfo objPost, string questionTitle, int portalId, int journalUserId, string url)
+        internal void AddAnswerToJournal(AlbumInfo objPost, string questionTitle, int portalId, int journalUserId, string url)
         {
-            var objectKey = Constants.ContentTypeName + "_" + Constants.JournalAnswerTypeName + "_" + string.Format("{0}:{1}", objPost.EntityId, objPost.EntityId);
+            var objectKey = Constants.ContentTypeName + "_" + Constants.JournalAnswerTypeName + "_" + string.Format("{0}:{1}", objPost.PostId, objPost.PostId);
             var ji = JournalController.Instance.GetJournalItemByKey(portalId, objectKey);
 
             if ((ji != null))
@@ -127,9 +127,9 @@ namespace GB.Album.Integration
         /// <param name="portalId"></param>
         /// <param name="journalUserId"></param>
         /// <param name="url"></param>
-        internal void AddQuestionToJournal(IGBEntityInfo objPost, string questionTitle, int portalId, int journalUserId, string url)
+        internal void AddQuestionToJournal(AlbumInfo objPost, string questionTitle, int portalId, int journalUserId, string url)
         {
-            var objectKey = Constants.ContentTypeName + "_" + Constants.JournalQuestionTypeName + "_" + string.Format("{0}:{1}", objPost.ModuleID, objPost.EntityId);
+            var objectKey = Constants.ContentTypeName + "_" + Constants.JournalQuestionTypeName + "_" + string.Format("{0}:{1}", objPost.ModuleID, objPost.PostId);
             var ji = JournalController.Instance.GetJournalItemByKey(portalId, objectKey);
 
             if ((ji != null))

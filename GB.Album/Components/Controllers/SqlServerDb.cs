@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using DotNetNuke.Entities.Content;
 using GB.Album.Entities;
 using PetaPoco;
+
 
 namespace GB.Album.Controllers
 {
 
     public partial class SqlServerDb : Database
-    {
+    {//WebConfigurationManager.ConnectionStrings["SiteSqlServer"].ToString()
         public SqlServerDb()
-            : base("sqlserver")
+            : base("SiteSqlServer")
         {
             CommonConstruct();
         }
@@ -33,7 +35,7 @@ namespace GB.Album.Controllers
         public static IFactory Factory { get; set; }
         public static SqlServerDb GetInstance()
         {
-            if (_instance != null)
+            if (_instance != null) 
                 return _instance;
 
             if (Factory != null)

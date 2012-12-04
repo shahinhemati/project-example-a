@@ -45,12 +45,20 @@ namespace GB.Album
         public void Btn_Click(object sender,EventArgs e)
         {
             AlbumInfo albumInfo=new AlbumInfo();
+            
             albumInfo.Title = txtTitle.Text.Trim();
-            albumInfo.ShortContent = teShortContent.Text;
-            albumInfo.Content = teContent.Text;
+            albumInfo.PortalId = ModuleContext.PortalId;
+            albumInfo.Body ="--";
+            albumInfo.TabID = ModuleContext.TabId;
+            albumInfo.Score = 1;
+            albumInfo.Approved = true;
+            albumInfo.Deleted = false;
+            albumInfo.Closed = false;
+            albumInfo.Protected = false;
+            albumInfo.CreatedByUserID = ModuleContext.PortalSettings.UserId;
+            albumInfo.CreatedDate = DateTime.UtcNow;
 
             string tags = txtTags.Text;
-
             //set up value from form
             var evt = new AlbumEventArgs<AlbumInfo,string>(albumInfo,tags);
 

@@ -106,7 +106,7 @@ namespace GB.Album
                                       orderby p.CreatedOnDate descending
                                       select p).FirstOrDefault();
                 if (firstOrDefault != null)
-                    return firstOrDefault.EntityId;
+                    return firstOrDefault.PostId;
             }
 
             return 0;

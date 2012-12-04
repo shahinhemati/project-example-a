@@ -19,6 +19,7 @@
 //
 
 
+using DotNetNuke.Entities.Content;
 using GB.Album.Entities;
 
 namespace IB.Album.Components.Controllers
@@ -75,11 +76,11 @@ namespace IB.Album.Components.Controllers
             int rt = -1;
 
             // # 1 Save ContentItem to DataBase
-            Content content = new Content();
+            ContentItemController content = new ContentItemController();
             content.CreateContentItem(album, tabid);
 
             // # 2 Store Album to DataBase
-            rt = ((AlbumInfo)SqlServerDb.GetInstance().Insert(album)).EntityId;
+            rt = ((AlbumInfo)SqlServerDb.GetInstance().Insert(album)).PostId;
 
             // # 3 Store Cache
 
