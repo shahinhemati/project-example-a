@@ -28,19 +28,19 @@ namespace GB.Album.Components.Entities
         [Column]
         public bool Approved { get; set; }
         [Column]
-        public DateTime ApprovedDate { get; set; }
+        public DateTime? ApprovedDate { get; set; }
         [Column]
         public bool Deleted { get; set; }
         [Column]
-        public DateTime AnswerDate { get; set; }
+        public DateTime? AnswerDate { get; set; }
         [Column]
         public bool Closed { get; set; }
         [Column]
-        public DateTime ClosedDate { get; set; }
+        public DateTime? ClosedDate { get; set; }
         [Column]
         public bool Protected { get; set; }
         [Column]
-        public DateTime ProtectedDate { get; set; }
+        public DateTime? ProtectedDate { get; set; }
         [Column]
         public int CreatedUserId { get; set; }
         [Column]
@@ -48,7 +48,7 @@ namespace GB.Album.Components.Entities
         [Column]
         public int LastModifiedUserId { get; set; }
         [Column]
-        public DateTime LastModifiedDate { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
 
     }
 }
