@@ -40,6 +40,7 @@ using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Modules;
 using System.Collections.Generic;
 using GB.Album.CommonBase;
+using GB.Album.Components.Entities;
 using GB.Album.Entities;
 using UtilContent=DotNetNuke.Entities.Content.Common.Util;
 
@@ -402,11 +403,11 @@ namespace GB.Album.Components.Common
         /// <param name="objQuestion"></param>
         /// <param name="modContext"></param>
         /// <remarks>Need to wire in page to accept page param in URL.</remarks>
-        public static void SetQuestionPageMeta(CDefault defaultPage,IGBEntityInfo objQuestion, ModuleInstanceContext modContext)
+        public static void SetQuestionPageMeta(CDefault defaultPage,AlbumInfo objQuestion, ModuleInstanceContext modContext)
         {
             var title = TruncateString(objQuestion.Title + " - " + modContext.PortalSettings.PortalName, Constants.SeoTitleLimit, false);
-            var content = TruncateString(objQuestion.ShortContent, Constants.SeoDescriptionLimit, false);
-            var link = Links.ViewQuestion(objQuestion.EntityId, objQuestion.Title, modContext.PortalSettings.ActiveTab, modContext.PortalSettings);
+            var content = TruncateString(objQuestion.Body, Constants.SeoDescriptionLimit, false);
+            var link = Links.ViewQuestion(objQuestion.PostId, objQuestion.Title, modContext.PortalSettings.ActiveTab, modContext.PortalSettings);
             var keyWords = "";
             var keyCount = 1;
             var count = keyCount;

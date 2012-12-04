@@ -68,7 +68,7 @@ namespace GB.Album.Providers.Sitemap
 		{
 			var pageUrl = new SitemapUrl
 							{
-								Url = Links.ViewQuestion(objQuestion.EntityId, objQuestion.TabID, ps),
+								Url = Links.ViewQuestion(objQuestion.PostId, objQuestion.TabID, ps),
 								Priority = (float) 0.5,
 								LastModified = objQuestion.LastModifiedOnDate,
 								ChangeFrequency = SitemapChangeFrequency.Daily

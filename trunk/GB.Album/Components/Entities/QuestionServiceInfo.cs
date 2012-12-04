@@ -42,7 +42,7 @@ namespace GB.Album.Entities {
 		{
 			get
 			{
-				return CreatedByUserID > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalID, CreatedByUserID).Username : "Anonymous";
+				return CreatedByUserID > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalId, CreatedByUserID).Username : "Anonymous";
 			}
 		}
 
@@ -50,7 +50,7 @@ namespace GB.Album.Entities {
 		{
 			get
 			{
-				return LastModifiedByUserID > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalID, LastModifiedByUserID).Username : "Anonymous";
+				return LastModifiedByUserID > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalId, LastModifiedByUserID).Username : "Anonymous";
 			}
 		}
 
@@ -58,7 +58,7 @@ namespace GB.Album.Entities {
 		{
 			get
 			{
-				return LastApprovedUserId > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalID, LastApprovedUserId).Username : "Anonymous";
+				return LastApprovedUserId > 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalId, LastApprovedUserId).Username : "Anonymous";
 			}
 		}
 
@@ -69,7 +69,7 @@ namespace GB.Album.Entities {
 
 		public string QuestionUrl
 		{
-			get { return Links.ViewQuestion(TabID, EntityId); } 
+			get { return Links.ViewQuestion(TabID, PostId); } 
 		}
 	}
 }
